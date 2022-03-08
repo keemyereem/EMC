@@ -60,10 +60,10 @@ var typeAEvent = {
 
             $(".main_visual .naviPlay .playbar").removeClass("autoplay");
             $(".main_visual .naviPlay .playbar.playbar").removeClass("active");
-            if(!$(".main_visual .naviPlay .naviAuto a").hasClass("autoplay")){
+            if (!$(".main_visual .naviPlay .naviAuto a").hasClass("autoplay")){
                 $(".main_visual .naviPlay .playbar.autoplay").removeClass("autoplay");
                 $(".main_visual .naviPlay .playbar.playbar"+curIdx).addClass("active");
-            }else{
+            } else {
                 $(".main_visual .naviPlay .playbar").eq(curIdx-1).addClass("autoplay");
                 $(".main_visual .naviPlay .playbar.playbar").removeClass("active");
             }
@@ -251,7 +251,6 @@ var typeAEvent = {
              }
              lastScrollTop = currentPos; // 방향을 구하기 위해 마지막 스크롤 지점을 저장
           });
-
 
         function numberCountUp2() {
             // var memberCountConTxt1= 4650;
