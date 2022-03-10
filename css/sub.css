@@ -1,19 +1,20 @@
-/* 공고 */
-.cont_invest .contents_inner .irsearch_contents .inner {width: 100%;max-width: 120rem;margin: 0 auto;background: lightblue;}
+/* 공고 220310 */
+.cont_invest .contents_inner .irsearch_contents .inner {width: 100%;max-width: 120rem;margin: 0 auto;}
+.container .contents.cont_invest .contents_inner {padding: 8rem 0 10rem 0;}
 .cont_invest .tb_top {position: relative;}
 .cont_invest .tb_top:after {content: "";display: block;clear: both;}
-.cont_invest .tb_top .total {float: left;padding-top: 2rem;font-size: 1.5rem;color: #222;}
+.cont_invest .tb_top .total {float: left;padding-top: 1.3rem;font-size: 1.5rem;color: #222;}
 .cont_invest .tb_top .total b {font-family: 'Montserrat';font-size: 2rem;font-weight: 500;color: #22591b;}
 /* .cont_invest .tb_top .total b.red {font-size: 1.8rem;color: #e0002a;} */
 .cont_invest .tb_top .search {float: right;}
 .cont_invest .tb_top .search .input_search {width: auto;}
-.cont_invest .tb_box {position: relative;margin-top: 3rem;background: pink;}
+.cont_invest .tb_box {position: relative;margin-top: 3rem;}
 .cont_invest .tb_box .tb_row {display: table;table-layout: fixed;width: 100%;}
-.cont_invest .tb_box .tb_row.row_head {border-top: .1rem solid #999;border-bottom: .1rem solid #999;}
+.cont_invest .tb_box .tb_row.row_head {border-top: .2rem solid #000;border-bottom: .1rem solid #000;}
 .cont_invest .tb_box .tb_row.row_body {border-bottom: .1rem solid #e8e8e8;}
-.cont_invest .tb_box .tb_row>div {display: table-cell;height: 5.5rem;line-height: 5.5rem;vertical-align: middle;text-align: center;}
-.cont_invest .tb_box .tb_row.row_head>div {font-size: 1.6rem;}
-.cont_invest .tb_box .tb_row.row_body>div {padding: 0 1rem;font-size: 1.5rem;font-weight: 200;color: #555;}
+.cont_invest .tb_box .tb_row>div {display: table-cell;height: 8rem;vertical-align: middle;text-align: center;}
+.cont_invest .tb_box .tb_row.row_head>div {font-size: 1.6rem;font-weight: 300;}
+.cont_invest .tb_box .tb_row.row_body>div {padding: 0 1rem;font-size: 1.6rem;font-weight: 200;color: #222;}
 .cont_invest .tb_box .tb_row .num {width: 12%;}
 .cont_invest .tb_box .tb_row .tit {width: 61%;}
 .cont_invest .tb_box .tb_row.row_body .tit a {display: block;width: 100%;text-align: left;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;}
@@ -23,36 +24,42 @@
 .cont_invest .tb_box .tb_row .date b {display: none;padding-right: .5rem;font-weight: 300;}
 .cont_invest .tb_box .tb_row .none {width: 100%;height: 27rem;}
 
-.cont_invest .contents_inner .announce_contents .inner {width: 100%;max-width: 110rem;margin: 0 auto;}
-.cont_invest .tb_view {position: relative;margin-top: 1rem;}
-.cont_invest .tb_view .tb_row.row_head {position: relative;display: table;table-layout: fixed;width: 100%;background: #fcfbfa;border-bottom: .1rem solid #e8e8e8;}
-.cont_invest .tb_view .tb_row.row_head:before {content: "";display: block;width: 100%;height: .4rem;position: absolute;top: 0;left: 0;background: linear-gradient(to right, #ea002c, #ff7900);transition: all .2s;}
-.cont_invest .tb_view .tb_row.row_head .tit {display: table-cell;padding: 4rem;width: 80%;font-size: 2.6rem;font-weight: 300;vertical-align: middle;}
-.cont_invest .tb_view .tb_row.row_head .date {display: table-cell;padding: 4rem 3rem;width: 20%;font-size: 1.5rem;font-weight: 200;vertical-align: middle;text-align: right;}
-.cont_invest .tb_view .view_box {position: relative;}
-.cont_invest .tb_view .view_box .view_info {min-height: 20rem; padding:2rem;font-size: 1.5rem;line-height: 1.5;}
-.cont_invest .tb_view .view_box .view_info img{max-width: 100%;}
-.cont_invest .tb_view .view_box .file_box {padding: 3rem;background: #fcfbfa;}
-.cont_invest .tb_view .view_box .file_box .file_download {margin-top: 1rem;}
-.cont_invest .tb_view .view_box .file_box .file_download:first-child {margin-top: 0;}
-.cont_invest .tb_view .view_box .file_box .file_download a {display: inline-block;padding: .5rem 0 .5rem 2.5rem;background: url(../images/common/icon_file.png) 0 50% no-repeat;background-size: 1.6rem 2rem;font-size: 1.3rem;color: #555;}
-.cont_invest .tb_view .view_nav {position: relative;}
-.cont_invest .tb_view .view_nav:after {content: "";display: block;clear: both;}
-.cont_invest .tb_view .view_nav dl {position: relative;float: left;width: 50%;display: table;table-layout: fixed;}
-.cont_invest .tb_view .view_nav .nav_prev:after {content: "";display: block;position: absolute;right: 0;top: 50%;transform: translateY(-50%);width: .1rem;height: 1.5rem;background: #ccc;}
-.cont_invest .tb_view .view_nav dl dd {display: table-cell;width: 70%;padding-left: 7rem;height: 10rem;vertical-align: middle;}
-.cont_invest .tb_view .view_nav dl dd a {display: block;width: 100%;font-size: 1.6rem;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;}
-.cont_invest .tb_view .view_nav dl dt {display: table-cell;width: 30%;padding-right: 7rem;height: 10rem;font-size: 1.6rem;font-weight: 500;vertical-align: middle;text-align: right;}
-.cont_invest .tb_view .view_nav .nav_prev dt span {padding-left: 5rem;background: url(../images/common/nav_prev.png) 0 50% no-repeat;background-size: 2.9rem 1.5rem;}
-.cont_invest .tb_view .view_nav .nav_next dt span {padding-right: 5rem;background: url(../images/common/nav_next.png) 100% 50% no-repeat;background-size: 2.9rem 1.5rem;}
-.cont_invest .tb_view .btn_box {margin-top: 5rem;}
+/* 뉴스 220310 */
+.cont_invest .news_list ul {width: 100%;display: flex;flex-wrap: wrap;padding: 0 .8rem;}
+.cont_invest .news_list ul li {width: 36.8rem;height: 45rem;position: relative;background-color: #fff;position: relative;margin-right: 4rem;margin-bottom: 4.8rem;}
+.cont_invest .news_list ul li:nth-child(3n) {margin-right:0;}
+.cont_invest .news_list ul li:nth-last-child(-n+3) {margin-bottom:0;}
+/* .cont_invest .news_list ul li:hover {border: .5rem solid transparent;border-image: linear-gradient(to bottom, #2a8f34, #22591b);border-image-slice:1;} */
+.cont_invest .news_list ul li .top {width: 100%;height: 23rem;background: #f4f4f4;padding: 4rem;position: relative;}
+.cont_invest .news_list ul li .top .tit {font-size: 2.6rem;font-weight: 300;line-height: 1.34;}
+.cont_invest .news_list ul li .top .date {font-family: 'Montserrat';font-size: 1.5rem;color: #a0a0a0;position: absolute;bottom: 3rem;}
+.cont_invest .news_list ul li .lineTop {width: 0;height: .5rem;background: #2a8f34;position: absolute;top:0;left:0;z-index: 10;}
+.cont_invest .news_list ul li .lineLeft {width: .5rem;height: 0;background: linear-gradient(to bottom, #2a8f34, #22591b);position: absolute;bottom:0;left:0;z-index: 10;}
+.cont_invest .news_list ul li .lineRight {width: .5rem;height: 0;background: linear-gradient(to bottom, #2a8f34, #22591b);position: absolute;top:0;right:0;z-index: 10;}
+.cont_invest .news_list ul li .lineBottom {width: 0;height: .5rem;background: #22591b;position: absolute;bottom:0;right:0;z-index: 10;}
+.cont_invest .news_list ul li:hover {box-shadow: .9rem .8rem 1.3rem 0 rgba(0, 0, 0, 0.13);}
+.cont_invest .news_list ul li:hover .lineTop {width: 100%;transition: all .3s;}
+.cont_invest .news_list ul li:hover .lineLeft {height: 100%;transition: all .3s;}
+.cont_invest .news_list ul li:hover .lineRight {height: 100%;transition: all .3s;}
+.cont_invest .news_list ul li:hover .lineBottom {width: 100%;transition: all .3s;}
+.cont_invest .news_list ul li:hover .top {background: #fff;}
 
 /* 뉴스 상세페이지 220310 */ 
 .container .contents .contents_inner .detail_sub_contents .inner .tb_view .tb_row {padding:5rem 6.5rem; border-top:2px solid #000; border-bottom:1px solid #e8e8e8;  }
 .container .contents .contents_inner .detail_sub_contents .inner .tb_view .tb_row .tit {font-size:2.6rem; font-weight:300; }
 .container .contents .contents_inner .detail_sub_contents .inner .tb_view .tb_row .date {font:200 1.6rem "Montserrat", sans-serif; color:#a0a0a0; padding-top:3rem; }
-.container .contents .contents_inner .detail_sub_contents .inner .tb_view .view_box { padding:5rem 6rem; line-height:3rem; border-bottom:1px solid #e8e8e8; }
-.container .contents .contents_inner .detail_sub_contents .inner .tb_view .view_box .view_link { font-weight:400; }
+
+.container .contents .contents_inner .detail_sub_contents .inner .tb_view .view_box { padding:5rem 6.5rem; line-height:3rem; border-bottom:1px solid #e8e8e8; }
+.container .contents .contents_inner .detail_sub_contents .inner .tb_view .view_box .view_link,
+.container .contents .contents_inner .detail_sub_contents .inner .tb_view .view_box .file_box { padding:5rem 0; font-weight:400; }
+.container .contents .contents_inner .detail_sub_contents .inner .tb_view .view_box .file_box .file_download a img { position: relative; top:0.6rem; padding-right: 2rem; }
+.container .contents .contents_inner .detail_sub_contents .inner .tb_view .view_box .view_info { padding-bottom:5rem; }
+
 .container .contents .contents_inner .detail_sub_contents .inner .tb_view .view_nav dl { display:flex; padding:3rem 6.5rem; border-bottom: 1px solid #e8e8e8; }
 .container .contents .contents_inner .detail_sub_contents .inner .tb_view .view_nav dl dt { font-weight: 400; padding-right:9.5rem; }
 .container .contents .contents_inner .detail_sub_contents .inner .tb_view .view_nav dl dt, dd { float:left; }
+
+.container .contents .contents_inner .detail_sub_contents .inner .tb_view .btn_box .btn_line a { display: block; text-align: center; width: 20rem; height: 6rem; border:0.1rem solid #222; color:#222; line-height: 5.8rem; margin: 8rem auto 0 auto; position: relative; }
+.container .contents .contents_inner .detail_sub_contents .inner .tb_view .btn_box .btn_line a:before {content: ""; display: block; position: absolute; left: 0; top: 0; bottom: 0; right: 0; transform:scaleX(0); z-index: -1; background-color: #222; transition: all .2s ease-out; transform-origin: 0 50%;}
+.container .contents .contents_inner .detail_sub_contents .inner .tb_view .btn_box .btn_line a:hover:before { transform: scaleX(1); }
+.container .contents .contents_inner .detail_sub_contents .inner .tb_view .btn_box .btn_line a:hover { color:#fff; }
