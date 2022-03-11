@@ -1,3 +1,5 @@
+.invest_visual:before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; opacity: .6; background:url('../images/invest/sub_banner.png') no-repeat center 40%; background-size: cover; }
+
 /* 공고 220310 */
 .cont_invest .contents_inner .irsearch_contents .inner {width: 100%;max-width: 120rem;margin: 0 auto;}
 .container .contents.cont_invest .contents_inner {padding: 8rem 0 10rem 0;}
@@ -23,7 +25,6 @@
 .cont_invest .tb_box .tb_row .date {width: 15%;}
 .cont_invest .tb_box .tb_row .date b {display: none;padding-right: .5rem;font-weight: 300;}
 .cont_invest .tb_box .tb_row .none {width: 100%;height: 27rem;}
-
 /* 뉴스 220310 */
 .cont_invest .news_list ul {width: 100%;display: flex;flex-wrap: wrap;padding: 0 .8rem;}
 .cont_invest .news_list ul li {width: 36.8rem;height: 45rem;position: relative;background-color: #fff;position: relative;margin-right: 4rem;margin-bottom: 4.8rem;}
@@ -63,3 +64,10 @@
 .container .contents .contents_inner .detail_sub_contents .inner .tb_view .btn_box .btn_line a:before {content: ""; display: block; position: absolute; left: 0; top: 0; bottom: 0; right: 0; transform:scaleX(0); z-index: -1; background-color: #222; transition: all .2s ease-out; transform-origin: 0 50%;}
 .container .contents .contents_inner .detail_sub_contents .inner .tb_view .btn_box .btn_line a:hover:before { transform: scaleX(1); }
 .container .contents .contents_inner .detail_sub_contents .inner .tb_view .btn_box .btn_line a:hover { color:#fff; }
+
+
+
+/* 회사소개 */
+.company_visual:before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; opacity: .6; background:url('../images/company/sub_banner.png') no-repeat center 40%; background-size: cover; }
+
+/* 인사말 */
