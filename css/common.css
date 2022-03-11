@@ -133,7 +133,7 @@ br {font-family:dotum !important;}
 /* sitemap */
 
 /* container*/
-.container .sub_visual {position: relative; padding: 0 2rem; width: 100%; height: 66rem; background:#313d2d; } /* 배경 클리핑 색상 확인 필요 */
+.container .sub_visual {position: relative; padding: 0 2rem; width: 100%; height: 66rem; background:#212620; } /* 배경 클리핑 색상 확인 필요 */
 /** sub main visual navigation with title **/
 .container .sub_visual .sub_visual_nav { width: 100%; height: 100%; max-width: 160rem; z-index: 999; position: relative; left: 50%; transform: translateX(-50%);}
 .container .sub_visual .sub_visual_nav h2 { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); font-size: 6rem; color: #fff; }
@@ -196,7 +196,7 @@ br {font-family:dotum !important;}
 .contents .paging ul li a {display: block;width: 2.4rem;height: 2.4rem;line-height: 2.4rem;font-family: 'Montserrat';font-size: 1.5rem;text-align: center;}
 
 /* footer */
-.footer {position: relative;width: 100%;height: 30rem;padding-top: 4rem;background: #375530;}
+.footer {position: relative;width: 100%;height: 30rem;padding-top: 4rem;background: #2f4c2a;}
 .footer .footer_wrap {position: relative;margin: 0 auto;max-width: 144rem;}
 .footer .footer_wrap .menu_top {padding-top: 1.6rem;}
 .footer .footer_wrap .footer_menu a {position: relative;display: inline-block;padding: 0 3rem;font-size: 1.6rem;color: #fff;}
@@ -207,7 +207,7 @@ br {font-family:dotum !important;}
 .footer .footer_wrap .footer_info {color: #fff;font-size: 1.5rem;padding-top: 5rem;}
 .footer .footer_wrap .footer_info > div {display: inline-block;margin-right: 3.8rem;}
 .footer .footer_wrap .footer_info > div > span {display: inline-block;font-family: 'Montserrat';font-weight: 400;color: #81a865;margin-right: 1.3rem;}
-.footer .footer_wrap .copyright {padding-top: 2rem;font-family: 'Poppins';font-size: 1.4rem;font-weight: 100;color: #fff;opacity: .5;}
+.footer .footer_wrap .copyright {padding-top: 2rem;font-family: 'Montserrat';font-size: 1.4rem;font-weight: 200;color: #fff; opacity: .5;}
 .footer .footer_wrap .copyright b {color: #e0002a;}
 .footer .family_site {position: absolute;top: 0;right: 0;}
 .footer .family_site .site_link {position: relative; transition: background .3s;}
