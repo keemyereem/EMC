@@ -51,11 +51,11 @@
 .container .contents .contents_inner .detail_sub_contents .inner .tb_view .tb_row .tit {font-size:2.6rem; font-weight:300; }
 .container .contents .contents_inner .detail_sub_contents .inner .tb_view .tb_row .date {font:200 1.6rem "Montserrat", sans-serif; color:#a0a0a0; padding-top:3rem; }
 
-.container .contents .contents_inner .detail_sub_contents .inner .tb_view .view_box { padding:5rem 6.5rem; line-height:3rem; border-bottom:1px solid #e8e8e8; }
+.container .contents .contents_inner .detail_sub_contents .inner .tb_view .view_box { padding:6rem 6.5rem; line-height:3rem; border-bottom:1px solid #e8e8e8; }
 .container .contents .contents_inner .detail_sub_contents .inner .tb_view .view_box .view_link,
-.container .contents .contents_inner .detail_sub_contents .inner .tb_view .view_box .file_box { padding:5rem 0; font-weight:400; }
+.container .contents .contents_inner .detail_sub_contents .inner .tb_view .view_box .file_box { padding:6.5rem 0 6rem 0; font-weight:400; }
 .container .contents .contents_inner .detail_sub_contents .inner .tb_view .view_box .file_box .file_download a img { position: relative; top:0.6rem; padding-right: 2rem; }
-.container .contents .contents_inner .detail_sub_contents .inner .tb_view .view_box .view_info { padding-bottom:5rem; }
+.container .contents .contents_inner .detail_sub_contents .inner .tb_view .view_box .view_info { padding-bottom:6.5rem; }
 
 .container .contents .contents_inner .detail_sub_contents .inner .tb_view .view_nav dl { display:flex; padding:3rem 6.5rem; border-bottom: 1px solid #e8e8e8; }
 .container .contents .contents_inner .detail_sub_contents .inner .tb_view .view_nav dl dt { font-weight: 400; padding-right:9.5rem; }

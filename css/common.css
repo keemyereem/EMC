@@ -136,11 +136,11 @@ br {font-family:dotum !important;}
 .container .sub_visual {position: relative; padding: 0 2rem; width: 100%; height: 66rem; background:#212620; } /* 배경 클리핑 색상 확인 필요 */
 /** sub main visual navigation with title **/
 .container .sub_visual .sub_visual_nav { width: 100%; height: 100%; max-width: 160rem; z-index: 999; position: relative; left: 50%; transform: translateX(-50%);}
-.container .sub_visual .sub_visual_nav h2 { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); font-size: 6rem; color: #fff; }
-.container .sub_visual .sub_visual_nav div { position: absolute; top: 50%; transform: translateY(-50%); border: 1px solid #fff; max-width: 6rem; height: 6rem; border-radius: 6rem; transition:all ease .5s; }
+.container .sub_visual .sub_visual_nav h2 { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); font-size: 6rem; color: #fff; letter-spacing: 1px; }
+.container .sub_visual .sub_visual_nav div { position: absolute; top: 50%; transform: translateY(-50%); border: 1px solid #fff; max-width: 6rem; height: 6rem; border-radius: 6rem; transition:all ease .8s; }
 .container .sub_visual .sub_visual_nav div:hover { max-width: 50rem;}
 .container .sub_visual .sub_visual_nav div a { position: relative; display: block; width: 100%; height: 100%; border-radius: 6rem; overflow: hidden;}
-.container .sub_visual .sub_visual_nav div a:before { content: ''; background: #000; opacity:0; width: 100%; height: 100%; position: absolute; border-radius: 6rem; transition:all ease .5s; }
+.container .sub_visual .sub_visual_nav div a:before { content: ''; background: #000; opacity:0; width: 100%; height: 100%; position: absolute; border-radius: 6rem; transition:all ease .3s; }
 .container .sub_visual .sub_visual_nav div a:hover:before { opacity: .2;}
 .container .sub_visual .sub_visual_nav div a img { position: absolute; right:0; padding: 0 2.3rem; top: 50%; transform: translateY(-50%); }
 .container .sub_visual .sub_visual_nav div a span {  font-size: 1.8rem; color:#fff; display:inline-block; position: relative; top:50%; transform:translateY(-50%); opacity:0; transition:all ease .3s; }
@@ -153,17 +153,23 @@ br {font-family:dotum !important;}
 
 .container .sub_visual .sub_visual_menu {width: 168rem;height: 6.6rem;background: #fff;border-bottom: .1rem solid #e8e8e8;position: absolute;bottom:0;right:0;display: flex;z-index: 1000;}
 .container .sub_visual .sub_visual_menu .home {width: 7.7rem;height: 6.6rem;background: #22591b url(../images/common/sub_nav_home.png)no-repeat 50% 50%;position: relative;}
-.container .sub_visual .sub_visual_menu .depth1 {position: relative;width: 22.6rem;height: 6.6rem;border-right: .1rem solid #e8e8e8;font-family: 'Montserrat';font-size:1.6rem;color: #555;line-height: 6.8rem;}
+.container .sub_visual .sub_visual_menu .depth1 {position: relative;width: 22.6rem;height: 6.6rem;border-right: .1rem solid #e8e8e8; font-size:1.6rem;color: #555;line-height: 6.6rem;}
 .container .sub_visual .sub_visual_menu .depth1:after {content:'';width:.5rem;height: .5rem;border-top: .1rem solid #555;border-right: .1rem solid #555;transform: rotate(135deg);position: absolute;right:4rem;top:3rem;}
-.container .sub_visual .sub_visual_menu .depth1 .dep1_tit {padding-left: 4.5rem;display: block;height: 100%;}
-.container .sub_visual .sub_visual_menu .depth1 .drop_box {padding: 1rem 0 1rem 4.5rem;width: 100%;height: 0;background: #fff;position: relative;z-index:11;overflow: hidden;transition: all .3s;}
-.container .sub_visual .sub_visual_menu .depth1.open .drop_box {height: auto;}
+.container .sub_visual .sub_visual_menu .depth1.open:after {transform: rotate(315deg);}
+.container .sub_visual .sub_visual_menu .depth1 .dep1_tit {padding-left: 4rem;display: block;height: 100%;background: transparent;}
+.container .sub_visual .sub_visual_menu .depth1 a {color: #555;}
+.container .sub_visual .sub_visual_menu .depth1 .drop_box {padding: 0 0 0 4rem;width: 100%;height: 0;background: #fff;position: relative;z-index:11;overflow: hidden;transition: all .3s;}
+.container .sub_visual .sub_visual_menu .depth1.open .dep1_tit {background: #fff;}
+.container .sub_visual .sub_visual_menu .depth1.open .drop_box {height: auto;padding: 2rem 0 2rem 4rem;box-shadow: 1px 2px 9.5px 0.5px rgba(51, 51, 51, 0.1);}
 .container .sub_visual .sub_visual_menu .depth1 .drop_box li {line-height: normal;}
-.container .sub_visual .sub_visual_menu .depth1 .drop_box li a {display: inline-block;padding: 1rem 0;}
-.container .sub_visual .sub_visual_menu .depth2 {position: relative;width: 23.3rem;height: 6.6rem;border-right: .1rem solid #e8e8e8;font-family: 'Montserrat';font-size:1.6rem;color: #555;line-height: 6.8rem;}
-.container .sub_visual .sub_visual_menu .depth2:after {content:'';display: inline-block;width: .9rem;height: .5rem;background: #fff;border-top: .1rem solid #3b5a25;border-bottom: .1rem solid #3b5a25;position: absolute;right: 4rem;top: 3rem;}
-.container .sub_visual .sub_visual_menu .depth2 .dep2_tit {padding-left: 4rem;color: #3b5a25;display: block;height: 100%;} 
-.container .sub_visual .sub_visual_menu .depth2 .drop_box {padding: 1rem 0 1rem 4.5rem;width: 100%;height: 0;background: #fff;position: relative;z-index:11;overflow: hidden;transition: all .3s;}
+.container .sub_visual .sub_visual_menu .depth1 .drop_box li a {display: inline-block;padding: 1.5rem 0;}
+.container .sub_visual .sub_visual_menu .depth1 .drop_box li a:hover {color: #22591b;}
+.container .sub_visual .sub_visual_menu .depth1 .drop_box li a.selected_tit {background: #ddd;}
+.container .sub_visual .sub_visual_menu .depth2 {position: relative;width: 23.3rem;height: auto; border-right: .1rem solid #e8e8e8;background: rgb(104, 172, 104); font:300 1.6rem 'Montserrat'; color: #555;line-height: 6.8rem;}
+.container .sub_visual .sub_visual_menu .depth2 a {color: #555;}
+.container .sub_visual .sub_visual_menu .depth2:after {content:'';display: inline-block;width: .9rem;height: .5rem;background: #fff;border-top: .1rem solid #3b5a25;border-bottom: .1rem solid #3b5a25;background: transparent; position: absolute;right: 4rem;top: 3rem;}
+.container .sub_visual .sub_visual_menu .depth2 .dep2_tit {height: 6.6rem;padding-left: 4rem;color: #3b5a25;display: block;} 
+.container .sub_visual .sub_visual_menu .depth2 .drop_box {padding: 1rem 0 1rem 4.5rem;width: 100%;height: 0;/* background: #ddd; */position: relative;z-index:11;overflow: hidden;transition: all .3s;}
 .container .sub_visual .sub_visual_menu .depth2.open .drop_box {height: auto;}
 
 .container .sub_visual .sub_visual_m {display: none;}
