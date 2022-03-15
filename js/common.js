@@ -54,3 +54,32 @@ var ddiEvent = {
     },
    
 };
+
+$(document).ready(function() {
+    var Tabs = $('.business_contents .section1 .nav_btn li');
+    var Tabs_on = $('.business_contents .section1 .nav_btn .on');
+
+    $('.onm_title').text(Tabs_on.find('.nav_tit').text());
+    $('.onm_description').text(Tabs_on.find('.nav_desc').text());
+
+    Tabs.click(function() {
+        $(this).addClass('on');
+        $(this).siblings().removeClass('on');
+        
+        /* 탭 버튼 index 값 호출 */
+        var Tabs_tit = $(this).find('.nav_tit').text();
+        var Tabs_desc = $(this).find('.nav_desc').text();
+        var Tabs_idx = Tabs.index(this);
+
+        
+        
+        $('.onm_title, .onm_description').css({'opacity': '0', 'transition': 'all ease .1s'});
+        setTimeout(function() {
+            $('.onm_title, .onm_description').css({'opacity': '1'});
+            $('.onm_title').text(Tabs_tit);
+            $('.onm_description').text(Tabs_desc);
+        }, 200);
+        
+
+    });
+})
