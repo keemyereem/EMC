@@ -20,12 +20,18 @@
     <meta http-equiv="Page-Exit" content="revealtrans(duration=1,transition=12)">
     <title>환경시설관리주식회사</title>
     <link rel="icon" href="images/favicon.png" sizes="32x32">
-    <link type="text/css" href="../css/font.css" rel="stylesheet">
-    <link type="text/css" href="../css/common.css" rel="stylesheet">
-    <link type="text/css" href="../css/sub.css" rel="stylesheet">
-    <link type="text/css" href="../css/media.css" rel="stylesheet">
+    <link type="text/css" href="css/font.css" rel="stylesheet">
+    <link type="text/css" href="css/common_test2.css" rel="stylesheet">
+    <link type="text/css" href="css/sub.css" rel="stylesheet">
+    <link type="text/css" href="css/media.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/jquery-ui.min.css">
+    <link rel="stylesheet" href="css/jquery.swiper.min.css">
+
     <script type="text/javascript" src="js/lib/jquery-1.12.4.min.js"></script>
-    <script type="text/javascript" src="js/common.js"></script>
+    <script type="text/javascript" src="js/lib/jquery-ui-1.12.1.min.js"></script>
+    <script type="text/javascript" src="js/lib/jquery.swiper.min.js"></script>
+    <script type="text/javascript" src="js/lib/TweenMax.min.js"></script>
+    <script type="text/javascript" src="js/test2.js"></script>
 
     <script>
         $(document).ready( function() {
@@ -50,22 +56,22 @@
         <div class="sitemap"></div>
         <!-- //sitemap -->
         <div class="container">
-            <div class="sub_visual invest_visual">
+            <div class="sub_visual business_visual">
                 <div class="sub_visual_nav">
-                    <h2>투자정보</h2>
+                    <h2>사업소개</h2>
                     <div class="sub_visual_nav_prev">
                         <a href="javascript:;" title="이전메뉴로 이동">
-                            <span>지속가능경영</span>
+                            <span>회사소개</span>
                             <img src="../images/common/sub_visual_nav_prev.png" alt="sub_visual_nav_prev">
                         </a>
                     </div>
                     <div class="sub_visual_nav_next">
                         <a href="javascript:;" title="다음메뉴로 이동">
                             <img src="../images/common/sub_visual_nav_next.png" alt="sub_visual_nav_next">
-                            <span>인재채용</span>
+                            <span>지속가능경영</span>
                         </a>
                     </div>
-                </div> 
+                </div>  
                 <div class="sub_visual_m">
                     <h2>투자정보</h2>
                     <div class="location">
@@ -84,7 +90,7 @@
                 <div class="sub_visual_menu">
                     <div class="home"></div>
                     <div class="depth depth1">
-                        <a href="javascript:;" class="dep_tit">투자정보</a>
+                        <a href="javascript:;" class="dep_tit">사업소개</a>
                         <ul class="drop_box">
                             <li><a href="javascript:;">회사소개</a></li>
                             <li><a href="javascript:;">사업소개</a></li>
@@ -94,54 +100,66 @@
                         </ul>
                     </div>
                     <div class="depth depth2">
-                        <a href="javascript:;" class="dep_tit">공시/공고</a>
+                        <a href="javascript:;" class="dep_tit">개요</a>
                         <ul class="drop_box">
-                            <li><a href="javascript:;">News</a></li>
                             <li><a href="javascript:;">재무정보</a></li>
                             <li><a href="javascript:;">공시/공고</a></li>
+                            <li><a href="javascript:;">News</a></li>
                         </ul>
                     </div>
                 </div>
+                <!-- <script>
+                    $(".sub_visual_menu .depth").click(function(){
+                        $(this).toggleClass("open");
+                    });
+                
+                </script> -->
             </div>
-            <div class="contents">
+            <div class="contents cont_business">
                 <div class="contents_inner">
-                    <!-- <h3 class="title">공고</h3>
-                    <p class="title_info">SK D&D의 공고 자료를 확인하실 수 있습니다.</p> -->
-                    <div class="irsearch_contents detail_sub_contents">
+                    <div class="busIntro_contents sub_contents">
                         <div class="inner">
-                            <div class="tb_view">
-                                <div class="tb_row row_head">
-                                    <div class="tit">외부감사인 선임 공고</div>
-                                    <div class="date">2022.02.23</div>
-                                </div>
-                                <div class="view_box">
-                                    <div class="view_info">
-                                        외부감사인 선임 공고 안내
-                                    </div>
-                                    <!-- <div class="view_link">
-                                        <a href="javascript:;">관련기사 바로가기<br>[환경시설관리주식회사 이웃사랑 성금 1,000만원 전달] 2019.12.23, 울산매일</a>
-                                    </div> -->
-                    
-                                    <div class="file_box">
-                                        <div class="file_download"><a href="javascript:;"><img src="../images/common/icon_download.png">외부감사인 선임 공고.PDF</a></div>
-                                    </div> 
-                                    
-                                </div>
-                                <div class="view_nav">
-                                    <dl class="nav_prev">
-                                        <dt><span>이전글</span></dd>
-                                        <dd><a href="javascript:;">2021년 연간 잠정실적</a></dt>
-                                        
-                                    </dl>
-                                    <dl class="nav_next">
-                                        <dt><span>다음글</span></dd>
-                                        <dd><a href="javascript:;">2021년 3분기 실적</a></dt>
-                                        
-                                    </dl>
-                                </div>
-                                <div class="btn_box">
-                                    <div class="btn_line"><a href="javascript:;">목록</a></div>
-                                </div>
+                            <div class="icon"><img src="../images/business/businessIntro_tit_icon.png" alt="타이틀 아이콘"></div>
+                            <p class="title">
+                                FIRST, AND FORWARD<br/>
+                                BEYOND THE FIRST.
+                            </p>
+                            <p class="sub_tit">
+                                최상의 서비스를 제공하는 글로벌 환경전문기업, 환경시설관리주식회사 
+                            </p>
+                            <div class="businessIntro">
+                                <ul>
+                                    <li>
+                                        <p class="tit">수처리</p>
+                                        <div class="hover">
+                                            <div class="tit">수처리</div>
+                                            <ul>
+                                                <li><a href="javascript:;">O&M</a></li>
+                                                <li><a href="javascript:;">환경건설</a></li>
+                                                <li><a href="javascript:;">기술역량</a></li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <p class="tit">Green</p>
+                                        <div class="hover">
+                                            <div class="tit">Green</div>
+                                            <ul>
+                                                <li><a href="javascript:;">에너지</a></li>
+                                                <li><a href="javascript:;">자원순환</a></li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <p class="tit">New BIZ</p>
+                                        <div class="hover">
+                                            <div class="tit">New BIZ</div>
+                                            <ul>
+                                                <li><a href="javascript:;">New BIZ</a></li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                </ul>
                             </div>
                         </div>
                     </div>

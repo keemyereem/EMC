@@ -28,14 +28,12 @@ function responsiveImage(w) {
         obj = img.eq(i);
         if (obj.data(src)) obj.attr('src', obj.data(src));
     }
-    
-
 }
 
 var commonEvent = {
     init:function(){
-        // this.submenuEvent();
-        // this.headerEvent();
+        this.submenuEvent();
+        this.headerEvent();
     },
     submenuEvent:function(){
         $(".sub_visual_menu .depth").click(function(){
@@ -43,18 +41,15 @@ var commonEvent = {
         });
     },
 
-    // headerEvent:function(){
-    //     $('.lang_choice li').click(function(){
-    //         alert('a');
-    //         $('.lang_choice li').removeClass('on');
-    //         $(this).addClass('on');  
-    //     });
-    // },
+    headerEvent:function(){
+        $('.lang_select .lang_choice li').click(function(){
+            $('.lang_select .lang_choice li').removeClass("on");
+            $(this).addClass("on");
+        });
+    },
 };
 
 $(document).ready(function() {
-
-    
     var Tabs = $('.business_contents .section1 .nav_btn li');
     var Tabs_on = $('.on');
     var Tabs_off = $('.off');
@@ -69,11 +64,11 @@ $(document).ready(function() {
         $(this).addClass('on');
         $(this).siblings().removeClass('on');
 
-        var tabsIdx = $('.swiper_2depth_tabs p').index(this);
-        $('.onm_box_slider1 .swiper-wrapper:eq(' + tabsIdx + ')').addClass('on');
-        $('.onm_box_slider1 .swiper-wrapper:not(:eq(' + tabsIdx + '))').addClass('off');
-        $('.onm_box_slider1 .swiper-wrapper:eq(' + tabsIdx + ')').removeClass('off');
-        $('.onm_box_slider1 .swiper-wrapper:not(:eq(' + tabsIdx + '))').removeClass('on');
+        var tabsIdx = $('.swiper_2depth_tabs p a').index(this);
+        $('.onm_box_slider1 .swiper-wrapper:eq(' + tabsIdx + ')').addClass('on')
+        $('.onm_box_slider1 .swiper-wrapper:not(:eq(' + tabsIdx + '))').addClass('off')
+        $('.onm_box_slider1 .swiper-wrapper:eq(' + tabsIdx + ')').removeClass('off')
+        $('.onm_box_slider1 .swiper-wrapper:not(:eq(' + tabsIdx + '))').removeClass('on')
     });
 
     Tabs.click(function() {
@@ -107,7 +102,7 @@ $(document).ready(function() {
     
     var swiper = new Swiper('.onm_box_slider1', {
         slidesPerView: 2,
-        spaceBetween: 70,
+        spaceBetween: 20,
         observer: true,
         speed: 700,
         observeParents: true,
@@ -119,7 +114,7 @@ $(document).ready(function() {
 
     var swiper2 = new Swiper('.onm_box_slider2', {
         slidesPerView: 2,
-        spaceBetween: 70,
+        spaceBetween: 20,
         observer: true,
         speed: 700,
         observeParents: true,
@@ -131,7 +126,7 @@ $(document).ready(function() {
 
     var swiper3 = new Swiper('.onm_box_slider3', {
         slidesPerView: 2,
-        spaceBetween: 70,
+        spaceBetween: 20,
         observer: true,
         speed: 700,
         observeParents: true,
@@ -143,7 +138,7 @@ $(document).ready(function() {
 
     var swiper4 = new Swiper('.onm_box_slider4', {
         slidesPerView: 2,
-        spaceBetween: 70,
+        spaceBetween: 20,
         observer: true,
         speed: 700,
         observeParents: true,
@@ -155,7 +150,7 @@ $(document).ready(function() {
 
     var swiper5 = new Swiper('.onm_box_slider5', {
         slidesPerView: 2,
-        spaceBetween: 70,
+        spaceBetween: 20,
         observer: true,
         speed: 700,
         observeParents: true,
@@ -167,7 +162,7 @@ $(document).ready(function() {
 
     var swiper6 = new Swiper('.onm_box_slider6', {
         slidesPerView: 2,
-        spaceBetween: 70,
+        spaceBetween: 20,
         observer: true,
         speed: 700,
         observeParents: true,
