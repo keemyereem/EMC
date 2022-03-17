@@ -153,24 +153,27 @@ br {font-family:dotum !important;}
 
 .container .sub_visual .sub_visual_menu {width: 168rem;height: 6.6rem;background: #fff;border-bottom: .1rem solid #e8e8e8;position: absolute;bottom:0;right:0;display: flex;z-index: 1000;}
 .container .sub_visual .sub_visual_menu .home {width: 7.7rem;height: 6.6rem;background: #22591b url(../images/common/sub_nav_home.png)no-repeat 50% 50%;position: relative;}
-.container .sub_visual .sub_visual_menu .depth1 {position: relative;width: 22.6rem;height: 6.6rem;border-right: .1rem solid #e8e8e8; font-size:1.6rem;color: #555;line-height: 6.6rem;}
-.container .sub_visual .sub_visual_menu .depth1:after {content:'';width:.5rem;height: .5rem;border-top: .1rem solid #555;border-right: .1rem solid #555;transform: rotate(135deg);position: absolute;right:4rem;top:3rem;}
-.container .sub_visual .sub_visual_menu .depth1.open:after {transform: rotate(315deg);}
-.container .sub_visual .sub_visual_menu .depth1 .dep1_tit {padding-left: 4rem;display: block;height: 100%;background: transparent;}
-.container .sub_visual .sub_visual_menu .depth1 a {color: #555;}
-.container .sub_visual .sub_visual_menu .depth1 .drop_box {padding: 0 0 0 4rem;width: 100%;height: 0;background: #fff;position: relative;z-index:11;overflow: hidden;transition: all .3s;}
-.container .sub_visual .sub_visual_menu .depth1.open .dep1_tit {background: #fff;}
-.container .sub_visual .sub_visual_menu .depth1.open .drop_box {height: auto;padding: 2rem 0 2rem 4rem;box-shadow: 1px 2px 9.5px 0.5px rgba(51, 51, 51, 0.1);}
-.container .sub_visual .sub_visual_menu .depth1 .drop_box li {line-height: normal;}
-.container .sub_visual .sub_visual_menu .depth1 .drop_box li a {display: inline-block;padding: 1.5rem 0;background: lightblue;width: 100%;height: 100%;}
-.container .sub_visual .sub_visual_menu .depth1 .drop_box li a:hover {color: #22591b;}
-.container .sub_visual .sub_visual_menu .depth1 .drop_box li a.selected_tit {background: #ddd;}
-.container .sub_visual .sub_visual_menu .depth2 {position: relative;width: 23.3rem;height: auto; border-right: .1rem solid #e8e8e8;background: rgb(104, 172, 104); font:300 1.6rem 'Montserrat'; color: #555;line-height: 6.8rem;}
+.container .sub_visual .sub_visual_menu .depth  {position: relative;width: 22.6rem;height: 6.6rem;border-right: .1rem solid #e8e8e8; font-size:1.6rem;color: #555;line-height: 6.6rem;}
+.container .sub_visual .sub_visual_menu .depth :after {content:'';width:.5rem;height: .5rem;border-top: .1rem solid #555;border-right: .1rem solid #555;transform: rotate(135deg);position: absolute;right:4rem;top:3rem;}
+.container .sub_visual .sub_visual_menu .depth .open:after {transform: rotate(315deg);}
+.container .sub_visual .sub_visual_menu .depth > a {padding-left: 4rem;display: block;height: 100%;background: transparent;}
+.container .sub_visual .sub_visual_menu .depth a {color: #555;}
+.container .sub_visual .sub_visual_menu .depth .drop_box {padding: 0 0 0 4rem;width: 100%;height: 0;background: #fff;position: relative;z-index:11;overflow: hidden;transition: all .3s;}
+.container .sub_visual .sub_visual_menu .depth.open > a {background: #fff;}
+.container .sub_visual .sub_visual_menu .depth.open .drop_box {height: auto;padding: 2rem 0 2rem 4rem;box-shadow: 1px 2px 9.5px 0.5px rgba(51, 51, 51, 0.1);}
+.container .sub_visual .sub_visual_menu .depth .drop_box li {line-height: normal;}
+.container .sub_visual .sub_visual_menu .depth .drop_box li a {display: inline-block;padding: 1.5rem 0;width: 100%;height: 100%;position: relative;}
+.container .sub_visual .sub_visual_menu .depth .drop_box li a:after {content:'';display: none;width: .9rem;height: .1rem;background: #22591b;position: absolute;top: 50%;right: 4.8rem;transform: translateY(-50%);}
+.container .sub_visual .sub_visual_menu .depth .drop_box li a:hover {color: #22591b;font-weight: 300;}
+.container .sub_visual .sub_visual_menu .depth .drop_box li a:hover:after {display: inline-block;}
+.container .sub_visual .sub_visual_menu .depth .drop_box li a.selected_tit {background: #ddd;}
+
+/* .container .sub_visual .sub_visual_menu .depth2 {position: relative;width: 23.3rem;height: auto; border-right: .1rem solid #e8e8e8;background: rgb(104, 172, 104); font:300 1.6rem 'Montserrat'; color: #555;line-height: 6.8rem;}
 .container .sub_visual .sub_visual_menu .depth2 a {color: #555;}
 .container .sub_visual .sub_visual_menu .depth2:after {content:'';display: inline-block;width: .9rem;height: .5rem;background: #fff;border-top: .1rem solid #3b5a25;border-bottom: .1rem solid #3b5a25;background: transparent; position: absolute;right: 4rem;top: 3rem;}
 .container .sub_visual .sub_visual_menu .depth2 .dep2_tit {height: 6.6rem;padding-left: 4rem;color: #3b5a25;display: block;} 
-.container .sub_visual .sub_visual_menu .depth2 .drop_box {padding: 1rem 0 1rem 4.5rem;width: 100%;height: 0;/* background: #ddd; */position: relative;z-index:11;overflow: hidden;transition: all .3s;}
-.container .sub_visual .sub_visual_menu .depth2.open .drop_box {height: auto;}
+.container .sub_visual .sub_visual_menu .depth2 .drop_box {padding: 1rem 0 1rem 4.5rem;width: 100%;height: 0;position: relative;z-index:11;overflow: hidden;transition: all .3s;}
+.container .sub_visual .sub_visual_menu .depth2.open .drop_box {height: auto;} */
 
 .container .sub_visual .sub_visual_m {display: none;}
 .container .sub_visual .sub_visual_m h2 {padding-top: 10rem;font-size: 3.5rem;font-weight: 300;color: #fff;text-align: center;}
