@@ -28,6 +28,8 @@ function responsiveImage(w) {
         obj = img.eq(i);
         if (obj.data(src)) obj.attr('src', obj.data(src));
     }
+    
+
 }
 
 var commonEvent = {
@@ -36,54 +38,75 @@ var commonEvent = {
         this.headerEvent();
     },
     submenuEvent:function(){
-        $(".sub_visual_menu .depth").click(function(){
+        $(document).on('click', '.sub_visual_menu .depth', function(){
             $(this).toggleClass("open");
         });
     },
 
     headerEvent:function(){
-        $('.lang_select .lang_choice li').click(function(){
-            $('.lang_select .lang_choice li').removeClass("on");
-            $(this).addClass("on");
+        $(document).on('click', '.lang_choice li', function(){
+            $('.lang_choice li').removeClass('on');
+            $(this).addClass('on');  
         });
     },
 };
 
 $(document).ready(function() {
+
     var Tabs = $('.business_contents .section1 .nav_btn li');
+    var Tabs_depth2 = $(".swiper_2depth_tabs p");
     var Tabs_on = $('.on');
-    var Tabs_off = $('.off');
 
-    Tabs_on.css('display', 'flex');
-    Tabs_off.css('display', 'none');
-
+    $('.swiper:eq(0)').css('display', 'block');
     $('.onm_title').html(Tabs_on.find('.nav_tit').text());
     $('.onm_description').html(Tabs_on.find('.nav_desc').html());
 
-    $(".swiper_2depth_tabs p").click(function() {
+    $(".swiper").each(function(index, element){
+        var $this = $(this);
+        $this.addClass('instance-' + index);
+        var swiper = new Swiper('.instance-' + index, {
+            observer: true,
+            observeParents: true,
+            slidesPerView : 2,
+            spaceBetween: 70,
+            autoplay: true,
+            speed: 700,
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+            watchOverflow: true
+        });
+        
+        // Tabs.click(function() {
+           
+        // });
+    
+
+ 
+    Tabs_depth2.click(function() {
         $(this).addClass('on');
         $(this).siblings().removeClass('on');
 
-        var tabsIdx = $('.swiper_2depth_tabs p a').index(this);
-        $('.onm_box_slider1 .swiper-wrapper:eq(' + tabsIdx + ')').addClass('on')
-        $('.onm_box_slider1 .swiper-wrapper:not(:eq(' + tabsIdx + '))').addClass('off')
-        $('.onm_box_slider1 .swiper-wrapper:eq(' + tabsIdx + ')').removeClass('off')
-        $('.onm_box_slider1 .swiper-wrapper:not(:eq(' + tabsIdx + '))').removeClass('on')
+        // var tabsIdx = $('.swiper_2depth_tabs p').index(this);
+        // $('.instance-0 .swiper-wrapper:eq(' + tabsIdx + ')').fadeIn();
+        // $('.instance-0 .swiper-wrapper:not(:eq(' + tabsIdx + '))').fadeOut();
     });
 
     Tabs.click(function() {
         $(this).addClass('on');
         $(this).siblings().removeClass('on');
         
+
         /* 탭 버튼 index 값 호출 */
         var Tabs_tit = $(this).find('.nav_tit').text();
         var Tabs_desc = $(this).find('.nav_desc').html();
-        var Tabs_idx = Tabs.index(this) + 1;
+        var Tabs_idx = Tabs.index(this);
 
         /* onm_box_slider 탭버튼 index값과 연동 출력 */
-        $('.onm_box_slider' + Tabs_idx + '').fadeIn();
-        for (var i= 1; i <= Tabs.length; i++) {
-            $('.onm_box_slider' + i + '').not($('.onm_box_slider' + Tabs_idx + '')).fadeOut();
+        for (var i= 0; i < Tabs.length; i++) {
+            $('.instance-' + i + '').not($('.instance-' + Tabs_idx + '')).fadeOut(200);
+            $('.instance-' + i + '').not($('.instance-' + Tabs_idx + '')).removeClass('on');
         }
 
         /* onm_text_box 애니메이션 효과 */
@@ -92,83 +115,13 @@ $(document).ready(function() {
         setTimeout(function() {
             $('.onm_title, .onm_description').css({'opacity': '1'});
             $('.onm_title').html(Tabs_tit);
-            $('.onm_description').html(Tabs_desc);
-            
+            $('.onm_description').html(Tabs_desc);      
+            $('.instance-' + Tabs_idx + '').fadeIn(200);
+            $('.instance-' + Tabs_idx + '').addClass('on');
+            swiper.slideTo(0, 0);
         }, 200);
-        
-
     });
+});
+   
 
-    
-    var swiper = new Swiper('.onm_box_slider1', {
-        slidesPerView: 2,
-        spaceBetween: 20,
-        observer: true,
-        speed: 700,
-        observeParents: true,
-        navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
-        },
-    });
-
-    var swiper2 = new Swiper('.onm_box_slider2', {
-        slidesPerView: 2,
-        spaceBetween: 20,
-        observer: true,
-        speed: 700,
-        observeParents: true,
-        navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
-        },
-    });
-
-    var swiper3 = new Swiper('.onm_box_slider3', {
-        slidesPerView: 2,
-        spaceBetween: 20,
-        observer: true,
-        speed: 700,
-        observeParents: true,
-        navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
-        },
-    });
-
-    var swiper4 = new Swiper('.onm_box_slider4', {
-        slidesPerView: 2,
-        spaceBetween: 20,
-        observer: true,
-        speed: 700,
-        observeParents: true,
-        navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
-        },
-    });
-
-    var swiper5 = new Swiper('.onm_box_slider5', {
-        slidesPerView: 2,
-        spaceBetween: 20,
-        observer: true,
-        speed: 700,
-        observeParents: true,
-        navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
-        },
-    });
-
-    var swiper6 = new Swiper('.onm_box_slider6', {
-        slidesPerView: 2,
-        spaceBetween: 20,
-        observer: true,
-        speed: 700,
-        observeParents: true,
-        navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
-        },
-    });
-})
+});

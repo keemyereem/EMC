@@ -37,14 +37,12 @@
     <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
 
     <script>
-        $(document).ready( function() {
+        $(window).load( function() {
             //html용 include
             $(".header").load("include/header.html");
             $(".sitemap").load("include/sitemap.html");
-            $(".footer").load("include/footer.html");
-            
+            $(".footer").load("include/footer.html");  
         });
-        
         
     </script>
 </head>
@@ -106,33 +104,25 @@
                         </ul>
                     </div>
                     <div class="depth depth2">
-                        <a href="javascript:;" class="dep_tit">개요</a>
-                        <ul class="drop_box">
-                            <li><a href="javascript:;">개요</a></li>
-                            <li><a href="javascript:;">수처리</a></li>
-                            <li><a href="javascript:;">Green</a></li>
-                            <li><a href="javascript:;">New BIZ</a></li>
-                        </ul>
-                    </div>
-                    <div class="depth depth3">
                         <a href="javascript:;" class="dep_tit">O&M</a>
                         <ul class="drop_box">
                             <li><a href="javascript:;">O&M</a></li>
                             <li><a href="javascript:;">환경건설</a></li>
                             <li><a href="javascript:;">기술역량</a></li>
+                            <li><a href="javascript:;">에너지</a></li>
+                            <li><a href="javascript:;">자원순환</a></li>
+                            <li><a href="javascript:;">New BIZ</a></li>
                         </ul>
                     </div>
                 </div>
             </div>
             <div class="contents cont_business">
-                <div class="contents_inner">
+                <div class="contents_inner onm_inner">
                     <div class="business_contents sub_contents">
                         <div class="inner">
                             <section class="section1">
-                                <div class="icon"><img src="../images/business/businessIntro_tit_icon.png" alt="타이틀 아이콘"></div>
-                                <p class="title">
-                                    환경기초시설 O&M
-                                </p>
+                                <div class="icon"><img src="../images/invest/disclosure_tit_icon.png" alt="타이틀 아이콘"></div>
+                                <h3 class="title">환경기초시설 O&M</h3>
                                 <div class="tit_line"></div>
                                 <p class="sub_tit">
                                     환경시설관리주식회사는 대한민국의 환경분야 <b>기초시설 운영관리 선두주자</b>로서,<br/>
@@ -169,8 +159,10 @@
                                                 처리시설                                            
                                             </p>
                                             <p class="nav_desc">
-                                                text02<br>
-                                                test02
+                                                EMC는 폐기물처리시설인<br>
+                                                건조, 소각, 바이오,  매립  등과 같은<br>
+                                                최다 운영 실적과 기술력을 바탕으로<br>
+                                                전국 폐기물 처리시설 22여개를 운영하고 있습니다.                                                 
                                             </p>
                                         </a>
                                     </li>
@@ -185,8 +177,10 @@
                                                 처리시설
                                             </p>
                                             <p class="nav_desc">
-                                                text03<br>
-                                                test03
+                                                EMC는 폐기물처리시설인<br>
+                                                건조, 소각, 바이오,  매립  등과 같은<br>
+                                                최다 운영 실적과 기술력을 바탕으로<br>
+                                                전국 폐기물 처리시설 22여개를 운영하고 있습니다.                                                 
                                             </p>
                                         </a>
                                     </li>
@@ -200,8 +194,10 @@
                                                 정수처리시설
                                             </p>
                                             <p class="nav_desc">
-                                                text04<br>
-                                                test04
+                                                EMC는 폐기물처리시설인<br>
+                                                건조, 소각, 바이오,  매립  등과 같은<br>
+                                                최다 운영 실적과 기술력을 바탕으로<br>
+                                                전국 폐기물 처리시설 22여개를 운영하고 있습니다.                                                 
                                             </p>
                                         </a>
                                     </li>
@@ -215,8 +211,10 @@
                                                 하수관거BTL
                                             </p>
                                             <p class="nav_desc">
-                                                text05<br>
-                                                test05
+                                                EMC는 폐기물처리시설인<br>
+                                                건조, 소각, 바이오,  매립  등과 같은<br>
+                                                최다 운영 실적과 기술력을 바탕으로<br>
+                                                전국 폐기물 처리시설 22여개를 운영하고 있습니다.                                                 
                                             </p>
                                         </a>
                                     </li>
@@ -230,8 +228,10 @@
                                                 종합시운전
                                             </p>
                                             <p class="nav_desc">
-                                                text06<br>
-                                                test06
+                                                EMC는 폐기물처리시설인<br>
+                                                건조, 소각, 바이오,  매립  등과 같은<br>
+                                                최다 운영 실적과 기술력을 바탕으로<br>
+                                                전국 폐기물 처리시설 22여개를 운영하고 있습니다.                                                 
                                             </p>
                                         </a>
                                     </li>
@@ -244,119 +244,130 @@
                                         <div class="onm_description"><!-- 내용 출력창 --></div>
                                     </div>
                                     <!--------------------------------------------------- slider 01 --------------------------------------------------->
-                                    <div class=" swiper onm_box_slider1 on">
+                                    <div class="swiper on">                                       
                                         <div class="swiper_2depth_tabs">
                                             <p class="on"><a href="javascript:;">공공하수처리시설</a></p>
                                             <p class=""><a href="javascript:;">공공폐수처리시설</a></p>
                                         </div>
-                                        <div class="swiper-wrapper on">
+                                        <div class="swiper-wrapper">
                                             <div class="swiper-slide">
-                                                <div class="onm_slide_img">
-                                                    <img src="images/business/onm_slide01_img01.png" alt="onm_slide01_img01" />
-                                                </div>
-                                                <div class="onm_slide_text_box">
-                                                    <h3>기흥공공하수처리시설</h3>
-                                                    <div>
-                                                        <p><span>시설용량</span>50,000㎥/d</p>
-                                                        <p><span>처리공법</span>A20</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="swiper-slide">
-                                                <div class="onm_slide_img">
-                                                    <img src="images/business/onm_slide01_img02.png" alt="onm_slide01_img02" />
-                                                </div>
-                                                <div class="onm_slide_text_box">
-                                                    <h3>안양공공하수처리시설</h3>
-                                                    <div>
-                                                        <p><span>시설용량</span>250,000㎥/d</p>
-                                                        <p><span>처리공법</span>CSBR+YDF</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="swiper-slide">
-                                                <div class="onm_slide_img">
-                                                    <img src="images/business/onm_slide01_img02.png" alt="onm_slide01_img02" />
-                                                </div>
-                                                <div class="onm_slide_text_box">
-                                                    <h3>○○공공하수처리시설</h3>
-                                                    <div>
-                                                        <p><span>시설용량</span>120,000㎥/d</p>
-                                                        <p><span>처리공법</span>CSBR</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="swiper-slide">
-                                                <div class="onm_slide_img">
-                                                    <img src="images/business/onm_slide01_img02.png" alt="onm_slide01_img02" />
-                                                </div>
-                                                <div class="onm_slide_text_box">
-                                                    <h3>△△공공하수처리시설</h3>
-                                                    <div>
-                                                        <p><span>시설용량</span>8,000㎥/d</p>
-                                                        <p><span>처리공법</span>YDF</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
 
-                                        <div class="swiper-wrapper off">
-                                            <div class="swiper-slide">
-                                                <div class="onm_slide_img">
-                                                    <img src="images/business/onm_slide01_img01.png" alt="onm_slide01_img01" />
-                                                </div>
-                                                <div class="onm_slide_text_box">
-                                                    <h3>기흥공dddddd공하수처리시설</h3>
-                                                    <div>
-                                                        <p><span>시설용량</span>50,000㎥/d</p>
-                                                        <p><span>처리공법</span>A20</p>
+                                                <div class="swiper_2depth on">
+                                                    <div class="swiper-wrapper">
+                                                        <div class="swiper-slide">
+                                                            <div class="onm_slide_img">
+                                                                <img src="images/business/onm_slide01_img01.png" alt="onm_slide01_img01" />
+                                                            </div>
+                                                            <div class="onm_slide_text_box">
+                                                                <h3>기흥공공하수처리시설</h3>
+                                                                <div>
+                                                                    <p><span>시설용량</span>50,000㎥/d</p>
+                                                                    <p><span>처리공법</span>A20</p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="swiper-slide">
+                                                            <div class="onm_slide_img">
+                                                                <img src="images/business/onm_slide01_img02.png" alt="onm_slide01_img02" />
+                                                            </div>
+                                                            <div class="onm_slide_text_box">
+                                                                <h3>안양공공하수처리시설</h3>
+                                                                <div>
+                                                                    <p><span>시설용량</span>250,000㎥/d</p>
+                                                                    <p><span>처리공법</span>CSBR+YDF</p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="swiper-slide">
+                                                            <div class="onm_slide_img">
+                                                                <img src="images/business/onm_slide01_img02.png" alt="onm_slide01_img02" />
+                                                            </div>
+                                                            <div class="onm_slide_text_box">
+                                                                <h3>○○공공하수처리시설</h3>
+                                                                <div>
+                                                                    <p><span>시설용량</span>120,000㎥/d</p>
+                                                                    <p><span>처리공법</span>CSBR</p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="swiper-slide">
+                                                            <div class="onm_slide_img">
+                                                                <img src="images/business/onm_slide01_img02.png" alt="onm_slide01_img02" />
+                                                            </div>
+                                                            <div class="onm_slide_text_box">
+                                                                <h3>△△공공하수처리시설</h3>
+                                                                <div>
+                                                                    <p><span>시설용량</span>8,000㎥/d</p>
+                                                                    <p><span>처리공법</span>YDF</p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
                                                     </div>
                                                 </div>
+
                                             </div>
+                                            
                                             <div class="swiper-slide">
-                                                <div class="onm_slide_img">
-                                                    <img src="images/business/onm_slide01_img02.png" alt="onm_slide01_img02" />
-                                                </div>
-                                                <div class="onm_slide_text_box">
-                                                    <h3>안양공공하수처wdddwdwd리시설</h3>
-                                                    <div>
-                                                        <p><span>시설용량</span>250,000㎥/d</p>
-                                                        <p><span>처리공법</span>CSBR+YDF</p>
+
+                                                <div class="swiper_2depth">
+                                                    <div class="swiper-wrapper">
+                                                        <div class="swiper-slide">
+                                                            <div class="onm_slide_img">
+                                                                <img src="images/business/onm_slide01_img01.png" alt="onm_slide01_img01" />
+                                                            </div>
+                                                            <div class="onm_slide_text_box">
+                                                                <h3>기흥공공하수처리시설</h3>
+                                                                <div>
+                                                                    <p><span>시설용량</span>50,000㎥/d</p>
+                                                                    <p><span>처리공법</span>A20</p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="swiper-slide">
+                                                            <div class="onm_slide_img">
+                                                                <img src="images/business/onm_slide01_img02.png" alt="onm_slide01_img02" />
+                                                            </div>
+                                                            <div class="onm_slide_text_box">
+                                                                <h3>안양공공하수처리시설</h3>
+                                                                <div>
+                                                                    <p><span>시설용량</span>250,000㎥/d</p>
+                                                                    <p><span>처리공법</span>CSBR+YDF</p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="swiper-slide">
+                                                            <div class="onm_slide_img">
+                                                                <img src="images/business/onm_slide01_img02.png" alt="onm_slide01_img02" />
+                                                            </div>
+                                                            <div class="onm_slide_text_box">
+                                                                <h3>○○공공하수처리시설</h3>
+                                                                <div>
+                                                                    <p><span>시설용량</span>120,000㎥/d</p>
+                                                                    <p><span>처리공법</span>CSBR</p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="swiper-slide">
+                                                            <div class="onm_slide_img">
+                                                                <img src="images/business/onm_slide01_img02.png" alt="onm_slide01_img02" />
+                                                            </div>
+                                                            <div class="onm_slide_text_box">
+                                                                <h3>△△공공하수처리시설</h3>
+                                                                <div>
+                                                                    <p><span>시설용량</span>8,000㎥/d</p>
+                                                                    <p><span>처리공법</span>YDF</p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
                                                     </div>
                                                 </div>
+                                                
                                             </div>
-                                            <div class="swiper-slide">
-                                                <div class="onm_slide_img">
-                                                    <img src="images/business/onm_slide01_img02.png" alt="onm_slide01_img02" />
-                                                </div>
-                                                <div class="onm_slide_text_box">
-                                                    <h3>○○공공하수처리시설</h3>
-                                                    <div>
-                                                        <p><span>시설용량</span>120,000㎥/d</p>
-                                                        <p><span>처리공법</span>CSBR</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="swiper-slide">
-                                                <div class="onm_slide_img">
-                                                    <img src="images/business/onm_slide01_img02.png" alt="onm_slide01_img02" />
-                                                </div>
-                                                <div class="onm_slide_text_box">
-                                                    <h3>△△공공하수처리시설</h3>
-                                                    <div>
-                                                        <p><span>시설용량</span>8,000㎥/d</p>
-                                                        <p><span>처리공법</span>YDF</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="onm_box_slider_button">
-                                            <div class="swiper-button-next"></div>
-                                            <div class="swiper-button-prev"></div>
                                         </div>
                                     </div>
+                                    
                                     <!--------------------------------------------------- slider 02 --------------------------------------------------->
-                                    <div class="swiper onm_box_slider2">
+                                    <div class="swiper">
                                         <div class="swiper-wrapper">
                                             <div class="swiper-slide">
                                                 <div class="onm_slide_img">
@@ -407,13 +418,9 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="onm_box_slider_button">
-                                            <div class="swiper-button-next"></div>
-                                            <div class="swiper-button-prev"></div>
-                                        </div>
                                     </div>
                                     <!--------------------------------------------------- slider 03 --------------------------------------------------->
-                                    <div class="swiper onm_box_slider3">
+                                    <div class="swiper">
                                         <div class="swiper-wrapper">
                                             <div class="swiper-slide">
                                                 <div class="onm_slide_img">
@@ -463,14 +470,10 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="onm_box_slider_button">
-                                            <div class="swiper-button-next"></div>
-                                            <div class="swiper-button-prev"></div>
                                         </div>
                                     </div>
                                     <!--------------------------------------------------- slider 04 --------------------------------------------------->
-                                    <div class="swiper onm_box_slider4">
+                                    <div class="swiper">
                                         <div class="swiper-wrapper">
                                             <div class="swiper-slide">
                                                 <div class="onm_slide_img">
@@ -520,14 +523,10 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="onm_box_slider_button">
-                                            <div class="swiper-button-next"></div>
-                                            <div class="swiper-button-prev"></div>
                                         </div>
                                     </div>
                                     <!--------------------------------------------------- slider 05 --------------------------------------------------->
-                                    <div class="swiper onm_box_slider5">
+                                    <div class="swiper">
                                         <div class="swiper-wrapper">
                                             <div class="swiper-slide">
                                                 <div class="onm_slide_img">
@@ -577,14 +576,10 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="onm_box_slider_button">
-                                            <div class="swiper-button-next"></div>
-                                            <div class="swiper-button-prev"></div>
                                         </div>
                                     </div>
                                     <!--------------------------------------------------- slider 06 --------------------------------------------------->
-                                    <div class="swiper onm_box_slider6">
+                                    <div class="swiper">
                                         <div class="swiper-wrapper">
                                             <div class="swiper-slide">
                                                 <div class="onm_slide_img">
@@ -635,57 +630,14 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="onm_box_slider_button">
-                                            <div class="swiper-button-next"></div>
-                                            <div class="swiper-button-prev"></div>
-                                        </div>
                                     </div>
-                                    <!-- 
-                                    <div class="dev_box">
-                                        <div class="dev_sub_slider">
-                                            <div class="swiper-wrapper">
-                                                <div class="swiper-slide">
-                                                    <a href="javascript:;" onclick="popupOpen();">
-                                                        <img src="images/pc/typeA/sub/development_slide01.jpg" alt="타이틀" />
-                                                        <div class="dev_tit">당산 SK V1 Center</div>
-                                                    </a>
-                                                </div>
-                                                <div class="swiper-slide">
-                                                    <a href="javascript:;" onclick="popupOpen();">
-                                                        <img src="images/pc/typeA/sub/development_slide02.jpg" alt="타이틀" />
-                                                        <div class="dev_tit">가산 SK V1 Center</div>
-                                                    </a>
-                                                </div>
-                                                <div class="swiper-slide">
-                                                    <a href="javascript:;" onclick="popupOpen();">
-                                                        <img src="images/pc/typeA/sub/development_slide03.jpg" alt="타이틀" />
-                                                        <div class="dev_tit">성수 생각공장 데시앙플렉스</div>
-                                                    </a>
-                                                </div>
-                                                <div class="swiper-slide">
-                                                    <a href="javascript:;" onclick="popupOpen();">
-                                                        <img src="images/pc/typeA/sub/development_slide04.jpg" alt="타이틀" />
-                                                        <div class="dev_tit">문래 SK V1 center</div>
-                                                    </a>
-                                                </div>
-                                                <div class="swiper-slide">
-                                                    <a href="javascript:;" onclick="popupOpen();">
-                                                        <img src="images/pc/typeA/sub/development_slide05.jpg" alt="타이틀" />
-                                                        <div class="dev_tit">성수 SK V1 center</div>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="dev_sub_nav">
-                                            <span id="dvPrev" class="arrow left swiper-button-prev"><a href="javascript:;"></a></span>
-                                            <span id="dvNext" class="arrow right swiper-button-next"><a href="javascript:;"></a></span>
-                                        </div>
-                                    </div> 
-                                    -->
+                                    <div class="onm_box_slider_button">
+                                        <div class="swiper-button-next"></div>
+                                        <div class="swiper-button-prev"></div>
+                                    </div>
                                 </div>
                             </section>
                         </div>
-
                     </div>
                 </div>
                 <section class="section3">
