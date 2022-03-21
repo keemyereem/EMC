@@ -41,8 +41,13 @@ var commonEvent = {
         $(document).on('click', '.sub_visual_menu .depth', function(){
             $(this).toggleClass("open");
         });
-    },
 
+        $(document).on('click', '.sub_visual_menu .depth .drop_box li a', function(){
+            var selected = $(this).text();
+            var dep_tit = $(this).closest('.drop_box').siblings('.dep_tit');
+            dep_tit.text(selected);     
+        });
+    },
     headerEvent:function(){
         $(document).on('click', '.lang_choice li', function(){
             $('.lang_choice li').removeClass('on');
@@ -52,95 +57,128 @@ var commonEvent = {
 };
 
 $(document).ready(function() {
-
+    
     var Tabs = $('.business_contents .section1 .nav_btn li');
     var Tabs_depth2 = $(".swiper_2depth_tabs p");
-    var Tabs_on = $('.on');
-
-    $('.swiper:eq(0)').css('display', 'block');
-    $('.onm_title').html(Tabs_on.find('.nav_tit').text());
-    $('.onm_description').html(Tabs_on.find('.nav_desc').html());
 
     $(".swiper").each(function(index, element){
-        var $this = $(this);
-        $this.addClass('instance-' + index);
-        var swiper = new Swiper('.instance-' + index, {
+        var swiper1_01 = new Swiper('.swiper1_01', {
             observer: true,
             observeParents: true,
             slidesPerView : 2,
             spaceBetween: 70,
-            autoplay: true,
             speed: 700,
+            
             navigation: {
-                nextEl: '.swiper-button-next',
-                prevEl: '.swiper-button-prev',
+                nextEl: '.swiper-button-next01_01',
+                prevEl: '.swiper-button-prev01_01',
             },
             watchOverflow: true
         });
-
-        $(".swiper_2depth").each(function(index, element){
-            var $this = $(this);
-            $this.addClass('instance_2depth-' + index);
-            var swiper = new Swiper('.instance_2depth-' + index, {
-                observer: true,
-                observeParents: true,
-                slidesPerView : 2,
-                spaceBetween: 70,
-                // autoplay: true,
-                speed: 700,
-                navigation: {
-                    nextEl: '.swiper-button-next',
-                    prevEl: '.swiper-button-prev',
-                },
-                watchOverflow: true
-            });
+        var swiper1_02 = new Swiper('.swiper1_02', {
+            observer: true,
+            observeParents: true,
+            slidesPerView : 2,
+            spaceBetween: 70,
+            speed: 700,
+            
+            navigation: {
+                nextEl: '.swiper-button-next01_02',
+                prevEl: '.swiper-button-prev01_02',
+            },
+            watchOverflow: true
         });
-        
-        // Tabs.click(function() {
-           
-        // });
-    
-
- 
-        Tabs_depth2.click(function() {
-            $(this).addClass('on');
-            $(this).siblings().removeClass('on');
-
-            // var tabsIdx = $('.swiper_2depth_tabs p').index(this);
-            // $('.instance-0 .swiper-wrapper:eq(' + tabsIdx + ')').fadeIn();
-            // $('.instance-0 .swiper-wrapper:not(:eq(' + tabsIdx + '))').fadeOut();
+        var $this = $(this);
+        $this.addClass('instance-' + index);
+        var swiper2 = new Swiper('.swiper2', {
+            observer: true,
+            observeParents: true,
+            slidesPerView : 2,
+            spaceBetween: 70,
+            speed: 700,
+            
+            navigation: {
+                nextEl: '.swiper-button-next02',
+                prevEl: '.swiper-button-prev02',
+            },
+            watchOverflow: true
+        });
+        var swiper3 = new Swiper('.swiper3', {
+            observer: true,
+            observeParents: true,
+            slidesPerView : 2,
+            spaceBetween: 70,
+            speed: 700,
+            
+            navigation: {
+                nextEl: '.swiper-button-next03',
+                prevEl: '.swiper-button-prev03',
+            },
+            watchOverflow: true
+        });
+        var swiper4 = new Swiper('.swiper4', {
+            observer: true,
+            observeParents: true,
+            slidesPerView : 2,
+            spaceBetween: 70,
+            speed: 700,
+            
+            navigation: {
+                nextEl: '.swiper-button-next04',
+                prevEl: '.swiper-button-prev04',
+            },
+            watchOverflow: true
+        });
+        var swiper5 = new Swiper('.swiper5', {
+            observer: true,
+            observeParents: true,
+            slidesPerView : 2,
+            spaceBetween: 70,
+            speed: 700,
+            
+            navigation: {
+                nextEl: '.swiper-button-next05',
+                prevEl: '.swiper-button-prev05',
+            },
+            watchOverflow: true
+        });
+        var swiper6 = new Swiper('.swiper6', {
+            observer: true,
+            observeParents: true,
+            slidesPerView : 2,
+            spaceBetween: 70,
+            speed: 700,
+            
+            navigation: {
+                nextEl: '.swiper-button-next06',
+                prevEl: '.swiper-button-prev06',
+            },
+            watchOverflow: true
         });
 
         Tabs.click(function() {
             $(this).addClass('on');
             $(this).siblings().removeClass('on');
             
+            var Tabs_idx = Tabs.index(this)+1;
+            $('.section2 .nav_box').removeClass('on');
+            $('.section2 .box0' + Tabs_idx).addClass('on');
+            $('.section3 .onm_list').removeClass('on');
+            $('.section3 .onm_list0' + Tabs_idx).addClass('on');
+            swiper.slideTo(0, 0);
 
-            /* 탭 버튼 index 값 호출 */
-            var Tabs_tit = $(this).find('.nav_tit').text();
-            var Tabs_desc = $(this).find('.nav_desc').html();
-            var Tabs_idx = Tabs.index(this);
-
-            /* onm_box_slider 탭버튼 index값과 연동 출력 */
-            for (var i= 0; i < Tabs.length; i++) {
-                $('.instance-' + i + '').not($('.instance-' + Tabs_idx + '')).fadeOut(200);
-                $('.instance-' + i + '').not($('.instance-' + Tabs_idx + '')).removeClass('on');
-            }
-
-            /* onm_text_box 애니메이션 효과 */
-            $('.onm_title, .onm_description').css({'opacity': '0', 'transition': 'all ease .2s'});
+            console.log(swiper1);
             
-            setTimeout(function() {
-                $('.onm_title, .onm_description').css({'opacity': '1'});
-                $('.onm_title').html(Tabs_tit);
-                $('.onm_description').html(Tabs_desc);      
-                $('.instance-' + Tabs_idx + '').fadeIn(200);
-                $('.instance-' + Tabs_idx + '').addClass('on');
-                
-                swiper.slideTo(0, 0);
-            }, 200);
+        });
+        Tabs_depth2.click(function(){
+            var idx = Tabs_depth2.index(this)+1;
+            var tab_slide = $(this).parent().siblings('.swiper1_box');
+            Tabs_depth2.removeClass('on');
+            $(this).addClass('on');
+            tab_slide.css({display:'none'});
+            $('.section2 .swiper_container .swiper1_box0' + idx).css({display:'block'});
         });
     });
-   
+
 
 });
