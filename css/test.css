@@ -110,8 +110,8 @@
 .cont_business .contents_inner .business_contents .inner {width: 100%;max-width: 144rem;margin: 0 auto;}
 .business_contents .section1 .icon {text-align: center;padding-bottom: 3rem;}
 .business_contents .section1 h3.title {font-size: 5rem;font-weight: 400;text-align: center;}
-.business_contents .section1 .tit_line {width: .1rem;height: 0;background: #568236;margin: 4rem auto 5rem;opacity: 0;transition: all .5s;}
-.business_contents .section1 .tit_line.on {height: 8rem;opacity: 1;}
+.business_contents .section1 .tit_line {width: .1rem;height: 0;background: #568236;margin: 4rem auto 5rem;transition: all .4s;}
+.business_contents .section1 .tit_line.on {height: 8rem;}
 .business_contents .section1 .sub_tit {font-size: 2.6rem;color: #222;text-align: center;line-height: 4.6rem;}
 .business_contents .section1 .sub_tit > b {font-weight: 400;color: #568236;}
 .business_contents .section1 .nav_btn {width: 100%;height: 24rem;display: flex;margin-top: 10.5rem; letter-spacing: -.08rem;}
@@ -147,7 +147,8 @@
 .business_contents .section2 .onm_box_slider_button .swiper-button-next { background: url(../images/business/arrow_next.png) no-repeat center; right: 0; }
 .business_contents .section2 .onm_box_slider_button .swiper-button-next:hover { background:#568236 url(../images/business/arrow_next_on.png) no-repeat center; }
 
-.business_contents .section2 .nav_box .swiper { width: 97rem;flex-shrink: 0;margin-top: 2.5rem;}
+.business_contents .section2 .nav_box .swiper { width: 97rem;flex-shrink: 0;margin-top: 2.5rem;background: pink;border: 2px solid red;position: relative;left: 40rem;transition: all 1s;}
+.business_contents .section2 .nav_box .swiper.aos {left: 0;}
 .business_contents .section2 .swiper .swiper-slide { height: fit-content; flex-direction: column; overflow: hidden; text-align: center; font-size: 18px; background: #fff; /* Center slide text vertically */ display: -webkit-box; display: -ms-flexbox; display: -webkit-flex; display: flex; -webkit-box-pack: center; -ms-flex-pack: center; -webkit-justify-content: center; justify-content: center; -webkit-box-align: center; -ms-flex-align: center; -webkit-align-items: center; align-items: center;}
 .business_contents .section2 .swiper .swiper-slide img { display: block; width: 100%; height: 100%; object-fit: cover; }
 .business_contents .section2 .swiper .swiper-slide .onm_slide_img {width: 45rem;height: 30.8rem;}
