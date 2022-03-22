@@ -3,11 +3,12 @@ $(function(){
 	responsiveImage(w);
 
     commonEvent.init();
+
     //Run AOS - Global Setting
     AOS.init({
-        // offset: 120,
-        // delay: 0,
-        // mirror: false,
+        //offset: 120,
+        //delay: 500,
+        //mirror: false,
         once: true,
         easing: 'ease-in-sine',
         duration: 500,
@@ -64,7 +65,6 @@ var commonEvent = {
             $(this).addClass('on');  
         });
     },
-    
 };
 var onmEvent = {
     init:function(){
@@ -87,7 +87,7 @@ var onmEvent = {
                     nextEl: '.swiper-button-next01_01',
                     prevEl: '.swiper-button-prev01_01',
                 },
-                watchOverflow: true
+                watchOverflow: true,   
             });
             var swiper1_02 = new Swiper('.swiper1_02', {
                 observer: true,
@@ -170,45 +170,59 @@ var onmEvent = {
                 watchOverflow: true
             });
     
-            Tabs.click(function() {
+            Tabs.on("click", function() {
                 $(this).addClass('on');
                 $(this).siblings().removeClass('on');
                 
                 var Tabs_idx = Tabs.index(this)+1;
                 $('.section2 .nav_box').removeClass('on');
+                $('.section2 .nav_box .box_text, .section2 .nav_box .swiper, .swiper_2depth_tabs').removeClass('aos-animate');
                 $('.section2 .box0' + Tabs_idx).addClass('on');
+     
+                setTimeout(function() {
+                    $('.section2 .box0' + Tabs_idx + ' .box_text, .section2 .box0' + Tabs_idx + ' .swiper, .swiper_2depth_tabs').addClass('aos-animate');
+                }, 0);
                 $('.section3 .onm_list').removeClass('on');
-                $('.section3 .onm_list0' + Tabs_idx).addClass('on');   
-                $('.section2 .nav_box .swiper').removeClass('aos');
-                
+                $('.section3 .onm_list0' + Tabs_idx).addClass('on');
+                swiper.slideTo(0, 0);
             });
-            Tabs_depth2.click(function(){
+            Tabs_depth2.on('click', function(){
                 var idx = Tabs_depth2.index(this)+1;
                 var tab_slide = $(this).parent().siblings('.swiper1_box');
                 Tabs_depth2.removeClass('on');
                 $(this).addClass('on');
                 tab_slide.css({display:'none'});
-                $('.section2 .swiper_container .swiper1_box0' + idx).css({display:'block'});
-                AOS.init({
-                    startEvent: 'click',
-                    easing: 'ease-in-out'
-                  });
+                $('.swiper1_box0' + idx).css({display:'block'});
+
+                $('.swiper1_box .swiper').removeClass('aos-animate');
+                setTimeout(function() {
+                    $('.swiper1_box0' + idx + ' .swiper').addClass('aos-animate');
+                }, 0);
+                swiper1_01.slideTo(0, 0);
+                swiper1_02.slideTo(0, 0);
             });
         });
     },
     onmScroll:function(){
         $(window).on('scroll',function(){
-            $('.business_contents .section1 .tit_line').addClass('on');
-        });       
-    },
-    movSwiper:function(){
-        var iconButton = $('.business_contents .section1 .nav_btn li');
-        iconButton.on("click", function() {
-        AOS.init({
-            // startEvent: 'click',
-        });
-        });
-    },
+            
+            var tit = $('.business_contents .section1 .title');
+            var st = $(window).scrollTop(),
+                winH = $(window).height(),
+                tit_line = $('.business_contents .section1 .tit_line'),
+                tit_offTop = tit_line.offset().top;
 
+                
+            if ($(tit_offTop-winH) > 0){  
+                tit_line.addClass('on');
+            }
+
+            console.log('window height : '+winH);
+            console.log(tit_offTop);
+            console.log('offsetTop - scrollTop : '+ Number(tit_offTop - st));
+           
+        }); 
+
+    },
 };
 
