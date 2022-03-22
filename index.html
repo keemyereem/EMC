@@ -1,307 +1,348 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html>
     <head>
-        <!-- <base href="../../../" /> -->
-        <!--[if IE]><script type="text/javascript">
-            // Fix for IE ignoring relative base tags.
-            (function() {
-                var baseTag = document.getElementsByTagName('base')[0];
-                baseTag.href = baseTag.href;
-            })();
-        </script><![endif]-->
-        <meta charset="UTF-8">
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
-        <meta name="format-detection" content="telephone=no">
-
-        <!-- TITLE -->
+        <meta http-equiv="content-Type" content="text/html; charset=utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
         <title>환경시설관리주식회사</title>
+        <link rel="icon" href="admin/images/favicon.png" sizes="32x32">
+        <style type="text/css">
+            body, td, th, div, span, p, a {font-size:12px; margin: 0; padding: 0; font-family: "Malgun Gothic", "맑은 고딕", "돋움", "dotum";}
+            body, div, h1, h2, h3, h4, h5, h6, ul, ol, li, dl, dt, dd, p, form, fieldset, input, table, tr, th, td, a, span, em, button, textarea, header, footer, nav, section, aside.all_menu, article {margin: 0; padding: 0; box-sizing: border-box;}
+            body {padding-bottom:20px;}
+            ul, ol, li {list-style: none;}
 
-        <!-- css file load -->
-        <link rel="stylesheet" href="css/jquery-ui.min.css">
-        <link rel="stylesheet" href="css/jquery.swiper.min.css">
-        <link rel="stylesheet" href="css/fullpage.min.css">
-        <link rel="stylesheet" href="css/common.css">
-        <link rel="stylesheet" href="css/common1.css">
+            .blind {display:none;}
+            .header {position:relative; background:#22591b; padding:10px; color:#fff; font-size:16px; font-weight:bold;}
+            .content_tab {margin:15px 0 0 15px;}
+            .content_tab ul li {display:inline-block; *display:inline-block; margin-right:15px; zoom:1;}
+            .content_tab ul li a {margin:10px; text-decoration:none; outline-style:none; color:#787878; font-size:16px; font-weight:bold;}
+            .content_tab ul li a:hover, a:active, a:visited {text-decoration: none;}
+            .content_tab ul li.active a {color:#22591b;}
 
-        <!-- js file load -->
-        <script type="text/javascript" src="js/lib/jquery-1.12.4.min.js"></script>
-        <script type="text/javascript" src="js/lib/jquery-ui-1.12.1.min.js"></script>
-        <script type="text/javascript" src="js/lib/jquery.easing.1.3.js"></script>
-        <script type="text/javascript" src="js/lib/jquery.swiper.min.js"></script>
-        <script type="text/javascript" src="js/lib/TweenMax.min.js"></script>
-        <script type="text/javascript" src="js/lib/jquery.lettering.js"></script>
-        <script type="text/javascript" src="js/common.js"></script>
-        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.8/ScrollMagic.min.js"></script>
-        <style>
-            html {overflow-x:auto !important;}
-            body {width:1920px; overflow-x:auto !important;}
+            .content {padding:15px;}
+            .content table {width:100%; border-collapse:collapse; border-spacing:0;}
+            .content table.mt15 {margin-top:15px;}
+            .content th {background:#f3f3f3;}
+            .content th, .content td {border:1px solid #ddd; border-spacing:0; padding:5px; text-align:center;}
         </style>
+        <script type="text/javascript" src="admin/js/lib/jquery-1.12.4.min.js"></script>
         <script>
-            $(function(){
-                typeAEvent.mainEvent();
-                typeAEvent.scrollEvent();
-                typeAEvent.carbonEvent();
-                typeAEvent.gotopEvent();
-                // $('video').each((i,v) => { $(v).attr('data-keepplaying', ''); v.play(); });
+            $(document).ready(function () {
+                $("#tab_list").find("ul").find("li").find("a").on("click", function () {
+                    var currentIdx = $(this).parent().index();
+                    $(this).parent().parent().find("li").removeClass("active");
+                    $(this).parent().addClass("active");
+                    $(".content").addClass("blind");
+                    $(".content").eq(currentIdx).removeClass("blind");
+                });
             });
         </script>
     </head>
-<body>
-    <!-- wrap -->
-    <div class="wrap">
-        <!-- header -->
-        <div class="header">
-            <div class="inner">
-                <img src="images/common/header_img.png" alt="GNB" />
-                <div class="sub">
-                    <img src="images/common/header_depth.png" alt="GNB_depth" />
-                    <ul>
-                        <li>CEO  인사말</li>
-                        <li>연혁</li>
-                        <li>경영비전</li>
-                        <li>CI</li>
-                        <li>찾아오시는 길</li>
-                    </ul>
-                </div>
-            </div>
+    <body>
+        <div class="header">환경시설관리주식회사 퍼블리싱 리스트</div>
+        <div id="tab_list" class="content_tab">
+            <ul>
+                <li class="active"><a href="javascript:;">사용자 국문</a></li>
+                <!-- <li><a href="javascript:;">사용자 영문</a></li>
+                <li><a href="javascript:;">관리자</a></li> -->
+            </ul>
         </div>
-        <!-- //header -->
 
-        <div class="container">
-            <div class="section0">
-                <div class="vis_scroll">
-                    <img src="images/pc/visual_scroll.png" alt="">
-                </div>
-                <div id="main_visual" class="main_visual">
-                    <div class="txt">
-                        <div class="txt01"><img src="images/pc/visual_txt00.png" alt="skdnd" /></div>
-                    </div>
-                    <div class="btn">
-                        <a href="javascript:;"><img src="images/pc/visual_btn.png" alt="더보기"></a>
-                    </div>
-                    <div class="scroll">
-                        <img src="images/pc/visual_scroll.png" alt="스크롤">
-                    </div>
-                    <div class="carbon_level carbon_level1">
-                        <div class="carbon_number"><span class="mov_num1">0</span> ppm</div>
-                        <img src="images/pc/visual_mark.png" alt="탄소 수치" class="img01">
-                        <img src="images/pc/sec1_mark.png" alt="탄소 수치" class="img02">
-                        <div class="carbon_chart"></div>
-
-                    </div>
-
-                    <!-- slide swiper lists -->
-                    <div class="swiper-wrapper">
-                        <div class="swiper-slide">
-                            <div class="bg01">
-                                <!-- <div class="mask"></div> -->
-                                <video id="mainvideo01" src="videos/077721315_main_xl.mp4" playsinline muted loop autoplay data-keepplaying class="video_bg"></video>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="bg02">
-                                <!-- <div class="mask"></div> -->
-                                <video id="mainvideo02" src="videos/160704589_main_xl.mp4" playsinline muted loop autoplay data-keepplaying class="video_bg"></video>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="bg03">
-                                <!-- <div class="mask"></div> -->
-                                <video id="mainvideo03" src="videos/140958349_main_xl.mp4" playsinline muted loop autoplay data-keepplaying class="video_bg"></video>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="bg04">
-                                <!-- <div class="mask"></div> -->
-                                <video id="mainvideo03" src="videos/098171513_main_xl.mp4" playsinline muted loop autoplay data-keepplaying class="video_bg"></video>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- <div class="swiper-pagination main_paging"></div> -->
-                    <div class="naviPlay">
-                        <span class="naviAuto">
-                            <a href="javascript:;" class="autoplay"><img src="images/common/icon_pause.png" /></a>
-                        </span>
-                        <span id="fPrev" class="arrow left swiper-button-prev"><a href="javascript:;"><img src="images/common/icon_left.png" alt="이전 슬라이드" /></a></span>
-                        <span id="fNext" class="arrow right swiper-button-next"><a href="javascript:;"><img src="images/common/icon_right.png" alt="다음 슬라이드" /></a></span>
-                        <div class="main_notice">
-                            <div class="slide_bar">
-                                <div class="swiper-pagination"></div>
-                                <span class="playbar playbar1">
-                                    <span class="playTime"></span>
-                                </span>
-                                <span class="playbar playbar2">
-                                    <span class="playTime"></span>
-                                </span>
-                                <span class="playbar playbar3">
-                                    <span class="playTime"></span>
-                                </span>
-                                <span class="playbar playbar4">
-                                    <span class="playTime"></span>
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-
-            <div class="section1">
-                <div class="contents">
-                    <img src="images/pc/sec1_tit00.png" alt="" class="sec1_tit00">
-                    <img src="images/pc/sec1_tit01.png" alt="" class="sec1_tit01">
-                    <img src="images/pc/sec1_tit02.png" alt="EMC 에너지 생산량 및 CO2 감축량" class="sec1_tit02">
-                    <img src="images/pc/sec1_icon00.png" alt="총감축량" class="sec1_icon00">
-                    <div class="bg_clip">
-                        <div class="count">
-                            <span class="mov_num2"></span>
-                        </div>
-                    </div>
-                    <span class="unit">그루</span>
-                    <div class="carbon_level carbon_level2">
-                        <div class="carbon_number"><span class="mov_num3">0</span> ppm</div>
-                        <img src="images/pc/sec1_mark.png" alt="탄소 수치">
-                        <div class="carbon_chart"></div>
-                    </div>
-
-                    <div class="inner">
-                        <div class="tree">
-                            <img src="images/pc/sec1_tree1_on.png" alt="">
-                            <img src="images/pc/sec1_tree1.gif" alt="">
-                        </div>
-                        <div class="sec1_box01">
-                            <img src="images/pc/sec1_dot.png" alt="" class="dot01">
-                            <svg class="line01">
-                                <polyline class="rect"
-                                  points="227,30 196,0 0,0" 
-                                  fill="none" stroke="#000" stroke-width="1" />
-                            </svg>
-                            <span class="hl01"></span>
-                            <img src="images/pc/sec1_txt01.png" alt="" class="txt01">
-                            <img src="images/pc/sec1_icon01.png" alt="" class="icon01">
-                            <span class="mov_num4"></span>
-                        </div>
-                        <script>
-                            $('.sec1_box01').mouseenter(function(){
-                                $(this).find('.icon01').stop().css({
-                                    "animation-name":"onrotate",
-                                    "animation-duration":".7s",
-                                    "animation-count":'1'
-                                });
-                            });
-                            $('.sec1_box01').mouseleave(function(){
-                                $(this).find('.icon01').stop().css({
-                                    "animation-name":"outrotate",
-                                    "animation-duration":".7s",
-                                    "animation-count":'1'
-                                });
-                            });
-                        </script>
-                        <div class="sec1_box02">
-                            <img src="images/pc/sec1_dot.png" alt="" class="dot02">
-                            <svg class="line02">
-                                <polyline class="rect"
-                                  points="227,30 196,0 0,0" 
-                                  fill="none" stroke="#000" stroke-width="1" />
-                            </svg>
-                            <img src="images/pc/sec1_txt02.png" alt="" class="txt02">
-                        </div>
-                        <div class="sec1_box03">
-                            <img src="images/pc/sec1_dot.png" alt="" class="dot03">
-                            <svg class="line03">
-                                <polyline class="rect"
-                                  points="227,30 196,0 0,0" 
-                                  fill="none" stroke="#000" stroke-width="1" />
-                            </svg>
-                            <img src="images/pc/sec1_txt03.png" alt="" class="txt03">
-                        </div>
-                        <div class="sec1_box04">
-                            <img src="images/pc/sec1_dot.png" alt="" class="dot04">
-                            <svg class="line04">
-                                <polyline class="rect"
-                                  points="0,30 30,0 227,0" 
-                                  fill="none" stroke="#000" stroke-width="1" />
-                            </svg>
-                            <img src="images/pc/sec1_txt04.png" alt="" class="txt04">
-                        </div>
-                        <div class="sec1_box05">
-                            <img src="images/pc/sec1_dot.png" alt="" class="dot05">
-                            <svg class="line05">
-                                <polyline class="rect"
-                                  points="0,30 30,0 227,0" 
-                                  fill="none" stroke="#000" stroke-width="1" />
-                            </svg>
-                            <img src="images/pc/sec1_txt05.png" alt="" class="txt05">
-                        </div>
+        <!-- 사용자 국문 -->
+        <div class="content">
+            <table>
+                <thead>
+                    <tr>
+                        <th>1depth</th>
+                        <th>2depth</th>
+                        <th>3depth</th>
+                        <th>4depth</th>
+                        <th>비고</th>
+                        <th>화면 ID</th>
+                        <th>publishing</th>
+                        <th>담당자</th>
                         
-                        <img src="images/pc/sec1_txt06.png" alt="" class="txt06">
-
-                    </div>
-
-                </div>
-            </div>
-            <div class="section2">
-                <div class="inner">
-                    <img src="images/pc/sec2_tit.png" alt="" class="sec2_tit">
-                    <img src="images/pc/sec2_txt00.png" alt="" class="sec2_txt">
-                    <img src="images/pc/sec2_line.png" alt="" class="sec2_line">
-                    <div class="box_wrap">
-                        <div class="sec2_box01">
-                            <img src="images/pc/sec2_box01.png" alt="">
-                            <img src="images/pc/sec2_box01_on.png" alt="">
-                            <div class="box_img_wrap">
-                                <img src="images/pc/sec2_box01_img.png" alt="">
-                            </div>
-                        </div>
-                        <img src="images/pc/sec2_box02.png" alt="" class="sec2_box02">
-                        <img src="images/pc/sec2_box03.png" alt="" class="sec2_box03">
-                        <img src="images/pc/sec2_box04.png" alt="" class="sec2_box04">
-                        <img src="images/pc/sec2_box05.png" alt="" class="sec2_box05">
-                        <img src="images/pc/sec2_box06.png" alt="" class="sec2_box06">
-                    </div>
-                </div>
-                <img src="images/pc/sec2_bgtxt.png" alt="" class="sec2_bgtxt">
-            </div>
-            <div class="section3">
-                <img src="images/pc/sec3_tit00.png" alt="" class="sec3_tit00">
-                <img src="images/pc/sec3_tit01.png" alt="" class="sec3_tit01">
-                <div class="contents">
-                    <div class="sec3_menu">
-                        <ul>
-                            <li><img src="images/pc/sec3_menu01.png" alt=""></li>
-                            <li><img src="images/pc/sec3_menu02.png" alt=""></li>
-                            <li><img src="images/pc/sec3_menu03.png" alt=""></li>
-                            <li><img src="images/pc/sec3_menu04.png" alt=""></li>
-                            <li><img src="images/pc/sec3_menu05.png" alt=""></li>
-                        </ul>
-                    </div>
-                </div>
-                <!-- <script>
-                    $(".container .section3 .sec3_menu ul li").eq(1).hover(function(){
-                        $(".container .section3 .contents").addClass("on");
-                    });
-                </script> -->
-
-
-            </div>
-            <div class="section4">
-                <div class="inner">
-                    <img src="images/pc/sec4_tit.png" alt="" class="sec4_tit">
-                    <img src="images/pc/sec4_txt00.png" alt="" class="sec4_txt">
-                    <div class="sec4_news">
-                        <img src="images/pc/sec4_news.jpg" alt="">
-                    </div>
-                    <div class="sec4_menu">
-                        <div class="hover"></div>
-                    </div>
-                </div>
-            </div>
-            <div class="footer">
-                <img src="images/pc/footer.png" alt="">
-            </div>
-            <div class="gotop"><img src="images/pc/gotop.png" alt=""></div>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>공통</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><a href="html/default.html" target="_blank">default.html</a></td>
+                        <td>●</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>메인</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><a href="front/html/FD-00-01-001.html" target="_blank">FD-00-01-001.html</a></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td rowspan="5">회사소개</td>
+                        <td>CEO 인사말</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><a href="html/FD-01-01-0011.html" target="_blank">FD-01-01-0011.html</a></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>연혁</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><a href="" target="_blank">FD-01-02-0011.html</a></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>경영비전</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><a href="" target="_blank">FD-01-03-0011.html</a></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>CI</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><a href="" target="_blank">FD-01-04-0011.html</a></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>찾아오시는 길</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><a href="" target="_blank">FD-01-05-0011.html</a></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td rowspan="7">사업소개</td>
+                        <td>개요</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><a href="html/FD-02-00-0011.html" target="_blank">FD-02-00-0011.html</a></td>
+                        <td>●</td>
+                        <td>K</td>
+                    </tr>
+                    <tr>
+                        <td rowspan="3">수처리</td>
+                        <td>O&M</td>
+                        <td></td>
+                        <td></td>
+                        <td><a href="html/FD-02-01-0011.html" target="_blank">FD-02-01-0011.html</a></td>
+                        <td>●</td>
+                        <td>K,W</td>
+                    </tr>
+                    <tr>
+                        <td>환경건설</td>
+                        <td></td>
+                        <td></td>
+                        <td><a href="" target="_blank">FD-02-01-0021.html</a></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>기술역량</td>
+                        <td></td>
+                        <td></td>
+                        <td><a href="" target="_blank">FD-02-01-0031.html</a></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td rowspan="2">Green</td>
+                        <td>에너지</td>
+                        <td></td>
+                        <td></td>
+                        <td><a href="" target="_blank">FD-02-02-0011.html</a></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>자원순환</td>
+                        <td></td>
+                        <td></td>
+                        <td><a href="" target="_blank">FD-02-02-0021.html</a></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>New BIZ</td>
+                        <td>New BIZ</td>
+                        <td></td>
+                        <td></td>
+                        <td><a href="" target="_blank">FD-02-03-0011.html</a></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td rowspan="5">지속가능경영</td>
+                        <td>ESG경영</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><a href="" target="_blank">FD-03-01-0011.html</a></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>윤리경영</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><a href="" target="_blank">FD-03-02-0011.html</a></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>안전보건</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><a href="" target="_blank">FD-03-03-0011.html</a></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>탄소저감</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><a href="" target="_blank">FD-03-04-0011.html</a></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>사회공헌</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><a href="" target="_blank">FD-03-05-0011.html</a></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td rowspan="5">투자정보</td>
+                        <td rowspan="2">News</td>
+                        <td>리스트</td>
+                        <td></td>
+                        <td></td>
+                        <td><a href="html/FD-04-01-0011.html" target="_blank">FD-04-01-0011.html</a></td>
+                        <td>●</td>
+                        <td>K</td>
+                    </tr>
+                    <tr>
+                        <td>상세페이지</td>
+                        <td></td>
+                        <td></td>
+                        <td><a href="html/FD-04-01-0012.html" target="_blank">FD-04-01-0012.html</a></td>
+                        <td>●</td>
+                        <td>W</td>
+                    </tr>
+                    <tr>
+                        <td>재무정보</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><a href="" target="_blank">FD-04-02-0011.html</a></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td rowspan="2">공시/공고</td>
+                        <td>리스트</td>
+                        <td></td>
+                        <td></td>
+                        <td><a href="html/FD-04-03-0011.html" target="_blank">FD-04-03-0011.html</a></td>
+                        <td>●</td>
+                        <td>K</td>
+                    </tr>
+                    <tr>
+                        <td>상세페이지</td>
+                        <td></td>
+                        <td></td>
+                        <td><a href="html/FD-04-03-0012.html" target="_blank">FD-04-03-0012.html</a></td>
+                        <td>●</td>
+                        <td>W</td>
+                    </tr>
+                    <tr>
+                        <td rowspan="2">인재채용</td>
+                        <td>인사제도</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><a href="" target="_blank">FD-05-01-0011.html</a></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>채용정보</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><a href="" target="_blank">FD-05-02-0011.html</a></td>
+                        <td></td>
+                        <td></td>
+                    </tr>                
+                    <tr>
+                        <td rowspan="4">footer</td>
+                        <td>footer</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><a href="include/footer.html" target="_blank">footer.html</a></td>
+                        <td>●</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>개인정보취급방침</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><a href="" target="_blank">FD-00-00-0021.html</a></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>통합검색결과</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><a href="" target="_blank">FD-00-00-0031.html</a></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>사이트맵</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><a href="" target="_blank">FD-00-00-0041.html</a></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
-    </div>
-</body>
+
+
+    </body>
+
 </html>
