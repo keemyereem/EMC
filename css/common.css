@@ -115,7 +115,7 @@ br {font-family:dotum !important;}
 .lang_select {display: inline-block;position: relative;vertical-align: middle;}
 .lang_select .lang_choice {width: auto;height: 9rem;text-align: center;}
 .lang_select .lang_choice li {display: inline-block;margin-right: 2rem;}
-.lang_select .lang_choice li a {display: inline-block;font-family: 'Montserrat';font-weight: 500;font-size: 1.5rem;color: #fff;opacity: .5;}
+.lang_select .lang_choice li a {display: inline-block;font-weight: 400;font-size: 1.5rem;color: #fff;opacity: .5;}
 .lang_select .lang_choice li a > i {display: inline-block;width: .4rem;height: .4rem;border-radius: 50%;background: #fff;margin-left: .4rem;}
 /* .lang_select .lang_choice li:hover a,  */.lang_select .lang_choice li.on a {opacity: 1;}
 
@@ -143,7 +143,7 @@ br {font-family:dotum !important;}
 .container .sub_visual .sub_visual_nav div a:before { content: ''; background: #000; opacity:0; width: 100%; height: 100%; position: absolute; border-radius: 6rem; transition:all ease .3s; }
 .container .sub_visual .sub_visual_nav div a:hover:before { opacity: .2;}
 .container .sub_visual .sub_visual_nav div a img { position: absolute; right:0; padding: 0 2.3rem; top: 50%; transform: translateY(-50%); }
-.container .sub_visual .sub_visual_nav div a span {  font-size: 1.8rem; color:#fff; display:inline-block; position: relative; top:50%; transform:translateY(-50%); opacity:0; transition:all ease .3s; }
+.container .sub_visual .sub_visual_nav div a span {  font-size: 1.8rem; color:#fff; display:inline-block; position: relative; top:50%; transform:translateY(-50%); line-height: normal; opacity:0; transition:all ease .3s; }
 .container .sub_visual .sub_visual_nav div a:hover span { opacity:1; }
 .container .sub_visual .sub_visual_nav .sub_visual_nav_next { right:-2rem; }
 .container .sub_visual .sub_visual_nav .sub_visual_nav_next a span { padding:0 9.5rem 0 4rem; }
