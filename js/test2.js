@@ -210,6 +210,7 @@ var onmEvent = {
             var st = $(window).scrollTop(),
                 winH = $(window).height(),
                 tit_line = $('.business_contents .section1 .tit_line'),
+                tit_offTop = tit_line.offset().top,
                 tit_offTop = tit_line.offset().top;
 
                 
