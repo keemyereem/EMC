@@ -89,19 +89,23 @@ br {font-family:dotum !important;}
 
 /* header */
 .header {position: fixed;top: 0;left: 0;background: transparent;width: 100%;height: 9rem;line-height: 9rem;font-weight: 300;z-index:1002;color: #fff;}
+.header.fixed {background: #fff;color: #222;}
 .header:after {content: "";position: absolute;left: 0;bottom: -1px;width: 0;height: .1rem;background: url(../images/common/header_border.jpg) no-repeat;background-size: 100% 100%;}
 .header.on:after {width: 100%;transition: all 1.5s;}
 .header .header_wrap {width: 100%;max-width: 176rem;height: 100%;margin: 0 auto;}
 .header .header_wrap:after {content: "";display: block;clear: both;}
 .header h1 {position: relative;float: left;padding-top: 1.9rem;z-index: 2;}
 .header h1 a {display: inline-block;vertical-align: middle;font-size: 0;}
-.header h1 .logo {background: url(../images/common/EMC_logo_w.png) 0 0 no-repeat;width: 15rem;height: 6.8rem;}
+.header h1 .logo {background: url(../images/common/EMC_logo_w.png) 0 0 no-repeat;width: 11.6rem;height: 4.1rem;}
+.header.fixed h1 .logo {background: url(../images/common/EMC_logo.png) 0 0 no-repeat;}
 .header h1 .logo_m {display: none;background: url(../images/common/logo_m.png) 0 0 no-repeat;background-size: 100% 100%;width: 6.9rem;height: 3.7rem;}
 .header .gnb {position: absolute;top: 0;left: 0;width: 100%;height: 100%;text-align: center;}
 .header .gnb>ul {display: flex;justify-content: center;}
 .header .gnb>ul>li {position: relative;}
 .header .gnb>ul>li .gnb_tit {display: block;padding: 0 5.5rem;position: relative;font-size: 1.6rem;font-weight: 300;color: #fff;}
+.header.fixed .gnb>ul>li .gnb_tit {color: #222;}
 .header .gnb>ul>li:hover .gnb_tit {background: #578337;box-sizing: border-box;}
+.header.fixed .gnb>ul>li:hover .gnb_tit {color: #fff;}
 .header .gnb>ul>li .depth_box {position: absolute;top: 9rem;left: 0;background: #578337;width: 100%;box-shadow: 3px 3px 5px rgba(0,0,0,.05);height: 0;overflow:hidden;transition: all .3s;}
 .header .gnb>ul>li:hover .depth_box {height: auto;padding: 1.5rem 0 2.5rem 0;}
 .header .gnb>ul>li .depth_box:before {content:'';display: inline-block;width: calc(100% - 4rem);height: .1rem;background: #fff;opacity: .1;position:absolute;top:0;left:2rem;}
@@ -112,16 +116,21 @@ br {font-family:dotum !important;}
 .header .gnb>ul>li .depth_box .depth_list.active .list_tit {font-weight: 400;color:#ea002c;}
 
 .header .gnb_menu {position: relative;float: right;z-index: 2;}
-.lang_select {display: inline-block;position: relative;vertical-align: middle;}
-.lang_select .lang_choice {width: auto;height: 9rem;text-align: center;}
-.lang_select .lang_choice li {display: inline-block;margin-right: 2rem;}
-.lang_select .lang_choice li a {display: inline-block;font-weight: 400;font-size: 1.5rem;color: #fff;opacity: .5;}
-.lang_select .lang_choice li a > i {display: inline-block;width: .4rem;height: .4rem;border-radius: 50%;background: #fff;margin-left: .4rem;}
-/* .lang_select .lang_choice li:hover a,  */.lang_select .lang_choice li.on a {opacity: 1;}
+.header .lang_select {display: inline-block;position: relative;vertical-align: middle;}
+.header .lang_select .lang_choice {width: auto;height: 9rem;text-align: center;}
+.header .lang_select .lang_choice li {display: inline-block;margin-right: 2rem;}
+.header .lang_select .lang_choice li a {display: inline-block;font-weight: 400;font-size: 1.5rem;color: #fff;opacity: .5;}
+.header .lang_select .lang_choice li a > i {display: inline-block;width: .4rem;height: .4rem;border-radius: 50%;background: #fff;margin-left: .4rem;}
+/*.header .lang_select .lang_choice li:hover a,  */.header .lang_select .lang_choice li.on a {opacity: 1;}
+.header.fixed .lang_select .lang_choice li a {color: #222;opacity: .3;}
+.header.fixed .lang_select .lang_choice li a > i {background: #222;}
+.header.fixed .lang_select .lang_choice li.on a {opacity: 1;}
+.header.fixed .lang_select .lang_choice li.on a > i {background: #568236;}
 
 .header .top_sitemap {display: inline-block;vertical-align: middle;}
 .header .gnb_menu .top_sitemap i {display: block;position: relative;background: #fff;width: 2.5rem;height: .2rem;margin-bottom: .6rem;margin-left: 3rem;}
 .header .gnb_menu .top_sitemap i:last-child {width: 1.7rem;margin-bottom:0;position: absolute;right:0;}
+.header.fixed .gnb_menu .top_sitemap i {background: #000;}
 .header .m_gnb {display: none;}
 .header .m_gnb .m_menu {float: right;}
 .header .m_gnb .top_sitemap {display: inline-block;vertical-align: middle;}
