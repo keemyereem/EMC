@@ -15,6 +15,7 @@ $(function(){
         anchorPlacement: 'bottom-bottom',
     });
     
+    // O&M 페이지 타이틀 순서대로 모션 출력
     const aos_order1 = document.querySelector('.title');
     const aos_order2 = document.querySelector('.tit_line');
 
