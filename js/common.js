@@ -14,11 +14,17 @@ $(function(){
         duration: 500,
         anchorPlacement: 'bottom-bottom',
     });
-    $('.sub_tit').removeClass('aos-animate');
-    const dd = document.querySelector('.tit_line')
-    dd.addEventListener('transitionend', function(e){
-        alert('a');
-    });  
+    
+    const aos_order1 = document.querySelector('.title');
+    const aos_order2 = document.querySelector('.tit_line');
+
+    aos_order1.addEventListener('transitionend', function(e){
+        $(aos_order2).addClass('on');
+        aos_order2.addEventListener('transitionend', function(e){
+            $('.sub_tit').addClass('on');
+        });  
+    });   
+    
 });
 
 var resizeEvent;
@@ -211,8 +217,8 @@ var onmEvent = {
     onmScroll:function(){
         $(window).on('scroll',function(){
             
-            var tit = $('.title'),
-                tit_line = $('.business_contents .section1 .tit_line');
+            // var tit = $('.title'),
+            //     tit_line = $('.business_contents .section1 .tit_line');
             // var st = $(window).scrollTop(),
             //     winH = top.window.innerHeight,
                 
@@ -220,11 +226,11 @@ var onmEvent = {
             // if ($(tit_line).offset().top < (st+winH*0.9)){  
             //     tit_line.addClass('on');
             // }
-            if ($(tit).hasClass('aos-animate')){  
-                setTimeout(function() {
-                    tit_line.addClass('on');
-                }, 500);
-            } 
+            // if ($(tit).hasClass('aos-animate')){  
+            //     setTimeout(function() {
+                    
+            //     }, 500);
+            // } 
             
         });
              
