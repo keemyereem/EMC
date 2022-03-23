@@ -60,6 +60,7 @@ var commonEvent = {
     init:function(){
         this.submenuEvent();
         this.headerEvent();
+        this.footerEvent();
     },
     submenuEvent:function(){
         $(document).on('click', '.sub_visual_menu .depth', function(){
@@ -79,13 +80,27 @@ var commonEvent = {
             if (st>=100){
                 $('.header').addClass('fixed');
             }else{
-                $('.header').remClass('fixed');
+                $('.header').removeClass('fixed');
             }
         });
 
         $(document).on('click', '.lang_choice li', function(){
             $('.lang_choice li').removeClass('on');
             $(this).addClass('on');  
+        });
+    },
+    footerEvent:function() {
+        $(window).scroll(function() {
+            // top button controll
+            if ($(this).scrollTop() > 800) {
+                $('#topButton').fadeIn();
+            } else {
+                $('#topButton').fadeOut();
+            }
+        });
+
+        $("#topButtonImg").click(function() {
+            $('html, body').animate({scrollTop:0}, '300');
         });
     },
 };

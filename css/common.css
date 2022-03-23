@@ -88,13 +88,13 @@ br {font-family:dotum !important;}
 /* button */
 
 /* header */
-.header {position: fixed;top: 0;left: 0;background: transparent;width: 100%;height: 9rem;line-height: 9rem;font-weight: 300;z-index:1002;color: #fff;}
-.header.fixed {background: #fff;color: #222;}
+.header {position: fixed;top: 0;left: 0;background: transparent;width: 100%;height: 9rem;line-height: 9rem;font-weight: 300;z-index:1002;color: #fff; transition: all ease .3s;}
+.header.fixed {background: #fff;color: #222; box-shadow:0 0 10px 0 rgb(0 0 0 / 23%);}
 .header:after {content: "";position: absolute;left: 0;bottom: -1px;width: 0;height: .1rem;background: url(../images/common/header_border.jpg) no-repeat;background-size: 100% 100%;}
-.header.on:after {width: 100%;transition: all 1.5s;}
+.header.on:after {width: 100%; transition: all 1.5s;}
 .header .header_wrap {width: 100%;max-width: 176rem;height: 100%;margin: 0 auto;}
 .header .header_wrap:after {content: "";display: block;clear: both;}
-.header h1 {position: relative;float: left;padding-top: 1.9rem;z-index: 2;}
+.header h1 {position: relative;float: left;padding-top: 2.4rem;z-index: 2;}
 .header h1 a {display: inline-block;vertical-align: middle;font-size: 0;}
 .header h1 .logo {background: url(../images/common/EMC_logo_w.png) 0 0 no-repeat;width: 11.6rem;height: 4.1rem;}
 .header.fixed h1 .logo {background: url(../images/common/EMC_logo.png) 0 0 no-repeat;}
@@ -237,6 +237,8 @@ br {font-family:dotum !important;}
 .footer .family_site .site_link.open .link_list .opt_grp.open{background: #222 url(../images/common/icon_minus2.png)90% 50% no-repeat;background-size: 1.1rem .1rem;}
 .footer .family_site .site_link.open .link_list .opt_grp + .link_list_depth{height: 0;overflow: hidden;}
 .footer .family_site .site_link.open .link_list .opt_grp.open + .link_list_depth{height: auto;}
+
+#topButton {position: fixed; right: 8rem; bottom: 16rem; display: none; z-index: 999; box-shadow:0 0 1.6rem 0 rgb(0 0 0 / 16%); border-radius: 3rem;}
 /* .footer .family_site .site_link.open .link_list::-webkit-scrollbar{width: .5rem;}
 .footer .family_site .site_link.open .link_list::-webkit-scrollbar-thumb{background: #999;}
 .footer .family_site .site_link.open .link_list::-webkit-scrollbar-track{width: 0.5rem;background: #333;} */
