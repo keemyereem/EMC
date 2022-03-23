@@ -129,23 +129,38 @@ var onmEvent = {
             });
     
             Tabs.on("click", function() {
+                // 탭 버튼 CSS 액티브 효과
                 $(this).addClass('on');
                 $(this).siblings().removeClass('on');
                 
+                // Tab버튼 index값 추출
                 var Tabs_idx = Tabs.index(this)+1;
+
+                // 클릭요소 제외한 다른 슬라이드 컨테이너, 탭 버튼 및 AOS 모션 초기화
                 $('.section2 .nav_box').removeClass('on');
                 $('.box_text, .swiper, .swiper_2depth_tabs, .onm_box_slider_button').removeClass('aos-animate');
+                // 클릭요소의 슬라이드 컨테이너 출력
                 $('.section2 .box0' + Tabs_idx).addClass('on');
-     
+                
+                // 첫번째 슬라이드 컨테이너 내부 2Depth 탭 초기화(첫번째로)
+                $('.swiper1_box').hide();
+                $('.swiper1_box01').css({display:'block'});
+
                 setTimeout(function() {
+                    // AOS 모션 초기화
                     $('.box0' + Tabs_idx + ' .box_text, .box0' + Tabs_idx + ' .swiper, .swiper_2depth_tabs, .box0' + Tabs_idx + ' .onm_box_slider_button').addClass('aos-animate');
+
+                    // 2Depth 탭 초기화
+                    Tabs_depth2.removeClass('on');
+                    Tabs_depth2.eq(0).addClass('on');
+                    swiper1.slideTo(0, 0);
                 }, 0);
+
                 $('.section3 .onm_list').removeClass('on');
                 $('.section3 .onm_list0' + Tabs_idx).addClass('on');
-                swiper.slideTo(0, 0);
 
-                Tabs_depth2.removeClass('on');
-                Tabs_depth2.eq(0).addClass('on');
+                swiper.slideTo(0, 0);
+                
             });
             
             Tabs_depth2.on('click', function(){
@@ -160,10 +175,9 @@ var onmEvent = {
                 $('.swiper1_box .swiper').removeClass('aos-animate');
 
                 setTimeout(function() {
-                    $('.swiper1_box0' + idx + ' .swiper').addClass('aos-animate');
+                    $('.box01 .box_text, .swiper1_box0' + idx + ' .swiper').addClass('aos-animate');
                     swiper1.slideTo(0, 0);
                 }, 0);
-                // swiper1.slideTo(0, 0);
                 
             });
         });
