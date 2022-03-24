@@ -85,6 +85,14 @@ var commonEvent = {
             } else {
                 $('#topButton').fadeOut();
             }
+            var footerTop = $('.footer').offset().top - $(window).outerHeight();
+            var pos = $('.footer').outerHeight() + Number(80);
+            
+            if($(this).scrollTop() > footerTop){
+                $('#topButton').addClass('on').css({'bottom':pos});
+            }else {
+                $('#topButton').removeClass('on').css({'bottom':'8rem'});
+            }
         });
 
         $(document).on('click', '#topButtonImg', function() {
