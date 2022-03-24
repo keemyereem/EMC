@@ -238,7 +238,8 @@ br {font-family:dotum !important;}
 .footer .family_site .site_link.open .link_list .opt_grp + .link_list_depth{height: 0;overflow: hidden;}
 .footer .family_site .site_link.open .link_list .opt_grp.open + .link_list_depth{height: auto;}
 
-#topButton {position: fixed; right: 8rem; bottom: 16rem; display: none; z-index: 999; box-shadow:0 0 1.6rem 0 rgb(0 0 0 / 16%); border-radius: 3rem;}
+#topButton {position: fixed; right: 8rem; bottom: 16rem; display: none; z-index: 999; box-shadow: 3px 4px 15.52px 0.48px rgba(67, 83, 66, 0.16); border-radius: 3rem;}
+#topButton.on {position: absolute;}
 /* .footer .family_site .site_link.open .link_list::-webkit-scrollbar{width: .5rem;}
 .footer .family_site .site_link.open .link_list::-webkit-scrollbar-thumb{background: #999;}
 .footer .family_site .site_link.open .link_list::-webkit-scrollbar-track{width: 0.5rem;background: #333;} */

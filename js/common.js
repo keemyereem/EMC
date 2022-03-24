@@ -15,18 +15,6 @@ $(function(){
         anchorPlacement: 'bottom-bottom',
     });
     
-    // O&M 페이지 타이틀, 라인 지정
-    const aos_order1 = document.querySelector('.title');
-    const aos_order2 = document.querySelector('.tit_line');
-
-    // O&M 페이지 타이틀, 라인, 설명 각각 모션효과 종료될 때 다음 모션 진행하도록 
-    aos_order1.addEventListener('transitionend', function(e){
-        $(aos_order2).addClass('on');
-        aos_order2.addEventListener('transitionend', function(e){
-            $('.sub_tit').addClass('on');
-        });  
-    });   
-    
 });
 
 var resizeEvent;
@@ -92,23 +80,37 @@ var commonEvent = {
     footerEvent:function() {
         $(window).scroll(function() {
             // top button controll
-            if ($(this).scrollTop() > 800) {
+            if ($(this).scrollTop() > 500) {
                 $('#topButton').fadeIn();
             } else {
                 $('#topButton').fadeOut();
             }
         });
 
-        $("#topButtonImg").click(function() {
+        $(document).on('click', '#topButtonImg', function() {
             $('html, body').animate({scrollTop:0}, '300');
         });
     },
 };
 
-////////////////////////////////////////////// O&M 수처리 페이지 슬라이드 이벤트 (FD-02-01-0011)
+////////////////////////////////////////////// O&M 수처리 페이지 이벤트 (FD-02-01-0011)
 var onmEvent = {
     init:function(){
         this.onmSwiper();
+        this.onmAOStit();
+    },
+    onmAOStit:function(){
+        // O&M 페이지 타이틀, 라인 지정
+        const aos_order1 = document.querySelector('.title');
+        const aos_order2 = document.querySelector('.tit_line');
+
+        // O&M 페이지 타이틀, 라인, 설명 각각 모션효과 종료될 때 다음 모션 진행하도록 
+        aos_order1.addEventListener('transitionend', function(e){
+            $(aos_order2).addClass('on');
+            aos_order2.addEventListener('transitionend', function(e){
+                $('.sub_tit').addClass('on');
+            });  
+        });   
     },
     onmSwiper:function(){
         // 탭 버튼 및 2depth 탭 버튼
