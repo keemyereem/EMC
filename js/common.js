@@ -137,8 +137,8 @@ var onmEvent = {
                 speed: 700,
                 
                 navigation: {
-                    nextEl: '.swiper-button-next01_0' + index,
-                    prevEl: '.swiper-button-prev01_0' + index,
+                    nextEl: '.swiper-button-next01_01',
+                    prevEl: '.swiper-button-prev01_01',
                 },
                 watchOverflow: true,   
             });

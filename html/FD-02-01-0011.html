@@ -24,15 +24,24 @@
     <link type="text/css" href="css/common.css" rel="stylesheet">
     <link type="text/css" href="css/sub.css" rel="stylesheet">
     <link type="text/css" href="css/media.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css">
+    <link type="text/css" href="css/swiper.css" rel="stylesheet">
+    <link type="text/css" href="css/swiper.min.css" rel="stylesheet">
     <link type="text/css" href="css/aos.css" rel="stylesheet">
+    <!--※ swiper caution ※ - latest version cannot convert with IE8. 
+        if you want to use modern sohpiscated styles on swiper. do not use IE 10 less version-->
+    <!--<link type="text/css" href="https://unpkg.com/swiper@8/swiper-bundle.min.css" rel="stylesheet">-->
 
     <script type="text/javascript" src="js/lib/jquery-1.12.4.min.js"></script>
+    <script type="text/javascript" src="js/lib/swiper.js"></script>
+    <script type="text/javascript" src="js/lib/swiper.min.js"></script>
     <script type="text/javascript" src="js/lib/aos.js"></script>
     <script type="text/javascript" src="js/common.js"></script>
-    <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+    <!--※ swiper caution ※ - latest version cannot convert with IE8. 
+        if you want to use modern sohpiscated styles on swiper. do not use IE 10 less version-->
+    <!--<script type="text/javascript" src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>-->  
 
-    <script>
+
+    <script type="text/javascript">
         $(window).load( function() {
             //html용 include
             $(".header").load("include/header.html");
@@ -62,12 +71,12 @@
                     <div class="sub_visual_nav_prev">
                         <a href="javascript:;" title="이전메뉴로 이동">
                             <span></span>
-                            <img src="../images/common/sub_visual_nav_prev.png" alt="sub_visual_nav_prev">
+                            <img src="images/common/sub_visual_nav_prev.png" alt="sub_visual_nav_prev">
                         </a>
                     </div>
                     <div class="sub_visual_nav_next">
                         <a href="javascript:;" title="다음메뉴로 이동">
-                            <img src="../images/common/sub_visual_nav_next.png" alt="sub_visual_nav_next">
+                            <img src="images/common/sub_visual_nav_next.png" alt="sub_visual_nav_next">
                             <span>지속가능경영</span>
                         </a>
                     </div>
@@ -211,7 +220,7 @@
                                             운영하는 운영전문회사입니다.
                                         </div>
                                     </div>
-                                    <div class="swiper_container">
+                                    <div class="swiper-container">
                                         <div class="swiper_2depth_tabs" data-aos="fade" data-aos-duration="700" data-aos-offset="600">
                                             <p class="on"><a href="javascript:;">공공하수처리시설</a></p>
                                             <p class=""><a href="javascript:;">공공폐수처리시설</a></p>
@@ -258,10 +267,6 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="onm_box_slider_button" data-aos="fade-up" data-aos-duration="700">
-                                                <div class="swiper-button-next swiper-button-next01_01"></div>
-                                                <div class="swiper-button-prev swiper-button-prev01_01"></div>
-                                            </div>
                                         </div>
 
                                         <div class="swiper1_box swiper1_box02" style="display: none;">
@@ -305,11 +310,11 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="onm_box_slider_button" data-aos="fade-up" data-aos-duration="700">
-                                                <div class="swiper-button-next swiper-button-next01_02"></div>
-                                                <div class="swiper-button-prev swiper-button-prev01_02"></div>
-                                            </div>
                                         </div>
+                                    </div>
+                                    <div class="onm_box_slider_button" data-aos="fade-up" data-aos-duration="700">
+                                        <div class="swiper-button-next swiper-button-next01_01"></div>
+                                        <div class="swiper-button-prev swiper-button-prev01_01"></div>
                                     </div>
                                 </div>
                                 <div class="nav_box box02">
@@ -605,7 +610,7 @@
                     <div class="search">
                         <div class="input_row input_search">
                             <input type="text" id="" placeholder="검색어를 입력해 주세요." />
-                            <a href="javascript:;"><img src="../../images/common/icon_inp_search.png" alt="검색"></a>
+                            <a href="javascript:;"><img src="images/common/icon_inp_search.png" alt="검색"></a>
                         </div>
                     </div>
                     <div data-aos="fade-up" data-aos-easing="ease-in-sine" data-aos-once="true" class="onm_list_wrap">
