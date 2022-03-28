@@ -53,6 +53,16 @@
 .cont_invest .news_list ul li:hover .lineBottom {width: 100%;transition: all .3s;}
 .cont_invest .news_list ul li:hover .top {background: #fff;}
 
+.cont_invest .news_list .btn_more {text-align: center;padding-top: 11rem;}
+.cont_invest .news_list .btn_more a {display: inline-block;}
+.cont_invest .news_list .btn_more a .icon {width: 6.5rem;height: 6.5rem;border: 1px solid #568236;border-radius: 50%;background: #fff;margin: 0 auto 2rem;position: relative;transition: all .3s;}
+.cont_invest .news_list .btn_more a .icon > i {position: absolute;display: inline-block;background: #568236;}
+.cont_invest .news_list .btn_more a i:first-child {width: .1rem;height: 1.9rem;top:2.2rem;left:3.1rem;}
+.cont_invest .news_list .btn_more a i:last-child {width: 1.9rem;height: .1rem;top:3.1rem;left:2.2rem;}
+.cont_invest .news_list .btn_more a span {font-size: 1.8rem;color: #555;}
+.cont_invest .news_list .btn_more a:hover .icon {transform: rotate(90deg);background: #568236;}
+.cont_invest .news_list .btn_more a:hover .icon > i {background: #fff;}
+
 /* 뉴스 상세페이지 220310 */ 
 .container .contents .contents_inner .detail_sub_contents .inner .tb_view .tb_row {padding:5rem 6.5rem; border-top:2px solid #000; border-bottom:1px solid #e8e8e8;  }
 .container .contents .contents_inner .detail_sub_contents .inner .tb_view .tb_row .tit {font-size:2.6rem; font-weight:300; }
