@@ -14,7 +14,7 @@ $(function(){
         duration: 500,
         anchorPlacement: 'bottom-bottom',
     });
-    
+
 });
 
 var resizeEvent;
@@ -62,7 +62,7 @@ var commonEvent = {
         });
     },
     headerEvent:function(){
-        
+
         $(window).on('scroll',function(){
             var st = $(window).scrollTop();
             if (st>=100){
@@ -227,5 +227,100 @@ var onmEvent = {
     },
 
     
+};
+
+////////////////////////////////////////////// 메인 페이지 이벤트 (FD-00-01-001)
+var mainEvent = {
+    init:function(){
+        this.mainSwiper();
+    },
+    mainSwiper:function(){
+        var _ = this;
+
+        var windowHeight = $(window).height();
+
+        //main slider
+        var slidemenu = ['01', '02', '03', '04']
+        var mySwiper = new Swiper("#main_visual", {
+            slidesPerView:1,
+            slidesPerGroup:1,
+            autoplay:{
+                delay:_.slideTime,
+                disableOnInteraction: false
+            },
+            loop: true,
+            navigation: {
+              prevEl:"#fPrev",
+              nextEl:"#fNext"
+          },
+          allowTouchMove: false,
+          pagination: {
+              el: '.swiper-pagination',
+        	  clickable: true,
+              renderBullet: function (index, className) {
+                  return '<span class="' + className + '">' + (slidemenu[index]) + '</span>';
+              },
+          },
+        });
+
+        var dummyLen = 2;
+        var mainLastPage = $(".main_visual .swiper-slide").length - dummyLen;
+
+        var windowHeight = $(window).height();
+        $(".main_visual .swiper-slide").height(windowHeight);
+
+        $(".main_visual .naviPlay .lastPage").text(mainLastPage);
+
+        $(".main_visual .naviPlay .playbar").eq(0).addClass("autoplay");
+
+        window.onload = function(){
+            setTimeout(function() {
+                $(".main_visual .swiper-slide .txt").removeClass("on");
+                $(".main_visual .swiper-slide.swiper-slide-active .txt").addClass("on");
+            }, 100);
+        }
+
+        mySwiper.on("slideChangeTransitionStart",function(){
+            var curIdx = this.activeIndex;
+            if(curIdx > mainLastPage){
+                curIdx = 1;
+            }else if(curIdx < 1){
+                curIdx = mainLastPage;
+            }
+
+            $(".main_visual .naviPlay .playbar").removeClass("autoplay");
+            $(".main_visual .naviPlay .playbar.playbar").removeClass("active");
+            if(!$(".main_visual .naviPlay .naviAuto a").hasClass("autoplay")){
+                $(".main_visual .naviPlay .playbar.autoplay").removeClass("autoplay");
+                $(".main_visual .naviPlay .playbar.playbar"+curIdx).addClass("active");
+            }else{
+                $(".main_visual .naviPlay .playbar").eq(curIdx-1).addClass("autoplay");
+                $(".main_visual .naviPlay .playbar.playbar").removeClass("active");
+            }
+
+            $(".main_visual .swiper-slide .txt").removeClass("on");
+            $(".main_visual .swiper-slide.swiper-slide-active .txt").addClass("on");
+
+        });
+
+        $(".main_visual .naviPlay .naviAuto a").on("click",function(){
+            var idx = $(".swiper-pagination-bullet-active").index() + 1;
+            if(!$(this).hasClass("autoplay")){
+                $(this).find("img").attr("src","images/common/icon_pause.png");
+                $(this).addClass("autoplay");
+                mySwiper.autoplay.start();
+
+                $(".main_visual .naviPlay .playbar.playbar"+idx).addClass("autoplay");
+                $(".main_visual .naviPlay .playbar.playbar").removeClass("active");
+            }else{
+                $(this).find("img").attr("src","images/common/icon_play.png");
+                $(this).removeClass("autoplay");
+                mySwiper.autoplay.stop();
+
+                $(".main_visual .naviPlay .playbar").removeClass("autoplay");
+                $(".main_visual .naviPlay .playbar.playbar"+idx).addClass("active");
+            }
+        });
+    },
 };
 
