@@ -111,7 +111,7 @@ var onmEvent = {
         // O&M 페이지 타이틀, 라인 지정
         const aos_order1 = document.querySelector('.title');
         const aos_order2 = document.querySelector('.tit_line');
-
+        
         // O&M 페이지 타이틀, 라인, 설명 각각 모션효과 종료될 때 다음 모션 진행하도록 
         aos_order1.addEventListener('transitionend', function(e){
             $(aos_order2).addClass('on');
@@ -231,8 +231,10 @@ var onmEvent = {
 
 ////////////////////////////////////////////// 메인 페이지 이벤트 (FD-00-01-001)
 var mainEvent = {
+
     init:function(){
         this.mainSwiper();
+        this.sustainEvent();
     },
     mainSwiper:function(){
         var _ = this;
@@ -245,7 +247,7 @@ var mainEvent = {
             slidesPerView:1,
             slidesPerGroup:1,
             autoplay:{
-                delay:_.slideTime,
+                delay: 5000,
                 disableOnInteraction: false
             },
             loop: true,
@@ -322,5 +324,125 @@ var mainEvent = {
             }
         });
     },
+    sustainEvent: function(){
+        var sustain_bg =  $(".cont_main .section3 .sustain_list"),
+            sustain_list = $(".cont_main .section3 .sustain_list ul li");
+
+        $(sustain_list).eq(0).hover(function(){
+            $(sustain_bg).addClass('esg');
+        },function(){
+            $(sustain_bg).removeClass('esg');
+        });
+        $(sustain_list).eq(1).hover(function(){
+            $(sustain_bg).addClass('ehtics');
+        },function(){
+            $(sustain_bg).removeClass('ehtics');
+        });
+        $(sustain_list).eq(2).hover(function(){
+            $(sustain_bg).addClass('safety');
+        },function(){
+            $(sustain_bg).removeClass('safety');
+        });
+        $(sustain_list).eq(3).hover(function(){
+            $(sustain_bg).addClass('carbon');
+        },function(){
+            $(sustain_bg).removeClass('carbon');
+        });
+        $(sustain_list).eq(4).hover(function(){
+            $(sustain_bg).addClass('social');
+        },function(){
+            $(sustain_bg).removeClass('social');
+        });
+    },
+
+    // 탄소저감 area 총 감축량 카운트 시작
+    numberCountUp1: function() {
+        var memberCountConTxt1= 4650;
+
+        $({ val : 0 }).animate({ val : memberCountConTxt1 }, {
+            duration: 2000,
+            step: function() {
+                var num = numberWithCommas(Math.floor(this.val));
+                $(".mov_num1").text(num);
+            },
+            complete: function() {
+                var num = numberWithCommas(Math.floor(this.val));
+                $(".mov_num1").text(num);
+                
+            }
+        });
+
+        function numberWithCommas(x) {
+            return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, "");
+        }
+
+    },
+
+    // 탄소저감 area 총 감축량 카운트 시작
+    numberCountUp2: function() {
+        var memberCountConTxt2= 6405232;
+
+        $({ val : 0 }).animate({ val : memberCountConTxt2 }, {
+            duration: 2000,
+            step: function() {
+                var num = numberWithCommas(Math.floor(this.val));
+                $(".mov_num2").text(num);
+            },
+            complete: function() {
+                var num = numberWithCommas(Math.floor(this.val));
+                $(".mov_num2").text(num);
+            }
+        });
+
+        function numberWithCommas(x) {
+            return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        }
+
+    },
+    carbonChart: function() {
+        function draw(max, classname, colorname1, colorname2){
+            var i = 1;
+             var func1 = setInterval(function() {
+               if( i < max ){
+                   color1( i, classname, colorname1, colorname2 );
+                   i++;
+               } else{
+                 clearInterval(func1);
+               }
+             }, 20);
+        };
+        function color1( i, classname, colorname1, colorname2 ){
+            $(classname).css({
+                 "background":"conic-gradient("+colorname1+" 0% ,"+ colorname2 + " " + (0 + i) + "%, " + colorname2 + " " + (i * 2) + "%, transparent "+ (i * 2) + "% 100%)"
+            });
+        };
+        draw(35, '.carbon_chart', '#7bcc40', '#198c7a');
+    },
+    
 };
 
+
+
+let isVisible = false;
+
+    // 화면에 카운트 div가 보이면 카운트 시작.
+    window.addEventListener('scroll', function() {
+        if ( checkVisible($('.count_trigger')) && !isVisible) {
+            mainEvent.numberCountUp2();
+            mainEvent.numberCountUp1();
+            mainEvent.carbonChart();
+            isVisible=true;
+        }
+    });
+
+    function checkVisible( elm, eval ) {
+        eval = eval || "object visible";
+        var viewportHeight = $(window).height(), // Viewport Height
+            scrolltop = $(window).scrollTop(), // Scroll Top
+            y = $(elm).offset().top,
+            elementHeight = $(elm).height();
+
+        if (eval == "object visible") return ((y < (viewportHeight + scrolltop)) && (y > (scrolltop - elementHeight)));
+        if (eval == "above") return ((y < (viewportHeight + scrolltop)));
+}
+            

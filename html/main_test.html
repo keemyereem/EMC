@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+   <!-- SET FILE PATH :: compatibility ie9 code -->
+   <base href="../" />
+   <!--[if IE]><script type="text/javascript">
+            // Fix for IE ignoring relative base tags.
+            (function() {
+                var baseTag = document.getElementsByTagName('base')[0];
+                baseTag.href = baseTag.href;
+            })();
+    </script><![endif]-->
+    <meta http-equiv="content-type" content="application/xhtml+xml; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta http-equiv="Cache-Control" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Page-Enter" content="revealtrans(duration=1,transition=12)">
+    <meta http-equiv="Page-Exit" content="revealtrans(duration=1,transition=12)">
+    <title>환경시설관리주식회사</title>
+    <link rel="icon" href="images/favicon.png" sizes="32x32">
+    <link type="text/css" href="css/font.css" rel="stylesheet">
+    <link type="text/css" href="css/common.css" rel="stylesheet">
+    <link type="text/css" href="css/sub.css" rel="stylesheet">
+    <link type="text/css" href="css/media.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/jquery-ui.min.css">
+    <link rel="stylesheet" href="css/jquery.swiper.min.css">
+    <link type="text/css" href="css/aos.css" rel="stylesheet">
+
+    <script type="text/javascript" src="js/lib/jquery-1.12.4.min.js"></script>
+    <script type="text/javascript" src="js/lib/jquery-ui-1.12.1.min.js"></script>
+    <script type="text/javascript" src="js/lib/jquery.swiper.min.js"></script>
+    <script type="text/javascript" src="js/lib/TweenMax.min.js"></script>
+    <!-- <script type="text/javascript" src="js/common.js"></script> -->
+    <script type="text/javascript" src="js/lib/aos.js"></script>
+
+    <script>
+        $(document).ready( function() {
+            //html용 include
+            $(".header").load("include/header.html");
+            $(".sitemap").load("include/sitemap.html");
+            $(".footer").load("include/footer.html");
+            mainEvent.init();
+        });
+    </script>
+</head>
+
+<body>
+    <div class="skip_navigation"><a href="#contents" title="본문으로 이동">Skip to the menu / 본문가기</a></div>
+    <!-- wrap -->
+    <div class="wrap">
+        <!-- header -->
+        <div class="header"></div>
+        <!-- //header -->
+        <!-- sitemap -->
+        <div class="dim"></div>
+        <div class="sitemap_bg"></div>
+        <div class="sitemap"></div>
+        <!-- //sitemap --> 
+        <div class="container">
+            <div class="contents cont_main">
+                <section class="section0">
+                    <div class="vis_scroll">
+                        <img src="images/main/main_scroll.png" alt="스크롤">
+                    </div>
+                    <div id="main_visual" class="main_visual">
+                        <div class="txt">
+                            최상의 서비스를 제공하는 <br>
+                            글로벌 환경전문기업을 만들어갑니다.
+                        </div>
+                        <div class="btn">
+                            <a href="javascript:;">더보기</a>
+                        </div>  
+
+<!--                         <div class="carbon_level carbon_level1">
+                            <div class="carbon_number"><span class="mov_num1">0</span> ppm</div>
+                            <img src="../images/pc/visual_mark.png" alt="탄소 수치" class="img01">
+                            <img src="../images/pc/sec1_mark.png" alt="탄소 수치" class="img02">
+                            <div class="carbon_chart"></div>
+                        </div> -->
+    
+                        <!-- slide swiper lists -->
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <div class="bg01">
+                                    <video id="mainvideo01" src="videos/077721315_main_xl.mp4" playsinline muted loop autoplay data-keepplaying class="video_bg"></video>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="bg02">
+                                    <video id="mainvideo02" src="videos/160704589_main_xl.mp4" playsinline muted loop autoplay data-keepplaying class="video_bg"></video>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="bg03">
+                                    <video id="mainvideo03" src="videos/140958349_main_xl.mp4" playsinline muted loop autoplay data-keepplaying class="video_bg"></video>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="bg04">
+                                    <video id="mainvideo03" src="videos/098171513_main_xl.mp4" playsinline muted loop autoplay data-keepplaying class="video_bg"></video>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="naviPlay">
+                            <span class="naviAuto">
+                                <a href="javascript:;" class="autoplay"><img src="images/common/icon_pause.png" /></a>
+                            </span>
+                            <span id="fPrev" class="arrow left swiper-button-prev"><a href="javascript:;"><img src="images/common/icon_left.png" alt="이전 슬라이드" /></a></span>
+                            <span id="fNext" class="arrow right swiper-button-next"><a href="javascript:;"><img src="images/common/icon_right.png" alt="다음 슬라이드" /></a></span>
+                            <div class="main_notice">
+                                <div class="slide_bar">
+                                    <div class="swiper-pagination"></div>
+                                    <span class="playbar playbar1">
+                                        <span class="playTime"></span>
+                                    </span>
+                                    <span class="playbar playbar2">
+                                        <span class="playTime"></span>
+                                    </span>
+                                    <span class="playbar playbar3">
+                                        <span class="playTime"></span>
+                                    </span>
+                                    <span class="playbar playbar4">
+                                        <span class="playTime"></span>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+    
+                </section>
+                <section class="section1 on">
+                    <div class="tit_area">
+                        <h2 class="title">탄소저감 area</h2>
+                        <p class="sub_tit"><span>탄소 발자국 줄이기 캠페인</span>에<br>글로벌 환경전문 기업 EMC가 앞장섭니다.</p>     
+                    </div>
+                    
+                    <div class="count">
+                        <p><span>EMC 에너지 생산량 및 CO&#8322; 감축량</span></p>
+                        <div class="count_trigger">
+                            <div>
+                                <p><img src="images/main/bg_clip01.png" alt="bg_clip01"></p>
+                                <p>총 감축량</p>
+                            </div>
+                            <div>
+                                <p><span class="mov_num2">0</span>그루</p>
+                            </div>
+                        </div>
+                    </div>   
+                    <!-- <div class="carbon_level carbon_level2">
+                        <div class="carbon_number">
+                            <span class="mov_num3">4,650</span> ppm
+                        </div>
+                        
+                        <div class="carbon_chart" style="background: conic-gradient(rgb(123, 204, 64) 0%, rgb(25, 140, 122) 30%, rgb(25, 140, 122) 59%, transparent 59%, transparent 100%);"></div>
+                    </div> -->
+                    
+    
+                        <!-- <div class="inner">
+                            <div class="tree">
+                                <img src="../images/pc/sec1_tree1_on.png" alt="">
+                                <img src="../images/pc/sec1_tree1.gif" alt="">
+                            </div>
+                            <div class="sec1_box01">
+                                <img src="../images/pc/sec1_dot.png" alt="" class="dot01">
+                                <svg class="line01">
+                                    <polyline class="rect" points="227,30 196,0 0,0" fill="none" stroke="#000" stroke-width="1"></polyline>
+                                </svg>
+                                <span class="hl01"></span>
+                                <img src="../images/pc/sec1_txt01.png" alt="" class="txt01">
+                                <img src="../images/pc/sec1_icon01.png" alt="" class="icon01" style="animation-name: outrotate; animation-duration: 0.7s;">
+                                <span class="mov_num4">732,901</span>
+                            </div>
+                            <script>
+                                $('.sec1_box01').mouseenter(function(){
+                                    $(this).find('.icon01').stop().css({
+                                        "animation-name":"onrotate",
+                                        "animation-duration":".7s",
+                                        "animation-count":'1'
+                                    });
+                                });
+                                $('.sec1_box01').mouseleave(function(){
+                                    $(this).find('.icon01').stop().css({
+                                        "animation-name":"outrotate",
+                                        "animation-duration":".7s",
+                                        "animation-count":'1'
+                                    });
+                                });
+                            </script>
+                            <div class="sec1_box02">
+                                <img src="../images/pc/sec1_dot.png" alt="" class="dot02">
+                                <svg class="line02">
+                                    <polyline class="rect" points="227,30 196,0 0,0" fill="none" stroke="#000" stroke-width="1"></polyline>
+                                </svg>
+                                <img src="../images/pc/sec1_txt02.png" alt="" class="txt02">
+                            </div>
+                            <div class="sec1_box03">
+                                <img src="../images/pc/sec1_dot.png" alt="" class="dot03">
+                                <svg class="line03">
+                                    <polyline class="rect" points="227,30 196,0 0,0" fill="none" stroke="#000" stroke-width="1"></polyline>
+                                </svg>
+                                <img src="../images/pc/sec1_txt03.png" alt="" class="txt03">
+                            </div>
+                            <div class="sec1_box04">
+                                <img src="../images/pc/sec1_dot.png" alt="" class="dot04">
+                                <svg class="line04">
+                                    <polyline class="rect" points="0,30 30,0 227,0" fill="none" stroke="#000" stroke-width="1"></polyline>
+                                </svg>
+                                <img src="../images/pc/sec1_txt04.png" alt="" class="txt04">
+                            </div>
+                            <div class="sec1_box05">
+                                <img src="../images/pc/sec1_dot.png" alt="" class="dot05">
+                                <svg class="line05">
+                                    <polyline class="rect" points="0,30 30,0 227,0" fill="none" stroke="#000" stroke-width="1"></polyline>
+                                </svg>
+                                <img src="../images/pc/sec1_txt05.png" alt="" class="txt05">
+                            </div>
+                            
+                            <img src="../images/pc/sec1_txt06.png" alt="" class="txt06">
+    
+                        </div> -->
+    
+                </section>
+                <section class="section2">
+                    <div class="tit_area">
+                        <h2 class="title">Business area</h2>
+                        <p class="sub_tit">
+                            오랜 기간 경험의 바탕과 <b>끊임없는 도전</b>으로<br>
+                            <b>환경분야 최고 수준의 기술력</b>을 갖춘 기업이 될 것입니다.
+                        </p>
+                    </div>  
+                    <div class="line"></div>  
+                    <ul class="business_list">
+                        <li>
+                            <div class="img"><img src="images/main/main_bus01.jpg" alt="O&M 이미지"></div>
+                            <div class="txt">
+                                <dl>
+                                    <dt>O&M</dt>
+                                    <dd>환경시설관리주식회사는 대한민국의
+                                        환경분야 기초시설 운영관리 선두주자입니다.</dd>
+                                </dl>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="img"><img src="images/main/main_bus02.jpg" alt="환경건설 이미지"></div>
+                            <div class="txt">
+                                <dl>
+                                    <dt>환경건설</dt>
+                                    <dd>환경과 관련한 고도의 숙련된 기술력과 시공력으로 믿고 찾을 수 있는
+                                        최고의 파트너가 되기 위해 끊임없이 노력하고 있습니다.</dd>
+                                </dl>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="img"><img src="images/main/main_bus03.jpg" alt="에너지 이미지"></div>
+                            <div class="txt">
+                                <dl>
+                                    <dt>에너지</dt>
+                                    <dd>환경시설관리주식회사는 대한민국의
+                                        환경분야 기초시설 운영관리 선두주자입니다.</dd>
+                                </dl>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="img"><img src="images/main/main_bus04.jpg" alt="자연순환 이미지"></div>
+                            <div class="txt">
+                                <dl>
+                                    <dt>자연순환</dt>
+                                    <dd>환경과 관련한 고도의 숙련된 기술력과 시공력으로 믿고 찾을 수 있는
+                                        최고의 파트너가 되기 위해 끊임없이 노력하고 있습니다.</dd>
+                                </dl>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="img"><img src="images/main/main_bus05.jpg" alt="기술역량 이미지"></div>
+                            <div class="txt">
+                                <dl>
+                                    <dt>기술역량</dt>
+                                    <dd>최초 SOC 사업 개발, 축적된 사업역량을 통해 고객 Needs에
+                                        능동적, 창의적인 솔루션으로 사업을 전개해 나갑니다.</dd>
+                                </dl>
+                            </div>
+                        </li>
+                    </ul>
+                </section>
+                <section class="section3">
+                    <div class="tit_area">
+                        <h2 class="title">지속가능경영</h2>
+                        <p class="sub_tit">
+                            <b>지속 가능한 친환경 경영을 </b>을 실천하는 EMC
+                        </p>
+                    </div> 
+                    <div class="sustain_list">
+                        <ul>
+                            <li>
+                                <div>
+                                    <div class="sustain_tit">ESG경영</div>
+                                    <p class="sustain_sub"></p>
+                                    <a href="javascript:;" class="view_more">자세히보기</a> 
+                                </div>
+                            </li>
+                            <li>
+                                <div>
+                                    <div class="sustain_tit">윤리경영</div>
+                                    <p class="sustain_sub">
+
+                                    </p>
+                                    <a href="javascript:;" class="view_more">자세히보기</a> 
+                                </div>
+                            </li>
+                            <li>
+                                <div>
+                                    <div class="sustain_tit">안전보건</div>
+                                    <p class="sustain_sub">
+                                        안전보건관리를 경영의 최우선 가치로 선정하여 구성원과 
+                                        이해관계자의 행복을 지키기 위해 체계적인 관리절차 수립과
+                                        관련 규정을 철저히 준수, 안전한 작업환경을 조성하고자 합니다. 
+                                    </p>
+                                    <a href="javascript:;" class="view_more">자세히보기</a> 
+                                </div>
+                            </li>
+                            <li>
+                                <div>
+                                    <div class="sustain_tit">탄소저감</div>
+                                    <p class="sustain_sub"></p>
+                                    <a href="javascript:;" class="view_more">자세히보기</a> 
+                                </div>
+                            </li>
+                            <li>
+                                <div>
+                                    <div class="sustain_tit">사회공헌</div>
+                                    <p class="sustain_sub"></p>
+                                    <a href="javascript:;" class="view_more">자세히보기</a> 
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </section>
+            </div>
+        </div>
+        <!-- footer -->
+        <div class="footer"></div>
+        <!-- //footer -->
+    </div>
+</body>
+
+</html>
