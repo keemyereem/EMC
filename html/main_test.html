@@ -32,8 +32,9 @@
     <script type="text/javascript" src="js/lib/jquery-ui-1.12.1.min.js"></script>
     <script type="text/javascript" src="js/lib/jquery.swiper.min.js"></script>
     <script type="text/javascript" src="js/lib/TweenMax.min.js"></script>
-    <!-- <script type="text/javascript" src="js/common.js"></script> -->
     <script type="text/javascript" src="js/lib/aos.js"></script>
+    <script type="text/javascript" src="js/lib/skrollr.min.js"></script>
+    <script type="text/javascript" src="js/test.js"></script>
 
     <script>
         $(document).ready( function() {
@@ -61,9 +62,7 @@
         <div class="container">
             <div class="contents cont_main">
                 <section class="section0">
-                    <div class="vis_scroll">
-                        <img src="images/main/main_scroll.png" alt="스크롤">
-                    </div>
+                    <div class="vis_scroll"></div>
                     <div id="main_visual" class="main_visual">
                         <div class="txt">
                             최상의 서비스를 제공하는 <br>
@@ -133,7 +132,7 @@
                 <section class="section1 on">
                     <div class="tit_area">
                         <h2 class="title">탄소저감 area</h2>
-                        <p class="sub_tit"><span>탄소 발자국 줄이기 캠페인</span>에<br>글로벌 환경전문 기업 EMC가 앞장섭니다.</p>     
+                        <p class="sub_con"><span>탄소 발자국 줄이기 캠페인</span>에<br>글로벌 환경전문 기업 EMC가 앞장섭니다.</p>     
                     </div>
                     
                     <div class="count">
@@ -144,20 +143,34 @@
                                 <p>총 감축량</p>
                             </div>
                             <div>
-                                <p><span class="mov_num2">0</span>그루</p>
+                                <p><span class="mov_num2"></span>그루</p>
                             </div>
                         </div>
-                    </div>   
-                    <!-- <div class="carbon_level carbon_level2">
-                        <div class="carbon_number">
-                            <span class="mov_num3">4,650</span> ppm
+                    </div>
+                    <div class="count2">  
+                        <div class="level">
+                            <div class="carbon_number">
+                                <div class="carbon_number_inner">
+                                    <p>탄소수치</p>
+                                    <p><span class="mov_num1">0</span> %</p>
+                                    <p><span class="carbon_date">2021.12.01</span> 기준</p>
+                                </div>
+                            </div>
+                            <div class="carbon_chart"></div>
                         </div>
-                        
-                        <div class="carbon_chart" style="background: conic-gradient(rgb(123, 204, 64) 0%, rgb(25, 140, 122) 30%, rgb(25, 140, 122) 59%, transparent 59%, transparent 100%);"></div>
-                    </div> -->
+                        <svg class="text-circle" viewBox="0 0 100 100">
+                            <defs>
+                                <path id="path" d="M 50, 50 m -37, 0 a 37,37 0 1,1 74,0 a 37,37 0 1,1 -74,0"/>
+                            </defs>
+                            <text>
+                            <textPath xlink:href="#path">Green EMC · Green EMC · Green EMC · Green EMC ·</textPath>
+                            </text>
+                        </svg>
+                    </div> 
                     
-    
-                        <!-- <div class="inner">
+                    <div class="count3"> 작업예정
+                        <!-- 
+                        <div class="inner">
                             <div class="tree">
                                 <img src="../images/pc/sec1_tree1_on.png" alt="">
                                 <img src="../images/pc/sec1_tree1.gif" alt="">
@@ -220,12 +233,14 @@
                             <img src="../images/pc/sec1_txt06.png" alt="" class="txt06">
     
                         </div> -->
+                    </div>
+                        
     
                 </section>
                 <section class="section2">
                     <div class="tit_area">
                         <h2 class="title">Business area</h2>
-                        <p class="sub_tit">
+                        <p class="sub_con">
                             오랜 기간 경험의 바탕과 <b>끊임없는 도전</b>으로<br>
                             <b>환경분야 최고 수준의 기술력</b>을 갖춘 기업이 될 것입니다.
                         </p>
@@ -287,7 +302,7 @@
                 <section class="section3">
                     <div class="tit_area">
                         <h2 class="title">지속가능경영</h2>
-                        <p class="sub_tit">
+                        <p class="sub_con">
                             <b>지속 가능한 친환경 경영을 </b>을 실천하는 EMC
                         </p>
                     </div> 
@@ -335,6 +350,75 @@
                                 </div>
                             </li>
                         </ul>
+                    </div>
+                </section>
+                <section class="section4">
+                    <div class="tit_area">
+                        <h2 class="title">EMC area</h2>
+                        <p class="sub_con">
+                            <b>투명한, 청렴한, 깨끗한 성장</b>을 만들어 갑니다.
+                        </p>
+                    </div> 
+                    <div class="emc_wrap">
+                        <div class="news">
+                            <div class="top">
+                                <h2>NEWS</h2>
+                                <a href="javascript:;"><img src="images/common/icon_plus.png" alt="더보기"></a>
+                            </div>
+                            <div class="thumbnail"><img src="images/main/main_news_img.jpg" alt="뉴스 이미지"></div>
+                            <ul class="news_list">
+                                <li>
+                                    <a href="javascript:;">
+                                        <div class="news_list_tit">합병에 기한 구주권제출 및 채권자 이의제출 공고문</div>
+                                        <div class="news_list_date">2021.06.04</div>
+                                        <div class="btn"><img src="images/common/icon_arrow_green.png" alt="더보기"></div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="javascript:;">
+                                        <div class="news_list_tit">emc 소개영상 4편_너는 내 행복</div>
+                                        <div class="news_list_date">2021.06.04</div>
+                                        <div class="btn"><img src="images/common/icon_arrow_green.png" alt="더보기"></div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="javascript:;">
+                                        <div class="news_list_tit">emc 소개영상 3편_친환경 수처리 시설의 모든것</div>
+                                        <div class="news_list_date">2021.06.04</div>
+                                        <div class="btn"><img src="images/common/icon_arrow_green.png" alt="더보기"></div>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="emc_list">
+                            <ul>
+                                <li>
+                                    <div class="emc_list_box">
+                                        <div class="emc_tit">경영비전</div>
+                                        <div class="emc_sub"></div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="emc_list_box">
+                                        <div class="emc_tit">재무정보</div>
+                                        <div class="emc_sub">환경시설관리주식회사의<br>
+                                            재무정보를 확인하실 수 있습니다.</div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="emc_list_box">
+                                        <div class="emc_tit">채용정보</div>
+                                        <div class="emc_sub"></div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="emc_list_box">
+                                        <div class="emc_tit">공시/공고</div>
+                                        <div class="emc_sub"></div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
                 </section>
             </div>

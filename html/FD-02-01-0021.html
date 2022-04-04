@@ -1,0 +1,852 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+   <!-- SET FILE PATH :: compatibility ie9 code -->
+   <base href="../" />
+   <!--[if IE]><script type="text/javascript">
+            // Fix for IE ignoring relative base tags.
+            (function() {
+                var baseTag = document.getElementsByTagName('base')[0];
+                baseTag.href = baseTag.href;
+            })();
+    </script><![endif]-->
+    <meta http-equiv="content-type" content="application/xhtml+xml; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta http-equiv="Cache-Control" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Page-Enter" content="revealtrans(duration=1,transition=12)">
+    <meta http-equiv="Page-Exit" content="revealtrans(duration=1,transition=12)">
+    <title>환경시설관리주식회사</title>
+    <link rel="icon" href="images/favicon.png" sizes="32x32">
+    <link type="text/css" href="css/font.css" rel="stylesheet">
+    <link type="text/css" href="css/common.css" rel="stylesheet">
+    <link type="text/css" href="css/sub.css" rel="stylesheet">
+    <link type="text/css" href="css/media.css" rel="stylesheet">
+    <link type="text/css" href="css/swiper.css" rel="stylesheet">
+    <link type="text/css" href="css/swiper.min.css" rel="stylesheet">
+    <link type="text/css" href="css/aos.css" rel="stylesheet">
+    <!--※ swiper caution ※ - latest version cannot convert with IE8. 
+        if you want to use modern sohpiscated styles on swiper. do not use IE 10 less version-->
+    <!--<link type="text/css" href="https://unpkg.com/swiper@8/swiper-bundle.min.css" rel="stylesheet">-->
+
+    <script type="text/javascript" src="js/lib/jquery-1.12.4.min.js"></script>
+    <script type="text/javascript" src="js/lib/swiper.js"></script>
+    <script type="text/javascript" src="js/lib/swiper.min.js"></script>
+    <script type="text/javascript" src="js/lib/aos.js"></script>
+    <script type="text/javascript" src="js/common.js"></script>
+    <!--※ swiper caution ※ - latest version cannot convert with IE8. 
+        if you want to use modern sohpiscated styles on swiper. do not use IE 10 less version-->
+    <!--<script type="text/javascript" src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>-->  
+
+
+    <script type="text/javascript">
+        $(window).load( function() {
+            //html용 include
+            $(".header").load("include/header.html");
+            $(".sitemap").load("include/sitemap.html");
+            $(".footer").load("include/footer.html");  
+            onmEvent.init();
+        });
+    </script>
+</head>
+
+<body>
+    <div class="skip_navigation"><a href="#contents" title="본문으로 이동">Skip to the menu / 본문가기</a></div>
+    <!-- wrap -->
+    <div class="wrap">
+        <!-- header -->
+        <div class="header"></div>
+        <!-- //header -->
+        <!-- sitemap -->
+        <div class="dim"></div>
+        <div class="sitemap_bg"></div>
+        <div class="sitemap"></div>
+        <!-- //sitemap -->
+        <div class="container">
+            <div class="sub_visual business_visual">
+                <div class="sub_visual_nav">
+                    <h2>사업소개</h2>
+                    <div class="sub_visual_nav_prev">
+                        <a href="javascript:;" title="이전메뉴로 이동">
+                            <span></span>
+                            <img src="images/common/sub_visual_nav_prev.png" alt="sub_visual_nav_prev">
+                        </a>
+                    </div>
+                    <div class="sub_visual_nav_next">
+                        <a href="javascript:;" title="다음메뉴로 이동">
+                            <img src="images/common/sub_visual_nav_next.png" alt="sub_visual_nav_next">
+                            <span>지속가능경영</span>
+                        </a>
+                    </div>
+                </div>  
+                <div class="sub_visual_m">
+                    <h2>투자정보</h2>
+                    <div class="location">
+                        <a href="javascript:;" class="loccation_tit" title="하위메뉴열기">공고</a>
+                        <div class="drop_box">
+                            <ul>
+                                <li><a href="javascript:;" title="페이지 이동">매출 및 이익추이</a></li>
+                                <li><a href="javascript:;" title="페이지 이동">재무재표</a></li>
+                                <li><a href="javascript:;" title="페이지 이동">공시정보</a></li>
+                                <li class="active"><a href="javascript:;" title="페이지 이동">공고</a></li>
+                                <li><a href="javascript:;" title="페이지 이동">주가현황</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="sub_visual_menu">
+                    <div class="home"></div>
+                    <div class="depth depth1">
+                        <a href="javascript:;" class="dep_tit" title="하위메뉴 열기">사업소개</a>
+                        <ul class="drop_box">
+                            <li><a href="javascript:;" title="페이지 이동">회사소개</a></li>
+                            <li><a href="javascript:;" title="페이지 이동">사업소개</a></li>
+                            <li><a href="javascript:;" title="페이지 이동">지속가능경영</a></li>
+                            <li><a href="javascript:;" title="페이지 이동">투자정보</a></li>
+                            <li><a href="javascript:;" title="페이지 이동">인재채용</a></li>
+                        </ul>
+                    </div>
+                    <div class="depth depth2">
+                        <a href="javascript:;" class="dep_tit" title="하위메뉴 열기">환경건설</a>
+                        <ul class="drop_box">
+                            <li><a href="javascript:;" title="페이지 이동">개요</a></li>
+                            <li><a href="javascript:;" title="페이지 이동">O&M</a></li>
+                            <li><a href="javascript:;" title="페이지 이동">환경건설</a></li>
+                            <li><a href="javascript:;" title="페이지 이동">기술역량</a></li>
+                            <li><a href="javascript:;" title="페이지 이동">에너지</a></li>
+                            <li><a href="javascript:;" title="페이지 이동">자원순환</a></li>
+                            <li><a href="javascript:;" title="페이지 이동">New BIZ</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="contents cont_business">
+                <div class="contents_inner onm_inner">
+                    <div class="business_contents sub_contents">
+                        <div class="inner">
+                            <section class="section1">
+                                <div class="icon" data-aos="fade-up">
+                                    <img src="images/business/businessIntro_tit_icon.png" alt="타이틀 아이콘">
+                                </div>
+                                <h3 class="title" data-aos="fade-up" data-aos-offset="200">환경건설</h3>
+                                <div class="tit_line"></div>
+                                <p class="sub_con">
+                                    환경시설관리주식회사는 1997년 설립 이래 20여 년간 축적된 설계, 시공, 운영 경험을 바탕으로<br>
+                                    보다 효율적이고 <b>경제적 처리기술 개발</b>에 많은 투자와 노력을 기울이고 있으며,<br>
+                                    <b>환경시설 신설/개량 사업</b>에 적극 참여, 소중한 공공자산을 지켜나가고 있습니다.
+                                </p>
+                                <ul class="nav_btn" data-aos="fade-up" data-aos-duration="600" data-aos-offset="500">
+                                    <li class="on">
+                                        <a href="javascript:;">
+                                            <div class="icon">
+                                                <img src="images/business/envir_icon01.png" alt="envir_icon01">
+                                                <img src="images/business/envir_icon01_on.png" alt="envir_icon01_on">
+                                            </div>
+                                            <p class="nav_tit">
+                                                공공하폐수                                        
+                                            </p>
+                                        </a>
+                                    </li>
+                                    <li class="">
+                                        <a href="javascript:;">
+                                            <div class="icon">
+                                                <img src="images/business/envir_icon02.png" alt="envir_icon02">
+                                                <img src="images/business/envir_icon02_on.png" alt="envir_icon02_on">
+                                            </div>
+                                            <p class="nav_tit">
+                                                민간폐수                                       
+                                            </p>
+                                        </a>
+                                    </li>
+                                    <li class="">
+                                        <a href="javascript:;">
+                                            <div class="icon">
+                                                <img src="images/business/envir_icon03.png" alt="envir_icon03">
+                                                <img src="images/business/envir_icon03_on.png" alt="envir_icon03_on">
+                                            </div>
+                                            <p class="nav_tit">
+                                                에코솔루션
+                                            </p>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </section>
+                            <section class="section2">
+                                <div class="nav_box box01 on">
+                                    <div class="box_text" data-aos="fade-up" data-aos-duration="700">
+                                        <div class="onm_title">공공/민간 하폐수</div>
+                                        <div class="onm_desciption">
+                                            환경시설관리주식회사는<br>
+                                            환경기초시설 최다 운영 노하우와 기술력을 바탕으로<br>
+                                            공공 하폐수처리시설 설계, 시공 등을 통해<br>
+                                            수질환경 보전 및 녹색산업 영역 확장을 위해 힘쓰고 있습니다.                                            
+                                        </div>
+                                    </div>
+                                    <div class="swiper-container">
+                                        <div class="swiper_2depth_tabs" data-aos="fade" data-aos-duration="700" data-aos-offset="600">
+                                            <p class="on"><a href="javascript:;">공공하수 건설</a></p>
+                                            <p class=""><a href="javascript:;">공공폐수 건설</a></p>
+                                        </div>
+
+                                        <div class="swiper1_box swiper1_box01">
+                                            <div class="swiper swiper1_01" data-aos="fade-left" data-aos-duration="700" data-aos-offset="500">
+                                                <div class="swiper-wrapper">
+                                                    <div class="swiper-slide">
+                                                        <div class="onm_slide_img">
+                                                            <img src="images/business/envir_slide01_img01.png" alt="공공하수 이미지" />
+                                                        </div>
+                                                        <div class="onm_slide_text_box">
+                                                            <h3>경산시 공공하수증설 민간투자사업 (BTO-a)</h3>
+                                                            <div>
+                                                                <dl><dt>시설용량</dt><dd>40,000㎥/d</dd></dl>
+                                                                <dl><dt>공사기간</dt><dd>30개월</dd></dl>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="swiper-slide">
+                                                        <div class="onm_slide_img">
+                                                            <img src="images/business/envir_slide01_img02.png" alt="공공하수 이미지" />
+                                                        </div>
+                                                        <div class="onm_slide_text_box">
+                                                            <h3>용인시 하수처리시설 민간투자사업 (BTO)</h3>
+                                                            <div>
+                                                                <dl><dt>시설용량</dt><dd>167,530㎥/d</dd></dl>
+                                                                <dl><dt>공사기간</dt><dd>56개월</dd></dl>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="swiper-slide">
+                                                        <div class="onm_slide_img">
+                                                            <img src="images/business/envir_slide01_img03.png" alt="공공하수 이미지" />
+                                                        </div>
+                                                        <div class="onm_slide_text_box">
+                                                            <h3>양양군 하수도시설 민가투자사업 (BTO)</h3>
+                                                            <div>
+                                                                <dl><dt>시설용량</dt><dd>10,500㎥/d</dd></dl>
+                                                                <dl><dt>공사기간</dt><dd>24개월</dd></dl>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="swiper-slide">
+                                                        <div class="onm_slide_img">
+                                                            <img src="images/business/envir_slide01_img04.png" alt="공공하수 이미지" />
+                                                        </div>
+                                                        <div class="onm_slide_text_box">
+                                                            <h3>경산시 공공하수처리시설 증설 민간투자사업 (BTO)</h3>
+                                                            <div>
+                                                                <dl><dt>시설용량</dt><dd>25,000㎥/d</dd></dl>
+                                                                <dl><dt>공사기간</dt><dd>30개월</dd></dl>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="swiper1_box swiper1_box02" style="display: none;">
+                                            <div class="swiper swiper1_02" data-aos="fade-left" data-aos-duration="700" data-aos-offset="500">
+                                                <div class="swiper-wrapper">
+                                                    <div class="swiper-slide">
+                                                        <div class="onm_slide_img">
+                                                            <img src="images/business/envir_slide01_img05.png" alt="공공폐수 이미지" />
+                                                        </div>
+                                                        <div class="onm_slide_text_box">
+                                                            <h3>충주기업도시
+                                                                폐수종말처리시설 설치사업</h3>
+                                                            <div>
+                                                                <dl><dt>시설용량</dt><dd>5,500㎥/d</dd></dl>
+                                                                <dl><dt>공사기간</dt><dd>18개월</dd></dl>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="swiper-slide">
+                                                        <div class="onm_slide_img">
+                                                            <img src="images/business/envir_slide01_img06.png" alt="공공폐수 이미지" />
+                                                        </div>
+                                                        <div class="onm_slide_text_box">
+                                                            <h3>양산지방 산업단지 폐수종말 처리장
+                                                                설치사업</h3>
+                                                            <div>
+                                                                <dl><dt>시설용량</dt><dd>13,0000㎥/d</dd></dl>
+                                                                <dl><dt>공사기간</dt><dd>23개월</dd></dl>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="swiper-slide">
+                                                        <div class="onm_slide_img">
+                                                            <img src="images/business/envir_slide01_img07.png" alt="공공폐수 이미지" />
+                                                        </div>
+                                                        <div class="onm_slide_text_box">
+                                                            <h3>양양군 하수도시설 민가투자사업
+                                                                (BTO)</h3>
+                                                            <div>
+                                                                <dl><dt>시설용량</dt><dd>10,500㎥/d</dd></dl>
+                                                                <dl><dt>공사기간</dt><dd>24개월</dd></dl>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="swiper-slide">
+                                                        <div class="onm_slide_img">
+                                                            <img src="images/business/envir_slide01_img08.png" alt="공공폐수 이미지" />
+                                                        </div>
+                                                        <div class="onm_slide_text_box">
+                                                            <h3>경산시 공공하수처리시설 증설
+                                                                민간투자사업 (BTO)</h3>
+                                                            <div>
+                                                                <dl><dt>시설용량</dt><dd>25,000㎥/d</dd></dl>
+                                                                <dl><dt>공사기간</dt><dd>30개월</dd></dl>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="onm_box_slider_button" data-aos="fade-up" data-aos-duration="700">
+                                        <div class="swiper-button-next swiper-button-next01_01"></div>
+                                        <div class="swiper-button-prev swiper-button-prev01_01"></div>
+                                    </div>
+                                </div>
+                                <div class="nav_box box02">
+                                    <div class="box_text" data-aos="fade-up" data-aos-duration="700">
+                                        <div class="onm_title">민간폐수</div>
+                                        <div class="onm_desciption">
+                                            환경시설관리주식회사는<br>
+                                            환경기초시설 최다 운영 노하우와 기술력을 바탕으로<br> 
+                                            민간 하폐수처리시설 설계, 시공 등을 통해<br>
+                                            수질환경 보전 및 녹색산업 영역 확장을 위해 힘쓰고 있습니다.                                          
+                                        </div>
+                                    </div>
+                                    <div class="swiper" data-aos="fade-left" data-aos-duration="700">
+                                        <div class="swiper-wrapper">
+                                            <div class="swiper-slide">
+                                                <div class="onm_slide_img">
+                                                    <img src="images/business/envir_slide02_img01.png" alt="민간폐수 이미지" />
+                                                </div>
+                                                <div class="onm_slide_text_box">
+                                                    <h3>CJ 블라썸캠퍼스 폐수처리시설
+                                                        설치공사</h3>
+                                                    <div>
+                                                        <dl><dt>시설용량</dt><dd>2,800㎥/d</dd></dl>
+                                                        <dl><dt>공사기간</dt><dd>22개월</dd></dl>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="swiper-slide">
+                                                <div class="onm_slide_img">
+                                                    <img src="images/business/envir_slide02_img02.png" alt="민간폐수 이미지" />
+                                                </div>
+                                                <div class="onm_slide_text_box">
+                                                    <h3>CJ 블라썸캠퍼스 폐수처리시설
+                                                        증설공사</h3>
+                                                    <div>
+                                                        <dl><dt>시설용량</dt><dd>3,500㎥/d</dd></dl>
+                                                        <dl><dt>공사기간</dt><dd>18개월</dd></dl>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="swiper-slide">
+                                                <div class="onm_slide_img">
+                                                    <img src="images/business/envir_slide02_img03.png" alt="민간폐수 이미지" />
+                                                </div>
+                                                <div class="onm_slide_text_box">
+                                                    <h3>여수폐수수탁시설 설치사업</h3>
+                                                    <div>
+                                                        <dl><dt>시설용량</dt><dd>198㎥/d</dd></dl>
+                                                        <dl><dt>공사기간</dt><dd>12개월</dd></dl>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="onm_box_slider_button" data-aos="fade-up" data-aos-duration="700">
+                                        <div class="swiper-button-next swiper-button-next02"></div>
+                                        <div class="swiper-button-prev swiper-button-prev02"></div>
+                                    </div>
+                                </div>
+                                <div class="nav_box box03">
+                                    <div class="box_text" data-aos="fade-up" data-aos-duration="700">
+                                        <div class="onm_title">에코솔루션</div>
+                                        <div class="onm_desciption">
+                                            환경시설관리주식회사는<br>
+                                            2050 탄소중립을 위한 에너지 순환 체계 구축의 일환으로<br>
+                                            유기성 폐자원 바이오가스화시설, 소각시설/여열발전시설,<br>
+                                            물 재이용시설 건립사업 등 축척 된 기술력을 바탕으로<br>
+                                            사업 진행을 하고 있습니다.                                          
+                                        </div>
+                                    </div>
+                                    <div class="swiper" data-aos="fade-left" data-aos-duration="700">
+                                        <div class="swiper-wrapper">
+                                            <div class="swiper-slide">
+                                                <div class="onm_slide_img">
+                                                    <img src="images/business/envir_slide03_img01.png" alt="에코솔루션 이미지" />
+                                                </div>
+                                                <div class="onm_slide_text_box">
+                                                    <h3>달성산단 폐수종말처리장 고도처리수
+                                                        재이용 민간투자사업 (BTO)</h3>
+                                                    <div>
+                                                        <dl><dt>시설용량</dt><dd>11,500㎥/일</dd></dl>
+                                                        <dl><dt>공사기간</dt><dd>15개월</dd></dl>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="swiper-slide">
+                                                <div class="onm_slide_img">
+                                                    <img src="images/business/envir_slide03_img02.png" alt="에코솔루션 이미지" />
+                                                </div>
+                                                <div class="onm_slide_text_box">
+                                                    <h3>국가소유 폐수종말처리장 슬러지자
+                                                        원화시설 민간투자사업 (BTO)</h3>
+                                                    <div>
+                                                        <dl><dt>시설용량</dt><dd>230㎥/일</dd></dl>
+                                                        <dl><dt>공사기간</dt><dd>26개월</dd></dl>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="swiper-slide">
+                                                <div class="onm_slide_img">
+                                                    <img src="images/business/envir_slide03_img03.png" alt="에코솔루션 이미지" />
+                                                </div>
+                                                <div class="onm_slide_text_box">
+                                                    <h3>경산시 자원회수시설 증설
+                                                        민간투자사업 (BTO)</h3>
+                                                    <div>
+                                                        <dl><dt>시설용량</dt><dd>70㎥/일</dd></dl>
+                                                        <dl><dt>공사기간</dt><dd>27개월</dd></dl>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="swiper-slide">
+                                                <div class="onm_slide_img">
+                                                    <img src="images/business/envir_slide03_img04.png" alt="에코솔루션 이미지" />
+                                                </div>
+                                                <div class="onm_slide_text_box">
+                                                    <h3>금산 가축분뇨 공공처리시설 설치사업</h3>
+                                                    <div>
+                                                        <dl><dt>시설용량</dt><dd>90㎥/일</dd></dl>
+                                                        <dl><dt>공사기간</dt><dd>30개월</dd></dl>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="onm_box_slider_button" data-aos="fade-up" data-aos-duration="700">
+                                        <div class="swiper-button-next swiper-button-next03"></div>
+                                        <div class="swiper-button-prev swiper-button-prev03"></div>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+                    </div>
+                </div>
+                <section class="section3">
+                    <div class="search">
+                        <div class="input_row input_search">
+                            <input type="text" id="" placeholder="검색어를 입력해 주세요." />
+                            <a href="javascript:;"><img src="images/common/icon_inp_search.png" alt="검색"></a>
+                        </div>
+                    </div>
+                    <div data-aos="fade-up" data-aos-easing="ease-in-sine" data-aos-once="true" class="onm_list_wrap">
+                        <div class="onm_list onm_list01 on">
+                            <ul>
+                                <li>
+                                    <a href="javascript:;" class="slider_button01" onclick="popupbusiness('card_popup');">
+                                        <div class="list_img"><img src="images/business/envir_list01_img01.png" alt=""></div>
+                                        <div class="list_cont">
+                                           <dl>
+                                               <dt>공공하수</dt>
+                                               <dd>경산시 하수종말처리장 고도처리시설</dd>
+       
+                                           </dl>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="javascript:;" class="slider_button02" onclick="popupbusiness('card_popup');">
+                                        <div class="list_img"><img src="images/business/envir_list01_img02.png" alt=""></div>
+                                        <div class="list_cont">
+                                           <dl>
+                                               <dt>공공하수</dt>
+                                               <dd>용인시 하수처리시설 민간투자사업 (BTO)</dd> 
+                                           </dl>
+                                        </div>
+                                    </a>
+                               </li>
+                               <li>
+                                    <a href="javascript:;" class="slider_button03" onclick="popupbusiness('card_popup');">
+                                        <div class="list_img"><img src="images/business/envir_list01_img03.png" alt=""></div>
+                                        <div class="list_cont">
+                                           <dl>
+                                               <dt>공공하수</dt>
+                                               <dd>양양군 하수도시설 민가투자사업
+                                                 (BTO)</dd>
+                                           </dl>
+                                        </div>
+                                    </a>
+                               </li>
+                               <li>
+                                    <a href="javascript:;" class="slider_button04" onclick="popupbusiness('card_popup');">
+                                        <div class="list_img"><img src="images/business/envir_list01_img04.png" alt=""></div>
+                                        <div class="list_cont">
+                                           <dl>
+                                               <dt>공공하수</dt>
+                                               <dd>경산시 공공하수처리시설 증설
+                                                 민간투자사업 (BTO)</dd>
+                                           </dl>
+                                        </div>
+                                    </a>
+                               </li>
+                               <li>
+                                    <a href="javascript:;" class="slider_button05" onclick="popupbusiness('card_popup');">
+                                        <div class="list_img"><img src="images/business/envir_list01_img05.png" alt=""></div>
+                                        <div class="list_cont">
+                                           <dl>
+                                               <dt>공공하수</dt>
+                                               <dd>하남시 환경기초시설 현대화 및
+                                                 공원조성사업</dd>
+                                           </dl>
+                                        </div>
+                                    </a>
+                               </li>
+                               <li>
+                                    <a href="javascript:;" class="slider_button06" onclick="popupbusiness('card_popup');">
+                                        <div class="list_img"><img src="images/business/envir_list01_img06.png" alt=""></div>
+                                        <div class="list_cont">
+                                           <dl>
+                                               <dt>공공하수</dt>
+                                               <dd>행정중심복합도시 수질복원센터(B-1)
+                                                 시설공사</dd>
+                                           </dl>
+                                        </div>
+                                    </a>
+                               </li>
+                               <li>
+                                    <a href="javascript:;" class="slider_button07" onclick="popupbusiness('card_popup');">
+                                        <div class="list_img"><img src="images/business/envir_list01_img07.png" alt=""></div>
+                                        <div class="list_cont">
+                                           <dl>
+                                               <dt>공공폐수</dt>
+                                               <dd>충주기업도시 폐수종말처리시설
+                                                 설치사업</dd>
+                                           </dl>
+                                        </div>
+                                    </a>
+                               </li>
+                               <li>
+                                    <a href="javascript:;" class="slider_button08" onclick="popupbusiness('card_popup');">
+                                        <div class="list_img"><img src="images/business/envir_list01_img08.png" alt=""></div>
+                                        <div class="list_cont">
+                                           <dl>
+                                               <dt>공공폐수</dt>
+                                               <dd>양산지방 산업단지 폐수종말 처리장
+                                                 설치사업</dd>
+                                           </dl>
+                                        </div>
+                                    </a>
+                               </li>
+                               <li>
+                                    <a href="javascript:;" class="slider_button09" onclick="popupbusiness('card_popup');">
+                                        <div class="list_img"><img src="images/business/envir_list01_img09.png" alt=""></div>
+                                        <div class="list_cont">
+                                           <dl>
+                                               <dt>공공폐수</dt>
+                                               <dd>안성 제2지방산업단지 폐수종말처리장
+                                                 설치사업</dd>
+                                           </dl>
+                                        </div>
+                                    </a>
+                               </li>
+                            </ul>
+                        </div>
+                        <div class="onm_list onm_list02">
+                           <ul>
+                               <li>
+                                   <div class="list_img"><img src="images/business/onm_list01_img01.png" alt=""></div>
+                                   <div class="list_cont">
+                                      <dl>
+                                          <dt>건조</dt>
+                                          <dd>고령군 슬러지건조처리시설</dd>
+   
+                                      </dl>
+                                   </div>
+                               </li>
+                               <li>
+                                  <div class="list_img"><img src="images/business/onm_list01_img02.png" alt=""></div>
+                                  <div class="list_cont">
+                                     <dl>
+                                         <dt>소각</dt>
+                                         <dd>거창군 슬러지건조처리시설</dd>
+                                     </dl>
+                                  </div>
+                              </li>
+                              <li>
+                                  <div class="list_img"><img src="images/business/onm_list01_img03.png" alt=""></div>
+                                  <div class="list_cont">
+                                     <dl>
+                                         <dt>매립</dt>
+                                         <dd>합천군 슬러지매각처리시설</dd>
+                                     </dl>
+                                  </div>
+                              </li>
+                              <li>
+                                  <div class="list_img"><img src="images/business/onm_list01_img04.png" alt=""></div>
+                                  <div class="list_cont">
+                                     <dl>
+                                         <dt>바이오</dt>
+                                         <dd>양산자원회수시설</dd>
+                                     </dl>
+                                  </div>
+                              </li>
+                              <li>
+                                  <div class="list_img"><img src="images/business/onm_list01_img05.png" alt=""></div>
+                                  <div class="list_cont">
+                                     <dl>
+                                         <dt>건조</dt>
+                                         <dd>세종시 슬러지건조처리시설</dd>
+                                     </dl>
+                                  </div>
+                              </li>
+                              <li>
+                                  <div class="list_img"><img src="images/business/onm_list01_img06.png" alt=""></div>
+                                  <div class="list_cont">
+                                     <dl>
+                                         <dt>소각</dt>
+                                         <dd>여수슬러지자원화시설통합운영</dd>
+                                     </dl>
+                                  </div>
+                              </li>
+                              <li>
+                                  <div class="list_img"><img src="images/business/onm_list01_img07.png" alt=""></div>
+                                  <div class="list_cont">
+                                     <dl>
+                                         <dt>바이오</dt>
+                                         <dd>진천군 음식물처리시설</dd>
+                                     </dl>
+                                  </div>
+                              </li>
+                              <li>
+                                  <div class="list_img"><img src="images/business/onm_list01_img08.png" alt=""></div>
+                                  <div class="list_cont">
+                                     <dl>
+                                         <dt>건조</dt>
+                                         <dd>안양시 슬러지건조처리시설</dd>
+                                     </dl>
+                                  </div>
+                              </li>
+                              <li>
+                                  <div class="list_img"><img src="images/business/onm_list01_img09.png" alt=""></div>
+                                  <div class="list_cont">
+                                     <dl>
+                                         <dt>건조</dt>
+                                         <dd>화순무안 슬러지건조처리시설</dd>
+                                     </dl>
+                                  </div>
+                              </li>
+                           </ul>
+                       </div>
+                       <div class="onm_list onm_list03">
+                           <ul>
+                               <li>
+                                   <div class="list_img"><img src="images/business/onm_list01_img01.png" alt=""></div>
+                                   <div class="list_cont">
+                                      <dl>
+                                          <dt>민간폐수</dt>
+                                          <dd>고령군 슬러지건조처리시설</dd>
+   
+                                      </dl>
+                                   </div>
+                               </li>
+                               <li>
+                                  <div class="list_img"><img src="images/business/onm_list01_img02.png" alt=""></div>
+                                  <div class="list_cont">
+                                     <dl>
+                                         <dt>민간폐수</dt>
+                                         <dd>거창군 슬러지건조처리시설</dd>
+                                     </dl>
+                                  </div>
+                              </li>
+                              <li>
+                                  <div class="list_img"><img src="images/business/onm_list01_img03.png" alt=""></div>
+                                  <div class="list_cont">
+                                     <dl>
+                                         <dt>민간폐수</dt>
+                                         <dd>합천군 슬러지매각처리시설</dd>
+                                     </dl>
+                                  </div>
+                              </li>
+                              <li>
+                                  <div class="list_img"><img src="images/business/onm_list01_img04.png" alt=""></div>
+                                  <div class="list_cont">
+                                     <dl>
+                                         <dt>민간폐수</dt>
+                                         <dd>양산자원회수시설</dd>
+                                     </dl>
+                                  </div>
+                              </li>
+                              <li>
+                                  <div class="list_img"><img src="images/business/onm_list01_img05.png" alt=""></div>
+                                  <div class="list_cont">
+                                     <dl>
+                                         <dt>민간폐수</dt>
+                                         <dd>세종시 슬러지건조처리시설</dd>
+                                     </dl>
+                                  </div>
+                              </li>
+                              <li>
+                                  <div class="list_img"><img src="images/business/onm_list01_img06.png" alt=""></div>
+                                  <div class="list_cont">
+                                     <dl>
+                                         <dt>민간폐수</dt>
+                                         <dd>여수슬러지자원화시설통합운영</dd>
+                                     </dl>
+                                  </div>
+                              </li>
+                              <li>
+                                  <div class="list_img"><img src="images/business/onm_list01_img07.png" alt=""></div>
+                                  <div class="list_cont">
+                                     <dl>
+                                         <dt>민간폐수</dt>
+                                         <dd>진천군 음식물처리시설</dd>
+                                     </dl>
+                                  </div>
+                              </li>
+                              <li>
+                                  <div class="list_img"><img src="images/business/onm_list01_img08.png" alt=""></div>
+                                  <div class="list_cont">
+                                     <dl>
+                                         <dt>민간폐수</dt>
+                                         <dd>안양시 슬러지건조처리시설</dd>
+                                     </dl>
+                                  </div>
+                              </li>
+                              <li>
+                                  <div class="list_img"><img src="images/business/onm_list01_img09.png" alt=""></div>
+                                  <div class="list_cont">
+                                     <dl>
+                                         <dt>민간폐수</dt>
+                                         <dd>화순무안 슬러지건조처리시설</dd>
+                                     </dl>
+                                  </div>
+                              </li>
+                           </ul>
+                       </div>
+                    </div>
+
+                     <div class="btn_more">
+                         <a href="javascript:;">
+                             <div class="icon"><i></i><i></i></div>
+                             <span>more list</span>
+                         </a>
+                    </div>
+                </section>
+            </div>
+            <!-- popup -->
+            <div class="popup card_popup">
+                <div class="popup_inner">
+                    <div class="pop_close"><a href="javascript:;">닫기</a></div>
+                    <div class="pop_cont swiper">   
+                        <!-- <div class="main_slider_arrow">
+                            <button class="prev">PREV</button>
+                            <button class="next">NEXT</button>
+                        </div>     -->
+                        <div class="main_slider swiper-wrapper">
+                            <div class="item swiper-slide">
+                                <div class="inner_box swiper">
+                                    <div class="inner_slider inner_slider1 swiper-wrapper">
+                                        <div class="list swiper-slide"><img src="images/business/envir_pop_list01.png" alt=""></div>
+                                        <div class="list swiper-slide"><img src="images/business/envir_pop_list01.png" alt=""></div>
+                                        <div class="list swiper-slide"><img src="images/business/envir_pop_list01.png" alt=""></div>
+                                        <div class="list swiper-slide"><img src="images/business/envir_pop_list01.png" alt=""></div>
+                                    </div>
+                                    <div class="inner_nav">
+                                        <div class="arrow prev">이전</div>
+                                        <div class="slider_counter slider_counter1"><span><b>01</b> / 04</span></div>
+                                        <div class="arrow next">다음</div>
+                                    </div>
+                                </div>
+                                <div class="txt_box">
+                                    <div class="card_lbl">공공하수</div>
+                                    <div class="card_tit">경산시 공공하수증설 민간투자사업(BTO)</div>
+                                    <div class="card_info">
+                                        2단계 오염총량제 및 4대강 정비사업 방류수질 목표달성을 위해 경산시 공공하수처리시설의 고도처리 시설의 확충을 통한 저탄소 녹색성장의 정책방향에 맞는 환경개선
+                                    </div>
+                                    <ul class="card_class">
+                                        <li>
+                                            <dl>
+                                                <dt>시설구분</dt>
+                                                <dd>하수처리시설 증설</dd>
+                                            </dl>
+                                        </li>
+                                        <li>
+                                            <dl>
+                                                <dt>시설용량</dt>
+                                                <dd>하수 40,000㎥/d</dd>
+                                            </dl>
+                                        </li>
+                                        <li>
+                                            <dl>
+                                                <dt>공사기간</dt>
+                                                <dd>30개월</dd>
+                                            </dl>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="item swiper-slide">
+                                <div class="inner_box">
+                                    <div class="inner_slider inner_slider1">
+                                        <div class="list"><img src="images/business/envir_pop_list01.png" alt=""></div>
+                                        <!-- <div class="list"><img src="images/business/envir_pop_list01.png" alt=""></div>
+                                        <div class="list"><img src="images/business/envir_pop_list01.png" alt=""></div>
+                                        <div class="list"><img src="images/business/envir_pop_list01.png" alt=""></div> -->
+                                    </div>
+                                    <div class="inner_nav">
+                                        <div class="arrow prev">이전</div>
+                                        <div class="slider_counter slider_counter1"><span><b>01</b> / 04</span></div>
+                                        <div class="arrow next">다음</div>
+                                    </div>
+                                </div>
+                                <div class="txt_box">
+                                    <div class="card_lbl">공공하수</div>
+                                    <div class="card_tit">경산시 공공하수증설 민간투자사업(BTO)</div>
+                                    <div class="card_info">
+                                        2단계 오염총량제 및 4대강 정비사업 방류수질 목표달성을 위해 경산시 공공하수처리시설의 고도처리 시설의 확충을 통한 저탄소 녹색성장의 정책방향에 맞는 환경개선
+                                    </div>
+                                    <ul class="card_class">
+                                        <li>
+                                            <dl>
+                                                <dt>시설구분</dt>
+                                                <dd>하수처리시설 증설</dd>
+                                            </dl>
+                                        </li>
+                                        <li>
+                                            <dl>
+                                                <dt>시설용량</dt>
+                                                <dd>하수 40,000㎥/d</dd>
+                                            </dl>
+                                        </li>
+                                        <li>
+                                            <dl>
+                                                <dt>공사기간</dt>
+                                                <dd>30개월</dd>
+                                            </dl>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- //popup -->
+        </div>
+        <!-- footer -->
+        <div class="footer"></div>
+        <!-- //footer -->
+    </div>
+</body>
+
+</html>

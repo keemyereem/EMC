@@ -229,20 +229,6 @@ var onmEvent = {
     
 };
 
-//사업실적 팝업
-function popupbusiness(popConts) {
-    var popthis = $(".popup."+popConts);
-    popthis.fadeIn(300);
-    
-    // 탭 메뉴 슬라이드 스와이퍼
-
-
-    popthis.find(".pop_close").click(function(){
-        popthis.fadeOut(300);
-    });
-}
-
-
 ////////////////////////////////////////////// 메인 페이지 이벤트 (FD-00-01-001)
 var mainEvent = {
     
@@ -372,7 +358,7 @@ var mainEvent = {
 
     // 탄소저감 area 총 감축량 카운트 시작
     numberCountUp1: function() {
-        var memberCountConTxt1= 465;
+        var memberCountConTxt1= 4650;
 
         $({ val : 0 }).animate({ val : memberCountConTxt1 }, {
             duration: 2000,
@@ -388,16 +374,16 @@ var mainEvent = {
         });
 
         function numberWithCommas(x) {
-            return x.toString().replace(/\B(?=(\d{2})+(?!\d))/g, ".");
+            return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, "");
         }
 
     },
 
     // 탄소저감 area 총 감축량 카운트 시작
     numberCountUp2: function() {
-        var memberCountConTxt2= 6405232;
+        var memberCountConTxt2= 7777777;
 
-        $({ val : 6405225 }).animate({ val : memberCountConTxt2 }, {
+        $({ val : 7777776 }).animate({ val : memberCountConTxt2 }, {
             duration: 2000,
             step: function() {
                 var num = numberWithCommas(Math.floor(this.val));
