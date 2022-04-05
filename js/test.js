@@ -83,7 +83,6 @@ var commonEvent = {
                 $('.header').removeClass('fixed');
                 $('.text-circle text').css('fill', '#fff');
             }
-            console.log(st);
         });
 
         $(document).on('click', '.lang_choice li', function(){
@@ -342,23 +341,29 @@ var mainEvent = {
     },
 
     businessEvent: function(){
-        var st = $(window).scrollTop,
-            s2 = $('.section2'),
-            s2Top = s2.offset().top, 
-            busList = $('.business_list li'),
-            listOdd = $('.business_list li:odd'),
-            listEven = $('.business_list li:even'),
-            listPos = busList.position().top;
+        // $(window).on('scroll',function(){
+        //     var st = $(this).scrollTop(),
+        //     s2Top = $('.section2').offset().top - Number(90),
+        //     s2Pos = $('.section2').position().top,
+        //     listOdd = $('.business_list li:odd'),
+        //     listEven = $('.business_list li:even');
+        // console.log(st);
+        // console.log('section2 offset top : ' +  Math.floor(s2Top));
+        // // console.log('section2 position top : ' + s2Pos);
 
-        console.log(st);
-        console.log(listOdd);
-        console.log('section2 offset top : ' + s2Top);
-        // console.log('busList position top : ' + listPos);
+        //     if(st = s2Top){
+        //         listEven.animate({'top': '20px'});
+        //         listOdd.animate({'top': '-20px'});
+        //     }else if(st + Number(100) == s2Top){
+        //         listEven.animate({'top': '40px'});
+        //         listOdd.animate({'top': '-40px'});
+        //     }
 
-        if(st > s2Top){
-            busList.css({'top': '700px','left':'150px'});
-        } 
+        // });
+        const element = '.cont_main .section2 .business_list li';
+        const scrollTarget = window;
 
+        const animation = new ScrollAnimation(element, scrollTarget);
     },
 
     sustainEvent: function(){

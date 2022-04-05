@@ -75,20 +75,31 @@ var commonEvent = {
     headerEvent:function(){
 
         $(window).on('scroll',function(){
-            var st = $(window).scrollTop();
+            const st = $(window).scrollTop();
+            let badge = $('.section1').offset().top
+            let cirTxt = $('.text-circle text');
+
             if (st>=100){
-                $('.header').addClass('fixed');
-                $('.text-circle text').css('fill', '#777777');
-            }else{
+                $('.header').addClass('fixed'); 
+                if (st >= badge - 500) {
+                    cirTxt.css('fill', '#777777'); 
+                } else {
+                    cirTxt.css('fill', '#fff');
+                }
+            } else{
                 $('.header').removeClass('fixed');
-                $('.text-circle text').css('fill', '#fff');
+                cirTxt.css('fill', '#fff');
             }
-            console.log(st);
+            // console.log(st);
         });
 
         $(document).on('click', '.lang_choice li', function(){
             $('.lang_choice li').removeClass('on');
             $(this).addClass('on');  
+        });
+        $(document).on('click', '.top_sitemap', function(){
+            $('.sitemap').toggleClass('on');
+            $('.header_wrap h1, .header_wrap .gnb,').css('display', 'none');
         });
     },
     footerEvent:function() {
@@ -235,7 +246,30 @@ function popupbusiness(popConts) {
     popthis.fadeIn(300);
     
     // 탭 메뉴 슬라이드 스와이퍼
+    var popSlide = new Swiper('.inner_box', {
+        slidesPerView : '1',
+        navigation: {  
+            nextEl: '.inner_nav .next',
+            prevEl: '.inner_nav .prev',
+        },
+        pagination: {
+            el: ".counter_slider",
+            type: 'fraction',
+            formatFractionCurrent: function (number) {
+                return ('0' + number).slice(-2);
+            },
+            formatFractionTotal: function (number) {
+                return ('0' + number).slice(-2);
+            },
+            renderFraction: function (currentClass, totalClass) {
+                return '<span class="' + currentClass + '"></span>' +
+                        '/' +
+                       '<span class="' + totalClass + '"></span>';
+            }
+        },
 
+
+    })
 
     popthis.find(".pop_close").click(function(){
         popthis.fadeOut(300);
@@ -372,9 +406,9 @@ var mainEvent = {
 
     // 탄소수치 badge 카운트 시작
     numberCountUp1: function() {
-        var memberCountConTxt1= 465;
+        var memberCountConTxt1= 4650;    // 갱신된 변수값 저장
 
-        $({ val : 0 }).animate({ val : memberCountConTxt1 }, {
+        $({ val : 0 }).animate({ val : memberCountConTxt1 }, {  // 이전 데이터값 변수 저장 (val값에)
             duration: 5000,
             step: function() {
                 var num = numberWithCommas(Math.floor(this.val));
@@ -388,16 +422,17 @@ var mainEvent = {
         });
 
         function numberWithCommas(x) {
-            return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+            return x.toString().replace(/\B(?=(\d{2})+(?!\d))/g, ".");
         }
+        
 
     },
 
     // 탄소저감 area 총 감축량 카운트 시작
     numberCountUp2: function() {
-        var memberCountConTxt2= 6405232;
+        var memberCountConTxt2= 6405232;    // 갱신된 변수값 저장
 
-        $({ val : 6405200 }).animate({ val : memberCountConTxt2 }, {
+        $({ val : 6405200 }).animate({ val : memberCountConTxt2 }, {    // 이전 데이터값 변수 저장 (val값에)
             duration: 10000,
             step: function() {
                 var num = numberWithCommas(Math.floor(this.val));
@@ -412,6 +447,7 @@ var mainEvent = {
         function numberWithCommas(x) {
             return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
         }
+        
 
     },
     carbonChart: function() {

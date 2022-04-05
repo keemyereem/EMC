@@ -45,7 +45,7 @@
         $(window).load( function() {
             //html용 include
             $(".header").load("include/header.html");
-            $(".sitemap").load("include/sitemap.html");
+            // $(".sitemap").load("include/sitemap.html");
             $(".footer").load("include/footer.html");  
             onmEvent.init();
         });
@@ -62,8 +62,8 @@
         <!-- sitemap -->
         <div class="dim"></div>
         <div class="sitemap_bg"></div>
-        <div class="sitemap"></div>
-        <!-- //sitemap -->
+        <div class="sitemap"></div> 
+        <!-- //sitemap  -->
         <div class="container">
             <div class="sub_visual business_visual">
                 <div class="sub_visual_nav">
@@ -124,14 +124,14 @@
             </div>
             <div class="contents cont_business">
                 <div class="contents_inner onm_inner">
+                    <div class="icon" data-aos="fade-up">
+                        <img src="images/business/businessIntro_tit_icon.png" alt="타이틀 아이콘">
+                    </div>
+                    <h3 class="title" data-aos="fade-up" data-aos-offset="200">환경건설</h3>
+                    <div class="tit_line"></div>
                     <div class="business_contents sub_contents">
                         <div class="inner">
                             <section class="section1">
-                                <div class="icon" data-aos="fade-up">
-                                    <img src="images/business/businessIntro_tit_icon.png" alt="타이틀 아이콘">
-                                </div>
-                                <h3 class="title" data-aos="fade-up" data-aos-offset="200">환경건설</h3>
-                                <div class="tit_line"></div>
                                 <p class="sub_con">
                                     환경시설관리주식회사는 1997년 설립 이래 20여 년간 축적된 설계, 시공, 운영 경험을 바탕으로<br>
                                     보다 효율적이고 <b>경제적 처리기술 개발</b>에 많은 투자와 노력을 기울이고 있으며,<br>
@@ -746,97 +746,53 @@
             <div class="popup card_popup">
                 <div class="popup_inner">
                     <div class="pop_close"><a href="javascript:;">닫기</a></div>
-                    <div class="pop_cont swiper">   
-                        <!-- <div class="main_slider_arrow">
-                            <button class="prev">PREV</button>
-                            <button class="next">NEXT</button>
-                        </div>     -->
-                        <div class="main_slider swiper-wrapper">
-                            <div class="item swiper-slide">
-                                <div class="inner_box swiper">
-                                    <div class="inner_slider inner_slider1 swiper-wrapper">
-                                        <div class="list swiper-slide"><img src="images/business/envir_pop_list01.png" alt=""></div>
-                                        <div class="list swiper-slide"><img src="images/business/envir_pop_list01.png" alt=""></div>
-                                        <div class="list swiper-slide"><img src="images/business/envir_pop_list01.png" alt=""></div>
-                                        <div class="list swiper-slide"><img src="images/business/envir_pop_list01.png" alt=""></div>
-                                    </div>
-                                    <div class="inner_nav">
-                                        <div class="arrow prev">이전</div>
-                                        <div class="slider_counter slider_counter1"><span><b>01</b> / 04</span></div>
-                                        <div class="arrow next">다음</div>
-                                    </div>
-                                </div>
-                                <div class="txt_box">
-                                    <div class="card_lbl">공공하수</div>
-                                    <div class="card_tit">경산시 공공하수증설 민간투자사업(BTO)</div>
-                                    <div class="card_info">
-                                        2단계 오염총량제 및 4대강 정비사업 방류수질 목표달성을 위해 경산시 공공하수처리시설의 고도처리 시설의 확충을 통한 저탄소 녹색성장의 정책방향에 맞는 환경개선
-                                    </div>
-                                    <ul class="card_class">
-                                        <li>
-                                            <dl>
-                                                <dt>시설구분</dt>
-                                                <dd>하수처리시설 증설</dd>
-                                            </dl>
-                                        </li>
-                                        <li>
-                                            <dl>
-                                                <dt>시설용량</dt>
-                                                <dd>하수 40,000㎥/d</dd>
-                                            </dl>
-                                        </li>
-                                        <li>
-                                            <dl>
-                                                <dt>공사기간</dt>
-                                                <dd>30개월</dd>
-                                            </dl>
-                                        </li>
-                                    </ul>
-                                </div>
+                    <div class="pop_cont">   
+                        <div class="inner_box swiper-container">
+                            <div class="swiper-wrapper inner_slider">
+                                <div class="list swiper-slide"><img src="images/business/envir_pop_list01.png" alt=""></div>
+                                <div class="list swiper-slide"><img src="images/business/envir_pop_list01.png" alt=""></div>
+                                <div class="list swiper-slide"><img src="images/business/envir_pop_list01.png" alt=""></div>
+                                <div class="list swiper-slide"><img src="images/business/envir_pop_list01.png" alt=""></div>
+                                <div class="list swiper-slide"><img src="images/business/envir_pop_list01.png" alt=""></div>
                             </div>
-                            <div class="item swiper-slide">
-                                <div class="inner_box">
-                                    <div class="inner_slider inner_slider1">
-                                        <div class="list"><img src="images/business/envir_pop_list01.png" alt=""></div>
-                                        <!-- <div class="list"><img src="images/business/envir_pop_list01.png" alt=""></div>
-                                        <div class="list"><img src="images/business/envir_pop_list01.png" alt=""></div>
-                                        <div class="list"><img src="images/business/envir_pop_list01.png" alt=""></div> -->
-                                    </div>
-                                    <div class="inner_nav">
-                                        <div class="arrow prev">이전</div>
-                                        <div class="slider_counter slider_counter1"><span><b>01</b> / 04</span></div>
-                                        <div class="arrow next">다음</div>
-                                    </div>
-                                </div>
-                                <div class="txt_box">
-                                    <div class="card_lbl">공공하수</div>
-                                    <div class="card_tit">경산시 공공하수증설 민간투자사업(BTO)</div>
-                                    <div class="card_info">
-                                        2단계 오염총량제 및 4대강 정비사업 방류수질 목표달성을 위해 경산시 공공하수처리시설의 고도처리 시설의 확충을 통한 저탄소 녹색성장의 정책방향에 맞는 환경개선
-                                    </div>
-                                    <ul class="card_class">
-                                        <li>
-                                            <dl>
-                                                <dt>시설구분</dt>
-                                                <dd>하수처리시설 증설</dd>
-                                            </dl>
-                                        </li>
-                                        <li>
-                                            <dl>
-                                                <dt>시설용량</dt>
-                                                <dd>하수 40,000㎥/d</dd>
-                                            </dl>
-                                        </li>
-                                        <li>
-                                            <dl>
-                                                <dt>공사기간</dt>
-                                                <dd>30개월</dd>
-                                            </dl>
-                                        </li>
-                                    </ul>
-                                </div>
+                            <div class="inner_nav">
+                                <div class="arrow prev">이전</div>
+                                <div class="counter_slider"></div>
+                                <div class="arrow next">다음</div>
                             </div>
-
+                        </div>
+                        <div class="txt_box">
+                            <div class="card_lbl">공공하수</div>
+                            <div class="card_tit">경산시 공공하수증설 민간투자사업(BTO)</div>
+                            <div class="card_info">
+                                2단계 오염총량제 및 4대강 정비사업 방류수질 목표달성을 위해 경산시 공공하수처리시설의 고도처리 시설의 확충을 통한 저탄소 녹색성장의 정책방향에 맞는 환경개선
+                            </div>
+                            <ul class="card_class">
+                                <li>
+                                    <dl>
+                                        <dt>시설구분</dt>
+                                        <dd>하수처리시설 증설</dd>
+                                    </dl>
+                                </li>
+                                <li>
+                                    <dl>
+                                        <dt>시설용량</dt>
+                                        <dd>하수 40,000㎥/d</dd>
+                                    </dl>
+                                </li>
+                                <li>
+                                    <dl>
+                                        <dt>공사기간</dt>
+                                        <dd>30개월</dd>
+                                    </dl>
+                                </li>
+                                <li>
+                                    <dl>
+                                        <dt>등록일</dt>
+                                        <dd>2022-03-15</dd>
+                                    </dl>
+                                </li>
+                            </ul>
                         </div>
                     </div>
                 </div>
