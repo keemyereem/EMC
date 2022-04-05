@@ -229,11 +229,26 @@ var onmEvent = {
     
 };
 
+//사업실적 팝업
+function popupbusiness(popConts) {
+    var popthis = $(".popup."+popConts);
+    popthis.fadeIn(300);
+    
+    // 탭 메뉴 슬라이드 스와이퍼
+
+
+    popthis.find(".pop_close").click(function(){
+        popthis.fadeOut(300);
+    });
+}
+
+
 ////////////////////////////////////////////// 메인 페이지 이벤트 (FD-00-01-001)
 var mainEvent = {
     
     init:function(){
         this.mainSwiper();
+        this.businessEvent();
         this.sustainEvent();
         // skrollr.init();
     },
@@ -325,6 +340,27 @@ var mainEvent = {
             }
         });
     },
+
+    businessEvent: function(){
+        var st = $(window).scrollTop,
+            s2 = $('.section2'),
+            s2Top = s2.offset().top, 
+            busList = $('.business_list li'),
+            listOdd = $('.business_list li:odd'),
+            listEven = $('.business_list li:even'),
+            listPos = busList.position().top;
+
+        console.log(st);
+        console.log(listOdd);
+        console.log('section2 offset top : ' + s2Top);
+        // console.log('busList position top : ' + listPos);
+
+        if(st > s2Top){
+            busList.css({'top': '700px','left':'150px'});
+        } 
+
+    },
+
     sustainEvent: function(){
         var sustain_bg =  $(".cont_main .section3 .sustain_list"),
             sustain_list = $(".cont_main .section3 .sustain_list ul li");
@@ -358,7 +394,7 @@ var mainEvent = {
 
     // 탄소저감 area 총 감축량 카운트 시작
     numberCountUp1: function() {
-        var memberCountConTxt1= 4650;
+        var memberCountConTxt1= 465;
 
         $({ val : 0 }).animate({ val : memberCountConTxt1 }, {
             duration: 2000,
@@ -374,16 +410,16 @@ var mainEvent = {
         });
 
         function numberWithCommas(x) {
-            return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, "");
+            return x.toString().replace(/\B(?=(\d{2})+(?!\d))/g, ".");
         }
 
     },
 
     // 탄소저감 area 총 감축량 카운트 시작
     numberCountUp2: function() {
-        var memberCountConTxt2= 7777777;
+        var memberCountConTxt2= 6405232;
 
-        $({ val : 7777776 }).animate({ val : memberCountConTxt2 }, {
+        $({ val : 6405225 }).animate({ val : memberCountConTxt2 }, {
             duration: 2000,
             step: function() {
                 var num = numberWithCommas(Math.floor(this.val));

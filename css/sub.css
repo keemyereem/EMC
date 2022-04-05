@@ -78,13 +78,14 @@
 .container .contents .contents_inner .detail_sub_contents .inner .tb_view .btn_box .btn_line a:hover:before { transform: scaleX(1); }
 .container .contents .contents_inner .detail_sub_contents .inner .tb_view .btn_box .btn_line a:hover { color:#fff; }
 
-/* 투자정보 - 재무정보 - 재무상태표 220404 */
-.cont_invest.fc_info {}
+/* 투자정보 - 재무정보 - 재무상태표,손익계산서 220405 */
+.cont_invest.fc_info .contents_inner { padding: 12rem 0 16.7rem 0; }
 .cont_invest.fc_info .title { padding:2rem 0 0; }
 .cont_invest.fc_info .tit_line {width: .1rem;height: 0;background: #568236;margin: 5rem auto 6rem;opacity: 0;transition: all .5s;}
 .cont_invest.fc_info .tit_line.on {height: 8rem;opacity: 1;}
 .cont_invest.fc_info .sub_con { position: relative; opacity: 0; top: 100px;  transition: all ease-in-out .6s; }
 .cont_invest.fc_info .sub_con.on { opacity: 1; top: 0; }
+.cont_invest.fc_info .sub_con .inner { max-width: none;}
 .cont_invest.fc_info .tb_top .nav_btn { display: flex; justify-content: center; border-bottom: 1px solid #eeeeee; }
 .cont_invest.fc_info .tb_top .nav_btn li { width: 50%; text-align: center; line-height: 5rem; font-size: 1.6rem; position: relative;}
 .cont_invest.fc_info .tb_top .nav_btn li:after { content:''; display: block; width: 0; height: 0.3rem; background:#568236; transition:all ease-in-out .5s; position: absolute; left: 0; }
@@ -95,19 +96,20 @@
 .cont_invest.fc_info .tb_top .nav_btn li:hover a { color: #568236; font-weight: 400; }
 
 .cont_invest.fc_info .tb_box {position: relative; margin-top: 6.1rem; font-family: 'NS';}
-.cont_invest.fc_info .tb_box p { font-size: 1.5rem; font-weight: 200; color:#888888; text-align: right; padding-bottom: 2rem; }
+.cont_invest.fc_info .tb_box p { font-size: 1.5rem; font-weight: 200; color:#888888; text-align: right; padding:0 0 2rem 0; }
+.cont_invest.fc_info .tb_box p:last-child { font-size: 1.3rem; text-align: left; padding:2rem 0 0 0; line-height: 2rem; }
 .cont_invest.fc_info .tb_box .tb_row {display: table;table-layout: fixed;width: 100%;}
+.cont_invest.fc_info .tb_box .tb_row.cell_sum { background: #f6f9f5; }
 .cont_invest.fc_info .tb_box .tb_row.row_head {border-top: .1rem solid #222222; border-bottom: .1rem solid #eeeeee; background-color:rgba(238, 238, 238, .5);}
-.cont_invest.fc_info .tb_box .tb_row.row_head > div {font-size: 1.6rem; font-weight: 300; color: #222222; }
+.cont_invest.fc_info .tb_box .tb_row.row_head > div {font-size: 1.6rem; font-weight: 400; color: #222222; }
 
 .cont_invest.fc_info .tb_box .tb_row.row_body {border-bottom: .1rem solid #eeeeee;}
 .cont_invest.fc_info .tb_box .tb_row.row_body > div {padding: 0 5rem;font-size: 1.6rem;font-weight: 200;color: #555555;}
+.cont_invest.fc_info .tb_box .tb_row.row_body > div.cell_rd {color: #de3c31;}
 .cont_invest.fc_info .tb_box .tb_row.row_body > div:not(:first-child) { text-align: right; }
 .cont_invest.fc_info .tb_box .tb_row > div { display: table-cell; height: 7rem; vertical-align: middle; text-align: center; width: calc(100% / 3); }
 .cont_invest.fc_info .tb_box .tb_row > div b { font-weight: 300; color: #222222; }
 .cont_invest.fc_info .tb_box .tb_row > div:not(:last-child) { border-right:.1rem solid #eee; }
-
-
 
 
 /* 회사소개 */

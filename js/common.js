@@ -370,12 +370,12 @@ var mainEvent = {
         });
     },
 
-    // 탄소저감 area 총 감축량 카운트 시작
+    // 탄소수치 badge 카운트 시작
     numberCountUp1: function() {
         var memberCountConTxt1= 465;
 
         $({ val : 0 }).animate({ val : memberCountConTxt1 }, {
-            duration: 2000,
+            duration: 5000,
             step: function() {
                 var num = numberWithCommas(Math.floor(this.val));
                 $(".mov_num1").text(num);
@@ -388,7 +388,7 @@ var mainEvent = {
         });
 
         function numberWithCommas(x) {
-            return x.toString().replace(/\B(?=(\d{2})+(?!\d))/g, ".");
+            return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
         }
 
     },
@@ -397,8 +397,8 @@ var mainEvent = {
     numberCountUp2: function() {
         var memberCountConTxt2= 6405232;
 
-        $({ val : 6405225 }).animate({ val : memberCountConTxt2 }, {
-            duration: 2000,
+        $({ val : 6405200 }).animate({ val : memberCountConTxt2 }, {
+            duration: 10000,
             step: function() {
                 var num = numberWithCommas(Math.floor(this.val));
                 $(".mov_num2").text(num);
