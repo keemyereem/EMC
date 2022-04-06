@@ -14,17 +14,26 @@ $(function(){
         duration: 500,
         anchorPlacement: 'bottom-bottom',
     });
-    // 페이지 타이틀, 라인 지정
+    // 페이지 타이틀, 라인, 사이트맵 내용 지정 
     const aos_order1 = document.querySelector('.title');
     const aos_order2 = document.querySelector('.tit_line');
+    const aos_order3 = document.querySelector('.sitemap');
     
     // 페이지 타이틀, 라인, 설명 각각 모션효과 종료될 때 다음 모션 진행하도록 
-    aos_order1.addEventListener('transitionend', function(e){
+    aos_order1.addEventListener('transitionend', () => {
         $(aos_order2).addClass('on');
-        aos_order2.addEventListener('transitionend', function(e){
+        aos_order2.addEventListener('transitionend', () => {
             $('.sub_con').addClass('on');
         });  
-    }); 
+    });
+
+    // 사이트맵 출력 후 메뉴 나타나게 하는 모션 효과
+    aos_order3.addEventListener('transitionend', () => {
+        $(this).find('li p, h2, .depth_list').addClass('on');
+        if ($(aos_order3).hasClass('on') ==! true) { 
+            $(aos_order3).find('li p, h2, .depth_list').removeClass('on');
+        } 
+    });
 
 });
 
@@ -93,22 +102,29 @@ var commonEvent = {
             // console.log(st);
         });
 
+        // 번역페이지 버튼 온/오프
         $(document).on('click', '.lang_choice li', function(){
             $('.lang_choice li').removeClass('on');
             $(this).addClass('on');  
         });
 
+        // 사이트맵 메뉴 출력
         $(document).on('click', '.top_sitemap', function(){
             $(this).toggleClass('on col_b');
             $('.sitemap, .sitemap_bg, .lang_choice, .header').toggleClass('on');
 
             if ($(this).hasClass('on')) {
-                $('.header_wrap h1, .header_wrap .gnb').hide();
+                $('.header_wrap h1, .header_wrap .gnb').addClass('off');
+                $('.wrap').on('scroll touchmove mousewheel', function(event) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                    return false;
+                });
             } else {
-                $('.header_wrap h1, .header_wrap .gnb').show(1000);
+                $('.header_wrap h1, .header_wrap .gnb').removeClass('off');
+                $('.sitemap li p, .sitemap h2, .sitemap .depth_list').removeClass('on');
+                $('.wrap').off('scroll touchmove mousewheel');
             }
-
-            
         });
     },
     footerEvent:function() {

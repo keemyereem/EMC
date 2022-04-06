@@ -58,7 +58,7 @@
     font-weight: 500;
     src: local(※),
     url(../font/NotoSansCJKkr-Black.eot?#iefix) format('embedded-opentype'),
-    url(../font/NotoSansCJKkr-Black.ttf) format('truetype');
+    url(../font/NotoSansCJKkr-Black.otf) format('truetype');
 }
 
 @font-face {
