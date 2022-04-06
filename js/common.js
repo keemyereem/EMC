@@ -97,9 +97,18 @@ var commonEvent = {
             $('.lang_choice li').removeClass('on');
             $(this).addClass('on');  
         });
+
         $(document).on('click', '.top_sitemap', function(){
-            $('.sitemap').toggleClass('on');
-            $('.header_wrap h1, .header_wrap .gnb,').css('display', 'none');
+            $(this).toggleClass('on col_b');
+            $('.sitemap, .sitemap_bg, .lang_choice, .header').toggleClass('on');
+
+            if ($(this).hasClass('on')) {
+                $('.header_wrap h1, .header_wrap .gnb').hide();
+            } else {
+                $('.header_wrap h1, .header_wrap .gnb').show(1000);
+            }
+
+            
         });
     },
     footerEvent:function() {
@@ -248,6 +257,7 @@ function popupbusiness(popConts) {
     // 탭 메뉴 슬라이드 스와이퍼
     var popSlide = new Swiper('.inner_box', {
         slidesPerView : '1',
+        watchOverflow : true,
         navigation: {  
             nextEl: '.inner_nav .next',
             prevEl: '.inner_nav .prev',
