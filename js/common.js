@@ -78,14 +78,27 @@ var commonEvent = {
         $(document).on('click', '.sub_visual_menu .depth .drop_box li a', function(){
             var selected = $(this).text();
             var dep_tit = $(this).closest('.drop_box').siblings('.dep_tit');
-            dep_tit.text(selected);     
+            dep_tit.text(selected);  
+            
+            var cp = $('.sub_visual_menu .depth .drop_box li a.cp').text();
+            var depth2W = $('.sub_visual_menu .depth2');
+            console.log(cp);
+            if( cp == selected ){
+                depth2W.width('326px');
+            }else{
+                depth2W.width('225px');
+            }
         });
+
+
+
+
     },
     headerEvent:function(){
 
         $(window).on('scroll',function(){
             const st = $(window).scrollTop();
-            let badge = $('.section1').offset().top
+            let badge = $('.section1').offset().top;
             let cirTxt = $('.text-circle text');
 
             if (st>=100){
@@ -99,7 +112,7 @@ var commonEvent = {
                 $('.header').removeClass('fixed');
                 cirTxt.css('fill', '#fff');
             }
-            // console.log(st);
+            console.log(st);
         });
 
         // 번역페이지 버튼 온/오프
