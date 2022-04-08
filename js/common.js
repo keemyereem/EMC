@@ -80,16 +80,23 @@ var commonEvent = {
             var dep_tit = $(this).closest('.drop_box').siblings('.dep_tit');
             dep_tit.text(selected);  
             
-            var cp = $('.sub_visual_menu .depth .drop_box li a.cp').text();
+
             var depth2W = $('.sub_visual_menu .depth2');
-            console.log(cp);
-            if( cp == selected ){
+            var depth2Tit = $('.sub_visual_menu .depth2 .dep_tit').text();
+            if( depth2Tit == '공정거래 자율준수 프로그램' ){
                 depth2W.width('326px');
             }else{
                 depth2W.width('225px');
             }
         });
 
+        var depth2W = $('.sub_visual_menu .depth2');
+        var depth2Tit = $('.sub_visual_menu .depth2 .dep_tit').text();
+        if( depth2Tit == '공정거래 자율준수 프로그램' ){
+            depth2W.width('326px');
+        }else{
+            depth2W.width('225px');
+        }
 
 
 

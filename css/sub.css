@@ -352,8 +352,6 @@
 .cont_sustain .speakup_wrap .section3 .download_wrap {width: 100%; min-height: 13rem;padding: 4rem 5rem;margin: 5rem 0 3rem;background: #f5f5f5;display: flex;justify-content: space-between;}
 
 
-
-
 /* 지속가능경영 - 안전보건 - 소개 220407 */
 .cont_sustain .contents_inner { padding: 12rem 0 16.7rem 0; max-width: 144rem;}
 .cont_sustain .sub_con { position: relative; opacity: 0; top: 100px;  transition: all ease-in-out .6s; }
@@ -402,6 +400,52 @@
 .cont_sustain .sub_con .inner section:not(.section1) > div:not(.shm_sub_tit) .shm_sub_con_line { border-bottom: 1px solid #e8e8e8; margin: 6rem 0; width: calc(100% + 16rem); position:relative; right:16rem; }
 .cont_sustain .sub_con .inner section:not(.section1) > div:not(.shm_sub_tit) > div div { width: fit-content; margin-top: 6rem; }
 .cont_sustain .sub_con .inner section:not(.section1) .shm_sub_con > p { color: #222 !important; }
+
+
+
+/* 지속가능경영 - 공정거래 자율준수 프로그램  */
+.cont_sustain .cp_contents .sub_con {font-family: 'NS';font-size: 2.6rem;color: #222;line-height: 1.77;letter-spacing: -.065rem;text-align: center;}
+.cont_sustain .cp_contents .sub_con > b {color: #568236;font-weight: 400;}
+.cont_sustain .cp_contents .cp_wrap .section1 {width: 100%; height: 60.3rem;background: #f5f5f5;margin: 9rem 0 12rem;}
+.cont_sustain .cp_contents .cp_wrap .section1 .s_title_img {text-align: center;padding: 10rem 0 3rem;}
+.cont_sustain .cp_contents .cp_wrap .section1 > h3 {font-size: 4.6rem;font-weight: 400;text-align: center;line-height: .9;}
+.cont_sustain .cp_contents .cp_wrap .section1 > h3 > span {font-size: 1.8rem;font-weight: 300;color: #222;}
+.cont_sustain .cp_contents .cp_wrap .section1 .cp_banner {max-width: 120rem;height: 40rem;margin: 6rem auto 0;background: url(../images/sustain/cp_banner.jpg) no-repeat 50% 50%;padding: 10rem;}
+.cont_sustain .cp_contents .cp_wrap .section1 .cp_banner > p {font-size: 1.8rem;color: #fff;line-height: 1.78;letter-spacing: -.045rem}
+.cont_sustain .cp_contents .cp_wrap .section1 .cp_banner > p:before {content:'';display: block;width: 2.9rem;height: .2rem;background: #f5b508;margin: 1rem 0 3.5rem;}
+.cont_sustain .cp_contents .cp_wrap section:not(:first-child) {display: flex;max-width: 120rem;margin: 0 auto;padding: 10rem 0;}
+.cont_sustain .cp_contents .cp_wrap section .s_tit {font-size: 2.6rem;font-weight: 400;color: #222;width: 26rem;line-height: 1.77;letter-spacing: -.065rem;}
+.cont_sustain .cp_contents .cp_wrap section .s_con {width: calc(100% - 26rem);}
+.cont_sustain .cp_contents .cp_wrap section .s_con > .sub {font-family: 'NS';font-size: 1.8rem;font-weight: 300;color: #222;line-height: 1.78;} 
+.cont_sustain .cp_contents .cp_wrap section .s_con > .txt_green {font-size: 1.8rem;font-weight: 400;color: #22591b;margin-top: 6rem;}
+.cont_sustain .cp_contents .cp_wrap .section2 .s_con > .sub {line-height: 2.1;}
+.cont_sustain .cp_contents .cp_wrap .section2 .s_con > .sub > ol {display: inline-flex;background: #f5f5f5;width: auto;height: 3.9rem;line-height: 3.9rem;padding: 0 1.2rem;}
+.cont_sustain .cp_contents .cp_wrap .section2 .s_con > .sub > ol > li:not(:last-child) {position: relative;padding-right: 3rem;}
+.cont_sustain .cp_contents .cp_wrap .section2 .s_con > .sub > ol > li:not(:last-child):after {content:'→';display: inline-block;position: absolute;top:50%;right: .9rem;transform: translateY(-50%);color: #555;}
+.cont_sustain .cp_contents .cp_wrap .section2 .s_con > .sub > ol > li > span {display: inline-block;width: 2.2rem;height: 2.2rem;border-radius: 50%;background: #22591b;font-size: 1.2rem;font-weight: 300;color: #fff;text-align: center;vertical-align: text-top;line-height: 2.2rem;}
+.cont_sustain .cp_contents .cp_wrap .section2 .s_con > ol {width: 100%;display: flex;margin-top: 4rem; }
+.cont_sustain .cp_contents .cp_wrap .section2 .s_con > ol > li {width: calc(20% + 1.2rem);position: relative;}
+.cont_sustain .cp_contents .cp_wrap .section2 .s_con > ol > li > img {width: 100%;}
+.cont_sustain .cp_contents .cp_wrap .section2 .s_con > ol > li:not(:first-child) {margin-left: -1.5rem;}
+.cont_sustain .cp_contents .cp_wrap .section2 .s_con > ol > li .num {font-size: 1.4rem;font-weight: 400;color: #568236;text-align: center;position: absolute;top: 50%;left: 50%;transform:translate(-50%,-5.3rem);}
+.cont_sustain .cp_contents .cp_wrap .section2 .s_con > ol > li:nth-child(2n) .num {color: #222;}
+.cont_sustain .cp_contents .cp_wrap .section2 .s_con > ol > li .num:after {content:'';display: block;width: 11rem;height: 0.1rem;background: #ccc;margin-top: 2.2rem;}
+.cont_sustain .cp_contents .cp_wrap .section2 .s_con > ol > li .txt {font-size: 1.8rem;font-weight: 300;color: #222;text-align: center;position: absolute;top: 50%;left: 50%;transform: translate(-50%,1.2rem);}
+.cont_sustain .cp_contents .cp_wrap .section2 .s_con > ol > li .txt > span {font-size: 1.2rem;font-weight: 200;color: #555;}
+.cont_sustain .cp_contents .cp_wrap .section3 .s_con > ul > li {font-size: 1.8rem;color: #555;line-height: 1.78;margin-top: 3.2rem;display: flex;}
+.cont_sustain .cp_contents .cp_wrap .section3 {border-top: 1px solid #e8e8e8;border-bottom: 1px solid #e8e8e8;}
+.cont_sustain .cp_contents .cp_wrap .section3 .s_con > ul > li > span:first-child {font-weight: 400;color: #22591b;margin-right: 2rem;}
+.cont_sustain .cp_contents .cp_wrap .section4 {padding: 10rem 0 2rem !important;}
+.cont_sustain .cp_contents .cp_wrap .section4 .s_con > .txt {font-size: 1.6rem;color: #222;margin: 3rem 0;}
+.cont_sustain .cp_contents .cp_wrap .section4 .s_con > .txt:last-of-type {font-size: 1.4rem;color: #555;}
+.cont_sustain .cp_contents .cp_wrap .section4 .s_con > ol {display: flex;margin-top: 4rem;}
+.cont_sustain .cp_contents .cp_wrap .section4 .s_con > ol > li:not(:last-child) {margin-right: 7rem;}
+.cont_sustain .cp_contents .cp_wrap .section4 .s_con > ol > li .icon {position: relative;}
+.cont_sustain .cp_contents .cp_wrap .section4 .s_con > ol > li .icon:after {content:'';display: block;width: 1rem;height: 1.9rem;background: url(../images/sustain/icon_arrow.png)no-repeat 0 0;position: absolute;top: 50%;right: -4rem;transform: translateY(-50%);}
+.cont_sustain .cp_contents .cp_wrap .section4 .s_con > ol > li:last-child .icon:after {display: none;}
+.cont_sustain .cp_contents .cp_wrap .section4 .s_con > ol > li .txt {font-size: 1.4rem;font-weight: 300;color: #555;text-align: center;margin-top: 3rem;}
+.cont_sustain .cp_contents .cp_wrap .section4 .s_con > .btn_box {width: 20rem;height: 5rem;border: 1px solid #777;padding: 0 3rem;line-height: 5rem;margin-top: 6rem;}
+.cont_sustain .cp_contents .cp_wrap .section4 .s_con > .btn_box > a {display: block;width: 100%;height: 100%;background: url(../images/common/icon_btn_arrow.png) no-repeat 100% 50%;font-size: 1.4rem;color: #555;}
 
 
 
