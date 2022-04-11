@@ -6,7 +6,7 @@ $(function(){
 
     //Run AOS - Global Setting
     AOS.init({
-        //offset: 120,
+        // offset: 120,
         //delay: 500,
         //mirror: false,
         once: true,
@@ -322,6 +322,18 @@ function popupbusiness(popConts) {
     });
 }
 
+var recruitEvent = {
+    init:function(){
+        this.faqToggle();
+    },
+    faqToggle: function(){
+        $(".que").click(function() {
+            $(this).next(".ans").stop().slideToggle(300);
+            $(this).toggleClass('on').siblings().removeClass('on');
+            $(this).next(".ans").siblings(".ans").slideUp(300); 
+         });
+    },
+}
 
 ////////////////////////////////////////////// 메인 페이지 이벤트 (FD-00-01-001)
 var mainEvent = {
