@@ -6,7 +6,7 @@ $(function(){
 
     //Run AOS - Global Setting
     AOS.init({
-        //offset: 120,
+        // offset: 120,
         //delay: 500,
         //mirror: false,
         once: true,
@@ -14,17 +14,26 @@ $(function(){
         duration: 500,
         anchorPlacement: 'bottom-bottom',
     });
-    // 페이지 타이틀, 라인 지정
+    // 페이지 타이틀, 라인, 사이트맵 내용 지정 
     const aos_order1 = document.querySelector('.title');
     const aos_order2 = document.querySelector('.tit_line');
+    const aos_order3 = document.querySelector('.sitemap');
     
     // 페이지 타이틀, 라인, 설명 각각 모션효과 종료될 때 다음 모션 진행하도록 
-    aos_order1.addEventListener('transitionend', function(e){
+    aos_order1.addEventListener('transitionend', () => {
         $(aos_order2).addClass('on');
-        aos_order2.addEventListener('transitionend', function(e){
+        aos_order2.addEventListener('transitionend', () => {
             $('.sub_con').addClass('on');
         });  
-    }); 
+    });
+
+    // 사이트맵 출력 후 메뉴 나타나게 하는 모션 효과
+    aos_order3.addEventListener('transitionend', () => {
+        $(this).find('li p, h2, .depth_list').addClass('on');
+        if ($(aos_order3).hasClass('on') ==! true) { 
+            $(aos_order3).find('li p, h2, .depth_list').removeClass('on');
+        } 
+    });
 
 });
 
@@ -69,25 +78,76 @@ var commonEvent = {
         $(document).on('click', '.sub_visual_menu .depth .drop_box li a', function(){
             var selected = $(this).text();
             var dep_tit = $(this).closest('.drop_box').siblings('.dep_tit');
-            dep_tit.text(selected);     
+            dep_tit.text(selected);  
+            
+
+            var depth2W = $('.sub_visual_menu .depth2');
+            var depth2Tit = $('.sub_visual_menu .depth2 .dep_tit').text();
+            if( depth2Tit == '공정거래 자율준수 프로그램' ){
+                depth2W.width('326px');
+            }else{
+                depth2W.width('225px');
+            }
         });
+
+        var depth2W = $('.sub_visual_menu .depth2');
+        var depth2Tit = $('.sub_visual_menu .depth2 .dep_tit').text();
+        if( depth2Tit == '공정거래 자율준수 프로그램' ){
+            depth2W.width('326px');
+        }else{
+            depth2W.width('225px');
+        }
+
+
+
     },
     headerEvent:function(){
 
         $(window).on('scroll',function(){
-            var st = $(window).scrollTop();
+            const st = $(window).scrollTop();
+            let anchor1 = $('.section1')
+            let cirTxt = $('.text-circle text');
+
             if (st>=100){
-                $('.header').addClass('fixed');
-                $('.text-circle text').css('fill', '#777777');
-            }else{
+                $('.header').addClass('fixed'); 
+                if (anchor1.length) {
+                    let badge = anchor1.offset().top;
+                    if (st >= badge - 500) {
+                        cirTxt.css('fill', '#777777'); 
+                    } else {
+                        cirTxt.css('fill', '#fff');
+                    }
+                }
+            } else{
                 $('.header').removeClass('fixed');
-                $('.text-circle text').css('fill', '#fff');
+                cirTxt.css('fill', '#fff');
             }
+            //console.log(st);
         });
 
+        // 번역페이지 버튼 온/오프
         $(document).on('click', '.lang_choice li', function(){
             $('.lang_choice li').removeClass('on');
             $(this).addClass('on');  
+        });
+
+        // 사이트맵 메뉴 출력
+        $(document).on('click', '.top_sitemap', function(){
+            $(this).toggleClass('on col_b');
+            $('.sitemap, .sitemap_bg, .lang_choice, .header').toggleClass('on');
+
+            if ($(this).hasClass('on')) {
+                $('.header_wrap h1, .header_wrap .gnb').addClass('off');
+                $('.wrap').on('scroll touchmove mousewheel', function(event) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                    return false;
+                });
+            } else {
+                $('.header_wrap h1, .header_wrap .gnb').removeClass('off');
+                $('.sitemap li p, .sitemap h2, .sitemap .depth_list').removeClass('on');
+                $('.wrap').off('scroll touchmove mousewheel');
+            }
         });
     },
     footerEvent:function() {
@@ -234,12 +294,67 @@ function popupbusiness(popConts) {
     popthis.fadeIn(300);
     
     // 탭 메뉴 슬라이드 스와이퍼
+    var popSlide = new Swiper('.inner_box', {
+        slidesPerView : '1',
+        watchOverflow : true,
+        navigation: {  
+            nextEl: '.inner_nav .next',
+            prevEl: '.inner_nav .prev',
+        },
+        pagination: {
+            el: ".counter_slider",
+            type: 'fraction',
+            formatFractionCurrent: function (number) {
+                return ('0' + number).slice(-2);
+            },
+            formatFractionTotal: function (number) {
+                return ('0' + number).slice(-2);
+            },
+            renderFraction: function (currentClass, totalClass) {
+                return '<span class="' + currentClass + '"></span>' +
+                        '/' +
+                       '<span class="' + totalClass + '"></span>';
+            }
+        },
 
+
+    })
 
     popthis.find(".pop_close").click(function(){
         popthis.fadeOut(300);
     });
 }
+
+var recruitEvent = {
+    init:function(){
+        this.faqToggle();
+    },
+    faqToggle: function(){
+        $(".que").click(function() {
+            $(this).next(".ans").stop().slideToggle(300);
+            $(this).toggleClass('on').siblings().removeClass('on');
+            $(this).next(".ans").siblings(".ans").slideUp(300); 
+         });
+    },
+};
+
+//기술역량 페이지 이벤트
+var rndEvent = {
+    init:function(){
+        this.rndTab();
+    },
+    rndTab: function(){
+        var Tabs = $('.rnd_contents .nav_btn li');
+        Tabs.on("click", function() {
+            $(this).addClass('on');
+            $(this).siblings().removeClass('on');
+            
+            var Tabs_idx = Tabs.index(this)+1;
+            $('.section2 .tb_box').removeClass('on');
+            $('.section2 .tb_box0' + Tabs_idx).addClass('on');
+        });
+    },
+};
 
 
 ////////////////////////////////////////////// 메인 페이지 이벤트 (FD-00-01-001)
@@ -247,10 +362,59 @@ var mainEvent = {
     
     init:function(){
         this.mainSwiper();
-        this.businessEvent();
         this.sustainEvent();
         // skrollr.init();
+        this.main_startEvent();
+
+        const def = {
+            height: 2680, // 총 높이
+            elements: { // 애니메이션이 적용될 요소들을 먼저 정리함. 
+              sl1: { // ref 이름
+                top: 500, // 시작점
+                bottom: 1900, // 끝점
+                topStyle: { // 해당 요소의 위쪽에서 시작하고자 할 때 초기화되는 스타일 
+                  opacity: 0,
+                  translateY: -60 // 기본 위치는 중앙이므로 중심에서 떨어진 거리를 뜻하게 됨.
+                  (기타 속성들)
+                },
+                bottomStyle: { // 해당 요소의 아래쪽에서 끝날 때 마무리되는 스타일
+                  opacity: 0,
+                  translateY: 60
+                }
+              },
+              // 중략, 기타 다른 요소들
+            },
+            animations: {
+              sl1: [ // 애니메이션을 적용할 요소. 애니메이션은 여러 개가 될 수 있기 때문에 배열로 처리함.
+                {
+                  top: 500, // 이 애니메이션의 시작점
+                  bottom: 1900, // 이 애니메이션의 끝점
+                  easing: midSlow, // 가운데를 느려지게 하는 Easing Function
+                  styles: { // 적용할 스타일들
+                    translateY: { // 적용할 스타일
+                      topValue: 60, // 시작점일 때의 값
+                      bottomValue: -60 // 끝점일 때의 값
+                    }
+                  }
+                },
+                {
+                  top: 500, // 반복...
+                  bottom: 800,
+                  easing: ease,
+                  styles: {
+                    opacity: {
+                      topValue: 0,
+                      bottomValue: 1
+                    }
+                  }
+                },
+              ],
+              // 중략, 애니메이션을 적용할 다른 요소들을 추가
+            }
+          }
     },
+
+
     mainSwiper:function(){
         var _ = this;
 
@@ -339,33 +503,6 @@ var mainEvent = {
             }
         });
     },
-
-    businessEvent: function(){
-        // $(window).on('scroll',function(){
-        //     var st = $(this).scrollTop(),
-        //     s2Top = $('.section2').offset().top - Number(90),
-        //     s2Pos = $('.section2').position().top,
-        //     listOdd = $('.business_list li:odd'),
-        //     listEven = $('.business_list li:even');
-        // console.log(st);
-        // console.log('section2 offset top : ' +  Math.floor(s2Top));
-        // // console.log('section2 position top : ' + s2Pos);
-
-        //     if(st = s2Top){
-        //         listEven.animate({'top': '20px'});
-        //         listOdd.animate({'top': '-20px'});
-        //     }else if(st + Number(100) == s2Top){
-        //         listEven.animate({'top': '40px'});
-        //         listOdd.animate({'top': '-40px'});
-        //     }
-
-        // });
-        const element = '.cont_main .section2 .business_list li';
-        const scrollTarget = window;
-
-        const animation = new ScrollAnimation(element, scrollTarget);
-    },
-
     sustainEvent: function(){
         var sustain_bg =  $(".cont_main .section3 .sustain_list"),
             sustain_list = $(".cont_main .section3 .sustain_list ul li");
@@ -397,12 +534,12 @@ var mainEvent = {
         });
     },
 
-    // 탄소저감 area 총 감축량 카운트 시작
+    // 탄소수치 badge 카운트 시작
     numberCountUp1: function() {
-        var memberCountConTxt1= 465;
+        var memberCountConTxt1= 4650;    // 갱신된 변수값 저장
 
-        $({ val : 0 }).animate({ val : memberCountConTxt1 }, {
-            duration: 2000,
+        $({ val : 0 }).animate({ val : memberCountConTxt1 }, {  // 이전 데이터값 변수 저장 (val값에)
+            duration: 5000,
             step: function() {
                 var num = numberWithCommas(Math.floor(this.val));
                 $(".mov_num1").text(num);
@@ -417,15 +554,16 @@ var mainEvent = {
         function numberWithCommas(x) {
             return x.toString().replace(/\B(?=(\d{2})+(?!\d))/g, ".");
         }
+        
 
     },
 
     // 탄소저감 area 총 감축량 카운트 시작
     numberCountUp2: function() {
-        var memberCountConTxt2= 6405232;
+        var memberCountConTxt2= 6405232;    // 갱신된 변수값 저장
 
-        $({ val : 6405225 }).animate({ val : memberCountConTxt2 }, {
-            duration: 2000,
+        $({ val : 6405200 }).animate({ val : memberCountConTxt2 }, {    // 이전 데이터값 변수 저장 (val값에)
+            duration: 10000,
             step: function() {
                 var num = numberWithCommas(Math.floor(this.val));
                 $(".mov_num2").text(num);
@@ -439,6 +577,7 @@ var mainEvent = {
         function numberWithCommas(x) {
             return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
         }
+        
 
     },
     carbonChart: function() {
@@ -461,40 +600,42 @@ var mainEvent = {
         draw(35, '.carbon_chart', '#7bcc40', '#198c7a');
     },
     
+    main_startEvent: function() {
+        let isVisible = false;
+        
+        // 화면에 카운트 div가 보이면 카운트 시작.
+        window.addEventListener('scroll', function() {
+            if ( checkVisible($('.count_trigger')) && !isVisible) {
+                mainEvent.numberCountUp2();
+                mainEvent.numberCountUp1();
+                mainEvent.carbonChart();
+                isVisible=true;
+            } 
+    
+            var carbonStop = $('.section1').offset().top -  $('.header').outerHeight();
+            var carPos = $('.tit_area').height() + $('.header').outerHeight() + Number(-20);  
+    
+            if($(this).scrollTop() > carbonStop){
+                $('.count2').addClass('on').css({'top':carPos});
+            }else {
+                $('.count2').removeClass('on').css({'top':'35%'});
+            }
+    
+        });
+    
+        function checkVisible( elm, eval ) {
+            eval = eval || "object visible";
+            var viewportHeight = $(window).height(), // Viewport Height
+                scrolltop = $(window).scrollTop(), // Scroll Top
+                y = $(elm).offset().top,
+                elementHeight = $(elm).height();
+    
+            if (eval == "object visible") return ((y < (viewportHeight + scrolltop)) && (y > (scrolltop - elementHeight)));
+            if (eval == "above") return ((y < (viewportHeight + scrolltop)));
+        }
+    },
+    
 };
 
 
-
-let isVisible = false;
-
-    // 화면에 카운트 div가 보이면 카운트 시작.
-    window.addEventListener('scroll', function() {
-        if ( checkVisible($('.count_trigger')) && !isVisible) {
-            mainEvent.numberCountUp2();
-            mainEvent.numberCountUp1();
-            mainEvent.carbonChart();
-            isVisible=true;
-        } 
-
-        var carbonStop = $('.section1').offset().top -  $('.header').outerHeight();
-        var carPos = $('.tit_area').height() + $('.header').outerHeight() + Number(-20);  
-
-        if($(this).scrollTop() > carbonStop){
-            $('.count2').addClass('on').css({'top':carPos});
-        }else {
-            $('.count2').removeClass('on').css({'top':'35%'});
-        }
-
-    });
-
-    function checkVisible( elm, eval ) {
-        eval = eval || "object visible";
-        var viewportHeight = $(window).height(), // Viewport Height
-            scrolltop = $(window).scrollTop(), // Scroll Top
-            y = $(elm).offset().top,
-            elementHeight = $(elm).height();
-
-        if (eval == "object visible") return ((y < (viewportHeight + scrolltop)) && (y > (scrolltop - elementHeight)));
-        if (eval == "above") return ((y < (viewportHeight + scrolltop)));
-}
             

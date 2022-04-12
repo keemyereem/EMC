@@ -1,3 +1,4 @@
+
 $(function(){
     var w = $(window).width();
 	responsiveImage(w);
@@ -365,6 +366,7 @@ var mainEvent = {
         this.sustainEvent();
         // skrollr.init();
         this.main_startEvent();
+        this.parallax();
     },
     mainSwiper:function(){
         var _ = this;
@@ -585,8 +587,22 @@ var mainEvent = {
             if (eval == "above") return ((y < (viewportHeight + scrolltop)));
         }
     },
+
+    parallax: function() {
+        var parallax = document.querySelectorAll(".parallax"),
+            speed = 0.5;
+    
+        window.onscroll = function() {
+            [].slice.call(parallax).forEach(function(el, i) {
+                var windowYOffset = window.pageYOffset,
+                    elBackgrounPos = "50% " + (windowYOffset * speed) + "px";
+    
+                el.style.backgroundPosition = elBackgrounPos;
+            });
+        };
+
+    },
     
 };
 
 
-            

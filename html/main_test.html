@@ -22,7 +22,7 @@
     <link rel="icon" href="images/favicon.png" sizes="32x32">
     <link type="text/css" href="css/font.css" rel="stylesheet">
     <link type="text/css" href="css/common.css" rel="stylesheet">
-    <link type="text/css" href="css/test.css" rel="stylesheet">
+    <link type="text/css" href="css/sub.css" rel="stylesheet">
     <link type="text/css" href="css/media.css" rel="stylesheet">
     <link rel="stylesheet" href="css/jquery-ui.min.css">
     <link rel="stylesheet" href="css/jquery.swiper.min.css">
@@ -33,7 +33,7 @@
     <script type="text/javascript" src="js/lib/jquery.swiper.min.js"></script>
     <script type="text/javascript" src="js/lib/TweenMax.min.js"></script>
     <script type="text/javascript" src="js/lib/aos.js"></script>
-    <script type="text/javascript" src="js/lib/main.js"></script>
+    <script type="text/javascript" src="js/lib/anime.min.js"></script>
     <script type="text/javascript" src="js/test.js"></script>
 
     <script>
@@ -55,9 +55,8 @@
         <div class="header"></div>
         <!-- //header -->
         <!-- sitemap -->
-        <div class="dim"></div>
-        <div class="sitemap_bg"></div>
         <div class="sitemap"></div>
+        <div class="sitemap_bg"></div>
         <!-- //sitemap --> 
         <div class="container">
             <div class="contents cont_main">
@@ -70,15 +69,7 @@
                         </div>
                         <div class="btn">
                             <a href="javascript:;">더보기</a>
-                        </div>  
-
-<!--                         <div class="carbon_level carbon_level1">
-                            <div class="carbon_number"><span class="mov_num1">0</span> ppm</div>
-                            <img src="../images/pc/visual_mark.png" alt="탄소 수치" class="img01">
-                            <img src="../images/pc/sec1_mark.png" alt="탄소 수치" class="img02">
-                            <div class="carbon_chart"></div>
-                        </div> -->
-    
+                        </div> 
                         <!-- slide swiper lists -->
                         <div class="swiper-wrapper">
                             <div class="swiper-slide">
@@ -246,8 +237,8 @@
                         </p>
                     </div>  
                     <div class="line"></div>  
-                    <ul class="business_list" data-animation-0="top:0;" data-animation-100="position:top:500px;">
-                        <li data-animation-start="0">
+                    <ul class="business_list" ref="sl1">
+                        <li>
                             <div class="img"><img src="images/main/main_bus01.jpg" alt="O&M 이미지"></div>
                             <div class="txt">
                                 <dl>
