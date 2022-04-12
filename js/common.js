@@ -105,21 +105,24 @@ var commonEvent = {
 
         $(window).on('scroll',function(){
             const st = $(window).scrollTop();
-            let badge = $('.section1').offset().top;
+            let anchor1 = $('.section1')
             let cirTxt = $('.text-circle text');
 
             if (st>=100){
                 $('.header').addClass('fixed'); 
-                if (st >= badge - 500) {
-                    cirTxt.css('fill', '#777777'); 
-                } else {
-                    cirTxt.css('fill', '#fff');
+                if (anchor1.length) {
+                    let badge = anchor1.offset().top;
+                    if (st >= badge - 500) {
+                        cirTxt.css('fill', '#777777'); 
+                    } else {
+                        cirTxt.css('fill', '#fff');
+                    }
                 }
             } else{
                 $('.header').removeClass('fixed');
                 cirTxt.css('fill', '#fff');
             }
-            console.log(st);
+            //console.log(st);
         });
 
         // 번역페이지 버튼 온/오프
@@ -333,7 +336,26 @@ var recruitEvent = {
             $(this).next(".ans").siblings(".ans").slideUp(300); 
          });
     },
-}
+};
+
+//기술역량 페이지 이벤트
+var rndEvent = {
+    init:function(){
+        this.rndTab();
+    },
+    rndTab: function(){
+        var Tabs = $('.rnd_contents .nav_btn li');
+        Tabs.on("click", function() {
+            $(this).addClass('on');
+            $(this).siblings().removeClass('on');
+            
+            var Tabs_idx = Tabs.index(this)+1;
+            $('.section2 .tb_box').removeClass('on');
+            $('.section2 .tb_box0' + Tabs_idx).addClass('on');
+        });
+    },
+};
+
 
 ////////////////////////////////////////////// 메인 페이지 이벤트 (FD-00-01-001)
 var mainEvent = {
@@ -342,6 +364,7 @@ var mainEvent = {
         this.mainSwiper();
         this.sustainEvent();
         // skrollr.init();
+        this.main_startEvent();
     },
     mainSwiper:function(){
         var _ = this;
@@ -528,40 +551,42 @@ var mainEvent = {
         draw(35, '.carbon_chart', '#7bcc40', '#198c7a');
     },
     
+    main_startEvent: function() {
+        let isVisible = false;
+        
+        // 화면에 카운트 div가 보이면 카운트 시작.
+        window.addEventListener('scroll', function() {
+            if ( checkVisible($('.count_trigger')) && !isVisible) {
+                mainEvent.numberCountUp2();
+                mainEvent.numberCountUp1();
+                mainEvent.carbonChart();
+                isVisible=true;
+            } 
+    
+            var carbonStop = $('.section1').offset().top -  $('.header').outerHeight();
+            var carPos = $('.tit_area').height() + $('.header').outerHeight() + Number(-20);  
+    
+            if($(this).scrollTop() > carbonStop){
+                $('.count2').addClass('on').css({'top':carPos});
+            }else {
+                $('.count2').removeClass('on').css({'top':'35%'});
+            }
+    
+        });
+    
+        function checkVisible( elm, eval ) {
+            eval = eval || "object visible";
+            var viewportHeight = $(window).height(), // Viewport Height
+                scrolltop = $(window).scrollTop(), // Scroll Top
+                y = $(elm).offset().top,
+                elementHeight = $(elm).height();
+    
+            if (eval == "object visible") return ((y < (viewportHeight + scrolltop)) && (y > (scrolltop - elementHeight)));
+            if (eval == "above") return ((y < (viewportHeight + scrolltop)));
+        }
+    },
+    
 };
 
 
-
-let isVisible = false;
-
-    // 화면에 카운트 div가 보이면 카운트 시작.
-    window.addEventListener('scroll', function() {
-        if ( checkVisible($('.count_trigger')) && !isVisible) {
-            mainEvent.numberCountUp2();
-            mainEvent.numberCountUp1();
-            mainEvent.carbonChart();
-            isVisible=true;
-        } 
-
-        var carbonStop = $('.section1').offset().top -  $('.header').outerHeight();
-        var carPos = $('.tit_area').height() + $('.header').outerHeight() + Number(-20);  
-
-        if($(this).scrollTop() > carbonStop){
-            $('.count2').addClass('on').css({'top':carPos});
-        }else {
-            $('.count2').removeClass('on').css({'top':'35%'});
-        }
-
-    });
-
-    function checkVisible( elm, eval ) {
-        eval = eval || "object visible";
-        var viewportHeight = $(window).height(), // Viewport Height
-            scrolltop = $(window).scrollTop(), // Scroll Top
-            y = $(elm).offset().top,
-            elementHeight = $(elm).height();
-
-        if (eval == "object visible") return ((y < (viewportHeight + scrolltop)) && (y > (scrolltop - elementHeight)));
-        if (eval == "above") return ((y < (viewportHeight + scrolltop)));
-}
             
