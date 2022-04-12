@@ -1,7 +1,7 @@
 /* 공통부분 */
 .contents .contents_inner > .icon {text-align: center;padding-bottom: 2.6rem;}
 .contents .contents_inner > .title {font-family: 'Montserrat','NS';font-size: 5rem;font-weight: 400;text-align: center;}
-.contents .contents_inner > .tit_line {width: .1rem;height: 0;background: #568236;margin: 5rem auto 6rem;opacity: 0;transition: all .5s;}
+.contents .contents_inner > .tit_line {width: .1rem;height: 0;background: #568236;margin: 5rem auto 6rem;opacity: 0;transition: all .3s;}
 .contents .contents_inner > .tit_line.on {height: 8rem;opacity: 1;} 
 
 .sub_visual:before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; /* opacity: .7; */ background-size: cover; }
@@ -102,7 +102,10 @@
 .container .contents .contents_inner .detail_sub_contents .inner .tb_view .view_nav dl { display:flex; padding:3rem 6.5rem; border-bottom: 1px solid #e8e8e8; }
 .container .contents .contents_inner .detail_sub_contents .inner .tb_view .view_nav dl dt { font-weight: 400; padding-right:9.5rem; }
 .container .contents .contents_inner .detail_sub_contents .inner .tb_view .view_nav dl dt, dd { float:left; }
-
+.container .contents .contents_inner .detail_sub_contents .inner .tb_view .btn_box .btn_line a {display: block; width: 20rem;height: 6rem; border: .1rem solid #222; color: #222;font-size: 1.6rem;font-weight: 200; text-align: center;line-height: 6rem; margin: 8rem auto 0 auto;position: relative;}
+.container .contents .contents_inner .detail_sub_contents .inner .tb_view .btn_box .btn_line a:before {content: "";display: block;position: absolute;left: 0;top: 0;bottom: 0;right: 0;transform: scaleX(0);z-index: -1;background-color: #222;transition:all .2s ease-out;transform-origin:0 50%}
+.container .contents .contents_inner .detail_sub_contents .inner .tb_view .btn_box .btn_line a:hover{color: #fff;}
+.container .contents .contents_inner .detail_sub_contents .inner .tb_view .btn_box .btn_line a:hover:before{transform:scaleX(1)}
 
 /* 투자정보 - 재무정보 - 재무상태표,손익계산서 220405 */
 .cont_invest.fc_info .contents_inner { padding: 12rem 0 16.7rem 0; }
@@ -348,14 +351,14 @@
 
 /* 지속가능경영 - 윤리경영 공통 */
 .cont_sustain .ethic_contents .inner {max-width: 144rem;}
-.cont_sustain .top .nav_btn { display: flex; justify-content: center; border-bottom: 1px solid #eeeeee; }
-.cont_sustain .top .nav_btn li { width: 50%; text-align: center; line-height: 5rem; font-size: 1.6rem; position: relative;}
-.cont_sustain .top .nav_btn li:after { content:''; display: block; width: 0; height: 0.3rem; background:#568236; transition:all ease-in-out .5s; position: absolute; left: 0; }
-.cont_sustain .top .nav_btn li.on:after { width: 100%; }
-.cont_sustain .top .nav_btn li:hover:after { width: 100%;}
-.cont_sustain .top .nav_btn li a { display: block; }
-.cont_sustain .top .nav_btn li.on a { color: #568236; font-weight: 400; }
-.cont_sustain .top .nav_btn li:hover a { color: #568236; font-weight: 400; }
+.cont_sustain .top .tab_list { display: flex; justify-content: center; border-bottom: 1px solid #eeeeee; }
+.cont_sustain .top .tab_list li { width: 50%; text-align: center; line-height: 5rem; font-size: 1.6rem; position: relative;}
+.cont_sustain .top .tab_list li:after { content:''; display: block; width: 0; height: 0.3rem; background:#568236; transition:all ease-in-out .5s; position: absolute; left: 0; }
+.cont_sustain .top .tab_list li.on:after { width: 100%; }
+.cont_sustain .top .tab_list li:hover:after { width: 100%;}
+.cont_sustain .top .tab_list li a { display: block; }
+.cont_sustain .top .tab_list li.on a { color: #568236; font-weight: 400; }
+.cont_sustain .top .tab_list li:hover a { color: #568236; font-weight: 400; }
 
 .cont_sustain .ethic_wrap {margin-top: 8rem;}
 .cont_sustain .ethic_wrap .section2, .cont_sustain .ethic_wrap .section3 {display: flex;max-width: 120rem;margin: 0 auto;}
@@ -375,7 +378,7 @@
 /* 윤리경영 소개 */
 .cont_sustain .ethical_intro_wrap .section1 {width: 100%;height: 56.5rem;background: #f5f5f5;margin-bottom: 11rem;}
 .cont_sustain .ethical_intro_wrap .section1  .s_title_img {text-align: center;padding: 10rem 0 3rem;}
-.cont_sustain .ethical_intro_wrap .section1 > h3 {font-size: 4.6rem;font-weight: 400;text-align: center;}
+.cont_sustain .ethical_intro_wrap .section1 > h3 {font-family: 'NS';font-size: 4.6rem;font-weight: 400;text-align: center;}
 .cont_sustain .ethical_intro_wrap .section1 > .ethical_intro_banner {width: 100%;max-width: 120rem;height: 40rem;background: url(../images/sustain/ethical_intro_banner.jpg) no-repeat 50% 50%;background-size: cover;margin: 5.5rem auto 0;position: relative;}
 .cont_sustain .ethical_intro_wrap .section1 > .ethical_intro_banner > p {font-size: 1.8rem;color: #fff;line-height: 1.78;letter-spacing: -.045rem;width: 50%;position: absolute;top: 11rem;left: 0;padding-left: 10rem;}
 .cont_sustain .ethical_intro_wrap .section1 > .ethical_intro_banner > p:before {content:'';display: block;width: 2.9rem;height: .2rem;background: #0ce326;margin-bottom: 3rem;}
