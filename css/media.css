@@ -1,0 +1,20 @@
+/* 타블렛 */
+@media screen and (max-width:1023px) {
+    
+
+}
+/* 모바일 */  
+@media screen and (max-width:767px) {
+    /* 공통부분 */
+    .contents .contents_inner > .icon {padding-bottom: 2.6rem;}
+    .contents .contents_inner > .title {font-size: 2.5rem;}
+    .contents .contents_inner > .tit_line {margin: 5rem auto 6rem;}
+    .contents .contents_inner > .tit_line.on {height: 4rem;} 
+
+    /* 사업소개 - 개요 모바일 */ 
+    .cont_business .contents_inner .busIntro_contents .inner {max-width: 100%;padding: 0 2rem;}
+    .busIntro_contents .title {font-size: 4rem;letter-spacing: -.2rem;}
+    .busIntro_contents .sub_con {font-size: 1.5rem;margin: 3.5rem 0 6.3rem;}
+    .busIntro_contents .businessIntro > ul {flex-direction: column;}
+    .busIntro_contents .businessIntro > ul > li {width: 100%;height: 25rem;}
+}

@@ -140,6 +140,7 @@
 
 /* 사업소개 - 개요 */
 .cont_business .contents_inner .busIntro_contents .inner {width: 100%;max-width: 144rem;}
+.busIntro_contents .title {font-family: 'Montserrat','NS';font-size: 7rem;font-weight: 400;text-align: center;color: #42602c;letter-spacing: -.28rem;}
 .busIntro_contents .sub_con {font-size: 2rem;color: #555;text-align: center;margin: 3rem 0 11rem;}
 .busIntro_contents .businessIntro {width: 100%;height: auto;}
 .busIntro_contents .businessIntro > ul {display: flex;justify-content: space-between;}
