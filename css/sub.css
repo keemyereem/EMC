@@ -173,7 +173,6 @@
 .business_contents .section1 .nav_btn > li.on {border: .3rem solid #568236; box-shadow: 7px 7px 10px 0px rgba(0, 0, 0, 0.23);position: relative;z-index: 10;}
 .business_contents .section1 .nav_btn li a { display: block; height:100%; position: relative; }
 .business_contents .section1 .nav_btn li .nav_tit {font-size: 2rem;font-weight: 400; line-height: 3rem; color: #222;text-align: center; position: absolute; top: 13rem; left:50%; transform:translateX(-50%);}
-.business_contents .section1 .nav_btn li .nav_desc { display:none; opacity: 0; }
 .business_contents .section1 .nav_btn li:hover .nav_tit {color: #568236; }
 .business_contents .section1 .nav_btn .on .nav_tit { color: #568236; top:12.8rem; }
 .business_contents .section1 .nav_btn li .icon {text-align: center; padding-top:5.7rem; }
@@ -354,7 +353,7 @@
 .cont_sustain .ethic_contents .inner {max-width: 144rem;}
 .cont_sustain .top .tab_list { display: flex; justify-content: center; border-bottom: 1px solid #eeeeee; }
 .cont_sustain .top .tab_list li { width: 50%; text-align: center; line-height: 5rem; font-size: 1.6rem; position: relative;}
-.cont_sustain .top .tab_list li:after { content:''; display: block; width: 0; height: 0.3rem; background:#568236; transition:all ease-in-out .5s; position: absolute; left: 0; }
+.cont_sustain .top .tab_list li:after { content:''; display: block; width: 0; height: 0.3rem; background:#568236; transition:all ease-in-out .5s; position: absolute; left: 0; bottom: 0; }
 .cont_sustain .top .tab_list li.on:after { width: 100%; }
 .cont_sustain .top .tab_list li:hover:after { width: 100%;}
 .cont_sustain .top .tab_list li a { display: block; }
@@ -400,8 +399,8 @@
 .cont_sustain .ethical_intro_wrap .section2 .s_con > ul > li > .line:before {content:'';display: block;width: .5rem;height: .5rem;background: #fff;border-radius: 50%;margin-left: -.2rem;}
 .cont_sustain .ethical_intro_wrap .section3 .s_con > p {font-size: 1.6rem;font-weight: 300;color: #222;line-height: 2;font-family: 'NS';}
 .cont_sustain .ethical_intro_wrap .section3 .s_con > p:last-of-type {margin: 3rem 0 2rem;}
-.cont_sustain .ethical_intro_wrap .section3 .s_con > ol > li {font-size: 1.6rem;color: #555;margin: 1.4rem 0;}
-.cont_sustain .ethical_intro_wrap .section3 .s_con > ol > li:before {content:'';display: inline-block;width: 2.2rem;height: 2.2rem;border-radius: 50%;background: #22591b;font-family: 'Montserrat';font-size: 1.2rem;font-weight: 300;color: #fff;text-align: center;line-height: 2.2rem;vertical-align: middle;margin-right: 1.2rem;}
+.cont_sustain .ethical_intro_wrap .section3 .s_con > ol > li {font-size: 1.6rem;color: #555;margin: 1.4rem 0;display: flex;}
+.cont_sustain .ethical_intro_wrap .section3 .s_con > ol > li:before {content:'';display: inline-block;flex-shrink: 0;width: 2.2rem;height: 2.2rem;border-radius: 50%;background: #22591b;font-family: 'Montserrat';font-size: 1.2rem;font-weight: 300;color: #fff;text-align: center;line-height: 2.2rem;margin-right: 1.2rem;}
 .cont_sustain .ethical_intro_wrap .section3 .s_con > ol > li:first-child:before {content: '1';}
 .cont_sustain .ethical_intro_wrap .section3 .s_con > ol > li:nth-child(2):before {content: '2';}
 .cont_sustain .ethical_intro_wrap .section3 .s_con > ol > li:nth-child(3):before {content: '3';}
@@ -410,20 +409,19 @@
 .cont_sustain .ethical_intro_wrap .section3 .s_con .download_wrap > div {display: flex;justify-content: space-between;width: 100%;min-height: 13rem;background: #f5f5f5;margin-bottom: 2rem;padding: 4rem 5rem;}
 
 /* 상담/제보 */
-.cont_sustain .speakup_wrap .section1 .speakup_banner{width: 100%;height: 40rem;background: url(../images/sustain/ethical_speakup_banner.jpg) no-repeat 50% 50%;}
+.cont_sustain .speakup_wrap .section1 .speakup_banner{width: 100%;height: 40rem;background: url(../images/sustain/ethical_speakup_banner.jpg) no-repeat 50% 50%;background-size: cover;}
 .cont_sustain .speakup_wrap .section1 .speakup_banner > p {font-family: 'NS';font-size: 2.8rem;font-weight: 400;color: #222;text-align: center;padding: 12rem 0 4rem;}
 .cont_sustain .speakup_wrap .section1 .speakup_banner .icon {width: 14rem;height: 14rem;border-radius: 50%;background: #fff;position: relative;}
 .cont_sustain .speakup_wrap .section1 .speakup_banner > div {display: flex;justify-content: center;align-items: center;}
 .cont_sustain .speakup_wrap .section1 .speakup_banner > div > .icon > img {position: absolute;top: 50%;left: 50%;transform: translate(-50%, -50%);}
-.cont_sustain .speakup_wrap .section1 .speakup_banner > div > ol {font-size: 1.6rem;color: #222;margin-left: 4rem;}
-.cont_sustain .speakup_wrap .section1 .speakup_banner > div > ol > li {margin: 1.8rem 0;}
-.cont_sustain .speakup_wrap .section1 .speakup_banner > div > ol > li:before {display: inline-block;width: 2.2rem;height: 2.2rem;background: #f5b508;border-radius: 50%;font-size: 1.2rem;font-weight: 300;color: #fff;text-align: center;line-height: 2.2rem;margin-right: 2rem;vertical-align: middle;}
+.cont_sustain .speakup_wrap .section1 .speakup_banner > div > ol > li {display: flex;font-size: 1.6rem;color: #222;margin: 1.8rem 0 1.8rem 4rem;}
+.cont_sustain .speakup_wrap .section1 .speakup_banner > div > ol > li:before {display: inline-block;flex-shrink: 0;width: 2.2rem;height: 2.2rem;background: #f5b508;border-radius: 50%;font-size: 1.2rem;font-weight: 300;color: #fff;text-align: center;line-height: 2.2rem;margin-right: 2rem;vertical-align: middle;}
 .cont_sustain .speakup_wrap .section1 .speakup_banner > div > ol > li:first-child:before {content:'1';}
 .cont_sustain .speakup_wrap .section1 .speakup_banner > div > ol > li:nth-child(2):before {content:'2';}
 .cont_sustain .speakup_wrap .section1 .speakup_banner > div > ol > li:last-child:before {content:'3';}
 .cont_sustain .speakup_wrap .section2 {padding: 12rem 0 10rem;}
 .cont_sustain .speakup_wrap .section2 .s_con > ul, .cont_sustain .speakup_wrap .section3 .s_con > ul {font-size: 1.8rem;font-weight: 300;color: #222;}
-.cont_sustain .speakup_wrap .section2 .s_con > ul li, .cont_sustain .speakup_wrap .section3 .s_con > ul li {list-style-type: '·';line-height: 1.78;letter-spacing: -.072rem;}
+.cont_sustain .speakup_wrap .section2 .s_con > ul li, .cont_sustain .speakup_wrap .section3 .s_con > ul li {list-style-type: '·';line-height: 1.78;letter-spacing: -.072rem;margin-left: 1rem}
 .cont_sustain .speakup_wrap .section2 .s_con > p {font-size: 1.4rem; color: #555;line-height: 2.28;margin: 3rem 0 4rem;font-family: 'NS';}
 .cont_sustain .speakup_wrap .section2 .btn_box {width: 20rem;height: 5rem;border: 1px solid #777;padding: 0 3rem;line-height: 5rem;}
 .cont_sustain .speakup_wrap .section2 .btn_box > a {display: block;width: 100%;height: 100%;font-size: 1.4rem;color: #555;background: url(../images/common/icon_btn_arrow.png) no-repeat 100% 50%;}
@@ -434,11 +432,10 @@
 /* 지속가능경영 - 안전보건 - 소개, 건의 및 제보 220407 */
 .cont_sustain .contents_inner { padding: 12rem 0 16.7rem 0; max-width: 144rem; letter-spacing: -.04rem;}
 .cont_sustain .sub_con { position: relative; opacity: 0; top: 100px;  transition: all ease-in-out .6s; }
-.cont_sustain .sub_con .inner { max-width: none;}
 .cont_sustain .sub_con.on { opacity: 1; top: 0; }
 .cont_sustain .tb_top .nav_btn { display: flex; justify-content: center; border-bottom: 1px solid #eeeeee; }
 .cont_sustain .tb_top .nav_btn li { width: 50%; text-align: center; line-height: 5rem; font-size: 1.6rem; position: relative;}
-.cont_sustain .tb_top .nav_btn li:after { content:''; display: block; width: 0; height: 0.3rem; background:#568236; transition:all ease-in-out .5s; position: absolute; left: 0; }
+.cont_sustain .tb_top .nav_btn li:after { content:''; display: block; width: 0; height: 0.3rem; background:#568236; transition:all ease-in-out .5s; position: absolute; left: 0; bottom: 0; }
 .cont_sustain .tb_top .nav_btn li.on:after { width: 100%; }
 .cont_sustain .tb_top .nav_btn li:hover:after { width: 100%; }
 .cont_sustain .tb_top .nav_btn li a { display: block; }
@@ -449,9 +446,9 @@
 .cont_sustain .sub_con .inner section:not(.section1)  { margin:10rem 12rem 0; display: flex; flex-wrap: wrap; }
 .cont_sustain .sub_con .inner section:not(.section1) > div { float: left; }
 .cont_sustain .sub_con .inner section:not(.section1, .section4) > div:not(.shm_sub_tit) p { font-size: 1.6rem; line-height: 1.8; color: #555; font-weight: 300; padding-top:.3rem; }
-.cont_sustain .sub_con .inner section:not(.section1) > div:not(.shm_sub_tit) ul li { font-size: 1.6rem; font-weight: 200; color: #555; }
-.cont_sustain .sub_con .inner section:not(.section1) > div:not(.shm_sub_tit) ul li:not(:last-child) { margin-bottom: 1.4rem;}
-.cont_sustain .sub_con .inner section:not(.section1, .section4) > div:not(.shm_sub_tit) ul li span:first-of-type { float:left; width: 2.2rem; height: 2.2rem; margin-right: 1.6rem; background: #22591b; display: inline-block; line-height: 2.2rem; text-align: center; color: #fff; font-size: 1.2rem; border-radius: 100%; margin-top:-.2rem; }
+.cont_sustain .sub_con .inner section:not(.section1) > div:not(.shm_sub_tit) ul li { font-size: 1.6rem; font-weight: 200; color: #555;display: flex; line-height: 2.3; }
+/* .cont_sustain .sub_con .inner section:not(.section1) > div:not(.shm_sub_tit) ul li:not(:last-child) { margin-bottom: 1.4rem;} */
+.cont_sustain .sub_con .inner section:not(.section1, .section4) > div:not(.shm_sub_tit) ul li span:first-of-type { flex-shrink: 0;width: 2.2rem; height: 2.2rem; margin-right: 1.6rem; background: #22591b; display: inline-block; line-height: 2.2rem; text-align: center; color: #fff; font-size: 1.2rem; border-radius: 100%; margin-top: .7rem; }
 .cont_sustain .sub_con .inner section:not(.section1) > div:not(.shm_sub_tit) .shm_sub_con_line { border-bottom: 1px solid #e8e8e8; margin: 6rem 0; width: calc(100% + 16rem); position:relative; right:16rem; }
 .cont_sustain .sub_con .inner .section1 { padding:10rem 12rem; margin:8rem auto 0; background:#f5f5f5; }
 .cont_sustain .sub_con .inner .section1 > div { position: relative; text-align: center; }
@@ -473,7 +470,7 @@
 .cont_sustain .sub_con .inner .section3 > div:not(.shm_sub_tit) ul { padding-top: 3rem; }
 .cont_sustain .sub_con .inner .section2 > div:not(.shm_sub_tit) ul li span:last-of-type { margin-right:2.9rem; }
 .cont_sustain .sub_con .inner .section2 > div:not(.shm_sub_tit) ul li span.fix_str { display: flex; margin-right: 0; margin-bottom: 1.8rem;}
-.cont_sustain .sub_con .inner .section2 > div:not(.shm_sub_tit) > div div { width: fit-content; margin-top: 6rem; }
+.cont_sustain .sub_con .inner .section2 > div:not(.shm_sub_tit) > div div { width: fit-content; margin-top: 6rem;}
 .cont_sustain .sub_con .inner .section2 > div:not(.shm_sub_tit) p span { position: absolute; left: 0; font-size: 1.8rem; font-weight: 400; line-height: 1.7; color: #22591b; }
 .cont_sustain .sub_con .inner .section2 > div:not(.shm_sub_tit) > div > p.fix_str { color: #222; }
 .cont_sustain .sub_con .inner .section3 { padding-bottom: 10rem; border-bottom: 1px solid #e8e8e8; }
@@ -761,7 +758,7 @@
 .cont_main .section1 .count2 .level .carbon_number .carbon_number_inner { display: flex; flex-direction: column; justify-content: center; margin: auto; }
 .cont_main .section1 .count2 .level .carbon_number .carbon_number_inner p { font-weight: 400; color:#000;}
 .cont_main .section1 .count2 .level .carbon_number .carbon_number_inner p:last-child { font-size:1.2rem; font-weight:300; color: #777; line-height: 1.5rem;}
-.cont_main .section1 .count2 .level .carbon_number .carbon_number_inner .mov_num1 {font-size: 2.8rem; color: #333; font-weight: 350; width: 7rem; display: inline-block;}
+.cont_main .section1 .count2 .level .carbon_number .carbon_number_inner .mov_num1 {font-size: 2.8rem; color: #333; font-weight: 350; width: 7.5rem; display: inline-block;}
 .cont_main .section1 .count2 .level .carbon_chart { width:19rem; height:19rem; border-radius:50%; background:conic-gradient(rgb(123, 204, 64) 0%, rgb(25, 140, 122) 0%, rgb(25, 140, 122) 0%, transparent 0%, transparent 100%); box-shadow:inset 0 0 0 25px rgba(0, 0, 0, 2%); }
 .cont_main .section1 .count2 .text-circle { width: 31rem; height: auto; transform-origin: center; position: absolute; animation: circle_rotate infinite 30s linear; z-index: 1000; -webkit-font-smoothing: subpixel-antialiased;}
 .cont_main .section1 .count2 .text-circle text { fill: #fff; font-size: .74rem; font-family: 'Poppins'; font-weight: 300;  letter-spacing: .1rem; transition:all ease .3s; }

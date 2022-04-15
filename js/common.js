@@ -210,7 +210,19 @@ var onmEvent = {
                     nextEl: '.swiper-button-next01_01',
                     prevEl: '.swiper-button-prev01_01',
                 },
-                watchOverflow: true,   
+                watchOverflow: true,
+
+                breakpoints: {
+        
+                    768: {
+                      slidesPerView: 1,  //브라우저가 768보다 클 때
+                      spaceBetween: 20,
+                    },
+                    1024: {
+                      slidesPerView: 2,  //브라우저가 1024보다 클 때
+                      spaceBetween: 70,
+                    },
+                  },   
             });
 
             // 탭 메뉴 슬라이드 스와이퍼
@@ -228,7 +240,19 @@ var onmEvent = {
                     nextEl: '.swiper-button-next0' + index,
                     prevEl: '.swiper-button-prev0' + index,
                 },
-                watchOverflow: true
+                watchOverflow: true,
+
+                breakpoints: {
+        
+                    768: {
+                      slidesPerView: 1,  //브라우저가 768보다 클 때
+                      spaceBetween: 20,
+                    },
+                    1024: {
+                      slidesPerView: 2,  //브라우저가 1024보다 클 때
+                      spaceBetween: 70,
+                    },
+                  },  
             });
             
             // 탭버튼 function
@@ -302,7 +326,7 @@ var onmEvent = {
 //사업실적 팝업
 function popupbusiness(popConts) {
     var popthis = $(".popup."+popConts);
-    popthis.fadeIn(300);
+    //popthis.fadeIn(300);
     
     // 탭 메뉴 슬라이드 스와이퍼
     var popSlide = new Swiper('.inner_box', {
@@ -499,18 +523,20 @@ var mainEvent = {
 
     // 탄소수치 badge 카운트 시작
     numberCountUp1: function() {
-        var memberCountConTxt1= 9050;    // 갱신된 변수값 저장
-        var bezier_color = numberWithCommas(Math.floor(memberCountConTxt1));
+        var memberCountConTxt1= 99.99;    // 갱신된 변수값 저장
+        // var bezier_count = numberWithCommas(Math.floor(memberCountConTxt1));
         
         $({ val : 0 }).animate({ val : memberCountConTxt1 }, {  // 이전 데이터값 변수 저장 (val값에)
             duration: 5000,
             step: function() {
-                var num = numberWithCommas(Math.floor(this.val));
+                var num = numberWithCommas(Math.round(this.val * 100) / 100);
                 $(".mov_num1").text(num);
+                $('.carbon_chart').css({"background":"conic-gradient(#7bcc40 0% , #198c7a " + (num / 2) + "%, #198c7a " + num + "%, transparent "+ num + "% 100%)"});
             },
             complete: function() {
-                var num = numberWithCommas(Math.floor(this.val));
+                var num = numberWithCommas(Math.round(this.val * 100) / 100);
                 $(".mov_num1").text(num);
+                $('.carbon_chart').css({"background":"conic-gradient(#7bcc40 0% , #198c7a " + (num / 2) + "%, #198c7a " + num + "%, transparent "+ num + "% 100%)"});
             }
         });
 
@@ -518,28 +544,23 @@ var mainEvent = {
             return x.toString().replace(/\B(?=(\d{2})+(?!\d))/g, ".");
         }
 
-        function draw(max, classname, colorname1, colorname2){
-            var i = 1;
-            var func1 = setInterval(function() {
-              if( i < max ){
-                  color1( i, classname, colorname1, colorname2 );
-                  i++;
-              } else{
-                clearInterval(func1);
-              }
-            }, 20);
-           // var i = 1
-           // max.animate(function() {   
-
-           // }, 5000)
-       };
-       function color1( i, classname, colorname1, colorname2 ){
-           $(classname).css({
-                "background":"conic-gradient("+colorname1+" 0% ,"+ colorname2 + " " + (i / 2) + "%, " + colorname2 + " " + i + "%, transparent "+ i + "% 100%)"
-           });
-       };
-       draw(bezier_color, '.carbon_chart', '#7bcc40', '#198c7a');
-
+    //     function draw(max, classname, colorname1, colorname2){
+    //         var i = 1;
+    //         var func1 = setInterval(function() {
+    //           if( i < max ){
+    //               color1( i, classname, colorname1, colorname2 );
+    //               i++;
+    //           } else{
+    //             clearInterval(func1);
+    //           }
+    //         }, 55);
+    //    };
+    //    function color1( i, classname, colorname1, colorname2 ){
+    //        $(classname).css({
+    //             "background":"conic-gradient("+colorname1+" 0% ,"+ colorname2 + " " + (i / 2) + "%, " + colorname2 + " " + i + "%, transparent "+ i + "% 100%)"
+    //        });
+    //    };
+    //    draw(bezier_color, '.carbon_chart', '#7bcc40', '#198c7a');
 
     },
 
@@ -565,17 +586,6 @@ var mainEvent = {
         
 
     },
-    carbonChart: function() {
-        
-
-
-
-
-
-
-
-
-    },
     
     main_startEvent: function() {
         let isVisible = false;
@@ -585,7 +595,6 @@ var mainEvent = {
             if ( checkVisible($('.count_trigger')) && !isVisible) {
                 mainEvent.numberCountUp2();
                 mainEvent.numberCountUp1();
-                mainEvent.carbonChart();
                 isVisible=true;
             } 
     
