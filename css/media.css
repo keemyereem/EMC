@@ -6,15 +6,74 @@
 /* 모바일 */  
 @media screen and (max-width:767px) {
     /* 공통부분 */
-    .contents .contents_inner > .icon {padding-bottom: 2.6rem;}
+    br.br_m {display: block;}
+ 
+    .header {height: 5.5rem;}
+    .header h1 {padding-top: 1.4rem;padding-left: 2rem;}
+    .header h1 .logo {background: url(../images/common/EMC_logo_w_m.png) 0 0 no-repeat;background-size: contain;width: 7.5rem;height: 2.7rem;}
+    .header.fixed h1 .logo {background: url(../images/common/EMC_logo_m.png) 0 0 no-repeat;background-size: contain;}
+    .header .gnb {display: none;}
+    .header .lang_select {display: none;}
+    .header .top_sitemap {display: block;padding: 1.7rem 2rem 0 0;} 
+
+    .container .sub_visual {height: 27.5rem;}
+    .container .sub_visual .sub_visual_nav h2 {font-size: 3rem;}
+    .container .sub_visual .sub_visual_nav > div {display: none;}
+    .container .sub_visual .sub_visual_menu {width: calc(100% - 2rem);height: 5rem;}
+    .container .sub_visual .sub_visual_menu .home {width: 5rem;height: 5rem;background: #22591b url(../images/common/sub_nav_home_m.png) no-repeat 50% 50%;background-size: 1.2rem 1.3rem;}
+    .container .sub_visual .sub_visual_menu .depth1 {display: none;} 
+    .container .sub_visual .sub_visual_menu .depth2 {width: calc(100% - 5rem);border-right: 0;} 
+    .container .sub_visual .sub_visual_menu .depth > a {height: 5rem;line-height: 5.2rem;font-size: 1.4rem;padding-left: 2.4rem;}
+    .container .sub_visual .sub_visual_menu .depth:last-child > a:before {height: .5rem;top:2.2rem;right:2rem;}
+    .container .sub_visual .sub_visual_menu .depth:last-child.open > a:before {top: 2.4rem;}
+
+    .footer {height: 34.3rem;padding-top: 0;}
+    .footer .footer_wrap {max-width: 100%;}
+    .footer .footer_wrap .menu_top {padding: 3rem 2rem; border-bottom: 1px solid #597055;display: flex; overflow-x: scroll;}
+    .footer .footer_wrap .footer_menu a {display: block;font-size: 1.3rem;padding: 0 2rem;word-break: break-word;flex-shrink: 0;}
+    .footer .footer_wrap .footer_info {font-size: 1.3rem;padding: 3rem 2rem 0;}
+    .footer .footer_wrap .footer_info > div {display: block;margin-bottom: 2rem;margin-right: 0;}
+    .footer .footer_wrap .footer_info > div > span {margin-right: 0.8rem;}
+    .footer .footer_wrap .copyright {padding: 0 2rem;font-size: 1.2rem;}
+    .footer .family_site {position:relative;padding: 3rem 2rem 0;}
+    .footer .family_site .site_link .link_open {width: 100%;font-size: 1.3rem;}
+    #topButton {border-radius: 2.5rem;right: 3.7rem;box-shadow: 1px 2px 7.9616px 0.0384px rgba(67, 83, 66, 0.16);}
+    #topButton > img:first-child {display: none;}
+    #topButton > img:last-child {display: block;width: 5rem;}
+
+    .container .contents .contents_inner{padding: 6rem 0 15rem;}
+
+    .contents .contents_inner > .icon {padding-bottom: 1.2rem;}
+    .contents .contents_inner > .icon > img {width: 1.7rem;}
     .contents .contents_inner > .title {font-size: 2.5rem;}
     .contents .contents_inner > .tit_line {margin: 5rem auto 6rem;}
     .contents .contents_inner > .tit_line.on {height: 4rem;} 
+
+    .company_visual:before { background:url('../images/company/sub_banner.png') no-repeat 50% 50%; }
+    .business_visual:before { background:url('../images/business/sub_banner_m.png') no-repeat 50% 50%; }
+    .sustain_visual:before { background:url('../images/sustain/sub_banner.png') no-repeat 50% 50%; }
+    .invest_visual:before { background:url('../images/invest/sub_banner.png') no-repeat 50% 50%; }
+    .recruit_visual:before { background:url('../images/recruit/sub_banner.png') no-repeat 50% 50%; }
 
     /* 사업소개 - 개요 모바일 */ 
     .cont_business .contents_inner .busIntro_contents .inner {max-width: 100%;padding: 0 2rem;}
     .busIntro_contents .title {font-size: 4rem;letter-spacing: -.2rem;}
     .busIntro_contents .sub_con {font-size: 1.5rem;margin: 3.5rem 0 6.3rem;}
     .busIntro_contents .businessIntro > ul {flex-direction: column;}
-    .busIntro_contents .businessIntro > ul > li {width: 100%;height: 25rem;}
+    .busIntro_contents .businessIntro > ul > li {width: 100%;height: 25rem;border-radius: 4.5rem 0 4.5rem 0;display: table;}
+    .busIntro_contents .businessIntro > ul > li:not(:last-child) {margin-bottom: 4rem;}
+    .busIntro_contents .businessIntro > ul > li > .tit {display: none;}
+    .busIntro_contents .businessIntro > ul > li .hover {display: table-cell;vertical-align: middle;padding-top: 0;}
+    .busIntro_contents .businessIntro > ul > li:hover {border-radius: 4.5rem 0 4.5rem 0;}
+    .busIntro_contents .businessIntro > ul > li .hover > .tit {font-size: 2rem;margin-bottom: 5rem;}
+    .busIntro_contents .businessIntro > ul > li .hover > ul {display: flex;justify-content: center;flex-wrap: wrap;}
+    .busIntro_contents .businessIntro > ul > li .hover > ul > li > a {font-size: 1.5rem;padding: 1rem 2.5rem;}
+    .busIntro_contents .businessIntro > ul > li:hover .hover {display: table-cell;}
+    .busIntro_contents .businessIntro > ul > li:first-child, .busIntro_contents .businessIntro > ul > li:first-child:hover .hover {background: url(../images/business/intro_img01_m.png) no-repeat 50% 50%;}
+    .busIntro_contents .businessIntro > ul > li:nth-child(2) {background: url(../images/business/intro_img02_m.png) no-repeat 50% 50%;}
+    .busIntro_contents .businessIntro > ul > li:last-child {background: url(../images/business/intro_img03_m.png) no-repeat 50% 50%;}
+
+    
+
+
 }

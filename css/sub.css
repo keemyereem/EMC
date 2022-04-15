@@ -150,14 +150,14 @@
 .busIntro_contents .businessIntro > ul > li:nth-child(2) {background: url(../images/business/intro_img02.png) no-repeat 50% 50%;background-size: cover;}
 .busIntro_contents .businessIntro > ul > li:last-child {background: url(../images/business/intro_img03.png) no-repeat 50% 50%;background-size: cover;}
 .busIntro_contents .businessIntro > ul > li > .tit {font-size: 3rem;font-weight: 400;color: #fff;position: absolute;top: 50%;left: 50%;transform: translate(-50%,-50%);}
-.busIntro_contents .businessIntro > ul > li .hover {display: none;position: relative;}
+.busIntro_contents .businessIntro > ul > li .hover {display: none;position: relative;text-align: center;color: #fff;width: 100%;height: 100%;padding-top: 22.2rem;}
+.busIntro_contents .businessIntro > ul > li .hover > .tit {position: relative;font-size: 3rem;font-weight: 400;margin-bottom: 4rem;}
+.busIntro_contents .businessIntro > ul > li .hover> .tit:after {content:'';display: block;width: 5rem;height: .3rem;background: #fff;position: absolute;bottom: -2rem;left: 50%;transform: translate(-50%);}
+.busIntro_contents .businessIntro > ul > li .hover > ul > li > a{display: inline-block;font-family: 'NS';font-size: 2rem;color: #fff;padding: 1rem 0;}
 .busIntro_contents .businessIntro > ul > li:hover {border-radius: 9rem 0 9rem 0;}
 .busIntro_contents .businessIntro > ul > li:hover > .tit {display: none;}
-.busIntro_contents .businessIntro > ul > li:hover .hover {display: block;text-align: center;color: #fff;width: 100%;height: 100%;padding-top: 22.2rem;}
+.busIntro_contents .businessIntro > ul > li:hover .hover {display: block;}
 .busIntro_contents .businessIntro > ul > li:first-child:hover .hover {background: rgba(0, 0, 0,.4);}
-.busIntro_contents .businessIntro > ul > li:hover .hover > .tit {position: relative;font-size: 3rem;font-weight: 400;margin-bottom: 4rem;}
-.busIntro_contents .businessIntro > ul > li:hover .hover> .tit:after {content:'';display: block;width: 5rem;height: .3rem;background: #fff;position: absolute;bottom: -2rem;left: 50%;transform: translate(-50%);}
-.busIntro_contents .businessIntro > ul > li:hover .hover > ul > li > a{display: inline-block;font-family: 'NS';font-size: 2rem;color: #fff;padding: 1rem 0;}
 .busIntro_contents .businessIntro > ul > li:last-child .hover > ul > li > a {font-family: 'Montserrat';}
 
 
@@ -773,7 +773,7 @@
 /* 메인 - section2 : Business area */
 .cont_main .section2 .line {width: .1rem;height: 8rem;background: #568236;margin: 9rem auto 10rem;}
 .cont_main .section2 .business_list {max-width: 144rem;width: 100%;margin: 0 auto;display: flex;flex-wrap: wrap;justify-content: space-between;}
-.cont_main .section2 .business_list li {width: calc(50% - 7rem);max-width: 60rem;height: 51rem;border: .9rem solid #e1e8dc;position: relative;}
+.cont_main .section2 .business_list li {width: calc(50% - 7rem);max-width: 60rem;height: 51rem;border: .9rem solid #e1e8dc;position: relative; transition: transform .5s cubic-bezier(.25, .25, .75, 1);}
 .cont_main .section2 .business_list li:nth-child(2n-1) {border-radius: 0 9rem;margin-bottom: 20rem;}
 .cont_main .section2 .business_list li:nth-child(2n) {border-radius: 9rem 0;margin-top: 25rem;}
 .cont_main .section2 .business_list li:last-child {margin-bottom: 2rem;}

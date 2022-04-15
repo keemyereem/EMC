@@ -87,7 +87,12 @@ var commonEvent = {
             if( depth2Tit == '공정거래 자율준수 프로그램' ){
                 depth2W.width('326px');
             }else{
-                depth2W.width('225px');
+                if($(window).width()>1024){
+                    depth2W.width('225px');
+    
+                }else{
+                    depth2W.width('calc(100% -5rem)');
+                }
             }
         });
 
@@ -96,7 +101,12 @@ var commonEvent = {
         if( depth2Tit == '공정거래 자율준수 프로그램' ){
             depth2W.width('326px');
         }else{
-            depth2W.width('225px');
+            if($(window).width()>1024){
+                depth2W.width('225px');
+
+            }else{
+                depth2W.width('calc(100% -5rem)');
+            }
         }
 
 
@@ -169,7 +179,7 @@ var commonEvent = {
             }
         });
 
-        $(document).on('click', '#topButtonImg', function() {
+        $(document).on('click', '#topButton', function() {
             $('html, body').animate({scrollTop:0}, '300');
         });
     },
@@ -489,8 +499,9 @@ var mainEvent = {
 
     // 탄소수치 badge 카운트 시작
     numberCountUp1: function() {
-        var memberCountConTxt1= 4650;    // 갱신된 변수값 저장
-
+        var memberCountConTxt1= 9050;    // 갱신된 변수값 저장
+        var bezier_color = numberWithCommas(Math.floor(memberCountConTxt1));
+        
         $({ val : 0 }).animate({ val : memberCountConTxt1 }, {  // 이전 데이터값 변수 저장 (val값에)
             duration: 5000,
             step: function() {
@@ -500,14 +511,35 @@ var mainEvent = {
             complete: function() {
                 var num = numberWithCommas(Math.floor(this.val));
                 $(".mov_num1").text(num);
-                
             }
         });
 
         function numberWithCommas(x) {
             return x.toString().replace(/\B(?=(\d{2})+(?!\d))/g, ".");
         }
-        
+
+        function draw(max, classname, colorname1, colorname2){
+            var i = 1;
+            var func1 = setInterval(function() {
+              if( i < max ){
+                  color1( i, classname, colorname1, colorname2 );
+                  i++;
+              } else{
+                clearInterval(func1);
+              }
+            }, 20);
+           // var i = 1
+           // max.animate(function() {   
+
+           // }, 5000)
+       };
+       function color1( i, classname, colorname1, colorname2 ){
+           $(classname).css({
+                "background":"conic-gradient("+colorname1+" 0% ,"+ colorname2 + " " + (i / 2) + "%, " + colorname2 + " " + i + "%, transparent "+ i + "% 100%)"
+           });
+       };
+       draw(bezier_color, '.carbon_chart', '#7bcc40', '#198c7a');
+
 
     },
 
@@ -534,23 +566,15 @@ var mainEvent = {
 
     },
     carbonChart: function() {
-        function draw(max, classname, colorname1, colorname2){
-            var i = 1;
-             var func1 = setInterval(function() {
-               if( i < max ){
-                   color1( i, classname, colorname1, colorname2 );
-                   i++;
-               } else{
-                 clearInterval(func1);
-               }
-             }, 20);
-        };
-        function color1( i, classname, colorname1, colorname2 ){
-            $(classname).css({
-                 "background":"conic-gradient("+colorname1+" 0% ,"+ colorname2 + " " + (0 + i) + "%, " + colorname2 + " " + (i * 2) + "%, transparent "+ (i * 2) + "% 100%)"
-            });
-        };
-        draw(35, '.carbon_chart', '#7bcc40', '#198c7a');
+        
+
+
+
+
+
+
+
+
     },
     
     main_startEvent: function() {
@@ -594,53 +618,57 @@ var mainEvent = {
             // create variables
             var $fwindow = $(window);
             var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            var par_on = $('.section2').offset().top;
+            var $transform = [];
+            var $transform_rev = [];
         
-            var $contents = [];
-            var $backgrounds = [];
-        
-            // for each of content parallax element
-            $('[data-type="content"]').each(function(index, e) {
-            var $contentObj = $(this);
-        
-            $contentObj.__speed = ($contentObj.data('speed') || 1);
-            $contentObj.__fgOffset = $contentObj.offset().top;
-            $contents.push($contentObj);
+            $('[data-type="parallax"]').each(function(index, e) {
+                var $transformObj = $(this);
+                $transformObj.__speed = ($transformObj.data('speed') || 1);
+                $transformObj.__fgOffset = $transformObj.offset().top;
+                $transform.push($transformObj);
             });
-        
-            // for each of background parallax element
-            $('[data-type="background"]').each(function() {
-            var $backgroundObj = $(this);
-        
-            $backgroundObj.__speed = ($backgroundObj.data('speed') || 1);
-            $backgroundObj.__fgOffset = $backgroundObj.offset().top;
-            $backgrounds.push($backgroundObj);
+
+            $('[data-type="parallax_reverse"]').each(function() {
+                var $transform_revObj = $(this);
+                $transform_revObj.__speed = ($transform_revObj.data('speed') || 1);
+                $transform_revObj.__fgOffset = $transform_revObj.offset().top;
+                $transform_rev.push($transform_revObj);
             });
         
             // update positions
             $fwindow.on('scroll resize', function() {
-            scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-        
-            $contents.forEach(function($contentObj) {
-                var yPos = $contentObj.__fgOffset - scrollTop / $contentObj.__speed;
-        
-                $contentObj.css('top', yPos);
-            })
-        
-            $backgrounds.forEach(function($backgroundObj) {
-                var yPos = -((scrollTop - $backgroundObj.__fgOffset) / $backgroundObj.__speed);
-        
-                $backgroundObj.css({
-                "transform": "translate(0," + yPos + "px)"
+                scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+                $transform.forEach(function($transformObj) {  
+                    var yPos = ((scrollTop - $transformObj.__fgOffset) / $transformObj.__speed) + 30;
+
+                    if ($('.section2').length) {
+                        if (scrollTop >= par_on) {
+                            $transformObj.css({"transform": "translate(0," + yPos + "px)"});
+                        } else {
+                            $transformObj.css({"transform": "translate(0, 0)"});
+                        }
+                    }
+                }) 
+
+                $transform_rev.forEach(function($transform_revObj) {
+                    var yPos = -((scrollTop - $transform_revObj.__fgOffset) / $transform_revObj.__speed) - 40;
+                    
+                    if ($('.section2').length) {
+                        if (scrollTop >= par_on) {
+                            $transform_revObj.css({"transform": "translate(0," + yPos + "px)"});
+                        } else {
+                            $transform_revObj.css({"transform": "translate(0, 0)"});
+                        }
+                    }
                 });
             });
-            });
-        
+
             // triggers winodw scroll for refresh
             $fwindow.trigger('scroll');
         };
-        
         parallaxIt();
-
     },
     
 };
