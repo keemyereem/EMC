@@ -234,7 +234,7 @@
 
 .cont_business .section3 .onm_list ul li:hover {box-shadow: 9px 8px 13px 0px rgba(0, 0, 0, 0.13);}
 .cont_business .section3 .onm_list ul li:hover:before {display: block;}
-.cont_business .section3 .onm_list ul li:hover .list_img:after {display: block;}
+.cont_business .section3 .onm_list ul li:ㄹhover .list_img:after {display: block;}
 
 /* 팝업 */
 .card_popup {display: none;position: fixed;top: 0;left: 0;width: 100%;height: 100%;overflow: hidden;background:rgba(0,0,0,0.8);z-index: 1003;}
@@ -334,6 +334,112 @@
 
 .cont_business .rnd_contents .tb_box .tb_row .none {width: 100%;height: 27rem;}
 
+/* 사업소개 - 수처리 - 기술역량 - 정도관리 220418 */
+.cont_business .rnd_contents .qc_section1 { background: #f3f3f3; margin-top: 7.6rem; padding-bottom: 26.7rem; letter-spacing: -.025rem; }
+.cont_business .rnd_contents .qc_section1 h3 { text-align: center; font-size: 4.6rem; font-weight: 400; padding: 12rem 0 6.4rem; }
+.cont_business .rnd_contents .qc_section1 ul { display: flex; flex-wrap: wrap; justify-content: center; width: calc(35rem * 3); margin: auto; }
+.cont_business .rnd_contents .qc_section1 ul li { width: 35rem; height: 35rem; border-radius: 6rem; text-align: center; color:#568235; box-shadow: -5px 4px 10px 0px rgba(0, 0, 0, 0.16); overflow: hidden; position: relative; background: #fff; }
+.cont_business .rnd_contents .qc_section1 ul li h4 { color: #fff; background: #568235; font-size: 2.2rem; padding: 2.7rem 0; }
+.cont_business .rnd_contents .qc_section1 ul li h5 { line-height:11.5rem; font-weight: 400; font-size: 2.2rem; }
+.cont_business .rnd_contents .qc_section1 ul li h5 span{ line-height: 1.3; display: inline-block; vertical-align: middle;}
+.cont_business .rnd_contents .qc_section1 ul li p { font-size: 1.5rem; line-height:1.5; color:#777; }
+.cont_business .rnd_contents .qc_section1 ul li p .hl { font-weight: 400; color: #568235; font-family: 'NS'; }
+.cont_business .rnd_contents .qc_section1 ul li p .sub_desc { font-size: 1.3rem; padding-top: .3rem; display: inline-block; }
+.cont_business .rnd_contents .qc_section1 ul li:nth-of-type(3n + 1) { left: .8rem; }   /* item [1][4] */
+.cont_business .rnd_contents .qc_section1 ul li:nth-of-type(3n - 1), 
+.cont_business .rnd_contents .qc_section1 ul li:nth-of-type(3n - 1) p .hl { color: #42602c; }    
+.cont_business .rnd_contents .qc_section1 ul li:nth-of-type(3n - 1) h4 { background: #42602c; }   /* item [2][4] */  
+.cont_business .rnd_contents .qc_section1 ul li:nth-of-type(3n), 
+.cont_business .rnd_contents .qc_section1 ul li:nth-of-type(3n) p .hl { right:.8rem; color:#23591b; }   
+.cont_business .rnd_contents .qc_section1 ul li:nth-of-type(3n) h4 { background: #23591b; }   /* item [3][6] */   
+.cont_business .rnd_contents .qc_section1 ul li:nth-of-type(n + 4) { margin-top: 4rem; }   /* item [4][5][6]... */
+.cont_business .rnd_contents .qc_section1-2 { margin-top: -18.7rem; padding:0 12rem 13rem; letter-spacing: -.025rem; border-bottom:.1rem solid #e8e8e8; }
+.cont_business .rnd_contents .qc_section1-2 > div > div > p { text-align: center; font-size: 2.8rem; color: #222; font-weight: 400; }
+.cont_business .rnd_contents .qc_section1-2 .qc_current { background: #fff; display: flex; justify-content: center; align-items: center; max-width: 120rem; border-bottom: .6rem solid #568235; }
+.cont_business .rnd_contents .qc_section1-2 .qc_current > div { width: 50%; position: relative; }
+.cont_business .rnd_contents .qc_section1-2 .qc_current .qc_currnet_inner_con ul { display: flex; justify-content: center; margin-top: 8rem; }
+.cont_business .rnd_contents .qc_section1-2 .qc_current .qc_currnet_inner_con ul li { font-size: 2.2rem; line-height: 1.4; text-align: center; font-weight: 400; color: #568235; padding: 0 4rem; }
+.cont_business .rnd_contents .qc_section1-2 .qc_current .qc_currnet_inner_con ul li p { height: 6.9rem; line-height: 6.9rem; margin-bottom: 3rem; }
+.cont_business .rnd_contents .qc_section1-2 .qc_current .qc_currnet_inner_con ul li p img { display: inline-block; vertical-align: middle; }
+.cont_business .rnd_contents .qc_section1-2 .qc_current .qc_currnet_inner_con2 img { width: 100%; }
+.cont_business .rnd_contents .qc_section1-2 .qc_current .qc_currnet_inner_con2 ul { position: absolute; bottom: 3rem; right: 2.6rem;}
+.cont_business .rnd_contents .qc_section1-2 .qc_current .qc_currnet_inner_con2 ul li { font-size: 1.4rem; font-weight: 200; color: #777777; }
+.cont_business .rnd_contents .qc_section1-2 .qc_current .qc_currnet_inner_con2 ul li:first-child { margin-bottom: .6rem; }
+.cont_business .rnd_contents .qc_section1-2 .qc_current .qc_currnet_inner_con2 ul li:first-child:before { background: #00b699; }
+.cont_business .rnd_contents .qc_section1-2 .qc_current .qc_currnet_inner_con2 ul li:before { background: #f5b508; content: ''; width: 1rem; height: 1rem; border-radius: 100%; position: absolute; left: -2rem; margin-top: .3rem; }
+.cont_business .rnd_contents .qc_section1-2 .qc_test > div { max-width: 89.2rem; width: 100%; margin: auto; }
+.cont_business .rnd_contents .qc_section1-2 .qc_test > div p { padding-top: 13rem; }
+.cont_business .rnd_contents .qc_section1-2 .qc_test > div > ul { display: flex; justify-content: center; flex-wrap: wrap; margin-top: 7.7rem; }
+.cont_business .rnd_contents .qc_section1-2 .qc_test > div > ul:first-of-type li:nth-child(2) { margin: 0 1.3rem; }
+.cont_business .rnd_contents .qc_section1-2 .qc_test > div > ul:last-of-type li { flex: 1; display: flex; font-family: 'NS'; }
+.cont_business .rnd_contents .qc_section1-2 .qc_test > div > ul:last-of-type li > ul { margin:0 auto; }
+.cont_business .rnd_contents .qc_section1-2 .qc_test > div > ul:last-of-type > li:first-child { font-size: 2.2rem; line-height: 1.6; color: #568236; font-weight: 400; }
+.cont_business .rnd_contents .qc_section1-2 .qc_test > div > ul:last-of-type > li:last-child { font-size: 1.6rem; line-height: 1.9; color: #777777; font-weight: 200; }
+
+.cont_business .rnd_contents .qc_section2 { padding: 9rem 11rem 12.7rem; }
+.cont_business .rnd_contents .qc_section2 p { text-align: center; font-size: 2.8rem; color: #222; font-weight: 400; }
+.cont_business .rnd_contents .qc_section2 div { display: flex; align-items: flex-end; margin-top: 8rem; }
+.cont_business .rnd_contents .qc_section2 div ul { width: 50%; }
+.cont_business .rnd_contents .qc_section2 div ul:first-of-type { display: flex; justify-content: end; }
+.cont_business .rnd_contents .qc_section2 div ul:first-of-type li { padding: 0 1.6rem 0 3.4rem; }
+.cont_business .rnd_contents .qc_section2 div ul:last-of-type { padding-left: 7.3rem; font-size: 1.6rem; line-height: 1.9; color: #777777; }
+.cont_business .rnd_contents .qc_section2 div ul:last-of-type li:not(:last-child) { padding-bottom: 4rem; }
+.cont_business .rnd_contents .qc_section2 div ul:last-of-type li:first-child { font-family: 'NS'; font-size: 2.2rem; line-height: 1.6; color: #568236; font-weight: 400; padding-bottom: 3.2rem; }
+
+/* 사업소개 - Green - 자원순환 220418 */
+.circulation_bg {width: 100%;height: 56rem;background: #f7f7f7;position: absolute;bottom: 0;left: 0;z-index: -1;}
+.cont_business .green_contents .inner {max-width: 144rem;}
+.green_contents .sub_con {font-family: 'NS';font-size: 2.6rem;color: #222;text-align: center;line-height: 4.6rem; padding-bottom: 6rem; position:relative; top:100px; opacity: 0; transition: all ease-in-out .6s; }
+.green_contents .sub_con.on { top:0; opacity: 1; }
+.green_contents .sub_con > b {font-weight: 400;color: #568236;}
+
+.cont_business .top .tab_list { display: flex; justify-content: center; border-bottom: 1px solid #eeeeee; }
+.cont_business .top .tab_list li { flex: 1;text-align: center; /* line-height: 5rem; */ font-size: 1.6rem; padding: 2.5rem 0; position: relative;}
+.cont_business .top .tab_list li:after { content:''; display: block; width: 0; height: 0.3rem; background:#568236; transition:all ease-in-out .5s; position: absolute; left: 0; bottom: 0; }
+.cont_business .top .tab_list li.on:after { width: 100%; }
+.cont_business .top .tab_list li:hover:after { width: 100%;}
+.cont_business .top .tab_list li a { display: block; }
+.cont_business .top .tab_list li.on a { color: #568236; font-weight: 400; }
+.cont_business .top .tab_list li:hover a { color: #568236; font-weight: 400; }
+
+.green_contents .circulation_wrap {max-width: 120rem;margin: 0 auto;background: #fff;padding-bottom: 6rem;}
+.green_contents .circulation_wrap .s_tit {font-family: 'NS';font-size: 2.8rem;font-weight: 400;color: #222;text-align: center;line-height: 1.42;letter-spacing: -.07rem;padding:8.5rem 0 7.5rem;}
+.green_contents .circulation_wrap .s_tit > b {color: #568236;}
+.green_contents .circulation_wrap .img {width: 75rem;height: 46rem;background: pink;margin: 0 auto;position: relative;}
+.green_contents .circulation_wrap .img > .tag {width: 12rem;height: 4rem;background: #568236;border-radius: 1rem 0;text-align: center;line-height: 4rem;font-size: 1.5rem;font-weight: 300;color: #fff;position: absolute;top: 2rem;left: -2rem;z-index: 10;}
+.green_contents .circulation_wrap .img > img {position: absolute; top:0;left: 50%; transform: translateX(-50%);}
+.green_contents .circulation_wrap .desc > h4 {font-size: 3rem;font-weight: 400;color: #222;text-align: center;padding: 6rem 0;}
+.green_contents .circulation_wrap .desc > div {display: flex; padding: 0 15rem;}
+.green_contents .circulation_wrap .desc > div > ul {width: 50%;}
+.green_contents .circulation_wrap .desc > div > ul > li {font-size: 1.6rem;color: #555;line-height: 1.5;letter-spacing: -.04rem;display: flex;padding-bottom: 1.5rem;}
+.green_contents .circulation_wrap .desc > div > ul > li > .desc_tit {display: inline-block;width: 8.6rem;font-weight: 400;color: #568236;flex-shrink: 0;}
+.green_contents .circulation_wrap .desc > div > ul > li > .desc_txt > li {list-style-type: '·';}
+.green_contents .circulation_wrap .desc > div.wasteoil > ul:first-child > li > .desc_tit {width: 12.8rem;}
+
+.green_contents .newbiz_wrap {padding-top: 9rem;width: 100%;height: fit-content;}
+.green_contents .newbiz_wrap > img {object-fit: contain;width: 100%;max-height: 90.9rem;}
+.green_contents .newbiz_wrap .s_tit {font-size: 2.8rem;font-weight: 400;color: #222;text-align: center;line-height: 1.42;}
+.green_contents .newbiz_wrap > h4 {font-family: 'NS';font-size: 2.2rem;font-weight: 400;color: #568236;text-align: center;padding: 7rem 0 4rem;}
+.green_contents .newbiz_wrap02 {width: 100%;}
+.green_contents .newbiz_wrap02 .preocess_wrap {background: #f4f6f2;display: flex;padding: 6rem 11.5rem;margin: 0 auto;}
+.green_contents .newbiz_wrap02 .preocess_wrap li {width: 20%;}
+.green_contents .newbiz_wrap02 .preocess_wrap li:not(:last-child) {/* margin-right: 9rem; */margin-right: 1.6rem;}
+.green_contents .newbiz_wrap02 .preocess_wrap li .img {position: relative;text-align: center;}
+.green_contents .newbiz_wrap02 .preocess_wrap li .img > img {object-fit: contain;max-width: 100%;}
+.green_contents .newbiz_wrap02 .preocess_wrap li:not(:last-child) .img:after { 
+    content:'';
+    display: inline-block;
+    width: 0px;
+    height: 0px;
+    border-left: 16px solid #a5bc94;
+    border-top: 12px solid transparent;
+    border-bottom: 12px solid transparent;
+    position: absolute;top: 50%;/* right:-5.4rem; */right:-1.7rem;transform: translateY(-50%);
+}
+.green_contents .newbiz_wrap02 .preocess_wrap li .txt {font-size: 1.8rem;color: #222;font-weight: 300;text-align: center;padding-top: 1.6rem;}
+.green_contents .newbiz_wrap02 .preocess_wrap li .txt > span {font-size: 1.6rem;color: #777;font-weight: 200;}
+
+
 
 /* 사업소개 - 수처리 - 기술역량 - 기술지원 220412 */
 .cont_business .rnd_contents.sub_con { position:relative; top: 100px; transition:all ease-in-out .6s; opacity: 0; }
@@ -352,7 +458,7 @@
 /* 지속가능경영 - 윤리경영 공통 */
 .cont_sustain .ethic_contents .inner {max-width: 144rem;}
 .cont_sustain .top .tab_list { display: flex; justify-content: center; border-bottom: 1px solid #eeeeee; }
-.cont_sustain .top .tab_list li { width: 50%; text-align: center; line-height: 5rem; font-size: 1.6rem; position: relative;}
+.cont_sustain .top .tab_list li { flex: 1; text-align: center; line-height: 5rem; font-size: 1.6rem; position: relative;}
 .cont_sustain .top .tab_list li:after { content:''; display: block; width: 0; height: 0.3rem; background:#568236; transition:all ease-in-out .5s; position: absolute; left: 0; bottom: 0; }
 .cont_sustain .top .tab_list li.on:after { width: 100%; }
 .cont_sustain .top .tab_list li:hover:after { width: 100%;}
@@ -474,9 +580,9 @@
 .cont_sustain .sub_con .inner .section2 > div:not(.shm_sub_tit) p span { position: absolute; left: 0; font-size: 1.8rem; font-weight: 400; line-height: 1.7; color: #22591b; }
 .cont_sustain .sub_con .inner .section2 > div:not(.shm_sub_tit) > div > p.fix_str { color: #222; }
 .cont_sustain .sub_con .inner .section3 { padding-bottom: 10rem; border-bottom: 1px solid #e8e8e8; }
-.cont_sustain .sub_con .inner .section3 > div:not(.shm_sub_tit) ul li span:last-of-type { float: left; width: 17.7rem; font-size:1.8rem; font-weight:400; color: #22591b; margin-right: 0; }
+.cont_sustain .sub_con .inner .section3 > div:not(.shm_sub_tit) ul li span:last-of-type { flex-shrink:0;/* float: left; */ width: 17.7rem; font-size:1.8rem; font-weight:400; color: #22591b; margin-right: 0; }
 .cont_sustain .sub_con .inner .section3 > div:not(.shm_sub_tit) ul li { line-height: 1.6;}
-.cont_sustain .sub_con .inner .section3 > div:not(.shm_sub_tit) ul li span:first-of-type { margin-top:.3rem !important; }
+/* .cont_sustain .sub_con .inner .section3 > div:not(.shm_sub_tit) ul li span:first-of-type { margin-top:.3rem !important; } */
 .cont_sustain .sub_con .inner .section3 > div:not(.shm_sub_tit) > div div { margin-left:-16rem; padding-bottom:3.2rem; margin-top:0; }
 .cont_sustain .sub_con .inner .section4 { border-bottom:none; }
 .cont_sustain .sub_con .inner .section4 > div:not(.shm_sub_tit) { padding-left:0; width: calc(100% - 28rem); }

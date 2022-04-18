@@ -326,7 +326,7 @@ var onmEvent = {
 //사업실적 팝업
 function popupbusiness(popConts) {
     var popthis = $(".popup."+popConts);
-    //popthis.fadeIn(300);
+    popthis.fadeIn(300);
     
     // 탭 메뉴 슬라이드 스와이퍼
     var popSlide = new Swiper('.inner_box', {
