@@ -110,24 +110,24 @@
     .onm_inner .business_contents .section2 .swiper_2depth_tabs p:last-child { float: right ;}
     .onm_inner .business_contents .section2 .swiper_2depth_tabs p a { height: 4.5rem; font:200 1.4rem/4rem 'NS'; width: 100%; margin:0; }
     .onm_inner .business_contents .section2 .swiper_2depth_tabs .on a { font:400 1.4rem/4rem 'NS'; }
-    .cont_business .section3 {width: 100vw;height: auto;background: #f7f7f7;padding-bottom: 15rem;}
-    .cont_business .section3 .search { text-align: center; }
-    .cont_business .section3 .input_search {margin: 26rem 0 6.4rem; width: calc(100% - 7.5rem);}
-    .cont_business .section3 .input_search input {background: #fff; width: 100%; }
-    .cont_business .section3 .onm_list ul {padding: 0 2rem; width: 100%; justify-content: center; }
-    .cont_business .section3 .onm_list ul li:before {content:'';display: none;width: calc(100% + .5rem); height: 100%; box-sizing: border-box;background: transparent;border: .3rem solid;border-image: linear-gradient(to bottom, #568236, #135a1a);border-image-slice: 1;position: absolute;top: 2.1rem;left: 1.6rem;z-index: -10;}
-    .cont_business .section3 .onm_list ul li {width: 100%; margin:0 2.9rem 4rem; box-shadow: 9px 8px 13px 0px rgba(0, 0, 0, 0.13);}
-    .cont_business .section3 .onm_list ul li:nth-last-child(-n+3) {margin-bottom: 4rem;}
-    .cont_business .section3 .onm_list ul li:last-child {margin-bottom: 0;}
-    .cont_business .section3 .onm_list ul li .list_img {width: 100% ;height: auto;}
-    .cont_business .section3 .onm_list ul li .list_cont { padding: 2.4rem 1.95rem 2.9rem; }
-    .cont_business .section3 .onm_list ul li .list_cont dt {font-size: 1.3rem; margin-bottom: 1.15rem;}
-    .cont_business .section3 .onm_list ul li .list_cont dd { font-size: 1.5rem; }
-    .cont_business .section3 .btn_more { padding-top: 6rem;}
-    .cont_business .section3 .btn_more a .icon {width: 5rem;height: 5rem; margin: 0 auto 1.2rem; }
-    .cont_business .section3 .btn_more a i:first-child {top:1.5rem;left:2.4rem;}
-    .cont_business .section3 .btn_more a i:last-child {top:2.4rem;left:1.5rem;}
-    .cont_business .section3 .btn_more a span {font-size: 1.5rem;}
+    .cont_business .bus_section3 {width: 100vw;height: auto;background: #f7f7f7;padding-bottom: 15rem;}
+    .cont_business .bus_section3 .search { text-align: center; }
+    .cont_business .bus_section3 .input_search {margin: 26rem 0 6.4rem; width: calc(100% - 7.5rem);}
+    .cont_business .bus_section3 .input_search input {background: #fff; width: 100%; }
+    .cont_business .bus_section3 .onm_list ul {padding: 0 2rem; width: 100%; justify-content: center; }
+    .cont_business .bus_section3 .onm_list ul li:before {content:'';display: none;width: calc(100% + .5rem); height: 100%; box-sizing: border-box;background: transparent;border: .3rem solid;border-image: linear-gradient(to bottom, #568236, #135a1a);border-image-slice: 1;position: absolute;top: 2.1rem;left: 1.6rem;z-index: -10;}
+    .cont_business .bus_section3 .onm_list ul li {width: 100%; margin:0 2.9rem 4rem; box-shadow: 9px 8px 13px 0px rgba(0, 0, 0, 0.13);}
+    .cont_business .bus_section3 .onm_list ul li:nth-last-child(-n+3) {margin-bottom: 4rem;}
+    .cont_business .bus_section3 .onm_list ul li:last-child {margin-bottom: 0;}
+    .cont_business .bus_section3 .onm_list ul li .list_img {width: 100% ;height: auto;}
+    .cont_business .bus_section3 .onm_list ul li .list_cont { padding: 2.4rem 1.95rem 2.9rem; }
+    .cont_business .bus_section3 .onm_list ul li .list_cont dt {font-size: 1.3rem; margin-bottom: 1.15rem;}
+    .cont_business .bus_section3 .onm_list ul li .list_cont dd { font-size: 1.5rem; }
+    .cont_business .bus_section3 .btn_more { padding-top: 6rem;}
+    .cont_business .bus_section3 .btn_more a .icon {width: 5rem;height: 5rem; margin: 0 auto 1.2rem; }
+    .cont_business .bus_section3 .btn_more a i:first-child {top:1.5rem;left:2.4rem;}
+    .cont_business .bus_section3 .btn_more a i:last-child {top:2.4rem;left:1.5rem;}
+    .cont_business .bus_section3 .btn_more a span {font-size: 1.5rem;}
 
     /* 팝업 */
     .card_popup {display: none;position: fixed;top: 0;left: 0;width: 100%;height: 100%;overflow: hidden;background:rgba(0,0,0,0.8);z-index: 1003;}

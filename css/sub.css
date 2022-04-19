@@ -276,15 +276,15 @@
 .card_popup .popup_inner .pop_cont .txt_box .card_tb td {padding:1.2rem 0;}
 .card_popup .popup_inner .pop_cont .txt_box .card_tb dd {margin-top: 1.2rem;}
 
-.cont_business .section3 .btn_more {text-align: center;padding-top: 11rem;}
-.cont_business .section3 .btn_more a {display: inline-block;}
-.cont_business .section3 .btn_more a .icon {width: 6.5rem;height: 6.5rem;border: 1px solid #568236;border-radius: 50%;background: #fff;margin: 0 auto 2rem;position: relative;transition: all .3s;}
-.cont_business .section3 .btn_more a .icon > i {position: absolute;display: inline-block;background: #568236;}
-.cont_business .section3 .btn_more a i:first-child {width: .1rem;height: 1.9rem;top:2.2rem;left:3.1rem;}
-.cont_business .section3 .btn_more a i:last-child {width: 1.9rem;height: .1rem;top:3.1rem;left:2.2rem;}
-.cont_business .section3 .btn_more a span {font-size: 1.8rem;color: #555;}
-.cont_business .section3 .btn_more a:hover .icon {transform: rotate(90deg);background: #568236;}
-.cont_business .section3 .btn_more a:hover .icon > i {background: #fff;}
+.cont_business .bus_section3 .btn_more {text-align: center;padding-top: 11rem;}
+.cont_business .bus_section3 .btn_more a {display: inline-block;}
+.cont_business .bus_section3 .btn_more a .icon {width: 6.5rem;height: 6.5rem;border: 1px solid #568236;border-radius: 50%;background: #fff;margin: 0 auto 2rem;position: relative;transition: all .3s;}
+.cont_business .bus_section3 .btn_more a .icon > i {position: absolute;display: inline-block;background: #568236;}
+.cont_business .bus_section3 .btn_more a i:first-child {width: .1rem;height: 1.9rem;top:2.2rem;left:3.1rem;}
+.cont_business .bus_section3 .btn_more a i:last-child {width: 1.9rem;height: .1rem;top:3.1rem;left:2.2rem;}
+.cont_business .bus_section3 .btn_more a span {font-size: 1.8rem;color: #555;}
+.cont_business .bus_section3 .btn_more a:hover .icon {transform: rotate(90deg);background: #568236;}
+.cont_business .bus_section3 .btn_more a:hover .icon > i {background: #fff;}
 
 
 /* 사업소개 - 수처리 - 기술역량 */
@@ -444,14 +444,35 @@
 .skills_contents .method_wrap ul > li .desc .txt {font-size: 1.5rem;color: #777;padding: 1rem 0 3.2rem;}
 .skills_contents .method_wrap ul > li .desc > ul > li {font-size: 1.6rem;color: #777;list-style: '- ';margin-left: 1rem;line-height: 1.75;}
 
-.skills_contents .method_wrap03 .section1 > ul {display: flex;justify-content: space-between;padding: 0 9rem;}
+.skills_contents .method_wrap03 .section1 > ul {display: flex;justify-content: space-between;padding: 7rem 9rem 17rem;border-bottom: 1px solid #dcdcdc;}
 .skills_contents .method_wrap03 .section1 > ul > li {width: calc(50% - 9rem);}
 .skills_contents .method_wrap03 .section1 > ul > li img {width: 100%;object-fit: contain;}
+.skills_contents .method_wrap03 .section2 > h3 {padding: 9rem 0 7.5rem;}
 .skills_contents .method_wrap03 .section2 > ul {display: flex;justify-content: space-around;}
 .skills_contents .method_wrap03 .section2 > ul > li {text-align: center;}
 .skills_contents .method_wrap03 .section2 > ul > li .img {width: 27rem;height: 27rem;border-radius: 50%;overflow: hidden;}
-.skills_contents .method_wrap03 .section2 > ul > li .txt .tit {font-size: 2.2rem;font-weight: 400;color: #568236;}
+.skills_contents .method_wrap03 .section2 > ul > li .txt .tit {font-size: 2.2rem;font-weight: 400;color: #568236;padding: 5rem 0 2.5rem;}
 .skills_contents .method_wrap03 .section2 > ul > li .txt p {font-family: 'NS';font-size: 1.6rem;color: #777;line-height: 2.1;}
+
+.skills_contents .method_wrap04 .banner {width: 100%;height: 33rem;text-align: center;background-repeat: no-repeat;background-position: 50% 50%;font-weight: 400;}
+.skills_contents .method_wrap04 .section1 .banner {background-image: url(../images/business/method04_img01.png.jpg);margin-top: 7.5rem;}
+.skills_contents .method_wrap04 .section2 .banner {background-image: url(../images/business/method04_img02.jpg);}
+.skills_contents .method_wrap04 .section1 .banner .icon {padding-top: 5.6rem;}
+.skills_contents .method_wrap04 .section2 .banner .icon {padding-top: 5.2rem;}
+.skills_contents .method_wrap04 .banner p {font-size: 1.8rem;color: #fff;line-height: 1.16;padding-top: 2rem;}
+.skills_contents .method_wrap04 .banner p > span {color: #f5b508;}
+.skills_contents .method_wrap04 .banner p > span > b {font-size: 3rem;font-family: 'NS';}
+.skills_contents .method_wrap04 .banner .ylw {font-size: 1.6rem;color: #f5b508;margin-top: 3rem;}
+.skills_contents .method_wrap04 .s_con {display: flex;font-family: 'NS';padding: 6rem 4rem 0;}
+.skills_contents .method_wrap04 .s_con .left {flex-basis: 63rem;}
+.skills_contents .method_wrap04 .s_con .left li:first-child {font-size: 2.2rem;font-weight: 400;color: #222;line-height: 1.36;}
+.skills_contents .method_wrap04 .s_con .left li:nth-child(2) {font-size: 1.6rem;font-weight: 400;color: #222;padding: 1rem 0 1.5rem;}
+.skills_contents .method_wrap04 .s_con .left li:last-child {font-size: 1.5rem;color: #777;line-height: 1.8;}
+.skills_contents .method_wrap04 .s_con .right li {font-size: 1.6rem;color: #777;line-height: 1.75;list-style-type: '- ';}
+.skills_contents .method_wrap04 .section1 {border-bottom: 1px solid #dcdcdc;}
+.skills_contents .method_wrap04 .section1 .s_con {padding-bottom: 12rem;}
+.skills_contents .method_wrap04 .section2 h3 {padding: 9rem 0 7.5rem;}
+
 
 /* 사업소개 - Green - 에너지 220419 */
 .green_contents .energy_intro_wrap {padding-top: 9rem;width: 100%;height: fit-content; }
@@ -471,12 +492,10 @@
 .green_contents .energy_wrap .desc > div > ul > li > .desc_tit {display: inline-block;width: 8.6rem;font-weight: 400;color: #568236;flex-shrink: 0;}
 .green_contents .energy_wrap .desc > div > ul > li > .desc_txt > li {list-style-type: '·';}
 .green_contents .energy_wrap .desc > div > ul.extend > li > .desc_tit { width: 12rem; }
-
 .green_contents .energy_wrap .desc .waste_heat_sheet { display: flex; flex-wrap: wrap; justify-content: center; margin-top: -.5rem; }
 .green_contents .energy_wrap .desc .waste_heat_sheet > ul { width: auto; flex-basis: 35.2rem; padding-left: 5.8rem; }
 .green_contents .energy_wrap .desc .waste_heat_sheet > ul > li:last-child { padding-bottom: 7.9rem; }
 .green_contents .energy_wrap .desc .waste_heat_sheet > ul > li > .desc_tit { width: auto; padding-right: 2.3rem;}
-
 .green_contents .energy_wrap .energy_box .arrow { background: #568236; width: 5rem; height: 5rem; border-radius: 5rem; background-repeat: no-repeat; background-position: center; transition:all ease .3s; top:45%; }
 .green_contents .energy_wrap .energy_box .swiper-button-prev { background-image: url(../images/business/arrow_prev_on.png); background-position:1.8rem; left: 4.9rem; }
 .green_contents .energy_wrap .energy_box .swiper-button-next { background-image: url(../images/business/arrow_next_on.png); background-position:2.1rem; right: 4.9rem; }

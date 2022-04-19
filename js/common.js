@@ -424,6 +424,41 @@ var energyEvent = {
     },
 };
 
+// 공법 페이지 이벤트
+var methodEvent = {
+    init:function(){
+        this.subtab();
+    },
+    subtab: function(){
+        
+        var subtabList = $('.skills_contents .sub_tab li');
+        subtabList.on('click', function(){
+            var idx = subtabList.index(this)+1;
+            var method_wrap = $(this).parents().siblings('.method_wrap');
+            
+            subtabList.removeClass('on');
+            $(this).addClass('on');
+            
+            method_wrap.hide();
+            $('.method_wrap0' + idx).css({display:'block'});
+            $('.method_wrap').removeClass('aos-animate');
+            // method_wrap.find('section').removeattr('data-aos');
+            
+            if(idx == 1) {
+                $('.method_bg').css({display:'block'});
+            }else {
+                $('.method_bg').css({display:'none'});
+            }
+            
+            setTimeout(function() {
+                // method_wrap.find('section').addClass('aos-animate');
+                $('.method_wrap0' + idx).addClass('aos-animate');
+            }, 0);
+        });
+    },
+    
+};
+
 ////////////////////////////////////////////// 메인 페이지 이벤트 (FD-00-01-001)
 var mainEvent = {
     
