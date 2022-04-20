@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!-- SET FILE PATH :: compatibility ie9 code -->
+        <base href="../" />
+        <!--[if IE]><script type="text/javascript">
+            // Fix for IE ignoring relative base tags.
+            (function() {
+                var baseTag = document.getElementsByTagName('base')[0];
+                baseTag.href = baseTag.href;
+            })();
+        </script><![endif]-->
+        <meta charset="UTF-8">
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+        <meta name="format-detection" content="telephone=no">
+        <!-- TITLE -->
+        <title>SK D&D Admin</title>
+        <link rel="icon" href="images/favicon.png" sizes="32x32">
+        <!-- CSS FILE LOAD -->
+        <link rel="stylesheet" href="css/common.css">
+        <link rel="stylesheet" href="css/jquery-ui.min.css">
+      	<link rel="stylesheet" href="css/jquery-timepicker-min.css">
+        <link rel="stylesheet" href="css/admin.css">
+        <!-- JS FILE LOAD -->
+        <script type="text/javascript" src="js/lib/jquery-1.12.4.min.js"></script>
+        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+        <script type="text/javascript" src="js/lib/jquery-ui-1.12.1.min.js"></script>
+        <script type="text/javascript" src="js/lib/jquery-ui-timepicker.js"></script>
+        <script type="text/javascript" src="js/admin.js"></script>
+    </head>
+    <body>
+        <!-- wrap -->
+        <div class="admin_wrap wrap dashboard">
+            <!-- header -->
+            <div class="header">
+                <div class="inner">
+                    <h1 class="logo"><a href="javascript:;"><img src="images/logo.png" alt="SK D&D"></a></h1>
+                    <div class="gnb">
+                        <ul>
+                            <li class="on"><a href="javascript:;" alt="사업실적관리">사업실적관리</a></li>
+                            <li><a href="javascript:;" alt="게시판관리">게시판관리</a></li>
+                            <li><a href="javascript:;" alt="고객문의관리">고객문의관리</a></li>
+                            <li><a href="javascript:;" alt="통계관리">통계관리</a></li>
+                            <li><a href="javascript:;" alt="관리자 등록관리">관리자 등록관리</a></li>
+                        </ul>
+                    </div>
+                    <div class="menu">
+                        <ul>
+                            <li class="password"><a href="javascript:;" onclick="popupOpen();">비밀번호변경</a></li>
+                            <li class="logout"><a href="javascript:;">로그아웃</a></li>
+                            <li class="home"><a href="javascript:;">홈페이지</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- content -->
+            <div class="content">
+                <div class="mainbox">
+                    <div class="main_list total">
+                        <div class="top">
+                            <p class="tit">오늘의 방문자</p>
+                            <div class="num"><span>2,450</span>명</div>
+                        </div>
+                        <div class="sub">
+                            <p class="tit">이 주의 방문자</p>
+                            <div class="num"><span>14,506</span>명</div>
+                            <p class="tit">이 달의 방문자</p>
+                            <div class="num"><span>134,506</span>명</div>
+                            <p class="tit">올해의 방문자</p>
+                            <div class="num"><span>3,134,506</span>명</div>
+                            <div class="btnbox_right">
+                                <a href="javascript:;">상세통계보기 &gt;</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="main_list board">
+                        <p class="tit">답변 대기 중 문의건 <span>5건</span></p>
+                        <div class="tb">
+                            <table summary="문의 목록" cellpadding="0" cellspacing="0" border="0">
+                            <caption>문의 목록</caption>
+                            <colgroup>
+                                <col style="width:70%;">
+                                <col style="width:15%;">
+                                <col style="width:15%;">
+                            </colgroup>
+                            <thead>
+                                <tr>
+                                    <th>제목</th>
+                                    <th>등록일</th>
+                                    <th>상태</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- 최신글일 경우 newlist -->
+                                <tr class="newlist">
+                                    <td>
+                                        <a href="javascript:;">
+                                            <span class="title">[부동산사업관련] 문의드립니다.</span>
+                                            <span class="new"><img src="images/icon_new.jpg" alt="new" /></span>
+                                        </a>
+                                    </td>
+                                    <td>2021-03-19</td>
+                                    <td>답변대기</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <a href="javascript:;">
+                                            <span class="title">[부동산사업관련] 문의드립니다.</span>
+                                            <span class="new"><img src="images/icon_new.jpg" alt="new" /></span>
+                                        </a>
+                                    </td>
+                                    <td>2021-03-19</td>
+                                    <td>답변완료</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <a href="javascript:;">
+                                            <span class="title">[부동산사업관련] 문의드립니다.</span>
+                                            <span class="new"><img src="images/icon_new.jpg" alt="new" /></span>
+                                        </a>
+                                    </td>
+                                    <td>2021-03-19</td>
+                                    <td>답변완료</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <a href="javascript:;">
+                                            <span class="title">[부동산사업관련] 문의드립니다.</span>
+                                            <span class="new"><img src="images/icon_new.jpg" alt="new" /></span>
+                                        </a>
+                                    </td>
+                                    <td>2021-03-19</td>
+                                    <td>답변완료</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <a href="javascript:;">
+                                            <span class="title">[부동산사업관련] 문의드립니다.</span>
+                                            <span class="new"><img src="images/icon_new.jpg" alt="new" /></span>
+                                        </a>
+                                    </td>
+                                    <td>2021-03-19</td>
+                                    <td>답변완료</td>
+                                </tr>
+                            </tbody>
+                            </table>
+                        </div>
+                        <div class="btnbox_right">
+                            <a href="javascript:;">전체문의보기 &gt;</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- popup -->
+                <div class="popup popup_password">
+                    <div class="pop_inner">
+                        <div class="pop_close"><a href="javascript:;"><img src="images/btn_close.png" alt="닫기" /></a></div>
+                        <div class="pop_cont">
+                            <div class="tit">비밀번호 변경</div>
+                            <div class="tb_pop">
+                                <table summary="비밀번호 변경" cellpadding="0" cellspacing="0" border="0">
+                                    <caption>비밀번호 변경</caption>
+                                    <colgroup>
+                                        <col style="width:160px;">
+                                        <col style="width:*;">
+                                    </colgroup>
+                                    <tbody>
+                                        <!-- <tr>
+                                            <th>이름</th>
+                                            <td><p>홍길동</p></td>
+                                        </tr>
+                                        <tr>
+                                            <th>아이디</th>
+                                            <td><p>asdasd1234</p></td>
+                                        </tr> -->
+                                        <tr>
+                                            <th>비밀번호</th>
+                                            <td>
+                                                <div class="input_box">
+                                                    <input type="password" id="" name="" placeholder="새로운 비밀번호를 입력해 주세요." />
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th>비밀번호 확인</th>
+                                            <td>
+                                                <div class="input_box">
+                                                    <input type="password" id="" name="" placeholder="다시 한번 입력해 주세요." />
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <ul class="pop_info">
+                                <li>특수문자+영문+숫자로 8글자 이상으로 입력해 주세요.</li>
+                            </ul>
+                            <div class="pop_btn">
+                                <div class="btn_red"><a href="javascript:;">비밀번호 변경</a></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- footer -->
+            <div class="footer">
+                <div class="inner">
+                    <p class="copyright">COPYRIGHT © SK D&D ALL RIGHTS DESERVED.</p>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

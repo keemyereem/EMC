@@ -1,0 +1,143 @@
+@charset "utf-8";
+
+/* reset */
+* { margin:0; padding:0;}
+html {-webkit-text-size-adjust: none;}
+body {font-family:'NotoSans', '맑은 고딕', 'Malgun Gothic','Apple Gothic', verdana, '돋움',dotum, sans-serif; font-weight:200; font-size:14px; line-height:1.3; word-wrap:break-word; word-break:keep-all; color:#010101;}
+html, body {width:100%; height:100%;}
+body, div, h1, h2, h3, h4, h5, h6, ul, ol, li, dl, dt, dd, p, form, fieldset, input, table, tr, th, td, a, span, em, button, textarea, header, footer, nav, section, aside.all_menu, article
+{margin: 0; padding: 0; box-sizing: border-box;}
+h1, h2, h3, h4, h5, h6 {font-weight:700; color:#292929; line-height:1;}
+ul, ol, li {list-style: none;}
+hr {position:absolute; top:0; left:-1000%; width:1px; height:1px; font-size:0; line-height:0; overflow:hidden;}
+fieldset {border:none;}
+caption { text-indent:-5000px; line-height:0; font-size:0;}
+a {text-decoration:none; outline-style:none; color: #787878;}
+a:hover, a:active, a:visited {text-decoration:none;}
+img {border:0; vertical-align:top;}
+button, input, select, textarea {vertical-align:top; font-family:inherit; outline-style:none;}
+button {border: 0; background-color: transparent; cursor: pointer; text-align: left; color: #292929;}
+input[type=file] { max-width: 100%;}
+select { border-radius: 0; color: #666; box-sizing: border-box; background-color: #fff;}
+textarea {resize: none; -webkit-appearance: none; -moz-appearance: none; width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 0; box-sizing: border-box;}
+em, address {font-style: normal;}
+table {width: 100%; table-layout: fixed; border-collapse: collapse;}
+label {vertical-align: middle; cursor: pointer;}
+strong {font-weight: 600; color: #292929;}
+sup {font-size:12px;}
+mark {background-color: #fff;}
+i {font-style:normal;}
+input::-webkit-input-placeholder {font-size:14px; color: #828282; vertical-align:top;}
+input::-moz-placeholder {font-size:14px; color: #828282; vertical-align:top;}
+input:-ms-input-placeholder {font-size:14px; color: #828282; vertical-align:top;}
+input:-moz-placeholder {font-size:14px; color: #828282; vertical-align:top;}
+
+/* font */
+@charset "utf-8";
+
+@font-face {
+    font-family: 'NotoSans';
+    font-weight: 200;
+    font-style: normal;
+    src: url('../font/NotoSans-Regular.eot');
+    src: url('../font/NotoSans-Regular.eot?#iefix') format('embedded-opentype'),
+         url('../font/NotoSans-Regular.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'NotoSans';
+    font-weight: 300;
+    font-style: normal;
+    src: url('../font/NotoSans-Medium.eot');
+    src: url('../font/NotoSans-Medium.eot?#iefix') format('embedded-opentype'),
+         url('../font/NotoSans-Medium.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'NotoSans';
+    font-weight: 400;
+    font-style: normal;
+    src: url('../font/NotoSans-Bold.eot');
+    src: url('../font/NotoSans-Bold.eot?#iefix') format('embedded-opentype'),
+         url('../font/NotoSans-Bold.woff') format('woff');
+}
+
+/* common */
+.wrap {position:relative; width:100%; min-height:100%; box-sizing:border-box;}
+.blind {display:none;}
+.red {color: #c30036;}
+
+.header {position:relative; width:100%;}
+.container {position:relative; width:100%;}
+.footer {position:relative; width:100%;}
+
+.input_login {position:relative; width:100%;}
+.input_login input {padding:0 20px; width:100%; height:60px; font-weight:200; background:#fff; border:1px solid #cfcfcf; border-radius:5px; -webkit-border-radius:5px; outline-style:none; -webkit-appearance:none; -moz-appearance:none; appearance:none;}
+
+.input_box {position:relative; width:100%; display: inline-block;}
+.input_box input {position: relative;padding: 0 10px;width: 100%;height: 30px;background: #fff;border: 1px solid #e0e1e2;font-size: 13px;font-weight: 200;color: #666;line-height: 1.2;-webkit-appearance: none;-moz-appearance: none;appearance: none;border-radius: 0;-webkit-border-radius: 0;}
+.input_box input::placeholder {color: #999;}
+.input_box .btn_search {display: block;position: absolute;top: 5px;right: 5px;;width: 20px}
+.input_box .btn_search img {width: 100%;}
+
+.input_file {position:relative; width:100%;}
+.input_file input {padding-left:10px; width:100%; height:30px; line-height:30px; background:#fff; border:1px solid #e0e1e2; color:#767676; border-radius:0; outline-style:none; -webkit-appearance:none; -moz-appearance:none; appearance:none;}
+
+.inputBox_DP {display:inline-block; position:relative; width:200px; height:30px; line-height:30px; vertical-align: middle;}
+.inputBox_DP input {width:100%; height:100%; padding-left:10px; border:1px solid #e0e1e2; font-size: 14px; font-weight: 200; color: #666;outline-style:none; -webkit-appearance:none; -moz-appearance:none; appearance:none;}
+.inputBox_DP img {position:absolute; top:4px; right:12px; width:18px; cursor:pointer;}
+.dash {margin: 0 5px;color: #999;vertical-align: middle;}
+
+.select_box {display:inline-block; *display:inline-block; position:relative; background:#fff url('../images/icon_sel.png') 93% 50% no-repeat; width:100%; height:30px; border:1px solid #e0e1e2; vertical-align:middle; zoom:1;}
+.select_box:last-child {margin-right:0;}
+.select_box label {position:absolute; top:7px; left:10px; font-size:13px; color:#666;}
+.select_box select {width:100%; height:30px ;min-height:30px; line-height:30px; padding:0 5px; opacity:0; filter:alpha(opacity=0);}
+.select_box select option {font-weight: 100;}
+
+.area_box {display:inline-block; *display:inline-block; position:relative; top:-1px; width:100%; height:120px; zoom:1;}
+.area_box textarea {width:100%; height:100%; padding:10px; line-height:1.4; border:1px solid #e0e1e2; font-weight:200; color: #666; -webkit-appearance: none; outline-style:none; overflow-y: scroll;}
+
+.filebox {display: inline-block;vertical-align: middle;}
+.filebox label {display: inline-block;width: 100px;height: 30px;line-height: 30px;background: #999;color: #fff;text-align: center;}
+.filebox input[type="file"] {position: absolute;width: 1px;height: 1px;padding: 0;margin: -1px;overflow: hidden;clip:rect(0,0,0,0);border: 0;}
+
+.filebox2 {display: inline-block;vertical-align: middle;}
+.filebox2 label {display: inline-block;width: 100px;height: 30px;line-height: 30px;background: #999;color: #fff;text-align: center;}
+.filebox2 input[type="file"] {position: absolute;width: 1px;height: 1px;padding: 0;margin: -1px;overflow: hidden;clip:rect(0,0,0,0);border: 0;}
+
+.file_info{width: 350px; margin: 0 auto;text-align: left;padding-left: 110px;padding-bottom: 3px;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;}
+.filebox3 {width: 350px;margin: 0 auto;align-items: baseline;}
+.filebox3 label {display: inline-block;width: 100px;height: 30px;line-height: 30px;background: #999;color: #fff;text-align: center;}
+.filebox3 input[type="file"] {position: absolute;width: 1px;height: 1px;padding: 0;margin: -1px;overflow: hidden;clip:rect(0,0,0,0);border: 0;}
+.filebox3 .upload_name{display: inline-block;width: 250px;height: 30px;margin-left: -5px; vertical-align: middle;cursor: pointer;border: 1px solid #e0e1e2;appearance: none;-webkit-appearance: none;-moz-appearance: none; font-weight: 200;color: #666;padding-left: 10px;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;}
+
+.radio_box {display: inline-block;position: relative;}
+.radio_box input[type="radio"] {display:none;}
+.radio_box input[type="radio"] + label {display: inline-block;position: relative;padding-left: 24px;line-height: normal;color: #666;cursor: pointer;}
+.radio_box input[type="radio"] + label:before {content: "";display: inline-block;position: absolute;left: 0;bottom: 0;width: 18px;height: 18px;background: url(../images/bg_radio.png) 50% 50% no-repeat;background-size: 100%;vertical-align:top;}
+.radio_box input[type="radio"]:checked + label:before {content: "";background: url(../images/bg_radio_on.png) 50% 50% no-repeat;background-size: 100%;}
+
+.check_box {display:inline-block;position: relative;top: 1px;margin-left: 15px;}
+.check_box:first-child {margin-left: 0;}
+.check_box input[type="checkbox"] {display:none;}
+.check_box input[type="checkbox"] + label {display: block;position: relative;color: #666;cursor: pointer;}
+.check_box input[type="checkbox"] + label span {margin-left: 6px;}
+.check_box input[type="checkbox"] + label:before {content: "";display: inline-block;width: 18px;height: 18px;background: url(../images/bg_check.png) 50% 50% no-repeat;background-size: cover;vertical-align: top;}
+.check_box input[type="checkbox"]:checked + label:before {content:""; background: url(../images/bg_check_on.png) 50% 50% no-repeat;background-size: cover;}
+
+.editor_box {width:100%; min-height:250px;}
+.editor_area {width:100%; min-height:400px;}
+
+.btn_box {display: inline-block;position: relative;margin: 0 2px;min-width: 70px;height: 28px;line-height: 28px;vertical-align: top;}
+.btn_box a {display: block;padding: 0 10px;border-radius: 5px;text-align: center;}
+.btn_red a {border: 1px solid #c30036;background: #c30036;color: #fff;}
+.btn_gray a {border: 1px solid #cfcfcf;background: #cfcfcf;color: #666;}
+.btn_line_red a {border: 1px solid #c30036;background: #fff;color: #ac1e35;}
+.btn_line_gray a {border: 1px solid #cfcfcf;background: #fff;color: #666;}
+.btn_id {display: inline-block;width: 80px;height: 30px;line-height: 30px;vertical-align: top;}
+.btn_id a {display: block;background: #999;text-align: center;color: #fff;}
+
+.w200 {width: 200px;}
+.w340 {width: 340px;}
+
+.ui-icon, .ui-widget-content .ui-icon {background-image: url(../images/ui-icons_555555_256x240.png) !important;}
