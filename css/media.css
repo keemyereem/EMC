@@ -189,7 +189,7 @@
     .cont_sustain .ethical_intro_wrap .section1  .s_title_img  {padding: 4rem 0 1.5rem;}
     .cont_sustain .ethical_intro_wrap .section1  .s_title_img > img {width: 12.6rem;}
     .cont_sustain .ethical_intro_wrap .section1 > h3 {font-size: 2.5rem;}
-    .cont_sustain .ethical_intro_wrap .section1 > .ethical_intro_banner {max-width: 100%;height: 34rem;background: url(../images/sustain/ethical_intro_banner_m.jpg.png) no-repeat 50% 50%;background-size: cover;margin: 2.7rem auto 0;}
+    .cont_sustain .ethical_intro_wrap .section1 > .ethical_intro_banner {max-width: 100%;height: 34rem;background: url(../images/sustain/ethical_intro_banner_m.png) no-repeat 50% 50%;background-size: cover;margin: 2.7rem auto 0;}
     .cont_sustain .ethical_intro_wrap .section1 > .ethical_intro_banner > p {font-size: 1.4rem;line-height: 1.78;letter-spacing: -.045rem;width: 100%;top: 3rem;left: 0;padding-left: 2rem;padding-right: 2rem;}
     .cont_sustain .ethical_intro_wrap .section1 > .ethical_intro_banner > p:before {display: none;}
     .cont_sustain .ethical_intro_wrap .section2 {padding: 5rem 0;}
@@ -215,7 +215,7 @@
     .cont_sustain .ethical_intro_wrap .section3 .s_con .download_wrap > div {flex-direction: column;min-height: auto;padding: 2.2rem 2rem 2rem;}
 
     /* 상담/제보 */
-    .cont_sustain .speakup_wrap .section1 .speakup_banner {width: calc(100% + 4rem);min-height: 43.5rem;height: auto;background: url(../images/sustain/ethical_speakup_banner_m2.jpg.png.jpg) no-repeat 50% 50%;background-size: cover;padding: 0 2rem;margin-left: -2rem;}
+    .cont_sustain .speakup_wrap .section1 .speakup_banner {width: calc(100% + 4rem);min-height: 43.5rem;height: auto;background: url(../images/sustain/ethical_speakup_banner_m2.jpg) no-repeat 50% 50%;background-size: cover;padding: 0 2rem;margin-left: -2rem;}
     .cont_sustain .speakup_wrap .s_tit {margin-bottom: 1.5rem;}
     .cont_sustain .speakup_wrap .section1 .speakup_banner > p {font-size: 1.8rem;padding: 5rem 0 0;line-height: 2.8rem;}
     .cont_sustain .speakup_wrap .section1 .speakup_banner .icon {width: 10.5rem;height: 10.5rem;margin: 3rem 0 1.5rem;}
