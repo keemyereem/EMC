@@ -44,9 +44,7 @@
     #topButton > img:first-child {display: none;}
     #topButton > img:last-child {display: block;width: 5rem;}
 
-    .br_mob br { display: none; }
     .container .contents .contents_inner{padding: 6rem 0 15rem;}
-
     .contents .contents_inner > .icon {padding-bottom: 1.2rem;}
     .contents .contents_inner > .icon > img {width: 1.7rem;}
     .contents .contents_inner > .title {font-size: 2.5rem;}
