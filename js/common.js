@@ -377,6 +377,7 @@ var recruitEvent = {
 var rndEvent = {
     init:function(){
         this.rndTab();
+        this.focusTab();
     },
     rndTab: function(){
         var Tabs = $('.rnd_contents .nav_btn li');
@@ -389,6 +390,17 @@ var rndEvent = {
             $('.section2 .tb_box0' + Tabs_idx).addClass('on');
         });
     },
+
+    focusTab: function() {
+        $(document).ready(function() {
+            const focused = document.querySelector('.focus')
+                setTimeout (function() {
+                    focused.scrollIntoView({behavior: "smooth", block: "nearest", inline: "center"});
+                }, 1500)
+            
+        })
+        
+    }
 };
 // 에너지 페이지 이벤트
 var energyEvent = {

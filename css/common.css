@@ -243,7 +243,8 @@ br.br_t, br.br_m {display: none;}
 .container .sub_visual .sub_visual_nav .sub_visual_nav_prev a span { right:0; padding:0 4rem 0 9.5rem; }
 .container .sub_visual .sub_visual_nav .sub_visual_nav_prev a img { left:0; }
 
-.container .sub_visual .sub_visual_menu {width: 168rem;height: 6.6rem;background: #fff;border-bottom: .1rem solid #e8e8e8;position: absolute;bottom:0;right:0;display: flex;z-index: 11;}
+/* .container .sub_visual .sub_visual_menu {width: 168rem;height: 6.6rem;background: #fff;border-bottom: .1rem solid #e8e8e8;position: absolute;bottom:0;right:0;display: flex;z-index: 11;} */
+.container .sub_visual .sub_visual_menu {width: calc(100% - 24rem);height: 6.6rem;background: #fff;border-bottom: .1rem solid #e8e8e8;position: absolute;bottom:0;/* right:0; */left: 24rem;display: flex;z-index: 11;}
 .container .sub_visual .sub_visual_menu .home {width: 7.7rem;height: 6.6rem;background: #22591b url(../images/common/sub_nav_home.png) no-repeat 50% 50%;position: relative;}
 .container .sub_visual .sub_visual_menu .depth {position: relative;width: 22.6rem;height: auto;border-right: .1rem solid #e8e8e8;font-size:1.6rem;color: #555;/* line-height: 6.6rem; */}
 .container .sub_visual .sub_visual_menu .depth.open {box-shadow: 1px 2px 9.5px 0.5px rgba(51, 51, 51, 0.1);height: auto;/* border-right:0; */}
@@ -277,7 +278,7 @@ br.br_t, br.br_m {display: none;}
 .container .sub_visual .location .drop_box ul li.active a:before {content: "";position: absolute;top: 50%;left: 2rem;background: #e0002a;width: .3rem;height: .3rem;border-radius: 100%;transform: translateY(-50%);-webkit-transform: translateY(-50%);-moz-transform: translateY(-50%);-o-transform: translateY(-50%);} */
 .container .contents {position: relative;}
 .container .contents .contents_inner {width: 100%;height: 100%;margin: 0 auto;padding: 12rem 0 16rem 0; /* border-top:1px solid #e8e8e8; */ }
-.container .contents .contents_inner .detail_sub_contents .inner .tb_view { font-size:1.6rem; }
+.container .contents .contents_inner .detail_sub_contents .inner .tb_view { font-size:1.6rem; font-family: 'NS'; }
 
 
 .contents .paging {margin-top: 6rem;position: relative;text-align: center;}

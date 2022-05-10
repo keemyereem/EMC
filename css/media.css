@@ -1,16 +1,37 @@
 /* 타블렛 */
-@media screen and (max-width:1023px) {
-    br.br_pc, br.br_m {display: none;}
-    br.br_t {display: block;}
+@media screen and (max-width:1400px) {
+    /* -----공통----- */
+    /* header */
+    .header .header_wrap {width: 140rem;position: relative;}
+    html, body {overflow-x: scroll;width: 140rem;}
+    .container {width: 100%;}
+    .container .sub_visual {width: 140rem;}
+    .container .sub_visual .sub_visual_nav {width: 100%;}
+    .container .contents .contents_inner {width: 140rem;position: relative;}
+
+
+    /* footer */
+    .footer .footer_wrap {width: 140rem;}
+
+    /* -----회사소개----- */
+    /* 찾아오시는 길 */
+    .cont_company .btn_apply {right: 0;}
+
+    /* -----사업소개----- */
+    /* 수처리 */
+    .cont_business .bus_section3 {width: 140rem;}
 
 }
+
 /* 모바일 */  
 @media screen and (max-width:767px) {
     /* 공통부분 */
     br.br_pc, br.br_t {display: none;}
     br.br_m {display: block;}
- 
+    html, body {overflow-x: hidden;width: 100%;}
+
     .header {height: 5.5rem;}
+    .header .header_wrap {width: 100%;}
     .header h1 {padding-top: 1.4rem;padding-left: 2rem;}
     .header h1 .logo {background: url(../images/common/EMC_logo_w_m.png) 0 0 no-repeat;background-size: contain;width: 7.5rem;height: 2.7rem;}
     .header.fixed h1 .logo {background: url(../images/common/EMC_logo_m.png) 0 0 no-repeat;background-size: contain;}
@@ -18,13 +39,14 @@
     .header .lang_select {display: none;}
     .header .top_sitemap {display: block;padding: 1.7rem 2rem 0 0;} 
 
-    .container .sub_visual {height: 27.5rem;}
+    .container .sub_visual {height: 27.5rem;width: 100%;}
     .container .sub_visual .sub_visual_nav h2 {font-size: 3rem;}
     .container .sub_visual .sub_visual_nav > div {display: none;}
-    .container .sub_visual .sub_visual_menu {width: calc(100% - 2rem);height: 5rem;}
+    .container .sub_visual .sub_visual_menu {width: calc(100% - 2rem);height: 5rem;left: 2rem;}
     .container .sub_visual .sub_visual_menu .home {width: 5rem;height: 5rem;background: #22591b url(../images/common/sub_nav_home_m.png) no-repeat 50% 50%;background-size: 1.2rem 1.3rem;}
     .container .sub_visual .sub_visual_menu .depth1 {display: none;} 
     .container .sub_visual .sub_visual_menu .depth2 {width: calc(100% - 5rem);border-right: 0;} 
+    .container .sub_visual .sub_visual_menu .depth:last-child .dep_tit {width: 100%;}
     .container .sub_visual .sub_visual_menu .depth > a {height: 5rem;line-height: 5.2rem;font-size: 1.4rem;padding-left: 2.4rem;}
     .container .sub_visual .sub_visual_menu .depth:last-child > a:before {height: .5rem;top:2.2rem;right:2rem;}
     .container .sub_visual .sub_visual_menu .depth:last-child.open > a:before {top: 2.4rem;}
@@ -44,11 +66,11 @@
     #topButton > img:first-child {display: none;}
     #topButton > img:last-child {display: block;width: 5rem;}
 
-    .container .contents .contents_inner{padding: 6rem 0 15rem;}
+    .container .contents .contents_inner{padding: 6rem 0 2.85rem;width: 100%;}
     .contents .contents_inner > .icon {padding-bottom: 1.2rem;}
     .contents .contents_inner > .icon > img {width: 1.7rem;}
     .contents .contents_inner > .title {font-size: 2.5rem;}
-    .contents .contents_inner > .tit_line {margin: 3.5rem auto 4rem;}
+    .contents .contents_inner > .tit_line {margin: 2.5rem auto 3rem;}
     .contents .contents_inner > .tit_line.on {height: 4rem;} 
 
     .company_visual:before { background:url('../images/company/sub_banner_m.png') no-repeat 50% 50%;background-size: cover; }
@@ -75,34 +97,37 @@
     .busIntro_contents .businessIntro > ul > li:nth-child(2) {background: url(../images/business/intro_img02_m.png) no-repeat 50% 50%;background-size: cover;}
     .busIntro_contents .businessIntro > ul > li:last-child {background: url(../images/business/intro_img03_m.png) no-repeat 50% 50%;background-size: cover;}
 
+
+    
     /* 사업소개 - 수처리 - O&M 모바일 */
     .cont_business .onm_inner .business_contents .inner {max-width: 100%; padding:0 2rem;}
-    .onm_inner .business_contents .section1 .nav_btn_wrap { overflow: scroll; width: calc(100% + 4rem); margin-left: -2rem; padding:0 2rem; }
-    .onm_inner .business_contents .section1 .sub_con {font-size: 1.7rem; padding:0 2.6rem;line-height: 2.7rem; top:2rem; }
-    .onm_inner .business_contents .section1 .sub_con.on { top:0; }
-    .onm_inner .business_contents .section1 .nav_btn {height: 14rem; width: fit-content; margin: 7rem auto 0; }
-    .onm_inner .business_contents .section1 .nav_btn li {width: 11.2rem;}
-    .onm_inner .business_contents .section1 .nav_btn li .nav_tit {font-size: 1.3rem; line-height: 1.7rem; top: 8.65rem;}
-    .onm_inner .business_contents .section1 .nav_btn .on .nav_tit { top:8.45rem; }
-    .onm_inner .business_contents .section1 .nav_btn li .icon { padding-top:2.65rem; }
-    .onm_inner .business_contents .section1 .nav_btn .on .icon { padding:2.45rem 0 2.25rem 0; }
+    .onm_inner .business_contents .section1 .nav_btn_wrap { overflow: scroll; width: calc(100% + 4rem); margin-left: -2rem; padding:0 2rem 1rem; }
+    .onm_inner .business_contents .section1 .sub_con {font-size: 1.7rem; line-height: 1.6; top:2rem; }
+    .onm_inner .business_contents .section1 .sub_con.on { top:0; padding:0 1.5rem; }
+    .onm_inner .business_contents .section1 .nav_btn {height: 14rem; width: fit-content; margin: 2.75rem auto 0; }
+    .onm_inner .business_contents .section1 .nav_btn li {width: 11.2rem; box-shadow: none; }
+    .onm_inner .business_contents .section1 .nav_btn > li.on { border: 0.15rem solid #568236; }
+    .onm_inner .business_contents .section1 .nav_btn li .nav_tit {font-size: 1.3rem; line-height: 1.7rem; top: 8.9rem;}
+    .onm_inner .business_contents .section1 .nav_btn .on .nav_tit { top:8.85rem; }
+    .onm_inner .business_contents .section1 .nav_btn li .icon { padding-top:2.9rem; }
+    .onm_inner .business_contents .section1 .nav_btn .on .icon { padding:2.85rem 0 2.25rem 0; }
     .onm_inner .business_contents .section1 .nav_btn li .icon img { width: 4rem; }
-    .onm_inner .business_contents .section2 {position: relative;width: 100%; height:44.7rem; margin-top:8rem;}
+    .onm_inner .business_contents .section2 {position: relative;width: 100%; height:44.7rem; margin-top:7rem;}
     .onm_inner .business_contents .section2 .nav_box {display: none;position: absolute; letter-spacing: -.1rem;}
     .onm_inner .business_contents .section2 .nav_box.on { width: 100%; display: flex; flex-wrap: wrap; }
     .onm_inner .business_contents .section2 .nav_box .box_text {width: 100%;flex-shrink: 1;}
     .onm_inner .business_contents .section2 .nav_box .box_text .onm_title {font-size: 2.4rem;font-weight: 400;color: #222;position: relative;}
-    .onm_inner .business_contents .section2 .nav_box .box_text .onm_title:after {content:'';display: block;width: 9rem;height: .3rem;background: #568235;position: absolute;bottom:-2rem;}
+    .onm_inner .business_contents .section2 .nav_box .box_text .onm_title:after {content:'';display: block;width: 9rem;height: .3rem;background: #568235;position: absolute;bottom:-1.9rem;}
     .onm_inner .business_contents .section2 .nav_box .box_text .onm_desciption { font-size: 1.5rem; line-height: 1.5; margin-top: 4.9rem; }
-    .onm_inner .business_contents .section2 .onm_box_slider_button { width: 13rem;position:absolute; top:unset; bottom:-9.8rem; left:0; height:5.5rem; }
+    .onm_inner .business_contents .section2 .onm_box_slider_button { width: 13rem;position:absolute; top:unset; bottom:-8.6rem; left:0; height:5.5rem; }
     .onm_inner .business_contents .section2 .onm_box_slider_button .swiper-button-prev, 
     .onm_inner .business_contents .section2 .onm_box_slider_button .swiper-button-next { width: 5.5rem; height: 5.5rem; }
     .onm_inner .business_contents .section2 .nav_box .swiper { width: 100%; margin-top: 2rem; }
     .onm_inner .business_contents .section2 .swiper .swiper-slide .onm_slide_img {width: 100%; height: auto;}
-    .onm_inner .business_contents .section2 .swiper .swiper-slide .onm_slide_text_box { padding:1.95rem 2.05rem; font: 200 1.4rem 'NS'; }
-    .onm_inner .business_contents .section2 .swiper .swiper-slide .onm_slide_text_box h3 { font-size: 1.7rem; height: 4.2rem; }
-    .onm_inner .business_contents .section2 .swiper .swiper-slide .onm_slide_text_box > div:before { margin: 1.8rem 0 1.8rem;}
-    .onm_inner .business_contents .section2 .swiper .swiper-slide .onm_slide_text_box dl dt { padding-right: 1.25rem; }
+    .onm_inner .business_contents .section2 .swiper .swiper-slide .onm_slide_text_box { padding:1.95rem 2.2rem 2.45rem; font: 200 1.4rem 'NS'; }
+    .onm_inner .business_contents .section2 .swiper .swiper-slide .onm_slide_text_box h3 { font-size: 1.7rem; height:auto; /* height: 4.2rem; */ letter-spacing: -.085rem; }
+    .onm_inner .business_contents .section2 .swiper .swiper-slide .onm_slide_text_box > div:before { margin: 3.3rem 0 1.8rem;}
+    .onm_inner .business_contents .section2 .swiper .swiper-slide .onm_slide_text_box dl dt { padding-right: 1.3rem; }
     .onm_inner .business_contents .section2 .swiper_2depth_tabs { margin-top: 4rem; }
     .onm_inner .business_contents .section2 .swiper_2depth_tabs p { margin-bottom: 2rem; width:calc(50% - .58rem); }
     .onm_inner .business_contents .section2 .swiper_2depth_tabs p:last-child { float: right ;}
@@ -110,7 +135,7 @@
     .onm_inner .business_contents .section2 .swiper_2depth_tabs .on a { font:400 1.4rem/4rem 'NS'; }
     .cont_business .bus_section3 {width: 100vw;height: auto;background: #f7f7f7;padding-bottom: 15rem;}
     .cont_business .bus_section3 .search { text-align: center; }
-    .cont_business .bus_section3 .input_search {margin: 26rem 0 6.4rem; width: calc(100% - 7.5rem);}
+    .cont_business .bus_section3 .input_search {margin: 33.6rem 0 4rem; width: calc(100% - 7.5rem);}
     .cont_business .bus_section3 .input_search input {background: #fff; width: 100%; }
     .cont_business .bus_section3 .onm_list ul {padding: 0 2rem; width: 100%; justify-content: center; }
     .cont_business .bus_section3 .onm_list ul li:before {content:'';display: none;width: calc(100% + .5rem); height: 100%; box-sizing: border-box;background: transparent;border: .3rem solid;border-image: linear-gradient(to bottom, #568236, #135a1a);border-image-slice: 1;position: absolute;top: 2.1rem;left: 1.6rem;z-index: -10;}
@@ -118,7 +143,7 @@
     .cont_business .bus_section3 .onm_list ul li:nth-last-child(-n+3) {margin-bottom: 4rem;}
     .cont_business .bus_section3 .onm_list ul li:last-child {margin-bottom: 0;}
     .cont_business .bus_section3 .onm_list ul li .list_img {width: 100% ;height: auto;}
-    .cont_business .bus_section3 .onm_list ul li .list_cont { padding: 2.4rem 1.95rem 2.9rem; }
+    .cont_business .bus_section3 .onm_list ul li .list_cont { padding: 2.5rem 1.95rem 2.9rem; }
     .cont_business .bus_section3 .onm_list ul li .list_cont dt {font-size: 1.3rem; margin-bottom: 1.15rem;}
     .cont_business .bus_section3 .onm_list ul li .list_cont dd { font-size: 1.5rem; }
     .cont_business .bus_section3 .btn_more { padding-top: 6rem;}
@@ -166,6 +191,27 @@
     .card_popup .popup_inner .pop_cont .txt_box .card_tb tbody tr:first-child {border-top: 1px solid #568235;border-bottom: 1px solid #dcdcdc;}
     .card_popup .popup_inner .pop_cont .txt_box .card_tb td {padding:1.2rem 0;}
     .card_popup .popup_inner .pop_cont .txt_box .card_tb dd {margin-top: 1.2rem;}
+
+
+    /* 사업소개 - 수처리 - 기술역량 */
+    .cont_business .rnd_contents .tab_list { overflow-x: auto; padding:0 1rem .6rem; }
+    .cont_business .rnd_contents .tab_list ul { width: fit-content; }
+    .cont_business .rnd_contents .tab_list ul li { width: 17.8rem; font-size: 1.4rem; }
+    .cont_business .rnd_contents .tab_list ul li:after { height: 0.2rem; }
+    .cont_business .rnd_contents .tab_list ul li a { padding: 0 0 1.5rem 0; }
+
+
+    /* 사업소개 - 수처리 - 기술역량 - 기술지원 220412 */
+    .cont_business .rnd_contents .tech_support { margin-top:4rem; padding-bottom: 13.6rem; }
+    .cont_business .rnd_contents .tech_support > ul { flex-direction: column; }
+    .cont_business .rnd_contents .tech_support > ul > li { margin: 0 2rem; width: calc(100% - 4rem); height: 123vw; }
+    .cont_business .rnd_contents .tech_support > ul > li:first-child { background-size: contain; }
+    .cont_business .rnd_contents .tech_support > ul > li:last-child { margin-top: 4rem; background-size: contain; }
+    .cont_business .rnd_contents .tech_support > ul > li div { padding: 3.45rem 2.35rem; }
+    .cont_business .rnd_contents .tech_support ul li div ul li:not(:first-of-type):before { width: .2rem; height: .2rem; margin:.9rem 0 0 -.8rem; }
+    .cont_business .rnd_contents .tech_support ul li div ul li { font-size: 1.4rem; line-height: 1.5; }
+    .cont_business .rnd_contents .tech_support ul li div ul li:first-of-type { font-size: 1.6rem; line-height: 3.6; }
+    .cont_business .tech_support_graybg { height: 115vw; }
 
 
     /* 지속가능경영 - 윤리경영 공통 */
