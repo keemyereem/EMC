@@ -132,7 +132,7 @@
 .cont_invest.fc_info .tb_box .tb_row.row_body {border-bottom: .1rem solid #eeeeee;}
 .cont_invest.fc_info .tb_box .tb_row.row_body > div {padding: 0 5rem;font-size: 1.6rem;font-weight: 200;color: #555555;}
 /* .cont_invest.fc_info .tb_box .tb_row.row_body > div.cell_rd {color: #de3c31;} */
-.cont_invest.fc_info .tb_box .tb_row.row_body > div:not(:first-child) { text-align: right; }
+.cont_invest.fc_info .tb_box .tb_row.row_body > div:not(:first-child) { text-align: center; }
 .cont_invest.fc_info .tb_box .tb_row > div { display: table-cell; height: 7rem; vertical-align: middle; text-align: center; width: calc(100% / 3); }
 .cont_invest.fc_info .tb_box .tb_row > div b { font-weight: 300; color: #222222; }
 .cont_invest.fc_info .tb_box .tb_row > div:not(:last-child) { border-right:.1rem solid #eee; }
