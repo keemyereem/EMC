@@ -69,6 +69,7 @@ var commonEvent = {
     init:function(){
         this.submenuEvent();
         this.headerEvent();
+        this.goTopEvent();
         this.footerEvent();
     },
     submenuEvent:function(){
@@ -161,7 +162,7 @@ var commonEvent = {
             }
         });
     },
-    footerEvent:function() {
+    goTopEvent:function() {
         $(window).scroll(function() {
             // top button controll
             if ($(this).scrollTop() > 500) {
@@ -182,6 +183,19 @@ var commonEvent = {
         $(document).on('click', '#topButton', function() {
             $('html, body').animate({scrollTop:0}, '300');
         });
+    },
+    
+    footerEvent:function(){
+        //family site event
+        $(document).on("click",".footer .family_site .site_link .link_open",function(){
+            var selElm = $(this).parent();
+            if(!selElm.hasClass("open")){
+                selElm.addClass("open");
+            }else{
+                selElm.removeClass("open");
+            }
+        });
+        
     },
 };
 
@@ -574,19 +588,19 @@ var mainEvent = {
             sustain_list = $(".cont_main .section3 .sustain_list ul li");
 
         $(sustain_list).eq(0).hover(function(){
-            $(sustain_bg).addClass('esg');
-        },function(){
-            $(sustain_bg).removeClass('esg');
-        });
-        $(sustain_list).eq(1).hover(function(){
             $(sustain_bg).addClass('ehtics');
         },function(){
             $(sustain_bg).removeClass('ehtics');
         });
-        $(sustain_list).eq(2).hover(function(){
+        $(sustain_list).eq(1).hover(function(){
             $(sustain_bg).addClass('safety');
         },function(){
             $(sustain_bg).removeClass('safety');
+        });
+        $(sustain_list).eq(2).hover(function(){
+            $(sustain_bg).addClass('fair_trade');
+        },function(){
+            $(sustain_bg).removeClass('fair_trade');
         });
         $(sustain_list).eq(3).hover(function(){
             $(sustain_bg).addClass('carbon');

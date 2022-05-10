@@ -24,18 +24,29 @@
     <link type="text/css" href="css/common.css" rel="stylesheet">
     <link type="text/css" href="css/sub.css" rel="stylesheet">
     <link type="text/css" href="css/media.css" rel="stylesheet">
+    <link type="text/css" href="css/swiper.css" rel="stylesheet">
+    <link type="text/css" href="css/swiper.min.css" rel="stylesheet">
     <link type="text/css" href="css/aos.css" rel="stylesheet">
+    <!--※ swiper caution ※ - latest version cannot convert with IE8. 
+        if you want to use modern sohpiscated styles on swiper. do not use IE 10 less version-->
+    <!--<link type="text/css" href="https://unpkg.com/swiper@8/swiper-bundle.min.css" rel="stylesheet">-->
 
     <script type="text/javascript" src="js/lib/jquery-1.12.4.min.js"></script>
+    <script type="text/javascript" src="js/lib/swiper.js"></script>
+    <script type="text/javascript" src="js/lib/swiper.min.js"></script>
     <script type="text/javascript" src="js/lib/aos.js"></script>
     <script type="text/javascript" src="js/common.js"></script>
+    <!--※ swiper caution ※ - latest version cannot convert with IE8. 
+        if you want to use modern sohpiscated styles on swiper. do not use IE 10 less version-->
+    <!--<script type="text/javascript" src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>-->  
 
-    <script>
-        $(document).ready( function() {
+
+    <script type="text/javascript">
+        $(window).load( function() {
             //html용 include
             $(".header").load("include/header.html");
             $(".sitemap").load("include/sitemap.html");
-            $(".footer").load("include/footer.html");
+            $(".footer").load("include/footer.html");  
         });
     </script>
 </head>
