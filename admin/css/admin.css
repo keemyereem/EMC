@@ -1,5 +1,5 @@
 /* login */
-.admin_login {display:table; table-layout:fixed; width: 100%; height:100%; min-width:1200px; background: #f1f1f1;}
+.admin_login {display:table; table-layout:fixed; width: 100%; height:100%; /*min-width:1200px;*/ background: #f1f1f1;}
 .admin_login .container {display:table-row; padding-bottom:50px; height: 100%;}
 .admin_login .contents_wrap {display:table-cell; vertical-align:middle; padding-bottom: 80px;}
 .admin_login .container h1 {width:100%; max-width: 610px;  margin:0 auto; padding: 0 0 30px 8px;}
@@ -79,34 +79,10 @@
 .admin_wrap .content .essen_info{float: right;margin: 10px 0;}
 
 .admin_wrap .content .mainbox {margin: 3vh auto 0; display: flex; flex-wrap: wrap; justify-content: center; align-items: center; }
-/* .admin_wrap .content .mainbox:after {content: "";display: block;clear: both;} */
 .admin_wrap .content .mainbox .main_list {position: relative; background: #fff;border-radius: 10px;box-shadow: 5px 5px 15px #dadada; width: 300px; min-height: 30vh; line-height: 30vh; transition: all ease .1s; margin: 20px; }
 .admin_wrap .content .mainbox .main_list a { width: 100%; height: 100%; display: inline-block; text-align: center; vertical-align: middle; font-size: 30px; font-weight: 300; color: #565656; letter-spacing: 1px; }
 .admin_wrap .content .mainbox .main_list:hover { background-color: #578337; }
 .admin_wrap .content .mainbox .main_list:hover a { color: #fff; }
-/* 
-.admin_wrap .content .mainbox .main_list.total .top {padding-bottom: 25px;border-bottom: 1px solid #d2d2d2;}
-.admin_wrap .content .mainbox .main_list.total .top .tit {padding-bottom: 10px;font-size: 14px;color: #666;line-height: 1;}
-.admin_wrap .content .mainbox .main_list.total .top .num {font-size: 30px;font-weight: 400;color: #000;line-height: 1;}
-.admin_wrap .content .mainbox .main_list.total .top .num span {font-size: 50px;}
-.admin_wrap .content .mainbox .main_list.total .sub .tit {padding: 30px 0 10px 0;font-size: 14px;color: #666;line-height: 1;}
-.admin_wrap .content .mainbox .main_list.total .sub .num {font-size: 15px;font-weight: 400;color: #000;line-height: 1;}
-.admin_wrap .content .mainbox .main_list.total .sub .num span {font-size: 30px;}
-.admin_wrap .content .mainbox .main_list.total .sub .btnbox_right {position: absolute;bottom: 40px;right: 35px;}
-.admin_wrap .content .mainbox .main_list.total .sub .btnbox_right a {display: block;font-size: 14px;font-weight: 400;color: #878787;}
-.admin_wrap .content .mainbox .main_list.board {margin-left: 35px;padding-bottom: 65px;width: 670px;min-height: 480px;}
-.admin_wrap .content .mainbox .main_list.board .tit {padding: 40px 30px 20px 30px;font-size: 18px;font-weight: 400;background: #f3f1f1;}
-.admin_wrap .content .mainbox .main_list.board .tb table {width: 100%;table-layout: fixed;border-top: 1px solid #d2d2d2;}
-.admin_wrap .content .mainbox .main_list.board .tb table thead tr th {height: 55px;background: #f3f1f1;border-bottom: 1px solid #d2d2d2;font-weight: 400;}
-.admin_wrap .content .mainbox .main_list.board .tb table tbody tr td {height: 55px;border-bottom: 1px solid #d2d2d2;text-align: center;color: #666;}
-.admin_wrap .content .mainbox .main_list.board .tb table tbody tr td a {display: block;padding: 0 30px;width: 100%;text-align: left;}
-.admin_wrap .content .mainbox .main_list.board .tb table tbody tr td a .title {display: inline-block;max-width: 90%;vertical-align: middle;text-overflow: ellipsis;white-space: nowrap;overflow: hidden;}
-.admin_wrap .content .mainbox .main_list.board .tb table tbody tr td a .new {display: none;margin-left: 5px;width: 15px;height: 14px;vertical-align: middle;}
-.admin_wrap .content .mainbox .main_list.board .tb table tbody tr.newlist .new {display: inline-block;}
-.admin_wrap .content .mainbox .main_list.board .tb table tbody tr:last-child td {border-bottom: 0;}
-.admin_wrap .content .mainbox .main_list.board .btnbox_right {position: absolute;bottom: 40px;right: 35px;}
-.admin_wrap .content .mainbox .main_list.board .btnbox_right a {display: block;font-size: 14px;font-weight: 400;color: #878787;} 
-*/
 
 .admin_wrap .content .search {margin-bottom: 40px;padding: 25px 0;width: 100%;background: #fff;border-radius: 10px;box-shadow: 2px 5px 15px #e3e3e3;text-align: center;}
 .admin_wrap .content .search .tit {display: inline-block;margin-right: 15px;vertical-align: middle;}
@@ -244,3 +220,14 @@
 /* alert */
 .admin_wrap .content .alert{width: 300px;height: 200px;background: #fff;border: 1px solid #cfcfcf;text-align: center;padding: 60px 0;position: absolute;top: 50%;left: 50%;transform: translate(-50%, -50%);}
 .admin_wrap .content .alert .btn_ok{display: block;width: 70px;height: 30px;line-height: 30px; background: #61667C;color: #fff;margin: 30px auto 0 auto;}
+
+
+@media screen and (max-width:767px) {
+    /* login */
+    .admin_login .container h1 { max-width: 80%; }
+    .admin_login .container .contents { max-width:80%; padding:4rem; }
+    .admin_login .container .contents h2 {margin-bottom:30px;}
+    .admin_login .container .contents h2 p {font-size:1.4rem; line-height: 1.2; }
+    .admin_login .container .contents input {width:100%; height:60px; font-size:1.4rem; }
+    .admin_login .container .contents input::placeholder {font-size: 1rem; }
+}

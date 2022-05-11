@@ -14,6 +14,7 @@ $(function(){
         easing: 'ease-in-sine',
         duration: 500,
         anchorPlacement: 'bottom-bottom',
+        startEvent: "load"
     });
     // 페이지 타이틀, 라인, 사이트맵 내용 지정 
     const aos_order1 = document.querySelector('.title');
@@ -118,21 +119,24 @@ var commonEvent = {
         $(window).on('scroll',function(){
             const st = $(window).scrollTop();
             let anchor1 = $('.section1')
-            let cirTxt = $('.text-circle text');
+            let cirTxt = $('.text-circle');
 
             if (st>=100){
                 $('.header').addClass('fixed'); 
                 if (anchor1.length) {
                     let badge = anchor1.offset().top;
                     if (st >= badge - 500) {
-                        cirTxt.css('fill', '#777777'); 
+                        cirTxt.find('img').eq(0).css('display','none');
+                        cirTxt.find('img').eq(1).css('display','block');
                     } else {
-                        cirTxt.css('fill', '#fff');
+                        cirTxt.find('img').eq(0).css('display','block');
+                        cirTxt.find('img').eq(1).css('display','none');
                     }
                 }
             } else{
                 $('.header').removeClass('fixed');
-                cirTxt.css('fill', '#fff');
+                cirTxt.find('img').eq(0).css('display','block');
+                cirTxt.find('img').eq(1).css('display','none');
             }
             //console.log(st);
         });
@@ -150,6 +154,7 @@ var commonEvent = {
 
             if ($(this).hasClass('on')) {
                 $('.header_wrap h1, .header_wrap .gnb').addClass('off');
+                $('.sitemap li p, .sitemap h2, .sitemap .depth_list').addClass('on');
                 $('.wrap').on('scroll touchmove mousewheel', function(event) {
                     event.preventDefault();
                     event.stopPropagation();
@@ -364,6 +369,7 @@ function popupbusiness(popConts) {
                         '/' +
                        '<span class="' + totalClass + '"></span>';
             }
+
         },
 
 
@@ -493,6 +499,8 @@ var mainEvent = {
         this.sustainEvent();
         // skrollr.init();
         this.main_startEvent();
+        this.treeEvent();
+        this.treeCount();
         this.parallax();
     },
     mainSwiper:function(){
@@ -588,29 +596,44 @@ var mainEvent = {
             sustain_list = $(".cont_main .section3 .sustain_list ul li");
 
         $(sustain_list).eq(0).hover(function(){
-            $(sustain_bg).addClass('ehtics');
+            $(sustain_bg).find('img').css('display','none');
+            $(sustain_bg).find('img').eq(0).css('display','block');
+            $(sustain_list).css('background-color','transparent');
+            $(sustain_list).eq(0).css('background-color','rgba(128, 137, 84,.9);');
         },function(){
-            $(sustain_bg).removeClass('ehtics');
+
         });
         $(sustain_list).eq(1).hover(function(){
-            $(sustain_bg).addClass('safety');
+            $(sustain_bg).find('img').css('display','none');
+            $(sustain_bg).find('img').eq(1).css('display','block');
+            $(sustain_list).css('background-color','transparent');
+            $(sustain_list).eq(1).css('background-color','rgba(66, 96, 44,.8);');
         },function(){
-            $(sustain_bg).removeClass('safety');
+
         });
         $(sustain_list).eq(2).hover(function(){
-            $(sustain_bg).addClass('fair_trade');
+            $(sustain_bg).find('img').css('display','none');
+            $(sustain_bg).find('img').eq(2).css('display','block');
+            $(sustain_list).css('background-color','transparent');
+            $(sustain_list).eq(2).css('background-color','rgba(118, 108, 97,.9);');
         },function(){
-            $(sustain_bg).removeClass('fair_trade');
+
         });
         $(sustain_list).eq(3).hover(function(){
-            $(sustain_bg).addClass('carbon');
+            $(sustain_bg).find('img').css('display','none');
+            $(sustain_bg).find('img').eq(3).css('display','block');
+            $(sustain_list).css('background-color','transparent');
+            $(sustain_list).eq(3).css('background-color','rgba(115, 132, 19,.7);');
         },function(){
-            $(sustain_bg).removeClass('carbon');
+
         });
         $(sustain_list).eq(4).hover(function(){
-            $(sustain_bg).addClass('social');
+            $(sustain_bg).find('img').css('display','none');
+            $(sustain_bg).find('img').eq(4).css('display','block');
+            $(sustain_list).css('background-color','transparent');
+            $(sustain_list).eq(4).css('background-color','rgba(120, 124, 143,.85);');
         },function(){
-            $(sustain_bg).removeClass('social');
+
         });
     },
 
@@ -685,21 +708,20 @@ var mainEvent = {
         
         // 화면에 카운트 div가 보이면 카운트 시작.
         window.addEventListener('scroll', function() {
-            if ( checkVisible($('.count_trigger')) && !isVisible) {
+            if (checkVisible($('.count_trigger')) && !isVisible) {
                 mainEvent.numberCountUp2();
                 mainEvent.numberCountUp1();
                 isVisible=true;
-            } 
+            }
     
             var carbonStop = $('.section1').offset().top -  $('.header').outerHeight();
             var carPos = $('.tit_area').height() + $('.header').outerHeight() + Number(-20);  
-    
             if($(this).scrollTop() > carbonStop){
                 $('.count2').addClass('on').css({'top':carPos});
             }else {
                 $('.count2').removeClass('on').css({'top':'35%'});
-            }
-    
+            }    
+
         });
     
         function checkVisible( elm, eval ) {
@@ -711,6 +733,81 @@ var mainEvent = {
     
             if (eval == "object visible") return ((y < (viewportHeight + scrolltop)) && (y > (scrolltop - elementHeight)));
             if (eval == "above") return ((y < (viewportHeight + scrolltop)));
+        }
+
+    },
+
+    treeEvent: function() {
+        $(".tree img").hover(function() {
+            $(this).attr("src", $(this).data("animated"))
+        }, function() {
+            $(this).attr("src", $(this).data("static"))
+        })
+
+        //스크롤 중 대상($videos)이 화면 중간에 위치하면 클래스 추가 또는 이벤트(재생/일시정지) 실행 
+        $(window).on('scroll',scrollFn); 
+        
+        // Scroll Event 
+        $.fn.scrollGet = function(){ 
+            var offset = $(window).scrollTop() + $(window).height() - 200, 
+            $svgLine = $('.tree_counts li'); 
+
+            $svgLine.each(function(i) { 
+                var $line = $(this), 
+                line = $line.find('.line');
+                //item_top = $line.offset().top, 
+                //item_h = $line.height(); 
+
+                if (($line.offset().top) < offset) { 
+                    if(!$line.hasClass('on')){ 
+                        line.addClass('on');
+                    } 
+                }
+            }); 
+        }; 
+        // Scroll Event Function 
+        function scrollFn(){ 
+            $.fn.scrollGet(); 
+        }
+    },
+
+    treeCount: function() {
+        
+        var treeChart1= 732901;    // 갱신된 변수값 저장
+        $({ val : 0 }).animate({ val : treeChart1 }, { duration: 2000,
+            step: function() { var num = numberWithCommas(Math.floor(this.val)); $(".tree_counts li:eq(0) .count span").text(num); },
+            complete: function() { var num = numberWithCommas(Math.floor(this.val)); $(".tree_counts li:eq(0) .count span").text(num); }
+        });
+        var treeChart2= 312442; 
+        $({ val : 0 }).animate({ val : treeChart2 }, { duration: 2000,
+            step: function() { var num = numberWithCommas(Math.floor(this.val)); $(".tree_counts li:eq(1) .count span").text(num); },
+            complete: function() { var num = numberWithCommas(Math.floor(this.val)); $(".tree_counts li:eq(1) .count span").text(num); }
+        });
+        var treeChart3= 624256; 
+        $({ val : 0 }).animate({ val : treeChart3 }, { duration: 2000,
+            step: function() { var num = numberWithCommas(Math.floor(this.val)); $(".tree_counts li:eq(2) .count span").text(num); },
+            complete: function() { var num = numberWithCommas(Math.floor(this.val)); $(".tree_counts li:eq(2) .count span").text(num); }
+        });
+        var treeChart4= 4649890; 
+        $({ val : 0 }).animate({ val : treeChart4 }, { duration: 2000,
+            step: function() { var num = numberWithCommas(Math.floor(this.val)); $(".tree_counts li:eq(3) .count span").text(num); },
+            complete: function() { var num = numberWithCommas(Math.floor(this.val)); $(".tree_counts li:eq(3) .count span").text(num); }
+        });
+        var treeChart5= 85742; 
+        $({ val : 0 }).animate({ val : treeChart5 }, { duration: 2000,
+            step: function() { var num = numberWithCommas(Math.floor(this.val)); $(".tree_counts li:eq(4) .count span").text(num); },
+            complete: function() { var num = numberWithCommas(Math.floor(this.val)); $(".tree_counts li:eq(4) .count span").text(num); }
+        });
+
+        // 총 감축량(합계)
+        var treeChartSum= treeChart1 + treeChart2 + treeChart3 + treeChart4 + treeChart5; 
+        $({ val : 0 }).animate({ val : treeChartSum }, { duration: 5000,
+            step: function() { var num = numberWithCommas(Math.floor(this.val)); $(".tree_counts li:eq(5) .count span").text(num); },
+            complete: function() { var num = numberWithCommas(Math.floor(this.val)); $(".tree_counts li:eq(5) .count span").text(num); }
+        });
+
+        function numberWithCommas(x) {
+            return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
         }
     },
 
