@@ -550,7 +550,7 @@ var mainEvent = {
     init:function(){
         this.mainSwiper();
         this.sustainEvent();
-        this.sustainSwiper();
+        // this.sustainSwiper();
         // skrollr.init();
         this.main_startEvent();
         this.treeEvent();
@@ -696,12 +696,9 @@ var mainEvent = {
                 $(sustain_list).css({'background-color':'transparent','width':'20%'});
             });
         }else{
-            mainEvent.sustainSwiper();
-        }
+            initSwiper();
+        };
 
-    },
-
-    sustainSwiper:function(){
         var ww = $(window).width();
         var mySwiper = undefined;
         
@@ -728,8 +725,39 @@ var mainEvent = {
         $(window).on('resize', function () {
           ww = $(window).width();
           initSwiper();
-        });        
+        });  
+
     },
+
+    // sustainSwiper:function(){
+    //     var ww = $(window).width();
+    //     var mySwiper = undefined;
+        
+    //     function initSwiper() {
+        
+    //       if (ww < 768 && mySwiper == undefined) {
+    //         mySwiper = new Swiper(".sustain_list .swiper-container", {
+    //           slidesPerView: 1,
+    //           spaceBetween: 0,
+    //           pagination: {
+    //               el: '.swiper-pagination',
+    //               clickable : true,
+    //           },
+
+    //         });
+    //       } else if (ww >= 768 && mySwiper != undefined) {
+    //         mySwiper.destroy();
+    //         mySwiper = undefined;
+    //       }
+    //     }
+        
+    //     initSwiper();
+        
+    //     $(window).on('resize', function () {
+    //       ww = $(window).width();
+    //       initSwiper();
+    //     });        
+    // },
 
     // 탄소수치 badge 카운트 시작
     numberCountUp1: function() {
