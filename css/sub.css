@@ -781,6 +781,22 @@
 .cont_sustain .cp_contents .cp_wrap .section4 .s_con > .btn_box {width: 20rem;height: 5rem;border: 1px solid #777;padding: 0 3rem;line-height: 5rem;margin-top: 6rem;}
 .cont_sustain .cp_contents .cp_wrap .section4 .s_con > .btn_box > a {display: block;width: 100%;height: 100%;background: url(../images/common/icon_btn_arrow.png) no-repeat 100% 50%;font-size: 1.4rem;color: #555;}
 
+/* 탄소저감 */
+.cont_sustain .carbon_contents .section1 {background: #f4f6f2;height: 74.4rem;position: relative;margin-top: 8rem;padding: 8.4rem 6rem; display: flex;justify-content: space-between;} 
+.cont_sustain .carbon_contents .section1 .center_img {position: absolute;top: 50%;left: 50%;transform: translate(-50%, -50%);}
+.cont_sustain .carbon_contents .section1 .left { width: 50%;height: 100%;background: url(../images/sustain/carbon_left.png) no-repeat 100% 100%;background-size: contain;}
+.cont_sustain .carbon_contents .section1 .right { width: 50%;height: 100%;background: url(../images/sustain/carbon_right.png) no-repeat 0 0;background-size: contain;margin-top: -1.2rem;}
+
+.cont_sustain .carbon_contents .section2 table {font-family: 'NS'; font-size: 1.6rem;margin-top: 12rem;position: relative;}
+.cont_sustain .carbon_contents .section2 table:before {content:'';display: block;width: 100%;height: 1px;background: #222;position: absolute; top:0; left: 0;}
+.cont_sustain .carbon_contents .section2 table thead {background: #dedede;}
+.cont_sustain .carbon_contents .section2 table thead tr th {height: 7rem;color: #222;font-weight: 400;border: 1px solid #fff; }
+.cont_sustain .carbon_contents .section2 table thead tr th:first-of-type {border-bottom: 0;}
+.cont_sustain .carbon_contents .section2 table thead tr:last-of-type th {background: #eee;border-bottom: 0; }
+.cont_sustain .carbon_contents .section2 table tbody tr td {height: 7rem;text-align: center;border: 1px solid #eee;color: #555;}
+.cont_sustain .carbon_contents .section2 table tbody tr td:last-of-type {border-right: 0;}
+.cont_sustain .carbon_contents .section2 table tbody tr td:first-of-type {border-left: 0;}
+.cont_sustain .carbon_contents .section2 > p {font-family: 'NS';font-size: 1.4rem;color: #888;line-height: 1.57;margin-top: 2.4rem; }
 
 /* 지속가능경영 - 사회공헌 220411 */
 .cont_sustain .SC_sub_con .inner section .sc_desc { position: relative; text-align: center; }
@@ -806,7 +822,7 @@
 .cont_sustain .SC_sub_con .inner .section2 .sc_obj { margin-top: 6rem; border: 1px solid #e5e5e5;  border-top: 1px solid #42602c; }
 .cont_sustain .SC_sub_con .inner .section2 .sc_obj ul { display: flex; flex-wrap: wrap;}
 .cont_sustain .SC_sub_con .inner .section2 .sc_obj ul li { width: 50%; display: flex; padding: 6rem; border-bottom: 1px solid #e5e5e5; }
-.cont_sustain .SC_sub_con .inner .section2 .sc_obj ul li p:first-child img { box-shadow: 11px 13px 32.34px 0.66px rgba(24, 24, 24, 0.3); }
+.cont_sustain .SC_sub_con .inner .section2 .sc_obj ul li p:first-child img  { box-shadow: 11px 13px 32.34px 0.66px rgba(24, 24, 24, 0.3); }
 .cont_sustain .SC_sub_con .inner .section2 .sc_obj ul li p:last-child { padding-left: 5.4rem; font-size: 1.6rem; line-height: 1.8; color: #777; font-weight: 200; }
 .cont_sustain .SC_sub_con .inner .section2 .sc_obj ul li p:last-child span { font-size: 2.2rem; color: #222; line-height: 1.5; font-weight: 400; padding-bottom: 2rem; display: block; }
 .cont_sustain .SC_sub_con .inner .section2 .sc_obj ul li:last-child { width: 100%; border-bottom:none; align-items: center; }
@@ -926,7 +942,7 @@
 /* 메인 - 공통 */
 .cont_main section .tit_area { margin: auto; text-align: center; padding-top: 15.9rem; }
 .cont_main section .tit_area .title { color: #568236; font-size: 1.8rem; font-weight: 400; letter-spacing: .05rem; }
-.cont_main section .tit_area .sub_con { margin-top: 4.9rem;font-family: 'NS';font-size: 3.4rem;line-height: 1.5; letter-spacing: -.25rem;}
+.cont_main section .tit_area .sub_con { margin-top: 4.9rem; font-size: 3.4rem;line-height: 1.5; letter-spacing: -.1rem;}
 .cont_main section .tit_area .sub_con span { font-weight: 400; color: #222222;}
 
 /* 메인 - section0 : 동영상 슬라이드 */
@@ -966,7 +982,7 @@
 .cont_main .section0 .main_visual .main_notice .swiper-pagination .swiper-pagination-bullet.swiper-pagination-bullet-active {background:transparent; opacity:1;}
 
 /* 메인 - section1 : 탄소저감 area */
-.cont_main .section1 { width: calc(100% - 8rem); height: fit-content; margin:auto; overflow: hidden; background: url(../images/main/sec1_bg.jpg); position: relative;}
+.cont_main .section1 { width: calc(100% - 16rem); height: fit-content; margin:auto; overflow: hidden; background: url(../images/main/sec1_bg.jpg); position: relative;}
 .cont_main .section1 .count { margin-top: 9.4rem; }
 .cont_main .section1 .count > p { letter-spacing:-.025rem; font-size:1.8rem; font-weight: 300; text-align: center; line-height: 5.3rem; font-family: 'NS'; }
 .cont_main .section1 .count > p span { border-bottom:1px solid #8A8989; border-top:1px solid #8A8989; padding:1.6rem 1.8rem; }
@@ -978,14 +994,16 @@
 .cont_main .section1 .count .count_trigger div:last-child { font-size: 1.6rem; }
 .cont_main .section1 .count .count_trigger div:last-child span { min-width:74rem; background:url(../images/main/bg_clip.png) no-repeat; background-size:1000px; background-position:center; font-size:14rem; background-clip:text; font-weight:450; color:transparent; -webkit-text-fill-color:transparent; -webkit-background-clip:text; text-shadow:2px -1px .92px rgba(0, 0, 0, 0.05); }
 
-.cont_main .section1 .count2 { position: fixed; display: flex; justify-content: center; align-items: center; top: 35%; right: 50%; transform: translateX(41.667vw); }
-.cont_main .section1 .count2.on { position: absolute; top: 10%; transform: translateX(41.667vw); }
+.cont_main .section1 .count2 { position: fixed; display: flex; justify-content: center; align-items: center; top: 35%; right: 50%; transform: translateX(39.667vw); }
+.cont_main .section1 .count2.on { position: absolute; top: 10%; transform: translateX(39.667vw); }
 .cont_main .section1 .count2.on .text-circle { animation-play-state: paused; }
 .cont_main .section1 .count2 .level { display: flex; justify-content: center; align-items: center; }
 .cont_main .section1 .count2 .level .carbon_number {position: absolute; display: flex; width:15rem; height: 15rem; background: #f6f4f2; border-radius: 100%; color: #737373;font-size: 12px;z-index: 40; box-shadow:1px 1px 10px 3px rgba(0,0,0,.2); }
 .cont_main .section1 .count2 .level .carbon_number .carbon_number_inner { display: flex; flex-direction: column; justify-content: center; margin: auto; }
 .cont_main .section1 .count2 .level .carbon_number .carbon_number_inner p { font-weight: 400; color:#000;}
 .cont_main .section1 .count2 .level .carbon_number .carbon_number_inner p:last-child { font-size:1.2rem; font-weight:300; color: #777; line-height: 1.5rem;}
+.cont_main .section1 .count2 .level .carbon_number .carbon_number_inner .tit_pc { display: block; }
+.cont_main .section1 .count2 .level .carbon_number .carbon_number_inner .tit_mob { display: none; }
 .cont_main .section1 .count2 .level .carbon_number .carbon_number_inner .mov_num1 {font-size: 2.8rem; color: #333; font-weight: 350; width: 7.5rem; display: inline-block;}
 .cont_main .section1 .count2 .level .carbon_chart { width:19rem; height:19rem; border-radius:50%; background:conic-gradient(rgb(123, 204, 64) 0%, rgb(25, 140, 122) 0%, rgb(25, 140, 122) 0%, transparent 0%, transparent 100%); box-shadow:inset 0 0 0 25px rgba(0, 0, 0, 2%); }
 .cont_main .section1 .count2 .text-circle {width: 24.7rem; height: auto; position: absolute;top:0;left:0;transform: translate(-2.85rem, -2.6rem);  z-index: 1000;/*  -webkit-font-smoothing: subpixel-antialiased; */}
@@ -1008,7 +1026,7 @@
 .cont_main .section1 .count3 .tree .tree_counts li p span { font-weight: 350; font-size: 3rem; color: #000; }
 .cont_main .section1 .count3 .tree .tree_counts li p:after { content: ''; width: calc(100% + 1rem); height: 1.2rem; display: block; background: #ffe167; position: absolute; bottom: .6rem; right: -.5rem; z-index: -1;}
 .cont_main .section1 .count3 .tree .tree_counts li .line { position: absolute; right: -31rem; z-index: 9; top: 4.5rem; }
-.container .section1 .count3 .tree .tree_counts li .line img { right: 6.3rem; top: 2rem; position: absolute; opacity: 0; }
+.container .section1 .count3 .tree .tree_counts li .line img { right: 6.3rem; top: 2rem; position: absolute; opacity: 0; transition:all ease .3s; }
 .container .section1 .count3 .tree .tree_counts li .line .rect { stroke-dasharray: 1000; stroke-dashoffset: 1000; }
 .container .section1 .count3 .tree .tree_counts li .line.on .rect { animation: dash 1.5s .3s linear both; }
 .container .section1 .count3 .tree .tree_counts li .line.on img { opacity: 1; }
@@ -1018,7 +1036,7 @@
 
 .cont_main .section1 .count3 .tree .tree_counts li:not(:last-child):nth-child(even) { flex-direction: row-reverse; left: unset; right: 50%; }
 .cont_main .section1 .count3 .tree .tree_counts li:not(:last-child):nth-child(even) h1 { padding-left: 0; padding-right: 2.4rem; }
-.cont_main .section1 .count3 .tree .tree_counts li:not(:last-child, :nth-child(4)):nth-child(even) p { right: unset; left: -7.2rem; }
+.cont_main .section1 .count3 .tree .tree_counts li:not(:last-child, :nth-child(4)):nth-child(even) p { right: 16rem; }
 .cont_main .section1 .count3 .tree .tree_counts li:not(:last-child):nth-child(even) p:after { background: #b2e4cd; }
 .cont_main .section1 .count3 .tree .tree_counts li:not(:last-child):nth-child(even) .line { left: -24rem; right: unset; z-index: 9; top: 4.3rem; }
 .container .section1 .count3 .tree .tree_counts li:not(:last-child):nth-child(even) .line img { right: unset; left: -1rem; }
@@ -1026,11 +1044,11 @@
 .cont_main .section1 .count3 .tree .tree_counts li:nth-child(2) { top: 19.5rem; transform:translateX(65rem); }
 .cont_main .section1 .count3 .tree .tree_counts li:nth-child(3) { top: 28.5rem; transform:translateX(-68.5rem);  }
 .cont_main .section1 .count3 .tree .tree_counts li:nth-child(4) { top: 46rem; transform:translateX(65rem); }
-.cont_main .section1 .count3 .tree .tree_counts li:nth-child(4) p { right: unset; left: -10rem; }
+.cont_main .section1 .count3 .tree .tree_counts li:nth-child(4) p { right: 8rem; }
 .cont_main .section1 .count3 .tree .tree_counts li:nth-child(5) { top: 54.5rem; transform:translateX(-68.5rem); }
 .cont_main .section1 .count3 .tree .tree_counts li:last-child { bottom:4rem; right: 12.396vw; position: absolute; display: flex; flex-wrap: wrap; align-items: center; z-index: 9; right: 50%; transform:translateX(63.5rem); }
 .cont_main .section1 .count3 .tree .tree_counts li:last-child h1 { padding-top: 3rem; font-size: 2.6rem; padding-right: 17rem; }
-.cont_main .section1 .count3 .tree .tree_counts li:last-child p { position: absolute; bottom: unset; top: 2.5rem; right: -1.5rem; margin: auto; }
+.cont_main .section1 .count3 .tree .tree_counts li:last-child p { position: absolute; bottom: unset; top: 2.5rem; right:unset; left:22.5rem; margin: auto; }
 .cont_main .section1 .count3 .tree .tree_counts li:last-child p:after { background: #97b47e; }
 
 /* 메인 - section2 : Business area */
@@ -1070,7 +1088,7 @@
 .cont_main .section3 .sustain_list ul li .sustain_tit {font-size: 3rem;font-weight: 400;color: #fff;}
 .cont_main .section3 .sustain_list ul li .sustain_sub {display: none;font-size: 1.8rem;color: #fff;letter-spacing: -.045rem;line-height: 2;margin: 3.5rem 0 5.5rem;}
 .cont_main .section3 .sustain_list ul li .view_more {display: none;width: 18rem;height: 4.6rem;border: 1px solid #fff;border-radius: 2.3rem;font-size: 1.4rem;color: #fff;text-align: center;line-height: 4.6rem;margin: 0 auto;}
-.cont_main .section3 .sustain_list ul li:hover {width: 40%;padding: 0 10rem;}
+.cont_main .section3 .sustain_list ul li:hover {width: 40%; padding: 0 10rem;}
 .cont_main .section3 .sustain_list ul li:hover .sustain_sub {display: block;}
 .cont_main .section3 .sustain_list ul li:hover .view_more {display: block;}
 /* 

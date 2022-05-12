@@ -736,39 +736,25 @@ var mainEvent = {
     
     main_startEvent: function() {
         let isVisible = false;
-        let responsive = $(window).width();
-
+        
         // 화면에 카운트 div가 보이면 카운트 시작.
-        if (responsive > 767) {
+        window.addEventListener('scroll', function() {
+            if (checkVisible($('.count_trigger')) && !isVisible) {
+                mainEvent.numberCountUp2();
+                mainEvent.numberCountUp1();
+                isVisible=true;
+            } 
+    
+            var carbonStop = $('.section1').offset().top -  $('.header').outerHeight();
+            var carPos = $('.tit_area').height() + $('.header').outerHeight() + Number(-20);  
+            if($(this).scrollTop() > carbonStop){
+                $('.count2').addClass('on').css({'top':carPos});
+            }else {
+                $('.count2').removeClass('on').css({'top':'35%'});
+            }    
 
-            window.addEventListener('scroll', function() {
-                if (checkVisible($('.count_trigger')) && !isVisible) {
-                    mainEvent.numberCountUp2();
-                    mainEvent.numberCountUp1();
-                    isVisible=true;
-                } 
-        
-                var carbonStop = $('.section1').offset().top -  $('.header').outerHeight();
-                var carPos = $('.tit_area').height() + $('.header').outerHeight() + Number(-20);  
-                if($(this).scrollTop() > carbonStop){
-                    $('.count2').addClass('on').css({'top':carPos});
-                }else {
-                    $('.count2').removeClass('on').css({'top':'35%'});
-                }    
-
-            });
-        
-            
-        } else { 
-            window.addEventListener('scroll', function() {
-                if (checkVisible($('.count_trigger')) && !isVisible) {
-                    mainEvent.numberCountUp2();
-                    mainEvent.numberCountUp1();
-                    isVisible=true;
-                }
-            });
-        }
-
+        });
+    
         function checkVisible( elm, eval ) {
             eval = eval || "object visible";
             var viewportHeight = $(window).height(), // Viewport Height
@@ -790,133 +776,91 @@ var mainEvent = {
         })
 
         //스크롤 중 대상($videos)이 화면 중간에 위치하면 클래스 추가 또는 이벤트(재생/일시정지) 실행 
-        $(window).on('scroll',scrollFn); 
+        // $(window).on('scroll',scrollFn); 
         
-        // Scroll Event 
-        $.fn.scrollGet = function(){ 
-            var offset = $(window).scrollTop() + $(window).height() - 200, 
-            $svgLine = $('.tree_counts li'); 
+        // // Scroll Event 
+        // $.fn.scrollGet = function(){ 
+        //     var offset = $(window).scrollTop() + $(window).height() - 200, 
+        //     $svgLine = $('.tree_counts li'); 
 
-            $svgLine.each(function(i) { 
-                var $line = $(this), 
-                line = $line.find('.line');
-                Count = $line.find('.tc')
+        //     $svgLine.each(function(i) { 
+        //         var $line = $(this), 
+        //         line = $line.find('.line');
+        //         Count = $line.find('.count');
                 
 
-                if (($line.offset().top) < offset) { 
-                    if(!$line.hasClass('on')){ 
-                        line.addClass('on');
-                        Count.addClass('on');
-                    } 
-                }
-            }); 
-        }; 
-        // Scroll Event Function 
-        function scrollFn(){ 
-            $.fn.scrollGet();
-        }
+        //         if (($line.offset().top) < offset) { 
+        //             if(!$line.hasClass('on')){ 
+        //                 line.addClass('on');
+        //                 Count.addClass('on');
+                        
+        //             } 
+        //         }
+        //     }); 
+        // }; 
+        // // Scroll Event Function 
+        // function scrollFn(){ 
+        //     $.fn.scrollGet();
+            
+        // };
+
 
     },
+    treeCount: function () {   
+        var list = new Array();
+        $('.tree_counts .count .tc').each(function(index, item) { 
+            var $this = $(this),
+                countTo = $this.attr('data-count');
 
-    treeCount: function() {
-        
-        // var treeChart1= 732901;    // 갱신된 변수값 저장
-        // $({ val : 0 }).animate({ val : treeChart1 }, { duration: 2000,
-        //     step: function() { var num = numberWithCommas(Math.floor(this.val)); $(".tree_counts li:eq(0) .count span").text(num); },
-        //     complete: function() { var num = numberWithCommas(Math.floor(this.val)); $(".tree_counts li:eq(0) .count span").text(num); }
-        // }); 
-        // var treeChart2= 312442; 
-        // $({ val : 0 }).animate({ val : treeChart2 }, { duration: 2000,
-        //     step: function() { var num = numberWithCommas(Math.floor(this.val)); $(".tree_counts li:eq(1) .count span").text(num); },
-        //     complete: function() { var num = numberWithCommas(Math.floor(this.val)); $(".tree_counts li:eq(1) .count span").text(num); }
-        // });
-        // var treeChart3= 624256; 
-        // $({ val : 0 }).animate({ val : treeChart3 }, { duration: 2000,
-        //     step: function() { var num = numberWithCommas(Math.floor(this.val)); $(".tree_counts li:eq(2) .count span").text(num); },
-        //     complete: function() { var num = numberWithCommas(Math.floor(this.val)); $(".tree_counts li:eq(2) .count span").text(num); }
-        // });
-        // var treeChart4= 4649890; 
-        // $({ val : 0 }).animate({ val : treeChart4 }, { duration: 2000,
-        //     step: function() { var num = numberWithCommas(Math.floor(this.val)); $(".tree_counts li:eq(3) .count span").text(num); },
-        //     complete: function() { var num = numberWithCommas(Math.floor(this.val)); $(".tree_counts li:eq(3) .count span").text(num); }
-        // });
-        // var treeChart5= 85742; 
-        // $({ val : 0 }).animate({ val : treeChart5 }, { duration: 2000,
-        //     step: function() { var num = numberWithCommas(Math.floor(this.val)); $(".tree_counts li:eq(4) .count span").text(num); },
-        //     complete: function() { var num = numberWithCommas(Math.floor(this.val)); $(".tree_counts li:eq(4) .count span").text(num); }
-        // });
-
-        let isVisible = false;
-        window.addEventListener('scroll', function() {
+            $({ countNum: $this.text()}).animate({
+                countNum: countTo
+                },
+                {
+                duration: 3000, 
+                easing:'linear',
+                step: function() {
+                    var num = numberWithCommas(Math.floor(this.countNum));
+                    $this.text(num);
+                },
+                complete: function() { 
+                    var num = numberWithCommas(Math.floor(this.countNum));
+                    $this.text(num);
+                }
             
-            if (checkVisible($('.tree')) && !isVisible) {
-                var list = new Array();
-                $('.tree_counts .count .tc').each(function(index, item) { 
-                    
-                    var $this = $(this),
-                        countTo = $this.attr('data-count');
+            });       
+            
+            list.push($(item).attr('data-count'));
+            let sum = 0;
+            for (let i = 0; i < list.length; i++) {
+                sum += (Math.floor(list[i]));
+            }
+            //console.log(sum);
 
-                    ($({ countNum: $this.text()}).animate({ countNum: countTo },
-                        {
-                        duration: 5000, 
-                        easing:'linear',
-                        step: function() {
-                            var num = numberWithCommas(Math.floor(this.countNum));
-                            $this.text(num);
-                        },
-                        complete: function() { 
-                            var num = numberWithCommas(Math.floor(this.countNum));
-                            $this.text(num);
-                        }
-                    
-                    }))
-
-                    list.push($(item).attr('data-count'));
-                    let sum = 0;
-                    for (let i = 0; i < list.length; i++) {
-                        sum += (Math.floor(list[i]));
-                    }
-                    //console.log(sum);
-
-                    // 총 감축량(합계)
-                    var treeChartSum = sum; 
-                    $({ val : 0 }).animate({ 
-                        val : treeChartSum 
-                    }, 
-                    { 
-                        duration: 5000,
-                        step: function() { 
-                            var num = numberWithCommas(Math.floor(this.val)); 
-                            $(".tree_counts li:eq(5) .count span").text(num); 
-                        },
-                        complete: function() { 
-                            var num = numberWithCommas(Math.floor(this.val)); 
-                            $(".tree_counts li:eq(5) .count span").text(num); 
-                        }
-                    });  
-                });   
-
-                isVisible=true;
-            } 
-
-        });
+            // 총 감축량(합계)
+            var treeChartSum = sum; 
+            $({ val : 0 }).animate({ val : treeChartSum }, { duration: 5000,
+                step: function() { var num = numberWithCommas(Math.floor(this.val)); $(".tree_counts li:eq(5) .count span").text(num); },
+                complete: function() { var num = numberWithCommas(Math.floor(this.val)); $(".tree_counts li:eq(5) .count span").text(num); }
+            });  
+        });    
 
         function numberWithCommas(x) {
             return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
         }  
 
-        function checkVisible( elm, eval ) {
-            eval = eval || "object visible";
-            var viewportHeight = $(window).height(), // Viewport Height
-                scrolltop = $(window).scrollTop(), // Scroll Top
-                y = $(elm).offset().top,
-                elementHeight = $(elm).height();
-    
-            if (eval == "object visible") return ((y < (viewportHeight + scrolltop)) && (y > (scrolltop - elementHeight)));
-            if (eval == "above") return ((y < (viewportHeight + scrolltop)));
-        }
+        // 화면에 카운트 div가 보이면 카운트 시작.
+        window.addEventListener('scroll', function() {
+            if (checkVisible($('.count3 .tree')) && !isVisible) {
+                this.treeCount();
+                isVisible=true;
+            } 
+        
+
+        });
 
     },
+
+
 
     parallax: function() {
         // makes the parallax elements
