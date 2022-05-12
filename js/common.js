@@ -348,7 +348,7 @@ function popupbusiness(popConts) {
     popthis.fadeIn(300);
     
     // 탭 메뉴 슬라이드 스와이퍼
-    var popSlide = new Swiper('.inner_box', {
+    var popSlide01 = new Swiper('.card_popup01 .inner_box', {
         slidesPerView : '1',
         watchOverflow : true,
         navigation: {  
@@ -373,7 +373,60 @@ function popupbusiness(popConts) {
         },
 
 
-    })
+    });
+    var popSlide02 = new Swiper('.card_popup02 .inner_box', {
+        slidesPerView : '1',
+        watchOverflow : true,
+        navigation: {  
+            nextEl: '.inner_nav .next',
+            prevEl: '.inner_nav .prev',
+        },
+        pagination: {
+            el: ".counter_slider",
+            type: 'fraction',
+            formatFractionCurrent: function (number) {
+                return ('0' + number).slice(-2);
+            },
+            formatFractionTotal: function (number) {
+                return ('0' + number).slice(-2);
+            },
+            renderFraction: function (currentClass, totalClass) {
+                return '<span class="' + currentClass + '"></span>' +
+                        '/' +
+                       '<span class="' + totalClass + '"></span>';
+            }
+
+        },
+
+
+    });
+    /* 환경건설 팝업 */
+    var popSlide03 = new Swiper('.card_const .inner_box', {
+        slidesPerView : '1',
+        watchOverflow : true,
+        navigation: {  
+            nextEl: '.inner_nav .next',
+            prevEl: '.inner_nav .prev',
+        },
+        pagination: {
+            el: ".counter_slider",
+            type: 'fraction',
+            formatFractionCurrent: function (number) {
+                return ('0' + number).slice(-2);
+            },
+            formatFractionTotal: function (number) {
+                return ('0' + number).slice(-2);
+            },
+            renderFraction: function (currentClass, totalClass) {
+                return '<span class="' + currentClass + '"></span>' +
+                        '/' +
+                       '<span class="' + totalClass + '"></span>';
+            }
+
+        },
+
+
+    });
 
     popthis.find(".pop_close").click(function(){
         popthis.fadeOut(300);
@@ -596,46 +649,56 @@ var mainEvent = {
         var sustain_bg =  $(".cont_main .section3 .sustain_list"),
             sustain_list = $(".cont_main .section3 .sustain_list ul li");
 
-        $(sustain_list).eq(0).hover(function(){
-            $(sustain_bg).find('img').css('display','none');
-            $(sustain_bg).find('img').eq(0).css('display','block');
-            $(sustain_list).css({'background-color':'transparent','width':'15%'});
-            $(sustain_list).eq(0).css({'background-color':'rgba(128, 137, 84,.9);','width':'40%'});
-        },function(){
-            $(sustain_list).css({'background-color':'transparent','width':'20%'});
-        });
-        $(sustain_list).eq(1).hover(function(){
-            $(sustain_bg).find('img').css('display','none');
-            $(sustain_bg).find('img').eq(1).css('display','block');
-            $(sustain_list).css({'background-color':'transparent','width':'15%'});
-            $(sustain_list).eq(1).css({'background-color':'rgba(66, 96, 44,.8);','width':'40%'});
-        },function(){
-            $(sustain_list).css({'background-color':'transparent','width':'20%'});
-        });
-        $(sustain_list).eq(2).hover(function(){
-            $(sustain_bg).find('img').css('display','none');
-            $(sustain_bg).find('img').eq(2).css('display','block');
-            $(sustain_list).css({'background-color':'transparent','width':'15%'});
-            $(sustain_list).eq(2).css({'background-color':'rgba(118, 108, 97,.9);','width':'40%'});
-        },function(){
-            $(sustain_list).css({'background-color':'transparent','width':'20%'});
-        });
-        $(sustain_list).eq(3).hover(function(){
-            $(sustain_bg).find('img').css('display','none');
-            $(sustain_bg).find('img').eq(3).css('display','block');
-            $(sustain_list).css({'background-color':'transparent','width':'15%'});
-            $(sustain_list).eq(3).css({'background-color':'rgba(115, 132, 19,.7);','width':'40%'});
-        },function(){
-            $(sustain_list).css({'background-color':'transparent','width':'20%'});
-        });
-        $(sustain_list).eq(4).hover(function(){
-            $(sustain_bg).find('img').css('display','none');
-            $(sustain_bg).find('img').eq(4).css('display','block');
-            $(sustain_list).css({'background-color':'transparent','width':'15%'});
-            $(sustain_list).eq(4).css({'background-color':'rgba(120, 124, 143,.85);','width':'40%'});
-        },function(){
-            $(sustain_list).css({'background-color':'transparent','width':'20%'});
-        });
+        if($(window).width()>767){
+            $(sustain_list).eq(0).hover(function(){
+                $(sustain_bg).find('img').css('display','none');
+                $(sustain_bg).find('img').eq(0).css('display','block');
+                $(sustain_list).css({'background-color':'transparent','width':'15%'});
+                $(sustain_list).eq(0).css({'background-color':'rgba(128, 137, 84,.9);','width':'40%'});
+            },function(){
+                $(sustain_bg).find('img').css('display','none');
+                $(sustain_list).css({'background-color':'transparent','width':'20%'});
+            });
+            $(sustain_list).eq(1).hover(function(){
+                $(sustain_bg).find('img').css('display','none');
+                $(sustain_bg).find('img').eq(1).css('display','block');
+                $(sustain_list).css({'background-color':'transparent','width':'15%'});
+                $(sustain_list).eq(1).css({'background-color':'rgba(66, 96, 44,.8);','width':'40%'});
+            },function(){
+                $(sustain_bg).find('img').css('display','none');
+                $(sustain_list).css({'background-color':'transparent','width':'20%'});
+            });
+            $(sustain_list).eq(2).hover(function(){
+                $(sustain_bg).find('img').css('display','none');
+                $(sustain_bg).find('img').eq(2).css('display','block');
+                $(sustain_list).css({'background-color':'transparent','width':'15%'});
+                $(sustain_list).eq(2).css({'background-color':'rgba(118, 108, 97,.9);','width':'40%'});
+            },function(){
+                $(sustain_bg).find('img').css('display','none');
+                $(sustain_list).css({'background-color':'transparent','width':'20%'});
+            });
+            $(sustain_list).eq(3).hover(function(){
+                $(sustain_bg).find('img').css('display','none');
+                $(sustain_bg).find('img').eq(3).css('display','block');
+                $(sustain_list).css({'background-color':'transparent','width':'15%'});
+                $(sustain_list).eq(3).css({'background-color':'rgba(115, 132, 19,.7);','width':'40%'});
+            },function(){
+                $(sustain_bg).find('img').css('display','none');
+                $(sustain_list).css({'background-color':'transparent','width':'20%'});
+            });
+            $(sustain_list).eq(4).hover(function(){
+                $(sustain_bg).find('img').css('display','none');
+                $(sustain_bg).find('img').eq(4).css('display','block');
+                $(sustain_list).css({'background-color':'transparent','width':'15%'});
+                $(sustain_list).eq(4).css({'background-color':'rgba(120, 124, 143,.85);','width':'40%'});
+            },function(){
+                $(sustain_bg).find('img').css('display','none');
+                $(sustain_list).css({'background-color':'transparent','width':'20%'});
+            });
+        }else{
+            mainEvent.sustainSwiper();
+        }
+
     },
 
     sustainSwiper:function(){
@@ -648,11 +711,11 @@ var mainEvent = {
             mySwiper = new Swiper(".sustain_list .swiper-container", {
               slidesPerView: 1,
               spaceBetween: 0,
-              simulateTouch: true,
               pagination: {
                   el: '.swiper-pagination',
                   clickable : true,
               },
+
             });
           } else if (ww >= 768 && mySwiper != undefined) {
             mySwiper.destroy();

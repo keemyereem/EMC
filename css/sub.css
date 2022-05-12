@@ -1078,11 +1078,10 @@
 .cont_main .section2 .business_list li .txt dd {font-size: 1.6rem;color: #777;line-height: 1.63;letter-spacing: -.04rem;margin-top: 1rem;}
 
 /* 메인 - section3 : 지속가능경영 */
-.cont_main .section3 .sustain_list {margin-top: 6rem;/* background: url(../images/main/s3_bg01.png) no-repeat 50% 50%;background-size: cover; */position: relative;}
-.cont_main .section3 .sustain_list > img {position: absolute;z-index: -1;display: none;width: 100%;height: 100%; object-fit: cover;}
-.cont_main .section3 .sustain_list > .s3_bg01 {display: block;}
+.cont_main .section3 .sustain_list {margin-top: 6rem;background: url(../images/main/s3_bg00.png) no-repeat 50% 50%;background-size: cover;position: relative;}
+.cont_main .section3 .sustain_list > img {position: absolute;display: none;width: 100%;height: 100%; object-fit: cover;}
 .cont_main .section3 .sustain_list ul {width: 100%;height: 70rem;display: flex;justify-content: space-between;align-items: center}
-.cont_main .section3 .sustain_list ul li {width: 20%;height: 100%;border-right: 1px solid rgba(249, 249, 249,.3); text-align: center;display: table;transition: all .3s;cursor: pointer;}
+.cont_main .section3 .sustain_list ul li {width: 20%;height: 100%;border-right: 1px solid rgba(249, 249, 249,.3); text-align: center;padding: 0 2rem; display: table;transition: all .3s;cursor: pointer;}
 .cont_main .section3 .sustain_list ul li:last-child {border-right: 0;}
 .cont_main .section3 .sustain_list ul li > div {display: table-cell;vertical-align: middle;}
 .cont_main .section3 .sustain_list ul li .sustain_tit {font-size: 3rem;font-weight: 400;color: #fff;}
@@ -1100,11 +1099,18 @@
 .cont_main .section3 .sustain_list.fair_trade {background: url(../images/main/s3_bg03.png) no-repeat 50% 50%;background-size: cover;}
 .cont_main .section3 .sustain_list.carbon {background: url(../images/main/s3_bg04.png) no-repeat 50% 50%;background-size: cover;}
 .cont_main .section3 .sustain_list.social {background: url(../images/main/s3_bg05.png) no-repeat 50% 50%;background-size: cover;} */
-.cont_main .section3 .sustain_list.ehtics ul li:nth-child(1) {background: rgba(128, 137, 84,.9);}
+
+/* .cont_main .section3 .sustain_list.ehtics ul li:nth-child(1) {background: rgba(128, 137, 84,.9);}
 .cont_main .section3 .sustain_list.safety ul li:nth-child(2) {background: rgba(66, 96, 44,.8);}
 .cont_main .section3 .sustain_list.fair_trade ul li:nth-child(3) {background: rgba(118, 108, 97,.9);}
 .cont_main .section3 .sustain_list.carbon ul li:nth-child(4) {background: rgba(115, 132, 19,.7);}
-.cont_main .section3 .sustain_list.social ul li:nth-child(5) {background: rgba(120, 124, 143,.85);}
+.cont_main .section3 .sustain_list.social ul li:nth-child(5) {background: rgba(120, 124, 143,.85);} */
+
+.cont_main .section3 .sustain_list.ehtics ul li:nth-child(1) {background: url(../images/main/s3_bg01.png) no-repeat 50% 50%;background-size: cover;}
+.cont_main .section3 .sustain_list.safety ul li:nth-child(2) {background: url(../images/main/s3_bg02.png) no-repeat 50% 50%;background-size: cover;}
+.cont_main .section3 .sustain_list.fair_trade ul li:nth-child(3) {background: url(../images/main/s3_bg03.png) no-repeat 50% 50%;background-size: cover;}
+.cont_main .section3 .sustain_list.carbon ul li:nth-child(4) {background: url(../images/main/s3_bg04.png) no-repeat 50% 50%;background-size: cover;}
+.cont_main .section3 .sustain_list.social ul li:nth-child(5) {background: url(../images/main/s3_bg05.png) no-repeat 50% 50%;background-size: cover;}
 
 /* 메인 - section4 : EMC area */
 .cont_main .section4 {width: 100%;height: auto;background: url(../images/main/sec1_bg.jpg);padding-bottom: 14rem;}
