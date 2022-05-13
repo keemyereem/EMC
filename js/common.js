@@ -548,6 +548,7 @@ var methodEvent = {
 var mainEvent = {
     
     init:function(){
+        this.headerMain();
         this.mainSwiper();
         this.sustainEvent();
         // this.sustainSwiper();
@@ -557,6 +558,26 @@ var mainEvent = {
         this.treeCount();
         this.parallax();
     },
+
+    headerMain:function(){
+
+        $(window).on('scroll',function(){
+            $('.header').addClass('main_fixed');
+            const st = $(window).scrollTop();
+            const hd = $('.section0').outerHeight();
+            
+            if (st>=100){
+                $('.header').removeClass('main_fixed fixed'); 
+                if (st > hd) {
+                    $('.header').addClass('fixed'); 
+                }
+            } else {
+                $('.header').addClass('main_fixed');
+            }
+            //console.log(st);
+        });
+    },
+
     mainSwiper:function(){
         var _ = this;
 
@@ -592,9 +613,9 @@ var mainEvent = {
         var windowHeight = $(window).height();
         $(".main_visual .swiper-slide").height(windowHeight);
 
-        $(".main_visual .naviPlay .lastPage").text(mainLastPage);
+        $(".naviPlay .lastPage").text(mainLastPage);
 
-        $(".main_visual .naviPlay .playbar").eq(0).addClass("autoplay");
+        $(".naviPlay .playbar").eq(0).addClass("autoplay");
 
         window.onload = function(){
             setTimeout(function() {
@@ -611,14 +632,14 @@ var mainEvent = {
                 curIdx = mainLastPage;
             }
 
-            $(".main_visual .naviPlay .playbar").removeClass("autoplay");
-            $(".main_visual .naviPlay .playbar.playbar").removeClass("active");
-            if(!$(".main_visual .naviPlay .naviAuto a").hasClass("autoplay")){
-                $(".main_visual .naviPlay .playbar.autoplay").removeClass("autoplay");
-                $(".main_visual .naviPlay .playbar.playbar"+curIdx).addClass("active");
+            $(".naviPlay .playbar").removeClass("autoplay");
+            $(".naviPlay .playbar.playbar").removeClass("active");
+            if(!$(".naviPlay .naviAuto a").hasClass("autoplay")){
+                $(".naviPlay .playbar.autoplay").removeClass("autoplay");
+                $(".naviPlay .playbar.playbar"+curIdx).addClass("active");
             }else{
-                $(".main_visual .naviPlay .playbar").eq(curIdx-1).addClass("autoplay");
-                $(".main_visual .naviPlay .playbar.playbar").removeClass("active");
+                $(".naviPlay .playbar").eq(curIdx-1).addClass("autoplay");
+                $(".naviPlay .playbar.playbar").removeClass("active");
             }
 
             $(".main_visual .swiper-slide .txt").removeClass("on");
@@ -626,22 +647,22 @@ var mainEvent = {
 
         });
 
-        $(".main_visual .naviPlay .naviAuto a").on("click",function(){
+        $(".naviPlay .naviAuto a").on("click",function(){
             var idx = $(".swiper-pagination-bullet-active").index() + 1;
             if(!$(this).hasClass("autoplay")){
                 $(this).find("img").attr("src","images/common/icon_pause.png");
                 $(this).addClass("autoplay");
                 mySwiper.autoplay.start();
 
-                $(".main_visual .naviPlay .playbar.playbar"+idx).addClass("autoplay");
-                $(".main_visual .naviPlay .playbar.playbar").removeClass("active");
+                $(".naviPlay .playbar.playbar"+idx).addClass("autoplay");
+                $(".naviPlay .playbar.playbar").removeClass("active");
             }else{
                 $(this).find("img").attr("src","images/common/icon_play.png");
                 $(this).removeClass("autoplay");
                 mySwiper.autoplay.stop();
 
-                $(".main_visual .naviPlay .playbar").removeClass("autoplay");
-                $(".main_visual .naviPlay .playbar.playbar"+idx).addClass("active");
+                $(".naviPlay .playbar").removeClass("autoplay");
+                $(".naviPlay .playbar.playbar"+idx).addClass("active");
             }
         });
     },
@@ -697,6 +718,7 @@ var mainEvent = {
             });
         }else{
             initSwiper();
+            $(sustain_bg).css({'background':'transparent'});
         };
 
         var ww = $(window).width();

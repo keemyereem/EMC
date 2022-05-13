@@ -13,3 +13,13 @@
 @media screen and (max-width:767px) {
     .cont_invest_en .contents_inner .disclosure_banner > .btn_goDart {width: calc(100% - 4rem);padding: 0 2rem;}
 }
+
+/* ----- 지속가능경영 ----- */
+.cont_sustain_en .SC_sub_con .inner .section1 .sc_obj > div .sc_obj_box li:not(:first-child) {padding-left: 2rem;}
+.cont_sustain_en .SC_sub_con .inner .section1 .sc_obj > div .sc_obj_box li:nth-child(2) {padding-left: 2rem;}
+.cont_sustain_en .SC_sub_con .inner .section1 .sc_obj > div .sc_obj_box li:nth-child(3) {padding-left: 2rem;}
+@media screen and (max-width:767px) {
+    .cont_sustain_en .SC_sub_con .inner .section1 .sc_obj > div .sc_obj_box li:not(:first-child) {padding-left: 1rem;}
+    .cont_sustain_en .SC_sub_con .inner .section1 .sc_obj > div .sc_obj_box li:nth-child(2) {padding-left: 1rem;}
+    .cont_sustain_en .SC_sub_con .inner .section1 .sc_obj > div .sc_obj_box li:nth-child(3) {padding-left: 0;}
+}

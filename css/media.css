@@ -92,11 +92,11 @@
     .recruit_visual:before { background:url('../images/recruit/sub_banner_m.png') no-repeat 50% 50%;background-size: cover; }
 
     .contents .paging {margin-top: 3rem;}
-    .contents .paging .front {width: 1.8rem;height: 1.9rem;}
-    .contents .paging .prev {margin-left: 1rem;width: .9rem;height: 1.9rem;}
-    .contents .paging .next {margin-right: 1rem;width: .9rem;height: 1.9rem;}
-    .contents .paging .last {width: 1.8rem;height: 1.9rem;}
-    .contents .paging ul {margin: 0 1rem;}
+    .contents .paging .front {width: 1.8rem;height: 1.9rem;background: url(../images/common/arrow_front_m.png) 0 0 no-repeat;background-size: contain;}
+    .contents .paging .prev {margin-left: 1rem;width: .9rem;height: 1.9rem;background: url(../images/common/arrow_prev_m.png) 0 0 no-repeat;background-size: contain;}
+    .contents .paging .next {margin-right: 1rem;width: .9rem;height: 1.9rem;background: url(../images/common/arrow_next_m.png) 0 0 no-repeat;background-size: contain;}
+    .contents .paging .last {width: 1.8rem;height: 1.9rem;background: url(../images/common/arrow_last_m.png) 0 0 no-repeat;background-size: contain;}
+    .contents .paging ul {margin: 0 1rem;} 
     .contents .paging ul li {margin: 0 .5rem;}
     .contents .paging ul li a {width: 3rem;height: 3rem;line-height: 3rem;font-size: 1.3rem;}
 
@@ -297,12 +297,28 @@
     .cont_sustain .contents_inner {max-width: 100%;}
     .cont_sustain .sub_con .inner {padding: 0 2rem;}
     .cont_sustain .tb_top .nav_btn li {font-size: 1.4rem;}
+    .cont_sustain .tb_top .nav_btn li a {padding: 0 0 1.5rem 0;}
     .cont_sustain .sub_con .inner section .shm_sub_tit {width: auto;}
     .cont_sustain .sub_con .inner section .shm_sub_tit p {font-size: 1.7rem; line-height: normal;}
     .cont_sustain .sub_con .inner section:not(.section1)  { margin: 0;flex-direction: column; }
     .cont_sustain .sub_con .inner section:not(.section1, .section4) > div:not(.shm_sub_tit) p {font-size: 1.4rem;line-height: 1.57;padding-top: 2rem; }
     .cont_sustain .sub_con .inner section:not(.section1) > div:not(.shm_sub_tit) ul li {font-size: 1.4rem;line-height: 1.92;}
     .cont_sustain .sub_con .inner section:not(.section1) > div:not(.shm_sub_tit) ul li:not(:last-child) { margin-bottom: 0;}
+
+    .cont_sustain .sub_con .inner .section1 {margin: 4rem auto 0;padding: 4rem 1rem 5rem;}
+    .cont_sustain .sub_con .inner .section1 .shm_desc h3 {font-size: 2.5rem;}
+    .cont_sustain .sub_con .inner .section1 .shm_desc p:last-child {font-size: 1.4rem;line-height: 2.2rem;padding: 2.5rem 2rem 0;}
+    .cont_sustain .sub_con .inner .section1 .shm_obj {margin: 4rem auto 0;position: relative;justify-content: space-between;}
+    .cont_sustain .sub_con .inner .section1 .shm_obj .dot_line {display: none;}
+    .shm_circle {width: 12rem;height: 12rem;}
+    /* .shm_circle:nth-of-type(1) {margin-right: 100px;} */
+    .shm_circle > div > span {width: 7rem;margin: 1rem auto 1rem}
+    .shm_circle.highlight {position: absolute;top: 0;left: 50%;transform: translateX(-50%);}
+    .shm_circle > div p:first-child {font-size: 1.3rem;}
+    .shm_circle > div p:last-child {font-size: 1.4rem;}
+    .shm_circle.highlight > div p {font-size: 1.5rem;font-weight: 200;}
+    .shm_circle.highlight > div p img {width: 3.5rem;}
+
     /* .cont_sustain .sub_con .inner .section2 > div:not(.shm_sub_tit) ul li span.fix_str {margin-bottom: 0;} */
     .cont_sustain .sub_con .inner .section2 {padding: 4rem 0;}
     .cont_sustain .sub_con .inner section:not(.section1) > div:not(.shm_sub_tit) .shm_sub_con_line {display: none;}
@@ -461,6 +477,7 @@
     .cont_invest .tb_view .btn_box {margin-top: 4rem;}
 
     /* 투자정보 - 재무정보 - 재무상태표,손익계산서 220510 */
+    .cont_invest.fc_info .tb_top .nav_btn li {font-size: 1.4rem;}
     .cont_invest.fc_info .tb_top .nav_btn li a {padding: 0 0 1.5rem 0;}
     .cont_invest.fc_info .tb_box {margin-top: 1.5rem;border-top: 0;}
     .cont_invest.fc_info .tb_box p {font-size: 1.2rem;padding: 0 0 1.5rem 0;}
@@ -472,6 +489,7 @@
     .cont_invest.fc_info .tb_box .tb_row.row_body > div {padding: 0;text-align: center;word-break: break-word;}
 
     /* 인재채용 - 채용공고 220510 */
+    .cont_recruit .recruit_contents .tab_list .nav_btn li {font-size: 1.4rem;}
     .cont_recruit .recruit_contents .tab_list .nav_btn li a {padding: 0 0 1.5rem 0;}
     .cont_recruit .recruit_contents .tb_top {margin-top: 5rem;}
     .cont_recruit .recruit_contents .tb_top .total {float: inherit;padding-top: 3rem;font-size: 1.3rem;font-weight: 100;}
@@ -512,18 +530,37 @@
     .cont_main section .tit_area .title {font-size: 1.4rem; /* font-weight: 450; */}
     .cont_main section .tit_area .sub_con {font-size: 2.3rem;margin-top: 2rem;font-weight: 100;}
 
+    /* section0: video */
+    .cont_main .section0 {width: calc(100vw - 1rem);margin-left: 1rem;height: 70.1rem;overflow: hidden; /* height: 66.7rem; *//* margin-bottom: 6.4rem; */ margin-bottom: 3rem;}
+    .cont_main .section0 .vis_scroll {display: none;}
+    .cont_main .section0 .main_visual .txt {width: 100%;padding-left: 16vw;font-size: 2.4rem;letter-spacing: -.12rem;text-shadow: 1px 1.5px 4.7px rgba(0, 0, 0, 0.5);top: 50%;left: 50%;transform: translate(-50%, -50%);}
+    .cont_main .section0 .main_visual .swiper-wrapper {width: 100%;height: 66.7rem;}
+    .cont_main .section0 .main_visual .swiper-wrapper .swiper-slide{height: 100% !important;}
+    /* .cont_main .section0 .main_visual .swiper-wrapper .bg {width: 100%;height: 100%;background: #eee;position: relative;}
+    .cont_main .section0 .main_visual .swiper-wrapper video {position: absolute;top: 50%;left: 50%;transform: translate(-50%, -50%);height: 100%;width: auto;} */
+    
+    .cont_main .section0 .main_visual .naviPlay {width: calc(100% - 4rem);height: 5rem;padding: 2rem 2.5rem 2rem 2rem; bottom: 0; /* bottom: -3.4rem; */}
+    .cont_main .section0 .main_visual .naviPlay .slide_bar {text-align:left;position: absolute;top: 3rem;}
+    .cont_main .section0 .main_visual .naviPlay .playbar {width: 5rem;margin-right: .1rem;}
+    .cont_main .section0 .main_visual .naviPlay .swiper-pagination {display: none;}
+    .cont_main .section0 .main_visual .naviPlay .playbar .playTime {top: -.2rem;}
+    .cont_main .section0 .main_visual .arrow img {width: 0.6rem;height: 1rem;}
+    .cont_main .section0 .main_visual .arrow.left {top:2rem; right:6.8rem;}
+    .cont_main .section0 .main_visual .arrow.right {top:2rem; right:2.5rem;}
+    .cont_main .section0 .main_visual .naviPlay .naviAuto {top: 2rem;right: 4.6rem;}
+    .cont_main .section0 .main_visual .naviPlay .naviAuto img {width: 0.7rem;}
+
     /* section1 : 탄소저감 area */
     .cont_main .section1 { width: calc(100% - 2rem); height: fit-content; margin:auto; overflow: hidden; background: url(../images/main/sec1_bg.jpg); position: relative;}
     .cont_main .section1 .count { margin-top: 15.4rem; }
     .cont_main .section1 .count > p { font-size:1.4rem; line-height: 1; }
     .cont_main .section1 .count > p span { padding:1rem .5rem; }
-    .cont_main .section1 .count .count_trigger { display: flex; margin-top: 2rem; justify-content: space-between; align-items: center; }
+    .cont_main .section1 .count .count_trigger { display: flex; justify-content: space-between; align-items: baseline; width:calc(100% - 4rem); margin:auto; }
     .cont_main .section1 .count .count_trigger div { color: #555555; font-weight: 300; }
-    .cont_main .section1 .count .count_trigger div p { display: flex; text-align: center; justify-content: center; align-items: baseline; }
-    .cont_main .section1 .count .count_trigger div:first-child { font-size: 1.5rem; margin-top:2rem;}
-    .cont_main .section1 .count .count_trigger div:first-child p:last-child { margin-top:1.4rem; }
-    .cont_main .section1 .count .count_trigger div:last-child { font-size: 1.6rem; }
-    .cont_main .section1 .count .count_trigger div:last-child span { min-width:100%; background-size:100rem; background-position:40% 61%; font-size:6.5rem; text-shadow:2px -1px .92px rgba(0, 0, 0, 0.05); position: absolute; left: 0; }
+    .cont_main .section1 .count .count_trigger div:first-child { font-size: 1.3rem; margin-top:3.15rem; display:flex; }
+    .cont_main .section1 .count .count_trigger div:first-child p:last-child { margin-top:1.8rem; padding-left: 1rem; }
+    .cont_main .section1 .count .count_trigger div:last-child { font-size: 1.3rem; }
+    .cont_main .section1 .count .count_trigger div:last-child span { min-width:100%; background-size:100rem; background-position:40% 61%; font-size:6.5rem; margin-top:2rem; text-shadow:2px -1px .92px rgba(0, 0, 0, 0.05); position: absolute; left: 0; }
 
     .cont_main .section1 .count2 { position: relative; top: 6.55rem; right: 50%; transform: translateX(50%); }
     .cont_main .section1 .count2.on { position: relative; top: 6.55rem; transform: translateX(50%); }
@@ -540,7 +577,7 @@
     .cont_main .section1 .count2.on .text-circle > img:last-of-type {display: block;}
     
     /* section1 : tree 탄소수치 그래프 */
-    .cont_main .section1 .count3 { margin-top: 9.5rem; }
+    .cont_main .section1 .count3 { margin-top: 11.5rem; }
     .cont_main .section1 .count3 .tree { display: flex; flex-direction: column; flex-wrap: wrap;  }
     .cont_main .section1 .count3 .tree > img { width: 100%; order:2; padding: 1rem 2rem 0; }
     .cont_main .section1 .count3 .tree .tree_counts { position: relative; top: 0; bottom: 0; left: 0; right: 0; margin: auto; display: flex; height: fit-content; flex-direction: column; order:1; width: calc(100% - 2rem); }
@@ -615,7 +652,7 @@
     .cont_main .section3 .sustain_list .swiper-pagination > .swiper-pagination-bullet:nth-of-type(5).swiper-pagination-bullet-active {background: #787c8f;}
     /* section4 : ENC area */
     .cont_main .section4 {padding: 0 1rem 5rem 1rem; }
-    .cont_main .section4 .emc_wrap {flex-direction: column;margin-top: 4.5rem;}
+    .cont_main .section4 .emc_wrap {flex-direction: column;margin-top: 4.5rem;height: auto;}
     .cont_main .section4 .emc_wrap .news .top {margin-bottom: 1.5rem;}
     .cont_main .section4 .emc_wrap .news {width: 100%;height: auto;padding: 4rem 2rem 0;}
     .cont_main .section4 .emc_wrap .news .top h2 {font-size: 1.8rem;}
@@ -624,6 +661,7 @@
     .cont_main .section4 .emc_wrap .news .news_list li {height: 9.7rem;border-top: 1px solid #efefef;border-bottom: 0;}
     .cont_main .section4 .emc_wrap .news .news_list li .news_list_tit {font-size: 1.4rem;}
     .cont_main .section4 .emc_wrap .news .news_list li .news_list_date {font-size: 1.1rem;}
+    .cont_main .section4 .emc_wrap .news .news_list li .btn img {width: 1.4rem;height: 0.7rem;}
 
     .cont_main .section4 .emc_wrap .emc_list {width: 100%;}
     .cont_main .section4 .emc_wrap .emc_list ul li {height: 17.5rem;}
@@ -634,3 +672,7 @@
 
 
 }
+/* @media screen and (max-width:400px) {
+    .shm_circle {width: 30vw;height: 30vw;}
+    .shm_circle:nth-of-type(1) {margin-right: 20vw;}
+} */
