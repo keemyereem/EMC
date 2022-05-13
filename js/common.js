@@ -3,8 +3,6 @@ $(function(){
     var w = $(window).width();
 	responsiveImage(w);
 
-    commonEvent.init();
-
     //Run AOS - Global Setting
     AOS.init({
         // offset: 120,
@@ -16,18 +14,9 @@ $(function(){
         anchorPlacement: 'bottom-bottom',
         startEvent: "load"
     });
-    // 페이지 타이틀, 라인, 사이트맵 내용 지정 
-    const aos_order1 = document.querySelector('.title');
-    const aos_order2 = document.querySelector('.tit_line');
+
+    // 사이트맵 내용 지정 
     const aos_order3 = document.querySelector('.sitemap');
-    
-    // 페이지 타이틀, 라인, 설명 각각 모션효과 종료될 때 다음 모션 진행하도록 
-    aos_order1.addEventListener('transitionend', () => {
-        $(aos_order2).addClass('on');
-        aos_order2.addEventListener('transitionend', () => {
-            $('.sub_con').addClass('on');
-        });  
-    });
 
     // 사이트맵 출력 후 메뉴 나타나게 하는 모션 효과
     aos_order3.addEventListener('transitionend', () => {
@@ -36,6 +25,25 @@ $(function(){
             $(aos_order3).find('li p, h2, .depth_list').removeClass('on');
         } 
     });
+
+    // 메인페이지/ 서브페이지 구분 스크립트
+    if(location.pathname.indexOf('/html/FD-00-01-001.html') > -1){ 
+        //
+    } else {
+        commonEvent.init();
+
+        // 페이지 타이틀, 라인 내용 지정 
+        const aos_order1 = document.querySelector('.title');
+        const aos_order2 = document.querySelector('.tit_line');
+
+        // 페이지 타이틀, 라인, 설명 각각 모션효과 종료될 때 다음 모션 진행하도록 
+        aos_order1.addEventListener('transitionend', () => {
+            $(aos_order2).addClass('on');
+            aos_order2.addEventListener('transitionend', () => {
+                $('.sub_con').addClass('on');
+            });  
+        });
+    }
 
 });
 
@@ -118,7 +126,7 @@ var commonEvent = {
 
         $(window).on('scroll',function(){
             const st = $(window).scrollTop();
-            let anchor1 = $('.section1')
+            let anchor1 = $('.section1');
             let cirTxt = $('.text-circle');
 
             if (st>=100){
@@ -564,17 +572,60 @@ var mainEvent = {
         $(window).on('scroll',function(){
             $('.header').addClass('main_fixed');
             const st = $(window).scrollTop();
-            const hd = $('.section0').outerHeight();
-            
+            let anchor = $('.section0').outerHeight();
+            let anchor1 = $('.section1');
+            let cirTxt = $('.text-circle');
+
             if (st>=100){
-                $('.header').removeClass('main_fixed fixed'); 
-                if (st > hd) {
-                    $('.header').addClass('fixed'); 
+                $('.header').removeClass('main_fixed'); 
+                if (anchor1.length) {
+                    let badge = anchor1.offset().top;
+                    if (st >= badge - 500) {
+                        cirTxt.find('img').eq(0).css('display','none');
+                        cirTxt.find('img').eq(1).css('display','block');
+                    } else {
+                        cirTxt.find('img').eq(0).css('display','block');
+                        cirTxt.find('img').eq(1).css('display','none');
+                    }
                 }
-            } else {
+
+                if (st > anchor) {
+                    $('.header').addClass('fixed'); 
+                } else {
+                    $('.header').removeClass('fixed'); 
+                }
+            } else{
                 $('.header').addClass('main_fixed');
+                cirTxt.find('img').eq(0).css('display','block');
+                cirTxt.find('img').eq(1).css('display','none');
             }
-            //console.log(st);
+            
+        });
+
+        // 번역페이지 버튼 온/오프
+        $(document).on('click', '.lang_choice li', function(){
+            $('.lang_choice li').removeClass('on');
+            $(this).addClass('on');  
+        });
+
+        // 사이트맵 메뉴 출력
+        $(document).on('click', '.top_sitemap', function(){
+            $(this).toggleClass('on col_b');
+            $('.sitemap, .sitemap_bg, .lang_choice, .header').toggleClass('on');
+
+            if ($(this).hasClass('on')) {
+                $('.header_wrap h1, .header_wrap .gnb').addClass('off');
+                $('.sitemap li p, .sitemap h2, .sitemap .depth_list').addClass('on');
+                $('.wrap').on('scroll touchmove mousewheel', function(event) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                    return false;
+                });
+            } else {
+                $('.header_wrap h1, .header_wrap .gnb').removeClass('off');
+                $('.sitemap li p, .sitemap h2, .sitemap .depth_list').removeClass('on');
+                $('.wrap').off('scroll touchmove mousewheel');
+            }
         });
     },
 
@@ -647,12 +698,33 @@ var mainEvent = {
 
         });
 
+        // function play_bar(autoplaySpeed){
+        //     var idx = $(".swiper-pagination-bullet-active").index() + 1;
+        //     var videoChk = $(".main_visual .swiper-slide-active").not(".swiper-slide-duplicate").find(".bg");
+		//     var video = videoChk.find("video")[0];
+        //     autoplaySpeed = video.duration - video.currentTime;
+
+        //     setInterval(progressBar, 10);
+          
+        //     function progressBar(){
+        //         var percentage = (video.currentTime/video.duration) * 1000;
+        //         $(".naviPlay .playbar.playbar" + idx + ".autoplay .playTime").css({"width":percentage});
+        //     }
+        // }
+
+
+
         $(".naviPlay .naviAuto a").on("click",function(){
             var idx = $(".swiper-pagination-bullet-active").index() + 1;
+            var videoChk = $(".main_visual .swiper-slide-active").not(".swiper-slide-duplicate").find(".bg");
+		    var video = videoChk.find("video")[0];
+
             if(!$(this).hasClass("autoplay")){
                 $(this).find("img").attr("src","images/common/icon_pause.png");
                 $(this).addClass("autoplay");
                 mySwiper.autoplay.start();
+                video.play();
+               
 
                 $(".naviPlay .playbar.playbar"+idx).addClass("autoplay");
                 $(".naviPlay .playbar.playbar").removeClass("active");
@@ -660,6 +732,8 @@ var mainEvent = {
                 $(this).find("img").attr("src","images/common/icon_play.png");
                 $(this).removeClass("autoplay");
                 mySwiper.autoplay.stop();
+                video.pause();
+               
 
                 $(".naviPlay .playbar").removeClass("autoplay");
                 $(".naviPlay .playbar.playbar"+idx).addClass("active");

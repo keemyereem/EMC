@@ -706,6 +706,7 @@
 .cont_sustain .sub_con .inner .section3 > div:not(.shm_sub_tit) ul li span:last-of-type { flex-shrink:0; width: 17.7rem; font-size:1.8rem; font-weight:400; color: #22591b; margin-right: 0; }
 .cont_sustain .sub_con .inner .section3 > div:not(.shm_sub_tit) ul li { line-height: 1.6;}
 .cont_sustain .sub_con .inner .section3 > div:not(.shm_sub_tit) > div div { margin-left:-16rem; padding-bottom:3.2rem; margin-top:0; }
+.cont_sustain .sub_con .inner .section3 > div:not(.shm_sub_tit) > div div img:last-of-type {display: none;}
 .cont_sustain .sub_con .inner .section4 { border-bottom:none; }
 .cont_sustain .sub_con .inner .section4 > div:not(.shm_sub_tit) { padding-left:0; width: calc(100% - 28rem); }
 .cont_sustain .sub_con .inner .section4 > div:not(.shm_sub_tit) > div:first-child > p { line-height: 2.1; font-size: 1.6rem; color: #222; font-weight: 300; padding-top:.3rem; }
@@ -714,7 +715,7 @@
 .cont_sustain .sub_con .inner .section4 > div:not(.shm_sub_tit) > div.fix_str p { line-height: 2.3; color: #555; }
 .cont_sustain .sub_con .inner .section4 > div:not(.shm_sub_tit) > div.fix_str p span { color: #222; display: inline-block; padding:.3rem 0 3rem 0; }
 .cont_sustain .sub_con .inner .section4 > div:not(.shm_sub_tit) p span { font-size: 1.8rem; font-weight: 400; line-height: 1.7; color: #22591b; }
-.cont_sustain .sub_con .inner .section4 ul { width: 100rem; padding-top: 4rem; display: flex; text-align: center; }
+.cont_sustain .sub_con .inner .section4 ul { width: 100rem; padding-top: 4rem; display: flex; text-align: center;flex-wrap: wrap; }
 .cont_sustain .sub_con .inner .section4 ul:not(:first-of-type) { top: -2rem; position: relative; padding-top:0; }
 .cont_sustain .sub_con .inner .section4 ul:not(:first-of-type):nth-of-type(odd) { top: -4rem; }
 .cont_sustain .sub_con .inner .section4 ul .shm_circle { width: 20rem; height: 20rem; border: none; position: relative; margin-bottom:0 !important; }
@@ -722,11 +723,18 @@
 .cont_sustain .sub_con .inner .section4 ul .shm_circle > div p:first-child { font-size: 1.4rem; margin-top: -2.6rem; }
 .cont_sustain .sub_con .inner .section4 ul .shm_circle > div p:first-child span { font-size: 1.6rem; color: #568236; }
 .cont_sustain .sub_con .inner .section4 ul .shm_circle > div p:last-child { font-size: 1.8rem; font-weight: 300; color: #222; letter-spacing: -.05rem; }
-.cont_sustain .sub_con .inner .section4 .shm_circle:nth-child(2n) { right:2rem;}
-.cont_sustain .sub_con .inner .section4 .shm_circle:nth-child(3n) { right:4rem; }
-.cont_sustain .sub_con .inner .section4 .shm_circle:nth-child(4n) { right:6rem; }
-.cont_sustain .sub_con .inner .section4 .shm_circle:nth-child(5n) { right:8rem;}
-.cont_sustain .sub_con .inner .section4 .shm_circle:nth-child(6n) { right:0;}
+.cont_sustain .sub_con .inner .section4 .shm_circle:nth-child(2),
+.cont_sustain .sub_con .inner .section4 .shm_circle:nth-child(7),
+.cont_sustain .sub_con .inner .section4 .shm_circle:nth-child(12) {right: 2rem;}
+.cont_sustain .sub_con .inner .section4 .shm_circle:nth-child(3),
+.cont_sustain .sub_con .inner .section4 .shm_circle:nth-child(8),
+.cont_sustain .sub_con .inner .section4 .shm_circle:nth-child(13) {right: 4rem;}
+.cont_sustain .sub_con .inner .section4 .shm_circle:nth-child(4),
+.cont_sustain .sub_con .inner .section4 .shm_circle:nth-child(9) {right: 6rem;}
+.cont_sustain .sub_con .inner .section4 .shm_circle:nth-child(5),
+.cont_sustain .sub_con .inner .section4 .shm_circle:nth-child(10) {right: 8rem;}
+.cont_sustain .sub_con .inner .section4 .shm_circle:nth-child(n+6):nth-child(-n+10) {top: -2rem;}
+.cont_sustain .sub_con .inner .section4 .shm_circle:nth-child(n+11):nth-child(-n+12) {top: -4rem;}
 .cont_sustain .sub_con .inner .section4 ul:nth-of-type(odd) .shm_circle:nth-child(even),
 .cont_sustain .sub_con .inner .section4 ul:nth-of-type(even) .shm_circle:nth-child(odd) { background: rgba(130, 130, 130, .05); }
 .cont_sustain .sub_con .inner .section4 ul:nth-of-type(odd) .shm_circle:nth-child(even) > div p:first-child,
@@ -955,7 +963,7 @@
 /* .cont_main .section0 .main_visual .swiper-wrapper {width: 100%;height: 100%;} */
 .container .section0 .main_visual .swiper-wrapper .swiper-slide {width:100%; height: 77.7rem !important;overflow: hidden;}
 .cont_main .section0 .main_visual .swiper-wrapper .bg {width: 100%;height: 100%;position: relative;}
-.cont_main .section0 .main_visual .swiper-wrapper video {position: absolute;top: 50%;left: 50%;transform: translate(-50%, -50%);width: 100%;}
+.cont_main .section0 .main_visual .swiper-wrapper video {position: absolute;top: 50%;left: 50%;transform: translate(-50%, -50%);width: 100%; height: 100%; object-fit: cover; }
 /* .cont_main .section0 .main_visual .swiper-wrapper video {width: 100%;object-fit: fill; width:100%; } */
 .cont_main .section0 .naviPlay {width:80.6rem;height:7rem;padding:20px 37px;background:#578337;position:absolute;bottom: -3.5rem;left: 50%;transform: translateX(-50%);z-index:12;}
 /* .cont_main .section0 .naviPlay:after {content:""; display:block; clear:both;} */
@@ -964,8 +972,15 @@
 .cont_main .section0 .naviPlay .slide_bar {text-align:left;}
 .cont_main .section0 .naviPlay .playbar {position:relative; float:left; background:rgba(255,255,255,0.5); width:150px; height:1px; vertical-align:top; bottom:3px;}
 .cont_main .section0 .naviPlay .playbar .playTime {position:absolute; top:-1px; left:0; background:#fff; width:auto; height:3px;}
-.cont_main .section0 .naviPlay .playbar.active .playTime {width:100%;}
-.cont_main .section0 .naviPlay .playbar.autoplay .playTime {animation:prgressbar_event 5s ease-in-out .1s; -webkit-animation:prgressbar_event 5s ease-in-out .1s; -ms-animation:prgressbar_event 5s ease-in-out .1s; -moz-animation:prgressbar_event 5s ease-in-out .1s; -o-animation:prgressbar_event 5s ease-in-out .1s;}
+.cont_main .section0 .naviPlay .playbar.active .playTime { width: 100%; }
+.cont_main .section0 .naviPlay .playbar.autoplay .playTime {
+    animation:prgressbar_event 5s ease-in-out .1s; 
+    -webkit-animation:prgressbar_event 5s ease-in-out .1s; 
+    -ms-animation:prgressbar_event 5s ease-in-out .1s; 
+    -moz-animation:prgressbar_event 5s ease-in-out .1s; 
+    -o-animation:prgressbar_event 5s ease-in-out .1s;
+}
+
 @-webkit-keyframes prgressbar_event {from {width:0;} to {width:100%;}}
 @-moz-keyframes prgressbar_event {from {width:0;} to {width:100%;}}
 @-ms-keyframes prgressbar_event {from {width:0;} to {width:100%;}}
