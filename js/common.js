@@ -28,7 +28,7 @@ $(function(){
 
     // 메인페이지/ 서브페이지 구분 스크립트
     if(location.pathname.indexOf('/html/FD-00-01-001.html') > -1){ 
-        //
+        
     } else {
         commonEvent.init();
 
@@ -97,7 +97,7 @@ var commonEvent = {
             if( depth2Tit == '공정거래 자율준수 프로그램' ){
                 depth2W.width('326px');
             }else{
-                if($(window).width()>1024){
+                if($(window).width()>767){
                     depth2W.width('225px');
     
                 }else{
@@ -109,9 +109,15 @@ var commonEvent = {
         var depth2W = $('.sub_visual_menu .depth2');
         var depth2Tit = $('.sub_visual_menu .depth2 .dep_tit').text();
         if( depth2Tit == '공정거래 자율준수 프로그램' ){
-            depth2W.width('326px');
+            // depth2W.width('326px');
+            if($(window).width()>767){
+                depth2W.width('326px');
+
+            }else{
+                depth2W.width('calc(100% -5rem)');
+            }
         }else{
-            if($(window).width()>1024){
+            if($(window).width()>767){
                 depth2W.width('225px');
 
             }else{
@@ -568,9 +574,9 @@ var mainEvent = {
     },
 
     headerMain:function(){
-
+        $('.header').addClass('main_fixed');
         $(window).on('scroll',function(){
-            $('.header').addClass('main_fixed');
+            
             const st = $(window).scrollTop();
             let anchor = $('.section0').outerHeight();
             let anchor1 = $('.section1');
