@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="menu">
+    <!-- 코드 검색 -->
+    <select id="menuTreeList" resultType="egovMap">
+	    SELECT
+	        CME.MENU_CODE , /* 메뉴_코드 */
+	        CME.SITE_CODE , /* 사이트_코드 */
+			CME.PROGRM_CODE , /* 프로그램_코드 */
+			CME.UPPER_MENU_CODE , /* 상위_메뉴_코드 */
+			CME.MENU_NM , /* 메뉴_명 */
+			CME.BEGIN_PAGE , /* 시작_페이지 */
+			CME.PARAMTR , /* 파라미터 */
+			CME.GNB_AT , /* GNB_여부 */
+			CME.TAB_AT , /* 탭_여부 */
+			CME.LINK_CODE , /* 링크_코드 */
+			CME.GUIDANCE_MATTER , /* 안내_사항 */
+			CME.USE_AT , /* 사용_여부 */
+			CME.DELETE_AT , /* 삭제_여부 */
+			CME.EXPSR_ORDR , /* 노출_순서 */
+			CME.FRST_REGIST_DT , /* 최초_등록_일시 */
+			CME.FRST_REGISTER_ID , /* 최초_등록자_아이디 */
+			CME.LAST_UPDT_DT , /* 마지막_수정_일시 */
+			CME.LAST_UPDUSR_ID , /* 마지막_수정자_아이디 */
+			CME.MENU_CODE AS id, /* 트리에 사용될 Text */
+			CME.MENU_NM AS text, /* 트리에 사용될 Text */
+			NVL(CME.UPPER_MENU_CODE, '#') AS parent ,
+			NVL(UP_CME.MENU_NM, '최상위 코드') AS UPPER_MENU_NM
+	    FROM
+	        CO_MENU CME
+	        LEFT OUTER JOIN CO_MENU UP_CME
+	            ON CME.UPPER_MENU_CODE = UP_CME.MENU_CODE
+	    WHERE
+	        CME.DELETE_AT = 'N'
+	        AND CME.SITE_CODE = #{siteCode}
+	        <if test="upperMenuCode != null and upperMenuCode != ''">
+	            AND CME.upperMenuCode = #{upperMenuCode}
+	        </if>
+	    ORDER BY
+	        CME.EXPSR_ORDR ASC
+    </select>
+
+    <select id="menuNameLocation" resultType="egovMap">
+	    SELECT
+		    SUBSTR(SYS_CONNECT_BY_PATH(MENU_NM, '>'),2) AS MENU_NAME_LOCATION
+		FROM
+		   CO_MENU
+		WHERE
+		   MENU_CODE = #{upperMenuCode}
+		   AND SITE_CODE = #{siteCode}
+		START WITH
+		   UPPER_MENU_CODE IS NULL
+		CONNECT BY
+		   UPPER_MENU_CODE = PRIOR MENU_CODE
+    </select>
+
+    <select id="programList" resultType="egovMap">
+	    SELECT
+		    *
+		FROM
+		    CO_PROGRM_CODE
+		WHERE
+		    SITE_CODE = #{siteCode}
+    </select>
+
+    <!-- 중간 코드의 마지막 값의 code를 가지고 온다. -->
+    <select id="listTaileMaxMaxCode" resultType="egovMap">
+        SELECT
+          SUBSTR(CME.MENU_CODE, 4, 7) AS TAIL_MENU_CODE /* 중간 코드 */
+        FROM
+          CO_MENU CME
+        WHERE
+          SUBSTR(CME.MENU_CODE, 0, 3) = #{value}
+        GROUP BY
+            SUBSTR(CME.MENU_CODE, 4, 7)
+        ORDER BY
+          SUBSTR(CME.MENU_CODE, 4, 7) DESC
+    </select>
+
+    <!-- 중복 코드 확인 -->
+    <select id="existsMenuCode" parameterType="String" resultType="int">
+        SELECT COUNT(*) FROM CO_MENU WHERE MENU_CODE = #{value}
+    </select>
+
+    <!-- 메뉴 등록 -->
+    <insert id="menuInsert" >
+        INSERT INTO CO_MENU (
+            MENU_CODE , /* 메뉴_코드 */
+            SITE_CODE , /* 사이트_코드 */
+            PROGRM_CODE , /* 프로그램_코드 */
+            UPPER_MENU_CODE , /* 상위_메뉴_코드 */
+            MENU_NM , /* 메뉴_명 */
+            BEGIN_PAGE , /* 시작_페이지 */
+            PARAMTR , /* 파라미터 */
+            GNB_AT , /* GNB_여부 */
+            TAB_AT , /* 탭_여부 */
+            LINK_CODE , /* 링크_코드 */
+            GUIDANCE_MATTER , /* 안내_사항 */
+            USE_AT , /* 사용_여부 */
+            DELETE_AT , /* 삭제_여부 */
+            EXPSR_ORDR , /* 노출_순서 */
+            FRST_REGIST_DT , /* 최초_등록_일시 */
+            FRST_REGISTER_ID , /* 최초_등록자_아이디 */
+            LAST_UPDT_DT , /* 마지막_수정_일시 */
+            LAST_UPDUSR_ID /* 마지막_수정자_아이디 */
+        ) VALUES (
+            #{menuCode} ,
+            #{siteCode} ,
+            #{progrmCode} ,
+            #{upperMenuCode} ,
+            #{menuNm} ,
+            #{beginPage} ,
+            #{paramtr} ,
+            #{gnbAt} ,
+            #{tabAt} ,
+            #{linkCode} ,
+            #{guidanceMatter} ,
+            #{useAt} ,
+            'N' ,
+            9999 ,
+            SYSDATE ,
+            #{mngrId} ,
+            SYSDATE ,
+            #{mngrId}
+        )
+    </insert>
+
+    <!-- 메뉴 상세 -->
+    <select id="menuView" resultType="egovMap" >
+        SELECT
+		    (
+		        SELECT
+		            SUBSTR(SYS_CONNECT_BY_PATH(MENU_NM, '>'),2) AS MENU_NAME_LOCATION
+		        FROM
+		           CO_MENU
+		        WHERE
+		           MENU_CODE = CME.MENU_CODE
+		        START WITH
+		           UPPER_MENU_CODE IS NULL
+		        CONNECT BY
+		           UPPER_MENU_CODE = PRIOR MENU_CODE
+		    ) AS MENU_NAME_LOCATION ,
+		    CME.MENU_CODE , /* 메뉴_코드 */
+		    CME.SITE_CODE , /* 사이트_코드 */
+		    CME.PROGRM_CODE , /* 프로그램_코드 */
+		    CME.UPPER_MENU_CODE , /* 상위_메뉴_코드 */
+		    CME.MENU_NM , /* 메뉴_명 */
+		    CME.BEGIN_PAGE , /* 시작_페이지 */
+		    CME.PARAMTR , /* 파라미터 */
+		    CME.GNB_AT , /* GNB_여부 */
+		    CME.TAB_AT , /* 탭_여부 */
+		    CME.LINK_CODE , /* 링크_코드 */
+		    CME.GUIDANCE_MATTER , /* 안내_사항 */
+		    CME.USE_AT , /* 사용_여부 */
+		    CME.DELETE_AT , /* 삭제_여부 */
+		    CME.EXPSR_ORDR , /* 노출_순서 */
+		    CME.FRST_REGIST_DT , /* 최초_등록_일시 */
+		    CME.FRST_REGISTER_ID , /* 최초_등록자_아이디 */
+		    MNG_01.MNGR_EXPSR_NM AS FRST_REGISTER_NM , /* 최초_등록자_이름 */
+		    CME.LAST_UPDT_DT , /* 마지막_수정_일시 */
+		    CME.LAST_UPDUSR_ID , /* 마지막_수정자_아이디 */
+		    MNG_02.MNGR_EXPSR_NM AS LAST_UPDUSR_NM /* 최초_수정자_이름 */
+		FROM
+		    CO_MENU CME
+		    LEFT OUTER JOIN CO_MNGR MNG_01
+		      ON CME.FRST_REGISTER_ID = MNG_01.MNGR_ID
+		    LEFT OUTER JOIN CO_MNGR MNG_02
+		      ON CME.LAST_UPDUSR_ID = MNG_02.MNGR_ID
+		WHERE
+		    CME.MENU_CODE = #{menuCode}
+    </select>
+
+</mapper>

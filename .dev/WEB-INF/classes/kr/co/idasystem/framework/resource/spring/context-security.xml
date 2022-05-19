@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:egov-security="http://www.egovframe.go.kr/schema/egov-security" xmlns:security="http://www.springframework.org/schema/security"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+        http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-4.2.xsd
+		http://www.egovframe.go.kr/schema/egov-security http://www.egovframe.go.kr/schema/egov-security/egov-security-3.7.xsd">
+
+	<!-- 수정일 수정자 수정내용 ========= ======= ================================================= 2011.09.07 서준식 일반, 업무사용자의 경우 조직아이디가 없어 로그인이 안되던 문제 수정(SQL 수정) 2011.09.25 서준식 usersByUsernameQuery 쿼리의 조직 아이디 비교 부분 오류 수정 > alias 추가 2014.06.13 Vincent Han 표준프레임워크 3.0 적용 (간소화 설정 사용) 2017.07.10 장동한 실행행환경 v3.7 적용[보안기능 추가(sniff, xFrameOptions, xssProtection csrf)] 2018.10.26 신용호 실행행환경 v3.8 적용 -->
+
+	<security:http pattern="/resources/service/cms/css/**" security="none" />
+	<security:http pattern="\A/WEB-INF/view/.*\Z" request-matcher="regex" security="none" />
+	<security:http pattern="/error/denied.do" security="none" />
+	<security:http pattern="/cmm/dummypage.do" security="none" />
+
+	<egov-security:config id="securityConfig"
+	       loginUrl="${Globals.login.loginURL}"
+	       logoutSuccessUrl="${Globals.login.loginURL}"
+	       loginFailureUrl="${Globals.login.failureUrl}"
+	       accessDeniedUrl="${Globals.login.deniedURL}"
+	       dataSource="cmsDataSource"
+		jdbcUsersByUsernameQuery="
+		  SELECT MNGR_ID       AS USER_ID ,
+			       MNGR_PASSWORD AS PASSWORD ,
+			       MNGR_EMAIL    AS USER_EMAIL ,
+			       MNGR_EXPSR_NM AS USER_NM
+			FROM   VI_LOGIN
+			WHERE
+			   MNGR_ID = ?
+    " jdbcAuthoritiesByUsernameQuery="
+		  SELECT MNGR_ID AS USER_ID
+			  , 'ROLE_USER' AS AUTHORITY
+			FROM
+			  VI_LOGIN
+			WHERE MNGR_ID = ?
+    "
+
+		jdbcMapClass="kr.co.idasystem.framework.cmm.security.util.SessionMapping"
+		requestMatcherType="regex"
+		hash="plaintext"
+		hashBase64="false"
+		concurrentMaxSessons="1"
+		concurrentExpiredUrl="${Globals.login.expiredUrl}"
+		defaultTargetUrl="${Globals.MainPage}"
+		sniff="true"
+		xframeOptions="SAMEORIGIN"
+		xssProtection="true"
+		csrf="true" />
+
+	<egov-security:secured-object-config id="securedObjectConfig" roleHierarchyString="
+      ROLE_ADMIN > ROLE_USER
+      ROLE_USER > IS_AUTHENTICATED_FULLY
+      IS_AUTHENTICATED_FULLY > IS_AUTHENTICATED_REMEMBERED
+      IS_AUTHENTICATED_REMEMBERED >  IS_AUTHENTICATED_ANONYMOUSLY
+      IS_AUTHENTICATED_ANONYMOUSLY > ROLE_ANONYMOUS"
+		sqlRolesAndUrl="
+		  SELECT '\A/login/.*\.do.*\Z' url, 'ROLE_ANONYMOUS' authority from dual
+		  UNION ALL
+		  SELECT '\A/.*\.do.*\Z' url, 'ROLE_USER' authority from dual
+		  " />
+
+	<egov-security:initializer id="initializer" supportMethod="false" supportPointcut="false" />
+
+	<!-- URL에 세미콜론(semicolon)허용 여부(기본값/false) -->
+	<bean id="egovStrictHttpFirewall" class="org.springframework.security.web.firewall.StrictHttpFirewall">
+		<property name="allowSemicolon" value="true" />
+	</bean>
+	<security:http-firewall ref="egovStrictHttpFirewall" />
+
+
+
+</beans>

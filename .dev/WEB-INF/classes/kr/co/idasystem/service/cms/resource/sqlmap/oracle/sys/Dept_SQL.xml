@@ -1,0 +1,353 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- 수정일 수정자 수정내용 ========= ======= ================================================= 2011.8.26 서준식 SSO 로그인을 위한 쿼리 추가 2011.09.27 서준식 컬럼 변경 SUB_DN 을 CRTFC_DN_VALUE 로 변경 2011.09.28 서준식 컬럼 변경 entrprsmber_id 을 ENTRPRS_MBER_ID 로 변경 -->
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="dept">
+	<!-- 코드 상세 정보 -->
+	<select id="viewDept" resultType="kr.co.idasystem.service.cms.vo.DeptVO">
+		SELECT
+			DEP.DEPT_CODE , /* 코드 */
+			DEP.UPPER_DEPT_CODE , /* 상위_코드 */
+			DECODE(DLA.DEPT_NM, NULL, DEP.DEPT_NM, DLA.DEPT_NM ) AS DEPT_NM , /* 코드_명 */
+			DEP.TLPHON_NO , /* 전화번호 */
+			DEP.FAX_NO , /* 팩스번호 */
+			DEP.MAIN_JOB , /* 주요_업무 */
+			DEP.USE_AT , /* 사용_여부 */
+			DEP.DELETE_AT , /* 삭제_여부 */
+			DEP.EXPSR_ORDR , /* 노출_순서 */
+			DEP.FRST_REGIST_DT , /* 최초_등록_일시 */
+			DEP.FRST_REGISTER_ID , /* 최초_등록자_아이디 */
+			DEP.LAST_UPDT_DT , /* 마지막_수정_일시 */
+			DEP.LAST_UPDUSR_ID /* 마지막_수정자_아이디 */
+		FROM
+		  CO_DEPT DEP
+			LEFT OUTER JOIN CO_DEPT_LANG DLA
+			     ON DEP.DEPT_CODE = DLA.DEPT_CODE AND DEP.LANG_CODE = #{langCode}
+		WHERE
+			DEP.DELETE_AT = 'N'
+			AND DEP.DEPT_CODE = #{deptCode}
+			<if test="upperDeptCode != null and upperDeptCode != ''">
+				AND DEP.UPPER_DEPT_CODE = #{upperDeptCode}
+			</if>
+		ORDER BY
+		  DEP.EXPSR_ORDR ASC
+	</select>
+
+	<!-- 코드 검색 -->
+	<select id="listDeptCode" resultType="kr.co.idasystem.service.cms.vo.DeptVO">
+
+		SELECT
+			DEP.DEPT_CODE , /* 코드 */
+            DEP.UPPER_DEPT_CODE , /* 상위_코드 */
+            DECODE(DLA.DEPT_NM, NULL, DEP.DEPT_NM, DLA.DEPT_NM ) AS DEPT_NM , /* 코드_명 */
+            DEP.TLPHON_NO , /* 전화번호 */
+            DEP.FAX_NO , /* 팩스번호 */
+            DEP.MAIN_JOB , /* 주요_업무 */
+            DEP.USE_AT , /* 사용_여부 */
+            DEP.DELETE_AT , /* 삭제_여부 */
+            DEP.EXPSR_ORDR , /* 노출_순서 */
+            DEP.FRST_REGIST_DT , /* 최초_등록_일시 */
+            DEP.FRST_REGISTER_ID , /* 최초_등록자_아이디 */
+            DEP.LAST_UPDT_DT , /* 마지막_수정_일시 */
+            DEP.LAST_UPDUSR_ID /* 마지막_수정자_아이디 */
+		FROM
+			CO_DEPT DEP
+            LEFT OUTER JOIN CO_DEPT_LANG DLA
+                ON DEP.DEPT_CODE = DLA.DEPT_CODE AND DLA.LANG_CODE = #{langCode}
+		WHERE
+			DEP.DELETE_AT = 'N'
+            <if test="upperDeptCode != null and upperDeptCode != ''">
+                AND DEP.UPPER_DEPT_CODE = #{upperDeptCode}
+            </if>
+		ORDER BY
+		  DEP.EXPSR_ORDR ASC
+
+	</select>
+
+	<!-- 코드 검색 -->
+	<select id="listDeptCodeTree" resultType="egovMap">
+		SELECT
+			DEP.DEPT_CODE , /* 코드 */
+            DEP.UPPER_DEPT_CODE , /* 상위_코드 */
+            DECODE(DLA.DEPT_NM, NULL, DEP.DEPT_NM, DLA.DEPT_NM ) AS DEPT_NM , /* 코드_명 */
+            DEP.TLPHON_NO , /* 전화번호 */
+            DEP.FAX_NO , /* 팩스번호 */
+            DEP.MAIN_JOB , /* 주요_업무 */
+            DEP.USE_AT , /* 사용_여부 */
+            DEP.DELETE_AT , /* 삭제_여부 */
+            DEP.EXPSR_ORDR , /* 노출_순서 */
+            DEP.FRST_REGIST_DT , /* 최초_등록_일시 */
+            DEP.FRST_REGISTER_ID , /* 최초_등록자_아이디 */
+            DEP.LAST_UPDT_DT , /* 마지막_수정_일시 */
+            DEP.LAST_UPDUSR_ID , /* 마지막_수정자_아이디 */
+
+			DEP.DEPT_CODE AS id , /* 트리에 사용될 ID */
+			DECODE(DLA.DEPT_NM, NULL, DEP.DEPT_NM, DLA.DEPT_NM ) AS text, /* 트리에 사용될 Text */
+			NVL(DEP.UPPER_DEPT_CODE, '#') AS parent ,
+			NVL(UP_DEP.DEPT_NM, '최상위 코드') AS UPPER_DEPT_NM
+		FROM
+			CO_DEPT DEP
+			LEFT OUTER JOIN CO_DEPT UP_DEP
+			     ON DEP.UPPER_DEPT_CODE = UP_DEP.DEPT_CODE
+			LEFT OUTER JOIN CO_DEPT_LANG DLA
+			     ON DEP.DEPT_CODE = DLA.DEPT_CODE AND DLA.LANG_CODE = #{langCode}
+		WHERE
+		    DEP.DELETE_AT = 'N'
+            <if test="upperDeptCode != null and upperDeptCode != ''">
+                AND DEP.UPPER_DEPT_CODE = #{upperDeptCode}
+            </if>
+		ORDER BY
+		    DEP.EXPSR_ORDR ASC
+	</select>
+
+	<!-- 코드 언어 검색 -->
+	<select id="listDeptCodeLang" resultType="egovMap">
+		SELECT
+			DEP.DEPT_CODE , /* 코드 */
+			DLA.LANG_CODE , /* 언어_코드 */
+			DLA.DEPT_NM /* 코드_명 */
+		FROM
+		  CO_DEPT DEP
+		  LEFT OUTER JOIN CO_DEPT_LANG DLA
+		      ON DEP.DEPT_CODE = DLA.DEPT_CODE AND DLA.LANG_CODE = #{langCode}
+		WHERE
+			DEP.UPPER_DEPT_CODE = 'C001000'
+			AND DEP.DELETE_AT = 'N'
+		ORDER BY
+		    DEP.EXPSR_ORDR ASC
+	</select>
+
+	<!-- 상위코드에 대한 마지막 값의 code를 가지고 온다. -->
+	<select id="listSubMaxDeptCode" resultType="egovMap">
+		SELECT
+		  DEP.DEPT_CODE /* 코드 */
+		FROM
+		  CO_DEPT DEP
+		WHERE
+		  DEP.UPPER_DEPT_CODE = #{value}
+		ORDER BY
+		  DEP.DEPT_CODE DESC
+	</select>
+
+	<!-- 중복 코드 확인 -->
+	<select id="existsDeptCode" parameterType="String" resultType="int">
+		SELECT COUNT(*) FROM CO_DEPT WHERE DEPT_CODE = #{value}
+	</select>
+
+	<insert id="megerDeptCode" >
+	MERGE INTO CO_DEPT A
+		USING DUAL
+		  ON ( A.DEPT_CODE = #{deptCode} )
+	WHEN MATCHED THEN
+		UPDATE SET
+			DEPT_NM = #{deptNm}
+            , TLPHON_NO = #{tlphonNo}
+			, FAX_NO = #{faxNo}
+			, MAIN_JOB = #{mainJob}
+			, USE_AT = #{useAt}
+			, DELETE_AT = #{deleteAt}
+			, LAST_UPDT_DT = SYSDATE
+			, LAST_UPDUSR_ID = #{mngrId}
+		WHEN NOT MATCHED THEN
+			INSERT ( DEPT_CODE,UPPER_DEPT_CODE,DEPT_NM,TLPHON_NO,FAX_NO,MAIN_JOB,USE_AT,DELETE_AT,EXPSR_ORDR,FRST_REGIST_DT,FRST_REGISTER_ID,LAST_UPDT_DT,LAST_UPDUSR_ID )
+			VALUES ( #{deptCode}, #{upperDeptCode}, #{deptNm}, #{tlphonNo}, #{faxNo},#{mainJob},#{useAt},#{deleteAt},
+			 ( SELECT MAX(EXPSR_ORDR) + 1 FROM CO_DEPT )
+			,SYSDATE,#{mngrId},SYSDATE,#{mngrId}   )
+
+	</insert>
+
+	<delete id="deleteDeptCodeLang" >
+        DELETE CO_DEPT_LANG WHERE DEPT_CODE = #{deptCode}
+    </delete>
+
+    <update id="megerDeptCodeLang" >
+        MERGE INTO CO_DEPT_LANG A
+	        USING DUAL
+	          ON ( A.DEPT_CODE = #{deptCode} AND A.LANG_CODE = #{langCode} )
+	    WHEN MATCHED THEN
+	        UPDATE SET
+	            DEPT_NM = #{DEPT_NM}
+	        WHEN NOT MATCHED THEN
+	            INSERT ( LANG_CODE,DEPT_CODE,CODE_NM )
+	            VALUES ( #{langCode}, #{deptCode}, #{codeNm} )
+
+    </update>
+
+    <!-- 중간 코드의 마지막 값의 code를 가지고 온다. -->
+    <select id="listMiddleMaxDeptCode" resultType="egovMap">
+        SELECT
+          SUBSTR(DEP.DEPT_CODE, 1, 4) AS MIDDLE_CODE /* 중간 코드 */
+        FROM
+          CO_DEPT DEP
+        WHERE
+          SUBSTR(DEP.DEPT_CODE, 0, 1) = #{value}
+        GROUP BY
+            SUBSTR(DEP.DEPT_CODE, 1, 4)
+        ORDER BY
+          SUBSTR(DEP.DEPT_CODE, 1, 4) DESC
+    </select>
+
+    <!-- 중간 코드의 마지막 값의 code를 가지고 온다. -->
+    <select id="listTaileMaxDeptCode" resultType="egovMap">
+        SELECT
+          SUBSTR(DEP.DEPT_CODE, 5, 7) AS TAIL_CODE /* 중간 코드 */
+        FROM
+          CO_DEPT DEP
+        WHERE
+          SUBSTR(DEP.DEPT_CODE, 0, 4) = #{value}
+        GROUP BY
+            SUBSTR(DEP.DEPT_CODE, 5, 7)
+        ORDER BY
+          SUBSTR(DEP.DEPT_CODE, 5, 7) DESC
+    </select>
+
+    <update id="deleteDeptCode" >
+        UPDATE CO_DEPT
+        SET DELETE_AT = 'Y'
+            , LAST_UPDT_DT = SYSDATE
+            , LAST_UPDUSR_ID = #{mngrId}
+        WHERE
+            DEPT_CODE = #{deptCode}
+            OR DEPT_CODE IN (
+                SELECT
+		            DEPT_CODE
+		        FROM
+		            CO_DEPT
+		        START WITH UPPER_DEPT_CODE = #{deptCode}
+		        CONNECT BY PRIOR DEPT_CODE = UPPER_DEPT_CODE
+            )
+
+    </update>
+
+    <update id="deleteUpperDeptCode" >
+        UPDATE CO_DEPT
+        SET DELETE_AT = 'Y'
+            , LAST_UPDT_DT = SYSDATE
+            , LAST_UPDUSR_ID = #{mngrId}
+        WHERE
+            UPPER_DEPT_CODE = #{upperDeptCode}
+    </update>
+
+    <update id="listLowerDeptCode" >
+        SELECT
+		    DEPT_CODE
+		    , UPPER_DEPT_CODE
+		    , LEVEL
+		FROM
+		    CO_DEPT
+		START WITH UPPER_DEPT_CODE = #{deptCode}
+		CONNECT BY PRIOR DEPT_CODE = UPPER_DEPT_CODE
+    </update>
+
+    <update id="changeCodeDeptOrder" >
+        UPDATE CO_DEPT
+            SET UPPER_DEPT_CODE = #{upperDeptCode}
+              , EXPSR_ORDR      = #{expsrOrdr}
+        WHERE
+            DEPT_CODE = #{deptCode}
+    </update>
+ 
+    
+     <!-- 부서 검색 수 -->
+    <select id="listDeptPagingTotalCount" resultType="integer">
+	       SELECT
+	           COUNT(1) AS COUNT
+	       FROM
+	           CO_DEPT DEP
+	           LEFT OUTER JOIN CO_DEPT_LANG DLA
+	               ON DEP.DEPT_CODE = DLA.DEPT_CODE AND DLA.LANG_CODE = #{langCode}
+	       WHERE
+	           DEP.DELETE_AT = 'N'
+	       AND DEP.USE_AT    = 'Y'
+	       AND DEP.UPPER_DEPT_CODE IS NOT NULL
+	       <if test="searchKeyword != null and searchKeyword != ''">
+	           AND DEP.DEPT_NM LIKE '%' || #{searchKeyword} || '%'
+	       </if>
+	       <if test="deptCodeAddrArr != null and deptCodeAddrArr != ''" >
+                AND DEP.DEPT_CODE NOT IN
+                <foreach item="item" index="index" collection="deptCodeAddrArr" open="(" separator="," close=")" >
+                   #{item}
+                </foreach>
+            </if>
+    </select>
+    
+    <select id="listDeptPaging" resultType="egovMap">
+        SELECT
+                DEP.DEPT_CODE , /* 코드 */
+	            DEP.UPPER_DEPT_CODE , /* 상위_코드 */
+	            DECODE(DLA.DEPT_NM, NULL, DEP.DEPT_NM, DLA.DEPT_NM ) AS DEPT_NM , /* 코드_명 */
+	            DEP.TLPHON_NO , /* 전화번호 */
+	            DEP.FAX_NO , /* 팩스번호 */
+	            DEP.MAIN_JOB , /* 주요_업무 */
+	            DEP.USE_AT , /* 사용_여부 */
+	            DEP.DELETE_AT , /* 삭제_여부 */
+	            DEP.EXPSR_ORDR , /* 노출_순서 */
+	            DEP.FRST_REGIST_DT , /* 최초_등록_일시 */
+	            DEP.FRST_REGISTER_ID , /* 최초_등록자_아이디 */
+	            DEP.LAST_UPDT_DT , /* 마지막_수정_일시 */
+	            DEP.LAST_UPDUSR_ID /* 마지막_수정자_아이디 */
+        FROM (
+                <include refid="cmm.pagingStart"/>
+                    SELECT
+                        DEP.ROWID AS RID
+                    FROM
+                        CO_DEPT DEP
+			        WHERE
+			            DEP.DELETE_AT = 'N'
+			        AND DEP.USE_AT    = 'Y'
+			        AND DEP.UPPER_DEPT_CODE IS NOT NULL
+			        
+		            <if test="searchKeyword != null and searchKeyword != ''">
+		                AND DEP.DEPT_NM LIKE '%' || #{searchKeyword} || '%'
+		            </if>
+		            
+		            <if test="deptCodeAddrArr != null and deptCodeAddrArr != ''" >
+                         AND DEP.DEPT_CODE NOT IN
+                         <foreach item="item" index="index" collection="deptCodeAddrArr" open="(" separator="," close=")" >
+                            #{item}
+                         </foreach>
+                     </if>
+		            
+			        ORDER BY
+			          DEP.EXPSR_ORDR ASC
+                <include refid="cmm.pagingEnd"/>
+            ) TT, CO_DEPT DEP
+            LEFT OUTER JOIN CO_DEPT_LANG DLA ON DEP.DEPT_CODE = DLA.DEPT_CODE AND DLA.LANG_CODE = #{langCode}
+        WHERE
+            TT.RID = DEP.ROWID
+     ORDER BY TT.RRN ASC
+    </select>
+    
+    <!-- 부서 검색 -->
+    <select id="searchListDeptCode" resultType="egovMap">
+
+        SELECT
+            DEP.DEPT_CODE , /* 코드 */
+            DEP.UPPER_DEPT_CODE , /* 상위_코드 */
+            DECODE(DLA.DEPT_NM, NULL, DEP.DEPT_NM, DLA.DEPT_NM ) AS DEPT_NM , /* 코드_명 */
+            DEP.TLPHON_NO , /* 전화번호 */
+            DEP.FAX_NO , /* 팩스번호 */
+            DEP.MAIN_JOB , /* 주요_업무 */
+            DEP.USE_AT , /* 사용_여부 */
+            DEP.DELETE_AT , /* 삭제_여부 */
+            DEP.EXPSR_ORDR , /* 노출_순서 */
+            DEP.FRST_REGIST_DT , /* 최초_등록_일시 */
+            DEP.FRST_REGISTER_ID , /* 최초_등록자_아이디 */
+            DEP.LAST_UPDT_DT , /* 마지막_수정_일시 */
+            DEP.LAST_UPDUSR_ID /* 마지막_수정자_아이디 */
+        FROM
+            CO_DEPT DEP
+            LEFT OUTER JOIN CO_DEPT_LANG DLA
+                ON DEP.DEPT_CODE = DLA.DEPT_CODE AND DLA.LANG_CODE = #{langCode}
+        WHERE
+            DEP.DELETE_AT = 'N'
+        AND DEP.USE_AT    = 'Y'
+            <if test="searchKeyword != null and searchKeyword != ''">
+                AND DEP.DEPT_NM LIKE '%' || #{searchKeyword} || '%'
+            </if>
+        ORDER BY
+          DEP.EXPSR_ORDR ASC
+
+    </select>
+    
+
+</mapper>

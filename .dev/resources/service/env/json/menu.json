@@ -1,0 +1,165 @@
+{
+	"category": [
+	    {
+	        "title" : "회사소개",
+			"engTitle" : "company",
+			"imgTitle" : "company",
+	        "url" : "javascript:link(1,0);",
+			"target" : "_self",
+			"hasChild" : true,
+			"twoDepth" : [
+                {
+					"title" : "CEO 인사말",
+	        		"url" : "javascript:link(1,0);",
+					"target" : "_self"
+				},
+                {
+					"title" : "연혁",
+	        		"url" : "javascript:link(1,1);",
+					"target" : "_self"
+				},
+                {
+					"title" : "경영비전",
+	        		"url" : "javascript:link(1,2);",
+					"target" : "_self"
+				},
+				{
+					"title" : "CI",
+	        		"url" : "javascript:link(1,3);",
+					"target" : "_self"
+				},
+                {
+					"title" : "찾아오시는 길",
+	        		"url" : "javascript:link(1,4);",
+					"target" : "_self"
+				}
+			]
+	    },
+        {
+	        "title" : "사업소개",
+			"engTitle" : "business",
+			"imgTitle" : "businessIntro",
+	        "url" : "javascript:link(2,0);",
+			"target" : "_self",
+			"hasChild" : true,
+			"twoDepth" : [
+                {
+					"title" : "개요",
+	        		"url" : "javascript:link(2,0);",
+					"target" : "_self"
+				},
+                {
+					"title" : "O&M",
+	        		"url" : "javascript:linkBusiness(2,1);",
+					"target" : "_self"
+				},
+                {
+					"title" : "환경건설",
+	        		"url" : "javascript:linkBusiness(2,2);",
+					"target" : "_self"
+				},
+                {
+					"title" : "기술역량",
+	        		"url" : "javascript:link(2,3);",
+					"target" : "_self"
+				},
+                {
+					"title" : "에너지",
+	        		"url" : "javascript:link(2,4);",
+					"target" : "_self"
+				},
+                {
+					"title" : "자원순환",
+	        		"url" : "javascript:link(2,5);",
+					"target" : "_self"
+				},
+                {
+					"title" : "New BIZ",
+	        		"url" : "javascript:link(2,6);",
+					"target" : "_self"
+				}
+			]
+	    },
+        {
+	        "title" : "지속가능경영",
+			"engTitle" : "sustain",
+			"imgTitle" : "sustain",
+	        "url" : "javascript:link(3,0);",
+			"target" : "_self",
+			"hasChild" : true,
+			"twoDepth" : [
+                {
+					"title" : "윤리경영",
+	        		"url" : "javascript:link(3,0);",
+					"target" : "_self"
+				},
+                {
+					"title" : "안전보건",
+	        		"url" : "javascript:link(3,1);",
+					"target" : "_self"
+				},
+                {
+					"title" : "공정거래 자율준수 프로그램",
+	        		"url" : "javascript:link(3,2);",
+					"target" : "_self"
+				},
+                {
+					"title" : "탄소저감",
+	        		"url" : "javascript:link(3,3);",
+					"target" : "_self"
+				},
+                {
+					"title" : "사회공헌",
+	        		"url" : "javascript:linkBBS(3,4, \"BM0000000001\");",
+					"target" : "_self"
+				}
+			]
+	    },
+        {
+	        "title" : "투자정보",
+			"engTitle" : "invest",
+			"imgTitle" : "disclosure",
+	       "url" : "javascript:linkBBS(4,0, \"BM0000000002\");",
+			"target" : "_self",
+			"hasChild" : true,
+			"twoDepth" : [
+                {
+					"title" : "News",
+	        		"url" : "javascript:linkBBS(4,0, \"BM0000000002\");",
+					"target" : "_self"
+				},
+                {
+					"title" : "재무정보",
+	        		"url" : "javascript:link(4,1);",
+					"target" : "_self"
+				},
+                {
+					"title" : "공시/공고",
+	        		"url" : "javascript:linkBBS(4,2, \"BM0000000003\");",
+					"target" : "_self"
+				}
+			]
+	    },
+        {
+	        "title" : "인재채용",
+			"engTitle" : "recruit",
+			"imgTitle" : "recruit",
+	        "url" : "javascript:link(5,0);",
+			"target" : "_self",
+			"hasChild" : true,
+			"twoDepth" : [
+                {
+					"title" : "인사제도",
+	        		"url" : "javascript:link(5,0);",
+					"target" : "_self"
+				},
+                {
+					"title" : "채용정보",
+					"url" : "javascript:linkBBS(5,1, \"BM0000000004\");",
+					"target" : "_self"
+				}
+			]
+	    }
+	]
+
+}

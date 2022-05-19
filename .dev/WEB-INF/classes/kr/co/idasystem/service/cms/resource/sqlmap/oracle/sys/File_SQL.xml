@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- 수정일 수정자 수정내용 ========= ======= ================================================= 2011.8.26 서준식 SSO 로그인을 위한 쿼리 추가 2011.09.27 서준식 컬럼 변경 SUB_DN 을 CRTFC_DN_VALUE 로 변경 2011.09.28 서준식 컬럼 변경 entrprsmber_id 을 ENTRPRS_MBER_ID 로 변경 -->
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="file">
+	<!-- 코드 상세 정보 -->
+	<select id="getFileCode" resultType="kr.co.idasystem.framework.vo.FileCodeVO" parameterType="String">
+
+		SELECT
+			FCD.FILE_CODE , /* 파일_코드 */
+		    FCD.FILE_CODE_NM , /* 파일_코드_명 */
+		    FCD.UPLOAD_EXTSN_CODE , /* 업로드_확장자_코드 */
+		    FCD.MXMM_UPLOAD_SIZE , /* 최대_업로드_사이즈 */
+		    FCD.DWLD_MTHD_CODE , /* 다운로드_방식_코드 */
+		    FCD.DWLD_LC , /* 다운로드_위치 */
+		    FCD.STRE_MTHD_CODE , /* 저장_방식_코드 */
+		    FCD.ENCPT_AT , /* 암호화_여부 */
+		    COD.ADIT_VALUE_ONE AS UPLOAD_EXTSN_STR, /* 업로드_확장자_코드 */
+		    FCD.USE_AT , /* 사용_여부 */
+		    FCD.DELETE_AT , /* 삭제_여부 */
+		    FCD.EXPSR_ORDR , /* 노출_순서 */
+		    FCD.REPRSNT_AT , /* 대표_여부 */
+		    FCD.FRST_REGIST_DT , /* 최초_등록_일시 */
+		    FCD.FRST_REGISTER_ID /* 최초_등록자_아이디 */
+		FROM
+		  CO_FILE_CODE FCD
+		      INNER JOIN CO_CODE COD
+		          ON FCD.UPLOAD_EXTSN_CODE = COD.CODE
+		WHERE
+			FCD.FILE_CODE = #{value}
+	</select>
+
+    <insert id="insertFile" >
+      MERGE INTO CO_FILE A
+        USING DUAL
+            ON ( A.FILE_ID = #{fileId} )
+      WHEN MATCHED THEN
+        UPDATE SET
+          LAST_UPDT_DT = SYSDATE
+          , LAST_UPDUSR_ID = #{frstRegisterId}
+      WHEN NOT MATCHED THEN
+        INSERT (
+            FILE_ID , /* 파일_아이디 */
+				    FILE_CODE , /* 파일_코드 */
+				    USE_AT , /* 사용_여부 */
+				    DELETE_AT , /* 삭제_여부 */
+				    EXPSR_ORDR , /* 노출_순서 */
+				    FRST_REGIST_DT , /* 최초_등록_일시 */
+				    FRST_REGISTER_ID, /* 최초_등록자_아이디 */
+				    LAST_UPDT_DT , /* 마지막_수정_일시 */
+            LAST_UPDUSR_ID /* 마지막_수정자_아이디 */
+	   ) VALUES (
+	        #{fileId} ,
+            #{fileCode} ,
+            'Y' ,
+            'N' ,
+            ( SELECT NVL( MAX(EXPSR_ORDR), 0 ) + 1 FROM CO_FILE WHERE FILE_ID = #{fileId}  ) ,
+            SYSDATE ,
+            #{frstRegisterId} ,
+            SYSDATE ,
+            #{frstRegisterId}
+	   )
+    </insert>
+
+    <insert id="insertFileInfo" >
+        MERGE INTO CO_FILE_INFO A
+          USING DUAL
+            ON ( A.FILE_ID = #{fileId} AND A.FILE_ORDR = #{fileOrdr} )
+        WHEN MATCHED THEN
+          UPDATE SET
+              FILE_DC = #{fileDc}
+            , DELETE_AT = #{deleteAt}
+            , EXPSR_ORDR = #{expsrOrdr}
+            , REPRSNT_AT = #{reprsntAt}
+            , LAST_UPDT_DT = SYSDATE
+            , LAST_UPDUSR_ID = #{frstRegisterId}
+        WHEN NOT MATCHED THEN
+
+	        INSERT (
+	            FILE_ID , /* 파일_아이디 */
+			    FILE_ORDR , /* 파일_순서 */
+			    FILE_DC , /* 파일_설명 */
+			    FILE_STRE_LC , /* 파일_저장_위치 */
+			    ORGINL_FILE_NM , /* 원본_파일명 */
+			    STRE_FILE_NM , /* 저장_파일명 */
+			    EXTRL_STRE_AT , /* 외부_저장_여부 */
+			    FILE_EXTSN , /* 파일_확장자 */
+			    FILE_LT , /* 파일_길이 */
+			    REPRSNT_AT , /* 대표_여부 */
+	            USE_AT , /* 사용_여부 */
+	            DELETE_AT , /* 삭제_여부 */
+	            EXPSR_ORDR , /* 노출_순서 */
+	            FRST_REGIST_DT , /* 최초_등록_일시 */
+	            FRST_REGISTER_ID, /* 최초_등록자_아이디 */
+	            LAST_UPDT_DT , /* 마지막_수정_일시 */
+	            LAST_UPDUSR_ID /* 마지막_수정자_아이디 */
+	       ) VALUES (
+	            #{fileId} ,
+	            ( SELECT NVL( MAX(FILE_ORDR), 0 ) + 1 FROM CO_FILE_INFO WHERE FILE_ID = #{fileId}  ) ,
+	            #{fileDc} ,
+	            #{fileStreLc} ,
+	            #{orginlFileNm} ,
+	            #{streFileNm} ,
+	            #{extrlStreAt} ,
+	            #{fileExtsn} ,
+	            #{fileLt} ,
+	            #{reprsntAt},
+	            'Y' ,
+	            'N' ,
+	            ( SELECT NVL( MAX(EXPSR_ORDR), 0 ) + 1 FROM CO_FILE_INFO WHERE FILE_ID = #{fileId}  ) ,
+	            SYSDATE ,
+	            #{frstRegisterId} ,
+	            SYSDATE ,
+	            #{frstRegisterId}
+	       )
+    </insert>
+
+    <select id="selectFile" resultType="kr.co.idasystem.framework.vo.FileVO" parameterType="String">
+        SELECT
+          *
+        FROM
+          CO_FILE FIN
+        WHERE
+          FIN.FILE_ID = #{value}
+          AND FIN.DELETE_AT = 'N'
+    </select>
+
+    <select id="selectFileInfo" resultType="kr.co.idasystem.framework.vo.FileInfoVO" >
+	    SELECT
+	      *
+	    FROM
+	      CO_FILE_INFO FIN
+	    WHERE
+	      FIN.FILE_ID = #{fileId}
+	      <if test="fileOrder != null and fileOrder != ''">
+	           AND FIN.FILE_ORDR = #{fileOrder}
+	      </if>
+	      AND FIN.DELETE_AT = 'N'
+	    ORDER BY FIN.EXPSR_ORDR ASC
+
+    </select>
+
+    <insert id="insertFileDwld" >
+        INSERT INTO CO_FILE_DWLD (
+            DWLD_INNB , /* 다운로드_고유번호 */
+		    FILE_ID , /* 파일_아이디 */
+		    FILE_ORDR , /* 파일_순서 */
+		    DWLD_TY_CODE , /* 다운로드_타입_코드 */
+		    RESULT_STTUS_CODE , /* 결과_상태_코드 */
+		    DWLD_BEGIN_DT , /* 다운로드_시작_일시 */
+		    DWLD_RQESTER_ID, /* 다운로드_요청자_아이디 */
+		    DWLD_IP
+		) VALUES (
+            #{dwldInnb} , /* 다운로드_고유번호 */
+            #{fileId} , /* 파일_아이디 */
+            #{fileOrdr} , /* 파일_순서 */
+            #{dwldTyCode} , /* 다운로드_타입_코드 */
+            #{resultSttusCode} , /* 결과_상태_코드 */
+            SYSDATE , /* 다운로드_시작_일시 */
+            #{dwldRqesterId} , /* 다운로드_요청자_아이디 */
+            #{dwldIp}
+		)
+    </insert>
+
+    <update id="updateFileDwld" >
+        UPDATE CO_FILE_DWLD SET
+            RESULT_STTUS_CODE = #{resultSttusCode}
+            , DWLD_END_DT = SYSDATE
+        WHERE DWLD_INNB = #{dwldInnb}
+    </update>
+
+
+
+</mapper>

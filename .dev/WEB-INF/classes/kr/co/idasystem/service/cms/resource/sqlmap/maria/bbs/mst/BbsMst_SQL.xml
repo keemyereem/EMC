@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="bbsMst">
+
+    <select id="getBbsMstDtl" resultType="egovMap" parameterType="String">
+        SELECT A.*
+        FROM CM_BBS_MST A
+        WHERE A.BBS_NO = #{bbsNo}
+    </select>
+
+    <select id="listBbsCate" resultType="egovMap" parameterType="String">
+        SELECT A.*
+            FROM CM_BBS_CATE A
+        WHERE A.DELETE_AT = 'N'
+            AND A.BBS_NO = #{bbsNo}
+        ORDER BY A.CTGRY_ORDR ASC
+    </select>
+
+</mapper>

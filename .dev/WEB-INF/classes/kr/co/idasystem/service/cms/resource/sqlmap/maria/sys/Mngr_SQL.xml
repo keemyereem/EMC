@@ -1,0 +1,391 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="mngr">
+
+    <!-- 관리자 리스트 전체 검색 수 -->
+    <select id="listMngrPagingTotalCount" resultType="integer">
+        SELECT
+            COUNT(1) AS COUNT
+        FROM
+            CO_MNGR MNG
+            LEFT OUTER JOIN CM_MNGR_ADIT_INFO MAI
+               ON MNG.MNGR_ID = MAI.MNGR_ID
+            LEFT OUTER JOIN CO_DEPT DEP
+               ON MAI.DEPT_CODE = DEP.DEPT_CODE
+        WHERE
+            MNG.DELETE_AT = 'N'
+            			<if test="searchKeyword != null and searchKeyword != ''" >                        	
+                        	<if test="searchType == 'id' " >
+                        	AND ( MNG.MNGR_ID LIKE '%' || #{searchKeyword} || '%' )
+                        	</if>
+                        	<if test="searchType == 'name' " >
+                        	AND ( MNG.MNGR_EXPSR_NM LIKE '%' || #{searchKeyword} || '%' )
+                        	</if>
+                        	<if test="searchType == null " >
+                            AND ( MNG.MNGR_EXPSR_NM LIKE '%' || #{searchKeyword} || '%' OR MNG.MNGR_ID LIKE '%' || #{searchKeyword} || '%' )
+                            </if>
+                        </if>
+                        
+                        <if test="searchMngrAcntSttus != null and searchMngrAcntSttus != ''" >
+                        AND MNG.MNGR_ACNT_STTUS = #{searchMngrAcntSttus}
+                        </if>   
+            
+    </select>
+
+    <!-- 괸리자 리스트 -->
+    <select id="listMngrPaging" resultType="egovMap">
+		        SELECT
+		              	  MNG.*           
+		            	, MAI.CLSF_CODE
+		            	, CD.CODE_NM  AS CLSF_NM
+		            	, CD2.CODE_NM AS MNGR_ACNT_STTUS_NM
+		            	, (SELECT MAX(LOGIN_DT) FROM CO_MNGR_LOGIN_HIST LH WHERE LOGIN_ID = MNG.MNGR_ID AND RESULT_CODE='C025001') AS LAST_LOGIN_DT
+                        , MAI.DEPT_CODE
+                        , DEP.DEPT_NM
+                        , FN_GET_MNGR_AUTHOR_LIST(MNG.MNGR_ID) AUTH_LIST
+                    FROM
+                        CO_MNGR MNG
+                        LEFT OUTER JOIN CM_MNGR_ADIT_INFO MAI ON MNG.MNGR_ID = MAI.MNGR_ID
+                        LEFT OUTER JOIN CO_DEPT DEP ON MAI.DEPT_CODE = DEP.DEPT_CODE
+                        
+			            LEFT OUTER JOIN CO_CODE CD  ON CD.UPPER_CODE  = 'A010000' AND MAI.CLSF_CODE = CD.CODE 
+			            LEFT OUTER JOIN CO_CODE CD2 ON CD2.UPPER_CODE = 'A011000' AND MNG.MNGR_ACNT_STTUS = CD2.CODE
+                    WHERE
+                        MNG.DELETE_AT = 'N'
+                        
+                        <if test="searchKeyword != null and searchKeyword != ''" >                        	
+                        	<if test="searchType == 'id' " >
+                        	AND ( MNG.MNGR_ID LIKE '%' || #{searchKeyword} || '%' )
+                        	</if>
+                        	<if test="searchType == 'name' " >
+                        	AND ( MNG.MNGR_EXPSR_NM LIKE '%' || #{searchKeyword} || '%' )
+                        	</if>
+                        	<if test="searchType == null " >
+                            AND ( MNG.MNGR_EXPSR_NM LIKE '%' || #{searchKeyword} || '%' OR MNG.MNGR_ID LIKE '%' || #{searchKeyword} || '%' )
+                            </if>
+                        </if>
+                        
+                        <if test="searchMngrAcntSttus != null and searchMngrAcntSttus != ''" >
+                        AND MNG.MNGR_ACNT_STTUS = #{searchMngrAcntSttus}
+                        </if>                        
+                        
+                    ORDER BY
+                        MNG.FRST_REGIST_DT DESC                       
+                	
+                	<include refid="cmm.pagingLimit" />
+            
+    </select>
+
+    <!-- 관리자 아이디 중복 체크 -->
+    <select id="getMngrCntByMngrId" resultType="integer">
+        SELECT COUNT(*) CNT
+		  FROM CO_MNGR
+		 WHERE MNGR_ID = #{mngrId}
+    </select>
+    
+    <!-- 관리자 등록 -->
+    <insert id="insertMngr">    
+    <![CDATA[
+      INSERT INTO CO_MNGR
+        (
+			MNGR_ID,       MNGR_EXPSR_NM,     MNGR_EMAIL, MNGR_PASSWORD,  LAST_PASSWORD_CHANGE_DT,
+			LOGIN_FAILR_CO,MNGR_ACNT_STTUS,   USE_AT,     DELETE_AT,      EXPSR_ORDR,
+			FRST_REGIST_DT,FRST_REGISTER_ID,
+			LAST_UPDT_DT,  LAST_UPDUSR_ID,
+			MNGR_TYPE
+        )
+      VALUES
+        (  
+			#{mngrId}, #{mngrExpsrNm },  #{mngrEmail }, #{mngrPassword},  now(),           
+			0,       #{mngrAcntSttus  }, #{useAt    },  #{deleteAt    }, (SELECT IFNULL(MAX(A.EXPSR_ORDR),0) + 1 FROM CO_MNGR A),     
+			now(), #{frstRegisterId },                                                     
+			now(), #{frstRegisterId },                                                     
+			#{mngrType}
+        )
+    ]]>
+    </insert>
+    
+    <update id="updateMngr">
+    <![CDATA[
+      UPDATE CO_MNGR SET
+            MNGR_EXPSR_NM   = #{mngrExpsrNm },
+            MNGR_EMAIL      = #{mngrEmail },
+            MNGR_TYPE       = #{mngrType },
+            USE_AT          = #{useAt    },
+            LAST_UPDT_DT    = now() , 				/* 마지막_수정_일시 */
+            LAST_UPDUSR_ID  = #{frstRegisterId}  	/* 마지막_수정자_아이디 */
+      WHERE
+            MNGR_ID       = #{mngrId}
+    ]]>
+    </update>
+    
+    
+    <!-- 관리자 추가정보 등록 -->
+    <insert id="insertMngrAditInfo">    
+    <![CDATA[
+      INSERT INTO CM_MNGR_ADIT_INFO
+        (
+            MNGR_ID, DEPT_CODE, CLSF_CODE, INDVDL_INFO_TRTMNT_AT,TELNO,
+            FXNUM,   MBTLNUM,   CHRG_JOB,  USE_AT,               DELETE_AT,
+            FRST_REGIST_DT, FRST_REGISTER_ID,
+            LAST_UPDT_DT,   LAST_UPDUSR_ID,
+            DEPT_NAME
+        )
+      VALUES
+        (  
+            #{mngrId},  #{deptCode}, #{clsfCode}, #{indvdlInfoTrtmntAt}, #{telno},
+			#{fxnum},   #{mbtlnum},  #{chrgJob }, #{useAt},  'N',
+			now(),    #{frstRegisterId},
+			now(),    #{frstRegisterId},
+			#{deptName}
+        )
+    ]]>
+    </insert>
+    
+    <!-- 관리자 추가정보 수정 -->
+    <update id="updateMngrAditInfo">
+    <![CDATA[
+      UPDATE CM_MNGR_ADIT_INFO SET
+            DEPT_CODE            = #{deptCode}, 
+            CLSF_CODE            = #{clsfCode}, 
+            INDVDL_INFO_TRTMNT_AT= #{indvdlInfoTrtmntAt},
+            TELNO                = #{telno},
+            FXNUM                = #{fxnum},   
+            MBTLNUM              = #{mbtlnum},   
+            CHRG_JOB             = #{chrgJob },
+            DEPT_NAME            = #{deptName },
+            USE_AT               = #{useAt},
+            LAST_UPDT_DT         = now(),             /* 마지막_수정_일시 */
+            LAST_UPDUSR_ID       = #{frstRegisterId}    /* 마지막_수정자_아이디 */
+      WHERE
+            MNGR_ID              = #{mngrId}
+    ]]>
+    </update>
+    
+     <!-- 관리자 권한 -->
+    <insert id="insertMngrAuthorMenu">    
+    <![CDATA[
+      INSERT INTO TB_MNGR_AUTHOR_MENU( MENU_CODE,MNGR_ID,FRST_REGIST_DT,FRST_REGISTER_ID )
+      VALUES
+        (  
+			#{menuCode}, #{mngrId},                                                 
+			now(), #{frstRegisterId }
+        )
+    ]]>
+    </insert>
+    
+    <!-- 관리자 권한 삭제 -->
+    <delete id="deleteMngrAuthorMenu">
+    <![CDATA[
+      DELETE FROM TB_MNGR_AUTHOR_MENU
+      WHERE
+            MNGR_ID = #{mngrId}
+    ]]>
+    </delete>
+
+    
+    <!-- 관리자 추가정보 연혁 등록 -->
+    <insert id="insertMngrAditInfoHist">    
+    <![CDATA[
+      INSERT INTO CM_MNGR_ADIT_INFO_HIST
+        (
+            HIST_INNB,
+            MNGR_ID, DEPT_CODE, CLSF_CODE, INDVDL_INFO_TRTMNT_AT,TELNO,
+            FXNUM,   MBTLNUM,   CHRG_JOB,  USE_AT,               DELETE_AT,
+            FRST_REGIST_DT, FRST_REGISTER_ID,
+            LAST_UPDT_DT,   LAST_UPDUSR_ID, DEPT_NAME
+        )
+      SELECT #{histInnb},
+            MNGR_ID, DEPT_CODE, CLSF_CODE, INDVDL_INFO_TRTMNT_AT,TELNO,
+            FXNUM,   MBTLNUM,   CHRG_JOB,  USE_AT,               DELETE_AT, 
+            FRST_REGIST_DT, FRST_REGISTER_ID,
+            LAST_UPDT_DT,   LAST_UPDUSR_ID, DEPT_NAME
+       FROM CM_MNGR_ADIT_INFO
+      WHERE MNGR_ID = #{mngrId}
+        
+    ]]>
+    </insert>
+    
+    
+    
+    <!-- 관리자 연혁_순서 조회 -->
+    <select id="getNextHistOrdr" resultType="integer">
+       SELECT IFNULL(MAX(HIST_ORDR),0) + 1
+         FROM CO_MNGR_HIST 
+        WHERE MNGR_ID = #{mngrId}
+    </select>
+    
+    <!-- 관리자 연혁 등록 -->
+    <insert id="insertMngrHist">    
+    <![CDATA[
+      INSERT INTO CO_MNGR_HIST
+        (
+            MNGR_ID,        /* 관리자_아이디 */
+            HIST_ORDR,      /* 연혁_순서 */
+            PROCS_SE_CODE,  /* 프로세스_구분_코드 C027000 */ 
+            USE_AT,         /* 사용_여부 */
+            DELETE_AT,      /* 삭제_여부 */      
+            UPDT_DT,        /* 수정_일시 */
+            UPDUSR_ID       /* 수정자_아이디 */
+        )
+      VALUES
+        (  
+            #{mngrId},
+            #{histOrdr},   
+            #{procsSeCode}, 
+            #{useAt},
+            #{deleteAt},
+            now(),    
+            #{updusrId}            
+        )
+    ]]>
+    </insert>
+    
+    <!-- 관리자 연혁_상세 순서 조회 -->
+    <select id="getNextDetailOrdr" resultType="integer">
+       SELECT IFNULL(MAX(DETAIL_ORDR),0) + 1
+         FROM CO_MNGR_HIST_DETAIL 
+        WHERE MNGR_ID   = #{mngrId}
+          AND HIST_ORDR = #{histOrdr}
+    </select>
+    
+    <!-- 관리자 연혁 상세 등록 -->
+    <insert id="insertMngrHistDetail">    
+    <![CDATA[
+      INSERT INTO CO_MNGR_HIST_DETAIL
+        (
+            MNGR_ID,        /* 관리자_아이디 */
+            HIST_ORDR,      /* 연혁_순서 */
+            DETAIL_ORDR,    /* 상세_순서 */ 
+            HIST_RESN_CODE, /* 연혁_사유_코드 - C028000 */
+            BEFORE_VALUE,   /* 이전_값 */
+            AFTER_VALUE,    /* 이후_값 */
+            CHANGE_RESN     /* 변경_사유 */
+        )
+      VALUES
+        (  
+            #{mngrId},
+            #{histOrdr},   
+            #{detailOrdr}, 
+            #{histResnCode},
+            #{beforeValue},
+            #{afterValue},    
+            #{changeResn}            
+        )
+    ]]>
+    </insert>
+    
+    
+    <update id="deleteMngr">
+    <![CDATA[
+      UPDATE CO_MNGR SET
+            DELETE_AT            = 'Y',
+            LAST_UPDT_DT         = now(),             /* 마지막_수정_일시 */
+            LAST_UPDUSR_ID       = #{frstRegisterId}    /* 마지막_수정자_아이디 */
+      WHERE
+            MNGR_ID              = #{mngrId}
+    ]]>
+    </update>
+    
+    <update id="deleteMngrAditInfo">
+    <![CDATA[
+      UPDATE CM_MNGR_ADIT_INFO SET
+            DELETE_AT            = 'Y',
+            LAST_UPDT_DT         = now(),             /* 마지막_수정_일시 */
+            LAST_UPDUSR_ID       = #{frstRegisterId}    /* 마지막_수정자_아이디 */
+      WHERE
+            MNGR_ID              = #{mngrId}
+    ]]>
+    </update>
+    
+    <!-- 관리자 상세 정보 조회 -->
+    <select id="getMngrInfo" resultType="egovMap">
+		SELECT A.*,
+               B.DEPT_CODE,
+		       B.CLSF_CODE,
+		       B.INDVDL_INFO_TRTMNT_AT,
+		       B.TELNO,
+		       B.FXNUM,
+		       B.MBTLNUM,
+		       B.CHRG_JOB,
+		       C.MNGR_EXPSR_NM AS FRST_REGISTER_NM,
+               D.MNGR_EXPSR_NM AS LAST_UPDUSR_NM,
+               B.DEPT_NAME,
+               F.CODE_NM AS MNGR_ACNT_STTUS_NM
+          FROM CO_MNGR A
+               LEFT OUTER JOIN CM_MNGR_ADIT_INFO B ON A.MNGR_ID = B.MNGR_ID
+               LEFT OUTER JOIN CO_MNGR C ON A.FRST_REGISTER_ID  = C.MNGR_ID
+               LEFT OUTER JOIN CO_MNGR D ON A.LAST_UPDUSR_ID    = D.MNGR_ID
+               LEFT OUTER JOIN CO_CODE F ON A.MNGR_ACNT_STTUS   = F.CODE
+         WHERE 1=1
+           AND A.MNGR_ID = #{mngrId}
+    </select>
+    
+     <!-- 관리자 권한 조회-->
+     <select id="mngrAuthorMenuList" resultType="egovMap">
+	       select A.*, B.MNGR_ID
+			 from CO_CODE A
+			      LEFT OUTER JOIN TB_MNGR_AUTHOR_MENU B ON A.CODE = B.MENU_CODE AND B.MNGR_ID = #{mngrId} 
+			WHERE 1=1
+			AND A.DELETE_AT = 'N'
+			AND A.USE_AT    = 'Y'
+			AND A.UPPER_CODE='C033000'	      
+     </select>
+     
+   
+    <!-- 계정 해제 이력  -->
+    <select id="listMngrLockFreeHist" resultType="egovMap">
+        SELECT A.*,
+        	   DATE_FORMAT(A.UPDT_DT ,'%Y-%m-%d %H:%i:%s') FREE_DT,
+               DETAIL_ORDR,HIST_RESN_CODE,BEFORE_VALUE,AFTER_VALUE,CHANGE_RESN
+		  FROM CO_MNGR_HIST A, CO_MNGR_HIST_DETAIL B
+		 WHERE A.MNGR_ID        = B.MNGR_ID
+		   AND A.HIST_ORDR      = B.HIST_ORDR
+		   AND A.PROCS_SE_CODE  = 'C027002' /* 프로세스_구분_코드  - 수정 */
+		   AND B.HIST_RESN_CODE = 'C028008' /* 연혁사유코드 - 잠김해제 */
+		   AND A.MNGR_ID        = #{mngrId} 
+		ORDER BY A.UPDT_DT DESC  
+    
+    </select>
+    
+    <!-- 계정 잠김 해제  -->
+    <update id="updateMngrLockFree">
+    <![CDATA[
+      UPDATE CO_MNGR SET
+            MNGR_ACNT_STTUS      = 'A011001',           /* 계정 상태 - 정상 */
+            LAST_UPDT_DT         = now(),             /* 마지막_수정_일시 */
+            LAST_UPDUSR_ID       = #{frstRegisterId}    /* 마지막_수정자_아이디 */
+      WHERE
+            MNGR_ID              = #{mngrId}
+    ]]>
+    </update>
+    
+    
+    <!-- 비밀번호 초기화  -->
+    <update id="updateMngrPasswordReset">
+    <![CDATA[
+      UPDATE CO_MNGR SET
+            MNGR_PASSWORD        = #{mngrPassword},      /* 계정 상태 - 정상 */            
+            LAST_UPDT_DT         = now(),             /* 마지막_수정_일시 */
+            LAST_UPDUSR_ID       = #{frstRegisterId}    /* 마지막_수정자_아이디 */
+      WHERE
+            MNGR_ID              = #{mngrId}
+    ]]>
+    </update>
+    
+    
+    <!-- 비밀번호 변경 -->
+    <update id="updateMngrPassword">
+    <![CDATA[
+      UPDATE CO_MNGR SET
+            MNGR_PASSWORD        = #{mngrPassword},      /* 계정 상태 - 정상 */
+            LAST_PASSWORD_CHANGE_DT = now(),    
+            LAST_UPDT_DT         = now(),             /* 마지막_수정_일시 */
+            LAST_UPDUSR_ID       = #{frstRegisterId}    /* 마지막_수정자_아이디 */
+      WHERE
+            MNGR_ID              = #{mngrId}
+    ]]>
+    </update>
+
+</mapper>

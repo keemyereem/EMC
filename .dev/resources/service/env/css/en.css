@@ -1,0 +1,25 @@
+/* 공통 */
+.sitemap .sitemap_wrap_en li {width: calc(100% / 4);}
+.sitemap .sitemap_wrap_en li p.on, .sitemap .sitemap_wrap_en li h2.on , .sitemap .sitemap_wrap_en li .depth_list.on { padding-bottom: 0; opacity: 1; }
+.container_en {font-family: 'NS';}
+.container_en .sub_visual .sub_visual_menu .depth {width: 33rem;}
+@media screen and (max-width:767px) {
+    .container_en .sub_visual .sub_visual_menu .depth {width: calc(100% - 5rem);} 
+}
+
+/* ----- 투자정보 ----- */
+/* 공시/공고 */
+.cont_invest_en .contents_inner .disclosure_banner > .btn_goDart {width: 37rem;}
+@media screen and (max-width:767px) {
+    .cont_invest_en .contents_inner .disclosure_banner > .btn_goDart {width: calc(100% - 4rem);padding: 0 2rem;}
+}
+
+/* ----- 지속가능경영 ----- */
+.cont_sustain_en .SC_sub_con .inner .section1 .sc_obj > div .sc_obj_box li:not(:first-child) {padding-left: 2rem;}
+.cont_sustain_en .SC_sub_con .inner .section1 .sc_obj > div .sc_obj_box li:nth-child(2) {padding-left: 2rem;}
+.cont_sustain_en .SC_sub_con .inner .section1 .sc_obj > div .sc_obj_box li:nth-child(3) {padding-left: 2rem;}
+@media screen and (max-width:767px) {
+    .cont_sustain_en .SC_sub_con .inner .section1 .sc_obj > div .sc_obj_box li:not(:first-child) {padding-left: 1rem;}
+    .cont_sustain_en .SC_sub_con .inner .section1 .sc_obj > div .sc_obj_box li:nth-child(2) {padding-left: 1rem;}
+    .cont_sustain_en .SC_sub_con .inner .section1 .sc_obj > div .sc_obj_box li:nth-child(3) {padding-left: 0;}
+}

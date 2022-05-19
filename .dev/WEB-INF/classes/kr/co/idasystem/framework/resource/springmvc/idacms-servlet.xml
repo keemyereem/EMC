@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context" xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd
+        http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd
+        http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.0.xsd">
+
+	<context:component-scan base-package="egovframework,kr.co.idasystem">
+		<context:include-filter type="annotation" expression="org.springframework.stereotype.Controller" />
+		<context:exclude-filter type="annotation" expression="org.springframework.stereotype.Service" />
+		<context:exclude-filter type="annotation" expression="org.springframework.stereotype.Repository" />
+	</context:component-scan>
+
+	<mvc:annotation-driven />
+
+<!-- AOP 설정 -->
+  <aop:config>
+    <aop:pointcut id="idacms.logMethod" expression="execution(public * kr.co.idasystem.service..controller.*Controller.*(..)) &amp;&amp; !@annotation(kr.co.idasystem.framework.system.annotation.NoLogging)" />
+    <aop:aspect id="procLogAspect" ref="idacms.managerLog">
+      <aop:before pointcut-ref="idacms.logMethod" method="logManage" />
+    </aop:aspect>
+  </aop:config>
+
+  <bean id="idacms.managerLog" class="kr.co.idasystem.framework.cmm.aop.ManageLogAspect" />
+
+	<mvc:interceptors>
+		<mvc:interceptor>
+			<mvc:mapping path="/**/*.do*" />
+			<mvc:exclude-mapping path="/**/*Ajax.do*" />
+			<mvc:exclude-mapping path="/**/*fileDown.do*" />
+			<bean class="kr.co.idasystem.framework.system.interceptor.BaseInterceptor" />
+		</mvc:interceptor>
+	</mvc:interceptors>
+
+	<!-- for JFile -->
+	<bean class="org.springframework.web.servlet.view.BeanNameViewResolver" p:order="0" />
+
+	<bean class="org.springframework.web.servlet.view.UrlBasedViewResolver" p:order="1" p:viewClass="org.springframework.web.servlet.view.JstlView" p:prefix="/WEB-INF/view/" p:suffix=".jsp" />
+	<!-- <bean id="jsonView" class="org.springframework.web.servlet.view.json.MappingJackson2JsonView"> <property name="contentType" value="application/json;charset=UTF-8"/> </bean> -->
+
+    <!-- For Pagination Tag -->
+    <bean id="imageRenderer" class="kr.co.idasystem.framework.cmm.renderer.ImagePaginationRenderer"/>
+
+    <bean id="textRenderer" class="egovframework.rte.ptl.mvc.tags.ui.pagination.DefaultPaginationRenderer"/>
+
+    <bean id="paginationManager" class="egovframework.rte.ptl.mvc.tags.ui.pagination.DefaultPaginationManager">
+        <property name="rendererType">
+            <map>
+                <entry key="image" value-ref="imageRenderer"/>
+                <entry key="text" value-ref="textRenderer"/>
+            </map>
+        </property>
+    </bean>
+</beans>

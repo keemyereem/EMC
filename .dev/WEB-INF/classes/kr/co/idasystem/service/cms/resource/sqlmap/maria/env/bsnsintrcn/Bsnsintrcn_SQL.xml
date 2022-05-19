@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="bsnsintrcn">
+
+    <sql id="bsnsintrcnListWhereSql">
+        AND A.BSNSINTRCN_CODE = #{searchBsnsintrcnCode}
+        AND A.LANG_CODE       = #{searchLangCode}
+        
+        <if test="searchClCode != null and searchClCode != ''">
+            AND A.CL_CODE = #{searchClCode}
+        </if>
+        <if test="searchCtgryNo != null and searchCtgryNo != ''">
+            AND A.CTGRY_NO = #{searchCtgryNo}
+        </if>
+        <if test="searchText != null and searchText != ''">
+            AND A.BSNS_NM LIKE CONCAT('%' , #{searchText}, '%')
+        </if>
+    </sql>
+
+    <select id="listBsnsintrcnPagingTotalCount" resultType="integer">
+        SELECT
+            COUNT(1) AS COUNT
+        FROM
+            CM_BSNSINTRCN A
+        LEFT OUTER JOIN CM_BSNSINTRCN_CATE B
+            ON A.CTGRY_NO = B.CTGRY_NO
+        WHERE A.DELETE_AT = 'N'
+        <include refid="bsnsintrcnListWhereSql" />
+    </select>
+
+    <select id="listBsnsintrcnPaging" resultType="egovMap">
+        SELECT A.*, B.CTGRY_NM AS CTGRY_CODE_NM
+            FROM CM_BSNSINTRCN A
+        LEFT OUTER JOIN CM_BSNSINTRCN_CATE B
+            ON A.CTGRY_NO = B.CTGRY_NO
+        WHERE A.DELETE_AT = 'N'
+        <include refid="bsnsintrcnListWhereSql" />
+        ORDER BY A.REGIST_DE DESC
+        <include refid="cmm.pagingLimit" />
+    </select>
+	
+	<!-- 사업소개 상세 -->
+    <select id="getBsnsintrcnDtl" resultType="egovMap">
+        SELECT A.*, B.CTGRY_NM AS CTGRY_CODE_NM
+            FROM CM_BSNSINTRCN A
+        LEFT OUTER JOIN CM_BSNSINTRCN_CATE B
+            ON A.CTGRY_NO = B.CTGRY_NO
+        WHERE A.DELETE_AT = 'N'
+            AND A.BSNSINTRCN_NO = #{bsnsintrcnNo}
+    </select>
+    
+    <!-- 사업소개 카테고리 -->
+    <select id="listBsnsintrcnCategory" resultType="egovMap">
+        select * 
+          from CM_BSNSINTRCN_CATE A
+		 WHERE A.DELETE_AT       = 'N'
+		   AND A.BSNSINTRCN_CODE = #{searchBsnsintrcnCode}
+		   AND A.CL_CODE         = #{searchClCode}
+		 ORDER BY A.CTGRY_ORDR
+    </select>
+
+
+</mapper>
