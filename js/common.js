@@ -27,7 +27,7 @@ $(function(){
     });
 
     // 메인페이지/ 서브페이지 구분 스크립트
-    if(location.pathname.indexOf('/index.do') > -1 || location.pathname.indexOf('/en/index.do') > -1){ 
+    if(location.pathname.indexOf('/html/FD-00-01-001.html') > -1 || location.pathname.indexOf('/en/index.html') > -1){ 
 
     } else {
         commonEvent.init();
@@ -239,8 +239,7 @@ var onmEvent = {
         var Tabs = $('.business_contents .section1 .nav_btn li');
         var Tabs_depth2 = $(".swiper_2depth_tabs p");
         
-        
-        $(".swiper").each(function(index, element){
+        $(".swiper").each(function(index,){
 
             // 첫번째 슬라이드 2depth 스와이퍼 
             var swiper1 = new Swiper('.swiper1_0' + index, {
@@ -271,9 +270,10 @@ var onmEvent = {
 
             // 탭 메뉴 슬라이드 스와이퍼
             var $this = $(this);
-            $this.addClass('swiper' + index);
+            var add_depth_calc2 = index - (Tabs_depth2.length - 2);
+            $this.addClass('swiper' + add_depth_calc2);
 
-            var swiper = new Swiper('.swiper' + index, {
+            var swiper = new Swiper('.swiper' + add_depth_calc2, {
                 observer: true,
                 observeParents: true,
                 slidesPerView : 2,
@@ -281,8 +281,8 @@ var onmEvent = {
                 speed: 700,
                 
                 navigation: {
-                    nextEl: '.swiper-button-next0' + index,
-                    prevEl: '.swiper-button-prev0' + index,
+                    nextEl: '.swiper-button-next0' + add_depth_calc2,
+                    prevEl: '.swiper-button-prev0' + add_depth_calc2,
                 },
                 watchOverflow: true,
 
@@ -895,11 +895,11 @@ var mainEvent = {
 
     // 탄소수치 badge 카운트 시작
     numberCountUp1: function() {
-        //var memberCountConTxt1= 99.99;    // 갱신된 변수값 저장
+        var memberCountConTxt1= 99.99;    // 갱신된 변수값 저장
         // var bezier_count = numberWithCommas(Math.floor(memberCountConTxt1));
         
-        //$({ val : 0 }).animate({ val : memberCountConTxt1 }, {  // 이전 데이터값 변수 저장 (val값에)
-    	$({ val : memberCountConTxt1_prev }).animate({ val : memberCountConTxt1 }, {  // 이전 데이터값 변수 저장 (val값에)
+        $({ val : 0 }).animate({ val : memberCountConTxt1 }, {  // 이전 데이터값 변수 저장 (val값에)
+    	//$({ val : memberCountConTxt1_prev }).animate({ val : memberCountConTxt1 }, {  // 이전 데이터값 변수 저장 (val값에)
             duration: 5000,
             step: function() {
                 var num = numberWithCommas(Math.round(this.val * 100) / 100);
@@ -939,10 +939,10 @@ var mainEvent = {
 
     // 탄소저감 area 총 감축량 카운트 시작
     numberCountUp2: function() {
-        //var memberCountConTxt2= 6405232;    // 갱신된 변수값 저장
+        var memberCountConTxt2= 6405232;    // 갱신된 변수값 저장
 
-        //$({ val : 6405200 }).animate({ val : memberCountConTxt2 }, {    // 이전 데이터값 변수 저장 (val값에)
-    	$({ val : memberCountConTxt2_prev }).animate({ val : memberCountConTxt2 }, {    // 이전 데이터값 변수 저장 (val값에)
+        $({ val : 6405200 }).animate({ val : memberCountConTxt2 }, {    // 이전 데이터값 변수 저장 (val값에)
+    	//$({ val : memberCountConTxt2_prev }).animate({ val : memberCountConTxt2 }, {    // 이전 데이터값 변수 저장 (val값에)
             duration: 10000,
             step: function() {
                 var num = numberWithCommas(Math.floor(this.val));
